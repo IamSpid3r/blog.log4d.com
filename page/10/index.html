@@ -72,6 +72,22 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
+                <div class="summary"><h2>问题情境</h2>
+<p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
+,"total", Parameters!Language.Value)函数修改为GetCommentForComment(
+Parameters!F0001.Value , Parameters!F0002.Value ,"total",
+Parameters!Language.Value, "ReportConnection0107")。</p>
+<h2>思路</h2>
+<p>使用正则表达式里面的分组进行抓获，再用1将中间固定的参数取出，组成新的字符串。</p>
+<h3>Vim实现</h3>
+<p>%s/GetComment(((s<em>w+!w+.w+s</em>,){2}s<em>"w+"s</em>,s<em>w+!w+.w+s</em>))/GetCommentForReport(1
+, "ReportConnection0107")/gc&amp;nbsp_place_holder ...</p>
+                    <a class="btn btn-default btn-xs" href="/2011/01/regex-group-catch/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
                 <div class="summary"><p>从Louis Han那里看到一篇文章介绍了一个适合宅男的网站，想想我自己宅属性日益增加，就抄文推广一下。</p>
 <p>-Update 20110113</p>
@@ -240,21 +256,6 @@ BiGuard公司</a>的主页也没有找到适合Win7的新版本。</p>
 <p>嗯，以后使用古董遇到一些比较怪异的问题，如果它是安全可靠的，就可以试试管理员权限了。我是不推荐关闭UAC的，权限机制虽然烦，但是可以保证一些系统权限不被开放
 。</p>
                     <a class="btn btn-default btn-xs" href="/2010/10/win7-standalone-network-extender/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2010/10/update_10_10_11/">Update_10_10_11</a></h2>
-                <div class="summary"><ol>
-<li>十月份还没写过东西呢，于是Update一次。</li>
-<li>国庆节参加同学婚礼，呀，人家都结婚了，我还单身，是不是该考虑考虑了呢~</li>
-<li>最近工作有点忙，没刚进公司时候那么悠闲了。</li>
-<li>南图的书四本在手上，还没有看完，发现用<a href="http://log4d.com/2010/08/mind-map">XMind</a>做读书笔记挺不错，直观，方便。</li>
-<li>晚上回家似乎都不怎么写代码，GR还堆了一坨没看，光顾着玩了</li>
-<li>最近看的书《<a href="http://book.douban.com/subject/3948354/">Python 学习手册(第三版)</a>》、《<a href="http://book.douban.com/subject/3821157/">Web界面设计</a>》、《<a href="http://book.douban.com/subject/4248358/">完美代码</a>》、《<a href="http://book.douban.com/subject/1834319/">Web Designer Idea</a>》、《<a href="http://book.douban.com/subject/3661109/">ASP.NET 3.5揭秘（卷2）</a>》。</li>
-<li>技术上面的积累零零碎碎挺多，记录在<a href="http://log4d.com/2010/09/my-kms">Wiz</a>，挺难组织分享，遂罢。</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/2010/10/update_10_10_11/">more ...</a>
                 </div>
             </article>
             <hr/>

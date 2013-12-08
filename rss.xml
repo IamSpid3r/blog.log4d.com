@@ -1,5 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 09 Nov 2013 14:59:00 +0800</lastBuildDate><item><title>Postfix 基本配置[译文]</title><link>/2013/11/postfix-basic-configuration/</link><description>&lt;p&gt;原文地址：&lt;a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html#syntax"&gt;Postfix Basic Configuration &lt;/a&gt;。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 08 Dec 2013 15:44:00 +0800</lastBuildDate><item><title>Linux 程序员的 Mac 安装记录</title><link>/2013/12/mac/</link><description>&lt;p&gt;作为一个 Linux 的老用户，我再一次验证了那句老话「Linux 用户有钱就换 Mac」。
+前段时间，托朋友从香港购入一台 rMBP，下面就是我的 Mac 使用安装记录。&lt;/p&gt;
+&lt;h2&gt;Brew&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://brew.sh/"&gt;Brew&lt;/a&gt; 是 Mac 下面的包管理工具，通过 Github 托管适合 Mac
+的编译配置以及 Patch，可以方便的安装开发工具。&lt;/p&gt;
+&lt;p&gt;安装 Brew：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ruby&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我安装的 Brew 包：&lt;/p&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;watch&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;tmux&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;openssl&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ack&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;highlight&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;aria2&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;maven&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;dos2unix&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;privoxy&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nmap&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;iotop&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;htop&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;tinyproxy&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;multitail&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;cliclick&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;ctags&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;readline&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;reattach&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;namespace&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;flow&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;macvim&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;std&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;override&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;system&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;sshfs&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Brew cask&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/phinze/homebrew-cask"&gt;Brew cask&lt;/a&gt; 是类似 Brew 的管理工具，
+直接提供 dmg 级别的二进制包，（Brew 是不带源码，只有对应项目所在的 URL）。&lt;/p&gt;
+&lt;p&gt;Brew cask 安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;tap&lt;/span&gt; &lt;span class="n"&gt;phinze&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;homebrew&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cask&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;brew&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cask&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我通过 Brew cask 安装的软件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;mplayerx&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;appcleaner&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;github&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;bartender&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;alfred&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;bettertouchtool&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;qq&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;slate&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;omnigraffle&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;eclipse&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ide&lt;/span&gt;
+&lt;span class="n"&gt;brew&lt;/span&gt; &lt;span class="n"&gt;cask&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;dradio&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;按键配置&lt;/h2&gt;
+&lt;p&gt;作为 &lt;a href="http://awesome.naquadah.org/"&gt;Awesome&lt;/a&gt; 的用户，我实在是受不了 Mac
+默认的按键控制，太渣。在两天狂搜之后，尝试了 Divvy / BetterTouchToll
+这些按键控制软件之后，还是觉得按键不够自由，直到我发现了
+&lt;a href="https://github.com/jigish/slate"&gt;Slate&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Slate 可以管理几乎所有按键，并进行 窗口/Workspace/Shell 控制，配合
+&lt;a href="https://github.com/BlueM/cliclick"&gt;Cliclick&lt;/a&gt; 可以完全完成桌面控制。&lt;/p&gt;
+&lt;p&gt;下面是我配置的 &lt;code&gt;.slate&lt;/code&gt; 文件：&lt;/p&gt;
+&lt;p&gt;详细代码可以参见 &lt;a href="https://github.com/alswl/.oOo."&gt;alswl/.oOo.&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;# This is the default .slate file.
+# If no ~/.slate file exists this is the file that will be used.
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Alias
+alias mouse_left shell path:~/ &amp;#39;/usr/local/bin/cliclick m:640,400 &lt;span class="err"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh&amp;#39;
+alias mouse_right shell path:~/ &amp;#39;/usr/local/bin/cliclick m:1920,400 &lt;span class="err"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh&amp;#39;
+
+alias mouse_iTerm shell path:~/ &amp;#39;/Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh iTerm&amp;#39;
+alias mouse_Firefox shell path:~/ &amp;#39;/Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh Firefox&amp;#39;
+alias mouse_Google_Chrome shell path:~/ &amp;#39;/Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh Google_Chrome&amp;#39;
+alias mouse_QQ shell path:~/ &amp;#39;/Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh QQ&amp;#39;
+alias mouse_MacVim shell path:~/ &amp;#39;/Users/alswl/dev/myproject/.oOo./local/bin/mouse_restore.sh MacVim&amp;#39;
+
+# Resize Bindings
+#bind right:alt       resize +10% +0
+#bind left:alt        resize -10% +0
+#bind up:alt          resize +0   -10%
+#bind down:alt        resize +0   +10%
+#bind right:ctrl;alt  resize -10% +0 bottom-right
+#bind left:ctrl;alt   resize +10% +0 bottom-right
+#bind up:ctrl;alt     resize +0   +10% bottom-right
+#bind down:ctrl;alt   resize +0   -10% bottom-right
+
+# Push Bindings
+#bind right:ctrl;cmd  push right bar-resize:screenSizeX/3
+#bind left:ctrl;cmd   push left  bar-resize:screenSizeX/3
+#bind up:ctrl;cmd     push up    bar-resize:screenSizeY/2
+#bind down:ctrl;cmd   push down  bar-resize:screenSizeY/2
+
+# Nudge Bindings
+#bind right:shift;alt nudge +10% +0
+#bind left:shift;alt  nudge -10% +0
+#bind up:shift;alt    nudge +0   -10%
+#bind down:shift;alt  nudge +0   +10%
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+#bind 3:ctrl;alt         throw 2 resize
+#bind right:ctrl;alt;cmd throw right resize
+#bind left:ctrl;alt;cmd  throw left  resize
+#bind up:ctrl;alt;cmd    throw up    resize
+#bind down:ctrl;alt;cmd  throw down  resize
+
+# Focus Bindings
+bind `:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_iTerm&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus &amp;#39;iTerm&amp;#39;
+bind 1:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_Firefox&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus &amp;#39;Firefox&amp;#39;
+bind 2:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_Google_Chrome&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus &amp;#39;Google Chrome&amp;#39;
+bind 3:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_QQ&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus &amp;#39;QQ&amp;#39;
+bind q:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_MacVim&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus &amp;#39;MacVim&amp;#39;
+bind h:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_left&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus left
+bind l:alt     sequence &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;mouse_right&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &amp;gt; focus right
+#bind up:cmd       focus up
+#bind down:cmd     focus down
+bind k:alt   focus behind
+bind j:alt focus behind
+
+# Window Hints
+#bind esc:cmd hint
+
+# Toogle Application
+#bind `:alt toggle &amp;#39;iTerm&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中用到的鼠标位置记忆脚本是这样的：&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class="c"&gt;## Save&lt;/span&gt;
+&lt;span class="c"&gt;# get current postion, save to last&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_WINDOW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;iTerm
+&lt;span class="o"&gt;[&lt;/span&gt; -f /tmp/SLATE_M_CURR &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;CURRENT_WINDOW&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;cat /tmp/SLATE_M_CURR&lt;span class="sb"&gt;`&lt;/span&gt;
+
+&lt;span class="c"&gt;# save now pos&lt;/span&gt;
+
+&lt;span class="nv"&gt;NOW_POS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/usr/local/bin/cliclick p | /usr/bin/awk &lt;span class="s1"&gt;&amp;#39;{print $4}&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$NOW_POS&lt;/span&gt; &amp;gt; /tmp/SLATE_M_&lt;span class="nv"&gt;$CURRENT_WINDOW&lt;/span&gt;
+
+&lt;span class="c"&gt;## Restore&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; !&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+        &lt;span class="c"&gt;# get wanted position&lt;/span&gt;
+        &lt;span class="nv"&gt;POS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;500,400
+        &lt;span class="o"&gt;[&lt;/span&gt; -f /tmp/SLATE_M_&lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;POS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;cat /tmp/SLATE_M_&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+
+        &lt;span class="c"&gt;# restore postion&lt;/span&gt;
+        /usr/local/bin/cliclick m:&lt;span class="nv"&gt;$POS&lt;/span&gt;
+
+        &lt;span class="c"&gt;#LAST_WINDOW=iTerm&lt;/span&gt;
+        &lt;span class="c"&gt;#[ -f /tmp/SLATE_M_LAST_WINDOW ] &amp;amp;&amp;amp; LAST_WINDOW=`cat /tmp/SLATE_M_LAST_WINDOW`&lt;/span&gt;
+        &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; &amp;gt; /tmp/SLATE_M_CURR
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 08 Dec 2013 15:44:00 +0800</pubDate><guid>tag:,2013-12-08:2013/12/mac/</guid><category>Mac</category></item><item><title>Postfix 基本配置[译文]</title><link>/2013/11/postfix-basic-configuration/</link><description>&lt;p&gt;原文地址：&lt;a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html#syntax"&gt;Postfix Basic Configuration &lt;/a&gt;。
 有少许编译。&lt;/p&gt;
 &lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Postfix 的配置文件 &lt;a href="http://www.postfix.org/postconf.5.html"&gt;main.cf&lt;/a&gt; 有数百个配置参数，
@@ -2861,93 +3052,4 @@ VIP 可以享受一些排队优惠，就我感觉最明显的是理论考、桩�
 &lt;p&gt;然后你就能获得下面这张图表：&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d"&gt;&lt;img alt="A graph in Flotr2" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;好用吧。&lt;/p&gt;
-&lt;p&gt;看上去蛮漂亮，符合它简洁易用的特点。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 19 Jun 2012 07:03:00 +0800</pubDate><guid>tag:,2012-06-19:2012/06/flotr2/</guid><category>D3.js</category><category>Raphael</category><category>Flotr2</category><category>译文</category></item><item><title>想和做</title><link>/2012/06/do-and-think/</link><description>&lt;p&gt;一年前，我在草稿箱里面写了这篇文章的开头，那时的我正在为工作而烦闷，却一筹莫展。
-最近在读《人人都是产品设计师》，其中提到了「产品经理」和「项目经理」的区别，
-又引发了我一些思考，我决定把这篇文章重新写完。&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;这篇文章准备讨论普通程序员在工作中容易滋生的错误，以及解决的方法。&lt;/p&gt;
-&lt;p&gt;传统意义上，大家会提倡「不能光想，还要去做」，即强调行动力的重要性。
-而在实际工作中，&lt;strong&gt;大部分人都不缺乏这个行动力，反而缺少对自己工作的思考&lt;/strong&gt;。
-比如我为什么要这么做？有没有更优美的办法？能不能通过自动化减少工作强度？
-流程是否可以改善？&lt;/p&gt;
-&lt;h2&gt;我和产品&lt;/h2&gt;
-&lt;p&gt;在聊上面几个问题之前，我先确定一个既有现实：&lt;strong&gt;「每个程序员都曾经是产品经理」&lt;/strong&gt;。
-诸位是否还记得当年在学校里面学习时候，应该都做过 XX 管理系统吧，
-那时候我们也许单枪匹马，也许结对组团去完成「项目」：获取需求，设计系统和
-撰写代码，在这些工作中，我们首先担任的就是产品经理一职。&lt;/p&gt;
-
-
-&lt;p&gt;我还清晰的记得大二时候我用 SSH 模仿了一个百度贴吧系统，现在看来，也就是个
-CRUD 级别的粗糙作品，用 RoR 花几天时间就可以达到那时候两个月的完成度。
-虽然粗糙，但那时候我不仅仅是程序员，还负责了整个「产品」的信息架构，
-用户体验设计，系统结构设计。
-虽然作品很是幼稚，但也充分证明了，我在里面起到的作用远不止程序员。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;那种自己亲手实现的第一个系统的那种欣喜，很久没有过了。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;PS：我完成这个系统过程中，发现项目进行中的交流不畅，系统的臃肿。
-请教老师之后，开始学习《UML 与模式设计》和《重构》，
-当时也像模像样地花了一些时间写用例和各种图。&lt;/p&gt;
-&lt;h2&gt;残酷的现实&lt;/h2&gt;
-&lt;p&gt;工作后，码农们进入自己的工作岗位，按部就班的工作。
-很多人开始丧失自己对产品的归属感，这也许和工作环境有关。&lt;/p&gt;
-&lt;p&gt;我任职的上一家公司，有一种「代工」模式，上游提出定制任务，下游完成它。
-每支任务都是独立的个体，在大产品上进行个性化定制，下游无法看到全貌，
-甚至连自己完成的任务，如何在客户那里起作用都无法得知。久而久之，
-&lt;strong&gt;必然将自己当作一个代码机器，只知完成任务，而对产品没有归属感&lt;/strong&gt;。
-尽管团队建设仍在进行，但是仅有的「团队归属感」还不够。&lt;/p&gt;
-&lt;p&gt;有些公司属于项目型公司，特别是中小型公司，领导靠各种办法接到项目订单，
-然后项目组立项开始工作。整个项目过程中也有完善的需求分析、系统设计等必要流程，
-程序员也能充分或不充分地参与到整个过程中。但项目式开发会存在一次性的问题，
-整个项目生命周期很短，最怕出现「能用就行，反正一次开发就完事了」的想法。
-这种想法会在&lt;strong&gt;高层只求有钱赚，中层只求维稳，底层只求工资&lt;/strong&gt;时候出现。&lt;/p&gt;
-&lt;p&gt;最佳的情况是做产品，尤其是互联网产品，产品生命周期长，快速开发，持续改进，
-改进的结果能得到直接的反映。还有比这个更振奋人心的么？
-代码的价值可以迅速转变成商业价值。&lt;/p&gt;
-&lt;p&gt;几个特征可以反映出程序员开始被「残酷的现实」所征服，即我所说的&lt;strong&gt;只做不想&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不了解同事在做什么：对团队漠不关心&lt;/li&gt;
-&lt;li&gt;不看文档就下手：懒，怕麻烦，看现有代码而不追「求最佳实践」&lt;/li&gt;
-&lt;li&gt;不尝试使用新技术，害怕引入新特性&lt;/li&gt;
-&lt;li&gt;Ctrl + C / Ctrl +V：只知道复制代码，而不进行重构和优化&lt;/li&gt;
-&lt;li&gt;字符串拼接：只想尽快完成任务，而不顾代码质量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;出现这些症状时候，团队管理人就需要警惕了，产品的质量会受到严重影响。
-我没有在互联网公司干过，所属的行业一直是传统软件公司，
-就我周围的情况来看，这种情况出现的频率很高。&lt;/p&gt;
-&lt;h2&gt;三观中的价值观&lt;/h2&gt;
-&lt;p&gt;既然每个程序员都曾经亲手打造过自己的产品，
-那怎么会有人在步入工作岗位后就失去去产品的归属感？
-在我看来，这属于三观中的价值观迷失了方向。&lt;/p&gt;
-&lt;p&gt;我相信每个人都渴望创造价值，渴望被认同。
-我很庆幸我是个程序员，这个职位相比传统的技术人员，更像个艺术家。
-我们一直在创造艺术品，用自己的键盘。每每想到自己撰写的代码不仅仅只是代码，
-还有更多的商业价值，会被千千万万的用户所使用，内心会涌上一种愉悦。&lt;/p&gt;
-&lt;p&gt;工作并不仅仅为了挣钱，还是一种自我价值实现极佳途径，
-这种自我实现之后的愉悦程度会远远高于到手的薪水所带来的。
-马斯洛人类需求层次中最高级的两种即「尊重」和「自我实现」，
-这一切只要靠手中的键盘就可以达成。&lt;/p&gt;
-&lt;p&gt;这东西不能多说，多说了就成了向别人灌输「成功学」，还是靠自己慢慢感悟。
-但愿大家不要被现实的压力磨平了心中的价值观。
-最不济，人总会渴望金钱、渴望成功吧，做好产品，好好工作，就能加薪升职！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;好的产品对我们的帮助会远远大于我们对产品的帮助 - 《人人都是产品经理》&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;怎么做&lt;/h2&gt;
-&lt;p&gt;最简单的方法莫过于寻找一个好环境：好老板、好团队、好公司。
-老板有眼力、魄力和财力，团队尊重个人、营造团队氛围，
-公司虽然最终还是以盈利为目标，但有自己的公司文化。&lt;/p&gt;
-&lt;p&gt;这种公司是有的，行业内的 Google / Facebook / Github 都是这种类型的公司。
-但这种公司人才筛选极为严格，普通程序员很难进入。&lt;/p&gt;
-&lt;p&gt;在与之相反极端的情况下，可以尝试以下的方法，帮助自己进行提升，完善产品：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在自己控制的小范围内做到最好，每人都有自己能够控制的资源，权限大小不同而已。
-就算无法影响别人，也要保证自己的产出质量&lt;/li&gt;
-&lt;li&gt;尝试影响团队：比如给主管推荐新的技术，发现当前产品问题向相关人员提出，
-给团队宣传技术上的最佳实践&lt;/li&gt;
-&lt;li&gt;阅读：如果团队无法提供相关培训，就需要自己进行额外的阅读，内容可以是书籍
-也可以是网上订阅的信息源（产品论坛、个人博客）&lt;/li&gt;
-&lt;li&gt;参与社区项目：很多社区开源项目的质量很高，可以尝试加入他们，
-未必是作为程序员加入，也可以是运营、推广、产品设计等等。&lt;/li&gt;
-&lt;li&gt;参与本地行业社区活动：线下活动可以开阔自己的视野，结交志同道合的朋友&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;p&gt;人生短短数十载，Live With Passion。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 15 Jun 2012 16:02:00 +0800</pubDate><guid>tag:,2012-06-15:2012/06/do-and-think/</guid></item></channel></rss>
+&lt;p&gt;看上去蛮漂亮，符合它简洁易用的特点。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 19 Jun 2012 07:03:00 +0800</pubDate><guid>tag:,2012-06-19:2012/06/flotr2/</guid><category>D3.js</category><category>Raphael</category><category>Flotr2</category><category>译文</category></item></channel></rss>

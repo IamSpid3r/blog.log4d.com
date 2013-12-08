@@ -72,6 +72,19 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2012/04/vim-emacs-key-binding/">Vim 下模拟 Emacs 键绑定</a></h2>
+                <div class="summary"><p>Vimer 需要 Emacs 键绑定？看上去很蛋疼的需求吧。其实不然，大部分的 Shell / Readline 默认绑定的是 Emacs 键位绑定（处于输入状态下，Emacs 的键位很好用）。Vim 的模式切换很牛逼，但是 Insert 模式下面，只有寥寥几个快捷键，我修改了配置文件，绑定需要的 Emcas 按键到 Vim 中来。</p>
+<p>Github 中搜索关键字 Vim Emcas key bind，出来一些结果，不是很完美，我又慢慢调教了几个星期，放出我的 .vimrc。</p>
+<div class="highlight"><pre><span class="s2">&quot; 模拟 Emacs 键绑定</span>
+<span class="s2">&quot;</span> Move
+inoremap &lt;C-a&gt; &lt;Home&gt;
+inoremap &lt;C-e&gt; &lt;End&gt;
+<span class="s2">&quot;inoremap &lt;C-p ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/2012/04/vim-emacs-key-binding/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a></h2>
                 <div class="summary"><p>早在这个月初，我就在 Vim 的邮件列表看到了一封关于 Vim 插件管理的
 <a href="https://groups.google.com/d/topic/vim-cn/mPES0sNT87Q/discussion">邮件</a>。
@@ -311,36 +324,6 @@ eview/5012104/">一篇很赞的评论</a>，介绍了三头牛，其中有笑来
 <li>
 <p>性格里面有没有维持兴趣的火种一直燃烧下去的燃料 ...</p></li></ul></li></ul>
                     <a class="btn btn-default btn-xs" href="/2012/01/an-shi-jian/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2012/01/tingdownload/">baidu ting下载音乐脚本</a></h2>
-                <div class="summary"><p>度娘终于干了一件好事，<a href="http://ting.baidu.com">Baidu Ting</a>上线了，
-正版音乐免费下载，类似于<a href="http://www.google.cn/music">谷歌音乐</a>。 关于音乐版权和免费的问题， 有很多问题需要取讨论，
-比如说这种商业模式是否对传统唱片业产生冲击又或是有积极影响？ 作为普通消费者，暂时不用考虑这些问题，先享受这些服务好了。</p>
-<p>Baidu Ting的音乐质量是128KBps，音质算好，里面的idv3信息也勉强可以，有:</p>
-<ul>
-<li>歌名</li>
-<li>歌手</li>
-<li>部分专辑名（偶尔也出现"201-8月新歌快递"这种比较山寨的字）</li>
-<li>部分唱片封面图片</li>
-</ul>
-<p>虽然比不上谷歌音乐连歌曲风格都准备好了，但是比杂乱无章的那些音乐mp3要好太多了。</p>
-<h2>自动下载脚本tingdownload</h2>
-<p>早上下了几首音乐，就顺手写了一个脚本，用来批量从Badu Ting下载音乐。</p>
-<p>代码在<a href="https://github.com/alswl/tingdownload">github-tingdownload</a></p>
-<h2>需要</h2>
-<ul>
-<li>Python 2 (仅在Python2.7下测试)</li>
-<li>BeautifulSoup(已包含在目录下)</li>
-<li>simplejson（已包含在目录下)</li>
-<li>一点点Python基础</li>
-<li>Linux/Windows（我在Linux没问题，Windows应该也可以）</li>
-</ul>
-<h2>使用方法</h2>
-<p>在Shell ...</p>
-                    <a class="btn btn-default btn-xs" href="/2012/01/tingdownload/">more ...</a>
                 </div>
             </article>
             <hr/>
