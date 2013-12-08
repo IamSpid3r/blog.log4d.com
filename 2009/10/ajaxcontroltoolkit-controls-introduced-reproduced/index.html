@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>AjaxControlToolKit控件介绍[转载]</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="AjaxControlToolKit控件介绍[转载]"/>
+            <meta property="og:url" content="/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/"/>
+            <meta property="og:description" content="来源：ajax toolkit 控件介绍 - 欢迎来到哈哈的天堂 - 博客园（只是来源，感觉不是这个博客原创，作者应该未知） 文字太多了，所以我没有把代码提取到代码段，只是把标题提出来了，大家不要介意啊…^_^ 1.Accordion 功能：实现了QQ、Msn好友分类的折叠效果，就像包含了多个CollapsiblePanels 细节： (1)不要把Accordion放在Table种同时又把 FadeTransitions 设置为True，这将引起布局混乱 (2)每一个 AccordionPane control 有一个Header 和Content的 template (3)在Content中可以进行任意扩展，你什么都可以放上^_ ..."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/"
+                       rel="bookmark"
+                       title="Permalink to AjaxControlToolKit控件介绍[转载]">
+                        AjaxControlToolKit控件介绍[转载]
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2009-10-27
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/ajaxcontroltoolkit/">AjaxControlToolkit</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>来源：<a href="http://www.cnblogs.com/haha8/archive/
+2009/09/26/1574412.html">ajax toolkit 控件介绍 - 欢迎来到哈哈的天堂 - 博客园</a>（只是来源，感觉不是这个博客原创，作者应该未知）</p>
+<p>文字太多了，所以我没有把代码提取到代码段，只是把标题提出来了，大家不要介意啊…^_^</p>
+<h3>1.Accordion</h3>
+<p>功能：实现了QQ、Msn好友分类的折叠效果，就像包含了多个CollapsiblePanels</p>
+<p>细节： (1)不要把Accordion放在Table种同时又把 FadeTransitions 设置为True，这将引起布局混乱</p>
+<p>(2)每一个 AccordionPane control 有一个Header 和Content的 template</p>
+<p>(3)在Content中可以进行任意扩展，你什么都可以放上^_^</p>
+<p>(4)有三种AutoSize modes ：None(推荐) Limit  Fill</p>
+<p>(5)Accordion表现的更像是一个容器</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:Accordion ID="MyAccordion" runat="server" SelectedIndex="0"
+HeaderCssClass="accordionHeader"</p>
+<p>ContentCssClass="accordionContent" FadeTransitions="false"
+FramesPerSecond="40"</p>
+<p>TransitionDuration="250" AutoSize="None"&gt;</p>
+<p><Panes></p>
+<p><ajaxToolkit:AccordionPane ID="AccordionPane1" runat="server"></p>
+<Header>
+
+<p><a href="" onclick="return false;"
+class="accordionLink">1. Accordion</a></Header></p>
+<p><Content></p>
+<p></Content></p>
+<p></ajaxToolkit:AccordionPane></p>
+<p></Panes></p>
+<p></ajaxToolkit:Accordion></p>
+<h3>2. AlwaysVisibleControl</h3>
+<p>功能：最多的应用是在线小说的目录和不胜其烦的浮动小广告</p>
+<p>细节： (1)避免控件闪烁，把这个控件要在目标位置时使用absolutely position</p>
+<p>(2) HorizontalSide="Center" VerticalSide="Top" 使用这个方法控制浮动在什么位置</p>
+<p>代码示意：</p>
+<p><cc1:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1"
+HorizontalSide="Center" VerticalSide="Top"  TargetControlID="Panel1"
+runat="server"></p>
+<h3>3.Animation</h3>
+<p>功能：28个控件种效果最酷的！顾名思义实现动画效果</p>
+<p>细节： (1)不只是控件：pluggable, extensible framework</p>
+<p>(2)用在什么时候：OnLoad  OnClick  OnMouseOver OnMouseOut OnHoverOver
+OnHoverOut</p>
+<p>(3)具体使用有很多可以谈的，有理由单独写一个Animation Xml 编程介绍</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:AnimationExtender ID="ae"</p>
+<p>runat="server" TargetControlID="ctrl"&gt;</p>
+<p><Animations></p>
+<p><OnLoad>  </OnLoad></p>
+<p><OnClick>  </OnClick></p>
+<p><OnMouseOver>  </OnMouseOver></p>
+<p><OnMouseOut>  </OnMouseOut></p>
+<p><OnHoverOver>  </OnHoverOver></p>
+<p><OnHoverOut>  </OnHoverOut></p>
+<p></Animations></p>
+<p></ajaxToolkit:AnimationExtender></p>
+<h3>4.CascadingDropDown</h3>
+<p>功能：DropDownList联动，调用Web Service</p>
+<p>细节： (1)DropDownList行为扩展</p>
+<p>(2)如果使用Web service 方法签名必须符合下面的形式：</p>
+<p>[WebMethod]</p>
+<p>public CascadingDropDownNameValue[] GetDropDownContents(</p>
+<p>string knownCategoryValues, string category){...}</p>
+<p>代码示意：</p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown1"
+runat="server" TargetControlID="DropDownList1" Category="Make"
+PromptText="Please select a make"  LoadingText="[Loading makes]"
+ServicePath="CarsService.asmx" ServiceMethod="GetDropDownContents"/></p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown2"
+runat="server" TargetControlID="DropDownList2" Category="Model"
+PromptText="Please select a model" LoadingText="[Loading models]"
+ServiceMethod="GetDropDownContentsPageMethod"
+ParentControlID="DropDownList1"/></p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown3"
+runat="server" TargetControlID="DropDownList3" Category="Color"
+PromptText="Please select a color" LoadingText="[Loading colors]"
+ServicePath="~/CascadingDropDown/CarsService.asmx"
+ServiceMethod="GetDropDownContents" ParentControlID="DropDownList2"/></p>
+<h3>5.CollapsiblePanel</h3>
+<p>功能：Xp任务栏折叠效果</p>
+<p>细节： (1)可以扩展任何一个 ASP.NET Panel control</p>
+<p>(2) CollapsiblePanel 默认认为使用了 标准 CSS box model 早期的浏览器要!DOCTYPE
+中设置页面为自适应方式提交数据rendered in IE's standards-compliant mode.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:CollapsiblePanelExtender ID="cpe" runat="Server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>CollapsedSize="0"</p>
+<p>ExpandedSize="300"</p>
+<p>Collapsed="True"</p>
+<p>ExpandControlID="LinkButton1"</p>
+<p>CollapseControlID="LinkButton1"</p>
+<p>AutoCollapse="False"</p>
+<p>AutoExpand="False"</p>
+<p>ScrollContents="True"</p>
+<p>TextLabelID="Label1"</p>
+<p>CollapsedText="Show Details"</p>
+<p>OpenedText="Hide Details"</p>
+<p>ImageControlID="Image1"</p>
+<p>ExpandedImage="~/images/collapse.jpg"</p>
+<p>CollapsedImage="~/images/expand.jpg"</p>
+<p>ExpandDirection="Height"/&gt;</p>
+<h3>6.ConfirmButton</h3>
+<p>功能：就是弹出来一个确定对话框</p>
+<p>细节： 本人认为不是最简单实现的方法，我的方法：</p>
+<p>this.Button1.Attributes["onclick"]="javascript:return
+confirm('确定要停止下载么？');";</p>
+<p>不知道是不是我没有发现这个控件的其它优势。</p>
+<h3>7.DragPanel</h3>
+<p>功能：页面拖动</p>
+<p>细节： (1)TargetControlID 要拖动的控件</p>
+<p>(2)DragHandleID   拖动的标题栏所在的ControlID</p>
+<p>代码示意</p>
+<p>&lt;ajaxToolkit:DragPanelExtender ID="DPE1" runat="server"</p>
+<p>TargetControlID="Panel3"</p>
+<p>DragHandleID="Panel4" /&gt;</p>
+<h3>8.DropDown</h3>
+<p>功能：什么都可以以下拉菜单的形式弹出来</p>
+<p>细节： (1)TargetControlID要在什么控件上实现扩展</p>
+<p>(2)DropDownControlID弹出来什么</p>
+<p>代码示意：</p>
+<p>&lt;asp:Panel ID="DropPanel" runat="server" CssClass="ContextMenuPanel"
+Style="display: none;</p>
+<p>visibility: hidden;"&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option1" Text="Option 1"
+CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option2" Text="Option 2"
+CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option3" Text="Option 3 (Click
+Me!)" CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p></asp:Panel></p>
+<p>&lt;cc1:DropDownExtender runat="server" ID="DDE"
+TargetControlID="TextLabel"</p>
+<p>DropDownControlID="DropPanel" /&gt;</p>
+<h3>9.DropShadow</h3>
+<p>功能：阴影效果，其实可以放给美工实现</p>
+<p>细节： (1)Width 单位：px  默认5px</p>
+<p>(2)Opacity  不透明度0-1.0 默认.5</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:DropShadowExtender ID="dse" runat="server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>Opacity=".8"</p>
+<p>Rounded="true"</p>
+<p>TrackPosition="true" /&gt;</p>
+<h3>10.DynamicPopulate</h3>
+<p>功能：能实用Web Service或页面方法来替换控件的内容</p>
+<p>细节： (1)ClearContentsDuringUpdate  替换之前先清除以前的内容（默认True）</p>
+<p>(2)PopulateTriggerControlID 触发器绑定的控件 单击时触发</p>
+<p>(3)ContextKey传递给Web Service的随机字符串</p>
+<p>(4) Web Service方法签名必须符合下面的形式：</p>
+<p>[WebMethod]</p>
+<p>string DynamicPopulateMethod(string contextKey)</p>
+<p>{...}</p>
+<p>Note you can replace "DynamicPopulateMethod" with a naming of
+your choice, but the return</p>
+<p>type and parameter name and type must exactly match, including
+case.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:DynamicPopulateExtender ID="dp" runat="server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>ClearContentsDuringUpdate="true"</p>
+<p>PopulateTriggerControlID="Label1"</p>
+<p>ServiceMethod="GetHtml"</p>
+<p>UpdatingCssClass="dynamicPopulate_Updating" /&gt;</p>
+<h3>11.FilteredTextBox</h3>
+<p>功能：文本框数据过滤</p>
+<p>细节： (1)过滤条件Numbers LowercaseLetters UppercaseLetters   Custom</p>
+<p>(2)过滤条件也可以是Custom的组合 FilterType="Custom, Numbers"</p>
+<p>(3)ValidChars="+-=/*()." Custom要定义这样的有效字符串</p>
+<p>(4) 其实这是个鸡肋：你可以输入中文，聊胜于无，忍了</p>
+<p>示意代码：</p>
+<p>&lt;ajaxToolkit:FilteredTextBoxExtender ID="ftbe" runat="server"</p>
+<p>TargetControlID="TextBox3"</p>
+<p>FilterType="Custom, Numbers"</p>
+<p>ValidChars="+-=/*()." /&gt;</p>
+<h3>12.HoverMenu</h3>
+<p>功能：鼠标靠近时显示菜单，可以用在在线数据修改的表格上作为功能菜单</p>
+<p>细节： (1)PopupControlID要弹出来什么</p>
+<p>(2)PopupPostion 在哪里弹出来Left (Default), Right, Top, Bottom,
+Center.</p>
+<p>(3)OffsetX/OffsetY 弹出项与源控件的距离</p>
+<p>(4) PopDelay 弹出延时显示 单位milliseconds. Default is 100.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:HoverMenuExtender ID="hme2" runat="Server"</p>
+<p>TargetControlID="Panel9"</p>
+<p>HoverCssClass="popupHover"</p>
+<p>PopupControlID="PopupMenu"</p>
+<p>PopupPosition="Left"</p>
+<p>OffsetX="0"</p>
+<p>OffsetY="0"</p>
+<p>PopDelay="50" /&gt;</p>
+<h3>13.ModalPopup</h3>
+<p>功能：Xp的关机效果，后面全部灰掉，很多邮箱的删除对话框都着种效果</p>
+<p>细节： (1)本质上讲这是一个对话框模版，比ConfirmButton有意义有更强的扩展性！</p>
+<p>(2)从下面的代码中我们发现 点OK的时候可以调用后台方法</p>
+<p>(3)同时可以执行一段脚本</p>
+<p>代码示意：</p>
+<p><asp:Panel ID="Panel2" runat="server" CssClass="modalPopup"
+style="display:none"></p>
+<p>
+
+<p>&lt;asp:Label ID="Label1" runat="server" BackColor="Blue"
+ForeColor="White" Style="position: relative"</p>
+<p>Text="信息提示"&gt;</asp:Label>&nbsp;</p></p>
+<p><p >确定要删除当前下载的任务么？</p></p>
+<p style="text-align:center;">
+
+<p><asp:Button ID="Button1" runat="server" Text="OK" ></asp:Button></p>
+<p><asp:Button ID="Button2" runat="server" Text="Cancel"></asp:Button></p>
+</p>
+
+<p></asp:Panel></p>
+<p>&lt;ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender" runat="server"
+TargetControlID="LinkButton1"</p>
+<p>PopupControlID="Panel2" BackgroundCssClass="modalBackground"
+DropShadow="true"</p>
+<p>OkControlID="Button1" OnOkScript="onOk()" CancelControlID="CancelButton"
+/&gt;</p>
+<h3>14.MutuallyExlcusiveCheckBox</h3>
+<p>功能：互斥复选框就像Radio一样</p>
+<p>细节： (1)Key属性用来分组就像RdiolistGroup一样</p>
+<p>(2)argetControlID用来绑定已有的CheckBox</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server"</p>
+<p>ID="MustHaveGuestBedroomCheckBoxEx"</p>
+<p>TargetControlID="MustHaveGuestBedroomCheckBox"</p>
+<p>Key="GuestBedroomCheckBoxes" /&gt;</p>
+<h3>15.NoBot</h3>
+<p>功能：Captcha 图灵测试 反垃圾信息控件</p>
+<p>细节： (1)OnGenerateChallengeAndResponse 这个属性是EventHandler<NoBotEventArgs>
+调用服务器端的方法，注意方法签名</p>
+<p>例如：   protected void CustomChallengeResponse(object
+sender, NoBotEventArgs e) {……} 代码示意：</p>
+<p>&lt;ajaxToolkit:NoBot</p>
+<p>ID="NoBot2"</p>
+<p>runat="server"</p>
+<p>OnGenerateChallengeAndResponse="CustomChallengeResponse"</p>
+<p>ResponseMinimumDelaySeconds="2"</p>
+<p>CutoffWindowSeconds="60"</p>
+<p>CutoffMaximumInstances="5" /&gt;</p>
+<h3>16.NumericUpDown</h3>
+<p>功能：实现Winform里面的Updown</p>
+<p>细节： (1)普通整数增减</p>
+<p>(2)值列表循环显示比如下面的第二个例子RefValues</p>
+<p>(3)调用Web Service的格式：</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NUD1" runat="server"</p>
+<p>TargetControlID="TextBox1"</p>
+<p>Width="100"</p>
+<p>RefValues="January;February;March;April"</p>
+<p>TargetButtonDownID="Button1"</p>
+<p>TargetButtonUpID="Button2"</p>
+<p>ServiceDownPath="WebService1.asmx"</p>
+<p>ServiceDownMethod="PrevValue"</p>
+<p>ServiceUpPath="WebService1.asmx"</p>
+<p>ServiceUpMethod="NextValue"</p>
+<p>Tag="1" /&gt;</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender1"
+runat="server"</p>
+<p>TargetControlID="TextBox1" Width="120" RefValues=""</p>
+<p>ServiceDownMethod="" ServiceUpMethod=""
+TargetButtonDownID="" TargetButtonUpID="" /&gt;</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender2"
+runat="server"</p>
+<p>TargetControlID="TextBox2" Width="120" RefValues="January;
+February;March;April;May;June;July;August;September;October;November;December"</p>
+<p>ServiceDownMethod="" ServiceUpMethod=""
+TargetButtonDownID="" TargetButtonUpID="" /&gt;</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender
+ID="NumericUpDownExtender4" runat="server"</p>
+<p>TargetControlID="TextBox4" Width="80"
+TargetButtonDownID="img1"</p>
+<p>TargetButtonUpID="img2" RefValues="" ServiceDownMethod=""
+ServiceUpMethod="" /&gt;</p>
+<h3>17.PagingBulletedList</h3>
+<p>功能：扩展BulletedList的分页功能</p>
+<p>细节： (1)可以控制每页最多显示多少条，是否排序</p>
+<p>(2)IndexSize表示index headings 的字符数，如果MaxItemPerPage设置了概属性被忽略</p>
+<p>(3)MaxItemPerPage分页每页最大条数</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PagingBulletedListExtender ID="PagingBulletedListExtender1"
+BehaviorID="PagingBulletedListBehavior1" runat="server"</p>
+<p>TargetControlID="BulletedList1"</p>
+<p>ClientSort="true"</p>
+<p>IndexSize="1"</p>
+<p>Separator=" - "</p>
+<p>SelectIndexCssClass="selectIndex"</p>
+<p>UnselectIndexCssClass="unselectIndex" /&gt;</p>
+<h3>18.PasswordStrength</h3>
+<p>功能：验证密码强度</p>
+<p>细节： StrengthIndicatorType两种显示方式：文字提示，进度条提示</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength1" runat="server"
+DisplayPosition="RightSide" TargetControlID="TextBox1"</p>
+<p>StrengthIndicatorType="Text" PreferredPasswordLength="10"
+PrefixText="Strength:"</p>
+<p>HelpStatusLabelID="TextBox1_HelpLabel"
+TextCssClass="TextIndicator_TextBox1"  TextStrengthDescriptions="Very
+Poor;Weak;Average;Strong;Excellent"</p>
+<p>MinimumNumericCharacters="0" MinimumSymbolCharacters="0"
+RequiresUpperAndLowerCaseCharacters="false"/&gt;</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength2" runat="server"
+DisplayPosition="RightSide" TargetControlID="TextBox2"</p>
+<p>StrengthIndicatorType="BarIndicator"
+PreferredPasswordLength="15" HelpStatusLabelID="TextBox2_HelpLabel"</p>
+<p>BarIndicatorCssClass="BarIndicator_TextBox2"
+BarBorderCssClass="BarBorder_TextBox2"</p>
+<p>MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
+RequiresUpperAndLowerCaseCharacters="true" /&gt;</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength3" runat="server"
+DisplayPosition="BelowLeft" TargetControlID="TextBox3"</p>
+<p>StrengthIndicatorType="Text" PreferredPasswordLength="20"
+PrefixText="Meets Policy? " TextCssClass="TextIndicator_TextBox3"</p>
+<p>MinimumNumericCharacters="2" MinimumSymbolCharacters="2"
+RequiresUpperAndLowerCaseCharacters="true"</p>
+<p>TextStrengthDescriptions="Not at all;Very Low
+compliance;Low Compliance;Average Compliance;Good Compliance;Very High
+Compliance;Yes"</p>
+<p>HelpHandleCssClass="TextIndicator_TextBox3_Handle"
+HelpHandlePosition="LeftSide" /&gt;</p>
+<h3>19.PopupControl</h3>
+<p>功能：任何控件上都可以弹出任何内容</p>
+<p>细节： (1)TargetControlID - The ID of the control to attach to</p>
+<p>(2)PopupControlID - The ID of the control to display</p>
+<p>(3)CommitProperty -属性来标识返回的值</p>
+<p>(4) CommitScript -把返回结果值通过脚本处理，用到CommitProperty</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PopupControlExtender  ID="PopupControlExtender2"
+runat="server" TargetControlID="MessageTextBox"</p>
+<p>PopupControlID="Panel2" CommitProperty="value" CommitScript="e.value +=
+' - do not forget!';" Position="Bottom" /&gt;</p>
+<h3>20.Rating</h3>
+<p>功能：级别控件</p>
+<p>细节： 又是一个鸡肋，没有太大实用价值，看代码吧</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:Rating ID="ThaiRating" runat="server"</p>
+<p>CurrentRating="2"</p>
+<p>MaxRating="5"</p>
+<p>StarCssClass="ratingStar"</p>
+<p>WaitingStarCssClass="savedRatingStar"</p>
+<p>FilledStarCssClass="filledRatingStar"</p>
+<p>EmptyStarCssClass="emptyRatingStar"</p>
+<p>OnChanged="ThaiRating_Changed" /&gt;</p>
+<h3>21.ReorderList</h3>
+<p>功能：这个控件的炫酷程度仅次于Animation ，可以动态移动数据</p>
+<p>细节： (1)绑定数据，拖动数据之后数据将被更新到绑定源</p>
+<p>(2)它不是已有控件的扩展是全新的服务器端控件，只是它对Ajax行为是敏感的</p>
+<p>(3)重排的实现有两种方式：CallBack PostBack
+前者的发生在页面上是没有PostBack的（也就是没有刷新页面）</p>
+<p>(4) 而数据添加或者编辑的时候就必须要使用PostBack来同步服务器端的数据状态</p>
+<p>(5)PostbackOnReorder就是针对两种策略进行选择</p>
+<p>(6)可以扩展的很多，三言两语难以说尽给出基本框架吧，回头再说</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:ReorderList ID="ReorderList1" runat="server"</p>
+<p>DataSourceID="ObjectDataSource1"</p>
+<p>DragHandleAlignment="Left"</p>
+<p>ItemInsertLocation="Beginning"</p>
+<p>DataKeyField="ItemID"</p>
+<p>SortOrderField="Priority"</p>
+<p>AllowReorder="true"&gt;</p>
+<p><ItemTemplate></ItemTemplate></p>
+<p><ReorderTemplate></ReorderTemplate></p>
+<p><DragHandleTemplate></DragHandleTemplate></p>
+<p><InsertItemTemplate></InsertItemTemplate></p>
+<p></ajaxToolkit:ReorderList></p>
+<h3>22.ResizableControl</h3>
+<p>功能：就像设计状态一样可以拖动修改大小，可是有什么实际的意义么，放大字体？没有想到</p>
+<p>细节： (1)HandleCssClass - The name of the CSS class to apply to the resize
+handle 这个属性必须要有！</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:ResizableControlExtender ID="RCE" runat="server"</p>
+<p>TargetControlID="PanelImage"</p>
+<p>HandleCssClass="handleImage"</p>
+<p>ResizableCssClass="resizingImage"</p>
+<p>MinimumWidth="50"</p>
+<p>MinimumHeight="20"</p>
+<p>MaximumWidth="260"</p>
+<p>MaximumHeight="130"</p>
+<p>OnClientResize="OnClientResizeImage"</p>
+<p>HandleOffsetX="3"</p>
+<p>HandleOffsetY="3" /&gt;</p>
+<h3>23.RoundedCorners</h3>
+<p>功能：控件圆角 纯粹是控制外观的了，什么时候审美疲劳了还要改，呵呵</p>
+<p>细节： (1)还有一个非常非常坑人的地方：你必须要设置 CssClass="roundedPanel"要不然不起作用</p>
+<p>(2) Radius设置弧度，默认是5</p>
+<p>(3)好象只适用于容器</p>
+<p>代码示意：</p>
+<p><ajaxToolkit:RoundedCornersExtender ID="rce" runat="server"
+TargetControlID="Panel1"     Radius="6" /></p>
+<h3>24.Slider</h3>
+<p>功能：实现WinForm中的Slider控件效果</p>
+<p>细节： (1)修改文本框的值也可以影响Slider的状态！这个反馈还是有用的！</p>
+<p>代码示意：</p>
+<p><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></p>
+<p>&lt;cc1:SliderExtender ID="SliderExtender2" runat="server"</p>
+<p>BehaviorID="Slider2"</p>
+<p>TargetControlID="Slider2"</p>
+<p>BoundControlID="TextBox1"</p>
+<p>Orientation="Horizontal"</p>
+<p>EnableHandleAnimation="true"</p>
+<p>Minimum="0"</p>
+<p>Maximum="100"</p>
+<p>/&gt;</p>
+<h3>25.TextBoxWatermark</h3>
+<p>功能：文本水印</p>
+<p>细节： 没有什么说的看代码---&gt;</p>
+<p>代码示意：</p>
+<p><asp:TextBox ID="TextBox1" CssClass="unwatermarked" Width="150"
+runat="server"></asp:TextBox></p>
+<p><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1"
+runat="server" TargetControlID="TextBox1" WatermarkText="请输入用户名"
+WatermarkCssClass="watermarked" /></p>
+<h3>26.UpdatePanelAnimation</h3>
+<p>功能：更新动画效果</p>
+<p>细节：代码结构简单但是要说的东西很多，回头再说写专题吧</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:UpdatePanelAnimationExtender ID="ae"</p>
+<p>runat="server" TargetControlID="up"&gt;</p>
+<p><Animations></p>
+<p><OnUpdating>  </OnUpdating></p>
+<p><OnUpdated>  </OnUpdated></p>
+<p></Animations></p>
+<p></ajaxToolkit:UpdatePanelAnimationExtender></p>
+<h3>27.ToggleButton</h3>
+<p>功能：就是把一个CheckBox的逻辑应用到一个按钮上，于是就有了双态按钮这么个玩意，有点意思啊</p>
+<p>闲言少叙，看代码：</p>
+<p><asp:CheckBox ID="CheckBox1" Checked="true" Text="I like ASP.NET"
+runat="server"/></p>
+<p>&lt;cc1:ToggleButtonExtender ID="ToggleButtonExtender1" runat="server"
+TargetControlID="CheckBox1" ImageWidth="19"</p>
+<p>ImageHeight="19" UncheckedImageUrl="Image/down.gif"
+CheckedImageUrl="Image/up.gif" CheckedImageAlternateText="Check"</p>
+<p>UncheckedImageAlternateText="UnCheck" /&gt;</p>
+<h3>28.ValidatorCallout</h3>
+<p>功能：Windows系统中最常见的气泡提示，比如你磁盘空间不足的时候……</p>
+<p>细节： 是对数据验证控件的扩展，比较新鲜</p>
+<p>代码示意：</p>
+<p><asp:RequiredFieldValidator runat="server" ID="NReq"
+ControlToValidate="NameTextBox" Display="None" ErrorMessage="<b>Required Field
+Missing</b><br />A name is required." /&gt;</p>
+<p><asp:RequiredFieldValidator runat="server" ID="PNReq"
+ControlToValidate="PhoneNumberTextBox" Display="None"
+ErrorMessage="<b>Required Field Missing</b><br />A phone number is
+required.<div style='margin-top:5px;padding:5px;border:1px solid #e9e9e9
+;background-color:white;'><b>Other Options:</b><br /><a
+href='javascript:alert(&quot;not implemented but you get the
+idea;)&quot;);'>Extract from Profile</a></div>" /&gt;</p>
+<p><asp:RegularExpressionValidator runat="server" ID="PNRegEx"
+ControlToValidate="PhoneNumberTextBox" Display="None" ErrorMessage="<b>Invalid
+Field</b><br />Please enter a phone number in the format:<br />(###) ###-####"
+ValidationExpression="(((d{3}) ?)|(d{3}-))?d{3}-d{4}" /&gt;</p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="NReqE"
+TargetControlID="NReq" HighlightCssClass="highlight" /></p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="PNReqE"
+TargetControlID="PNReq" HighlightCssClass="highlight" Width="350px" /></p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="PNReqEx"
+TargetControlID="PNRegEx" HighlightCssClass="highlight" /></p>
+<p>1.Accordion</p>
+<p>功能：实现了QQ、Msn好友分类的折叠效果，就像包含了多个CollapsiblePanels</p>
+<p>细节： (1)不要把Accordion放在Table种同时又把 FadeTransitions 设置为True，这将引起布局混乱</p>
+<p>(2)每一个 AccordionPane control 有一个Header 和Content的 template</p>
+<p>(3)在Content中可以进行任意扩展，你什么都可以放上^_^</p>
+<p>(4)有三种AutoSize modes ：None(推荐) Limit  Fill</p>
+<p>(5)Accordion表现的更像是一个容器</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:Accordion ID="MyAccordion" runat="server" SelectedIndex="0"
+HeaderCssClass="accordionHeader"</p>
+<p>ContentCssClass="accordionContent" FadeTransitions="false"
+FramesPerSecond="40"</p>
+<p>TransitionDuration="250" AutoSize="None"&gt;</p>
+<p><Panes></p>
+<p><ajaxToolkit:AccordionPane ID="AccordionPane1" runat="server"></p>
+<Header>
+
+<a href="" onclick="return false;" class="accordionLink">1.
+Accordion</a></Header>
+
+<p><Content></p>
+<p></Content></p>
+<p></ajaxToolkit:AccordionPane></p>
+<p></Panes></p>
+<p></ajaxToolkit:Accordion></p>
+<ol>
+<li>AlwaysVisibleControl</li>
+</ol>
+<p>功能：最多的应用是在线小说的目录和不胜其烦的浮动小广告</p>
+<p>细节： (1)避免控件闪烁，把这个控件要在目标位置时使用absolutely position</p>
+<p>(2) HorizontalSide="Center" VerticalSide="Top" 使用这个方法控制浮动在什么位置</p>
+<p>代码示意：</p>
+<p><cc1:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender1"
+HorizontalSide="Center" VerticalSide="Top"  TargetControlID="Panel1"
+runat="server"></p>
+<p>3.Animation</p>
+<p>功能：28个控件种效果最酷的！顾名思义实现动画效果</p>
+<p>细节： (1)不只是控件：pluggable, extensible framework</p>
+<p>(2)用在什么时候：OnLoad  OnClick  OnMouseOver OnMouseOut OnHoverOver OnHoverOut</p>
+<p>(3)具体使用有很多可以谈的，有理由单独写一个Animation Xml 编程介绍</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:AnimationExtender ID="ae"</p>
+<p>runat="server" TargetControlID="ctrl"&gt;</p>
+<p><Animations></p>
+<p><OnLoad>  </OnLoad></p>
+<p><OnClick>  </OnClick></p>
+<p><OnMouseOver>  </OnMouseOver></p>
+<p><OnMouseOut>  </OnMouseOut></p>
+<p><OnHoverOver>  </OnHoverOver></p>
+<p><OnHoverOut>  </OnHoverOut></p>
+<p></Animations></p>
+<p></ajaxToolkit:AnimationExtender></p>
+<p>4.CascadingDropDown</p>
+<p>功能：DropDownList联动，调用Web Service</p>
+<p>细节： (1)DropDownList行为扩展</p>
+<p>(2)如果使用Web service 方法签名必须符合下面的形式：</p>
+<p>[WebMethod]</p>
+<p>public CascadingDropDownNameValue[] GetDropDownContents(</p>
+<p>string knownCategoryValues, string category){...}</p>
+<p>代码示意：</p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown1" runat="server"
+TargetControlID="DropDownList1" Category="Make"  PromptText="Please select a
+make"  LoadingText="[Loading makes]"  ServicePath="CarsService.asmx"
+ServiceMethod="GetDropDownContents"/></p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown2" runat="server"
+TargetControlID="DropDownList2" Category="Model" PromptText="Please select a
+model" LoadingText="[Loading models]"
+ServiceMethod="GetDropDownContentsPageMethod"
+ParentControlID="DropDownList1"/></p>
+<p><ajaxToolkit:CascadingDropDown ID="CascadingDropDown3" runat="server"
+TargetControlID="DropDownList3" Category="Color" PromptText="Please select a
+color" LoadingText="[Loading colors]"
+ServicePath="~/CascadingDropDown/CarsService.asmx"
+ServiceMethod="GetDropDownContents" ParentControlID="DropDownList2"/></p>
+<p>5.CollapsiblePanel</p>
+<p>功能：Xp任务栏折叠效果</p>
+<p>细节： (1)可以扩展任何一个 ASP.NET Panel control</p>
+<p>(2) CollapsiblePanel 默认认为使用了 标准 CSS box model 早期的浏览器要!DOCTYPE
+中设置页面为自适应方式提交数据rendered in IE's standards-compliant mode.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:CollapsiblePanelExtender ID="cpe" runat="Server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>CollapsedSize="0"</p>
+<p>ExpandedSize="300"</p>
+<p>Collapsed="True"</p>
+<p>ExpandControlID="LinkButton1"</p>
+<p>CollapseControlID="LinkButton1"</p>
+<p>AutoCollapse="False"</p>
+<p>AutoExpand="False"</p>
+<p>ScrollContents="True"</p>
+<p>TextLabelID="Label1"</p>
+<p>CollapsedText="Show Details"</p>
+<p>OpenedText="Hide Details"</p>
+<p>ImageControlID="Image1"</p>
+<p>ExpandedImage="~/images/collapse.jpg"</p>
+<p>CollapsedImage="~/images/expand.jpg"</p>
+<p>ExpandDirection="Height"/&gt;</p>
+<p>6.ConfirmButton</p>
+<p>功能：就是弹出来一个确定对话框</p>
+<p>细节： 本人认为不是最简单实现的方法，我的方法：</p>
+<p>this.Button1.Attributes["onclick"]="javascript:return confirm('确定要停止下载么？');";</p>
+<p>不知道是不是我没有发现这个控件的其它优势。</p>
+<p>7.DragPanel</p>
+<p>功能：页面拖动</p>
+<p>细节： (1)TargetControlID 要拖动的控件</p>
+<p>(2)DragHandleID   拖动的标题栏所在的ControlID</p>
+<p>代码示意</p>
+<p>&lt;ajaxToolkit:DragPanelExtender ID="DPE1" runat="server"</p>
+<p>TargetControlID="Panel3"</p>
+<p>DragHandleID="Panel4" /&gt;</p>
+<p>8.DropDown</p>
+<p>功能：什么都可以以下拉菜单的形式弹出来</p>
+<p>细节： (1)TargetControlID要在什么控件上实现扩展</p>
+<p>(2)DropDownControlID弹出来什么</p>
+<p>代码示意：</p>
+<p>&lt;asp:Panel ID="DropPanel" runat="server" CssClass="ContextMenuPanel"
+Style="display: none;</p>
+<p>visibility: hidden;"&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option1" Text="Option 1"
+CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option2" Text="Option 2"
+CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p>&lt;asp:LinkButton runat="server" ID="Option3" Text="Option 3 (Click Me!)"
+CssClass="ContextMenuItem"</p>
+<p>OnClick="OnSelect" /&gt;</p>
+<p></asp:Panel></p>
+<p>&lt;cc1:DropDownExtender runat="server" ID="DDE" TargetControlID="TextLabel"</p>
+<p>DropDownControlID="DropPanel" /&gt;</p>
+<p>9.DropShadow</p>
+<p>功能：阴影效果，其实可以放给美工实现</p>
+<p>细节： (1)Width 单位：px  默认5px</p>
+<p>(2)Opacity  不透明度0-1.0 默认.5</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:DropShadowExtender ID="dse" runat="server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>Opacity=".8"</p>
+<p>Rounded="true"</p>
+<p>TrackPosition="true" /&gt;</p>
+<p>10.DynamicPopulate</p>
+<p>功能：能实用Web Service或页面方法来替换控件的内容</p>
+<p>细节： (1)ClearContentsDuringUpdate  替换之前先清除以前的内容（默认True）</p>
+<p>(2)PopulateTriggerControlID 触发器绑定的控件 单击时触发</p>
+<p>(3)ContextKey传递给Web Service的随机字符串</p>
+<p>(4) Web Service方法签名必须符合下面的形式：</p>
+<p>[WebMethod]</p>
+<p>string DynamicPopulateMethod(string contextKey)</p>
+<p>{...}</p>
+<p>Note you can replace "DynamicPopulateMethod" with a naming of your choice, but
+the return</p>
+<p>type and parameter name and type must exactly match, including case.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:DynamicPopulateExtender ID="dp" runat="server"</p>
+<p>TargetControlID="Panel1"</p>
+<p>ClearContentsDuringUpdate="true"</p>
+<p>PopulateTriggerControlID="Label1"</p>
+<p>ServiceMethod="GetHtml"</p>
+<p>UpdatingCssClass="dynamicPopulate_Updating" /&gt;</p>
+<p>11.FilteredTextBox</p>
+<p>功能：文本框数据过滤</p>
+<p>细节： (1)过滤条件Numbers LowercaseLetters UppercaseLetters   Custom</p>
+<p>(2)过滤条件也可以是Custom的组合 FilterType="Custom, Numbers"</p>
+<p>(3)ValidChars="+-=/*()." Custom要定义这样的有效字符串</p>
+<p>(4) 其实这是个鸡肋：你可以输入中文，聊胜于无，忍了</p>
+<p>示意代码：</p>
+<p>&lt;ajaxToolkit:FilteredTextBoxExtender ID="ftbe" runat="server"</p>
+<p>TargetControlID="TextBox3"</p>
+<p>FilterType="Custom, Numbers"</p>
+<p>ValidChars="+-=/*()." /&gt;</p>
+<p>12.HoverMenu</p>
+<p>功能：鼠标靠近时显示菜单，可以用在在线数据修改的表格上作为功能菜单</p>
+<p>细节： (1)PopupControlID要弹出来什么</p>
+<p>(2)PopupPostion 在哪里弹出来Left (Default), Right, Top, Bottom, Center.</p>
+<p>(3)OffsetX/OffsetY 弹出项与源控件的距离</p>
+<p>(4) PopDelay 弹出延时显示 单位milliseconds. Default is 100.</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:HoverMenuExtender ID="hme2" runat="Server"</p>
+<p>TargetControlID="Panel9"</p>
+<p>HoverCssClass="popupHover"</p>
+<p>PopupControlID="PopupMenu"</p>
+<p>PopupPosition="Left"</p>
+<p>OffsetX="0"</p>
+<p>OffsetY="0"</p>
+<p>PopDelay="50" /&gt;</p>
+<p>13.ModalPopup</p>
+<p>功能：Xp的关机效果，后面全部灰掉，很多邮箱的删除对话框都着种效果</p>
+<p>细节： (1)本质上讲这是一个对话框模版，比ConfirmButton有意义有更强的扩展性！</p>
+<p>(2)从下面的代码中我们发现 点OK的时候可以调用后台方法</p>
+<p>(3)同时可以执行一段脚本</p>
+<p>代码示意：</p>
+<p><asp:Panel ID="Panel2" runat="server" CssClass="modalPopup"
+style="display:none"></p>
+<p>
+
+<asp:Label ID="Label1" runat="server" BackColor="Blue" ForeColor="White"
+Style="position: relative"
+
+Text="信息提示"></asp:Label>&nbsp;</p>
+
+<p >确定要删除当前下载的任务么？</p>
+
+<p style="text-align:center;">
+
+<asp:Button ID="Button1" runat="server" Text="OK" ></asp:Button>
+
+<asp:Button ID="Button2" runat="server" Text="Cancel"></asp:Button>
+
+</p>
+
+<p></asp:Panel></p>
+<p>&lt;ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender" runat="server"
+TargetControlID="LinkButton1"</p>
+<p>PopupControlID="Panel2" BackgroundCssClass="modalBackground" DropShadow="true"</p>
+<p>OkControlID="Button1" OnOkScript="onOk()" CancelControlID="CancelButton" /&gt;</p>
+<p>14.MutuallyExlcusiveCheckBox</p>
+<p>功能：互斥复选框就像Radio一样</p>
+<p>细节： (1)Key属性用来分组就像RdiolistGroup一样</p>
+<p>(2)argetControlID用来绑定已有的CheckBox</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:MutuallyExclusiveCheckboxExtender runat="server"</p>
+<p>ID="MustHaveGuestBedroomCheckBoxEx"</p>
+<p>TargetControlID="MustHaveGuestBedroomCheckBox"</p>
+<p>Key="GuestBedroomCheckBoxes" /&gt;</p>
+<p>15.NoBot</p>
+<p>功能：Captcha 图灵测试 反垃圾信息控件</p>
+<p>细节： (1)OnGenerateChallengeAndResponse 这个属性是EventHandler<NoBotEventArgs>
+调用服务器端的方法，注意方法签名</p>
+<p>例如：   protected void CustomChallengeResponse(object sender, NoBotEventArgs e)
+{……} 代码示意：</p>
+<p>&lt;ajaxToolkit:NoBot</p>
+<p>ID="NoBot2"</p>
+<p>runat="server"</p>
+<p>OnGenerateChallengeAndResponse="CustomChallengeResponse"</p>
+<p>ResponseMinimumDelaySeconds="2"</p>
+<p>CutoffWindowSeconds="60"</p>
+<p>CutoffMaximumInstances="5" /&gt;</p>
+<p>16.NumericUpDown</p>
+<p>功能：实现Winform里面的Updown</p>
+<p>细节： (1)普通整数增减</p>
+<p>(2)值列表循环显示比如下面的第二个例子RefValues</p>
+<p>(3)调用Web Service的格式：</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NUD1" runat="server"</p>
+<p>TargetControlID="TextBox1"</p>
+<p>Width="100"</p>
+<p>RefValues="January;February;March;April"</p>
+<p>TargetButtonDownID="Button1"</p>
+<p>TargetButtonUpID="Button2"</p>
+<p>ServiceDownPath="WebService1.asmx"</p>
+<p>ServiceDownMethod="PrevValue"</p>
+<p>ServiceUpPath="WebService1.asmx"</p>
+<p>ServiceUpMethod="NextValue"</p>
+<p>Tag="1" /&gt;</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender1" runat="server"</p>
+<p>TargetControlID="TextBox1" Width="120" RefValues=""</p>
+<p>ServiceDownMethod="" ServiceUpMethod="" TargetButtonDownID=""
+TargetButtonUpID="" /&gt;</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender2" runat="server"</p>
+<p>TargetControlID="TextBox2" Width="120" RefValues="January;February;March;April
+;May;June;July;August;September;October;November;December"</p>
+<p>ServiceDownMethod="" ServiceUpMethod="" TargetButtonDownID=""
+TargetButtonUpID="" /&gt;</p>
+<p>&lt;ajaxToolkit:NumericUpDownExtender ID="NumericUpDownExtender4" runat="server"</p>
+<p>TargetControlID="TextBox4" Width="80" TargetButtonDownID="img1"</p>
+<p>TargetButtonUpID="img2" RefValues="" ServiceDownMethod="" ServiceUpMethod=""
+/&gt;</p>
+<p>17.PagingBulletedList</p>
+<p>功能：扩展BulletedList的分页功能</p>
+<p>细节： (1)可以控制每页最多显示多少条，是否排序</p>
+<p>(2)IndexSize表示index headings 的字符数，如果MaxItemPerPage设置了概属性被忽略</p>
+<p>(3)MaxItemPerPage分页每页最大条数</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PagingBulletedListExtender ID="PagingBulletedListExtender1"
+BehaviorID="PagingBulletedListBehavior1" runat="server"</p>
+<p>TargetControlID="BulletedList1"</p>
+<p>ClientSort="true"</p>
+<p>IndexSize="1"</p>
+<p>Separator=" - "</p>
+<p>SelectIndexCssClass="selectIndex"</p>
+<p>UnselectIndexCssClass="unselectIndex" /&gt;</p>
+<p>18.PasswordStrength</p>
+<p>功能：验证密码强度</p>
+<p>细节： StrengthIndicatorType两种显示方式：文字提示，进度条提示</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength1" runat="server"
+DisplayPosition="RightSide" TargetControlID="TextBox1"</p>
+<p>StrengthIndicatorType="Text" PreferredPasswordLength="10"
+PrefixText="Strength:"</p>
+<p>HelpStatusLabelID="TextBox1_HelpLabel" TextCssClass="TextIndicator_TextBox1"
+TextStrengthDescriptions="Very Poor;Weak;Average;Strong;Excellent"</p>
+<p>MinimumNumericCharacters="0" MinimumSymbolCharacters="0"
+RequiresUpperAndLowerCaseCharacters="false"/&gt;</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength2" runat="server"
+DisplayPosition="RightSide" TargetControlID="TextBox2"</p>
+<p>StrengthIndicatorType="BarIndicator" PreferredPasswordLength="15"
+HelpStatusLabelID="TextBox2_HelpLabel"</p>
+<p>BarIndicatorCssClass="BarIndicator_TextBox2"
+BarBorderCssClass="BarBorder_TextBox2"</p>
+<p>MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
+RequiresUpperAndLowerCaseCharacters="true" /&gt;</p>
+<p>&lt;ajaxToolkit:PasswordStrength ID="PasswordStrength3" runat="server"
+DisplayPosition="BelowLeft" TargetControlID="TextBox3"</p>
+<p>StrengthIndicatorType="Text" PreferredPasswordLength="20" PrefixText="Meets
+Policy? " TextCssClass="TextIndicator_TextBox3"</p>
+<p>MinimumNumericCharacters="2" MinimumSymbolCharacters="2"
+RequiresUpperAndLowerCaseCharacters="true"</p>
+<p>TextStrengthDescriptions="Not at all;Very Low compliance;Low
+Compliance;Average Compliance;Good Compliance;Very High Compliance;Yes"</p>
+<p>HelpHandleCssClass="TextIndicator_TextBox3_Handle"
+HelpHandlePosition="LeftSide" /&gt;</p>
+<p>19.PopupControl</p>
+<p>功能：任何控件上都可以弹出任何内容</p>
+<p>细节： (1)TargetControlID - The ID of the control to attach to</p>
+<p>(2)PopupControlID - The ID of the control to display</p>
+<p>(3)CommitProperty -属性来标识返回的值</p>
+<p>(4) CommitScript -把返回结果值通过脚本处理，用到CommitProperty</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:PopupControlExtender  ID="PopupControlExtender2" runat="server"
+TargetControlID="MessageTextBox"</p>
+<p>PopupControlID="Panel2" CommitProperty="value" CommitScript="e.value += ' - do
+not forget!';" Position="Bottom" /&gt;</p>
+<p>20.Rating</p>
+<p>功能：级别控件</p>
+<p>细节： 又是一个鸡肋，没有太大实用价值，看代码吧</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:Rating ID="ThaiRating" runat="server"</p>
+<p>CurrentRating="2"</p>
+<p>MaxRating="5"</p>
+<p>StarCssClass="ratingStar"</p>
+<p>WaitingStarCssClass="savedRatingStar"</p>
+<p>FilledStarCssClass="filledRatingStar"</p>
+<p>EmptyStarCssClass="emptyRatingStar"</p>
+<p>OnChanged="ThaiRating_Changed" /&gt;</p>
+<p>21.ReorderList</p>
+<p>功能：这个控件的炫酷程度仅次于Animation ，可以动态移动数据</p>
+<p>细节： (1)绑定数据，拖动数据之后数据将被更新到绑定源</p>
+<p>(2)它不是已有控件的扩展是全新的服务器端控件，只是它对Ajax行为是敏感的</p>
+<p>(3)重排的实现有两种方式：CallBack PostBack 前者的发生在页面上是没有PostBack的（也就是没有刷新页面）</p>
+<p>(4) 而数据添加或者编辑的时候就必须要使用PostBack来同步服务器端的数据状态</p>
+<p>(5)PostbackOnReorder就是针对两种策略进行选择</p>
+<p>(6)可以扩展的很多，三言两语难以说尽给出基本框架吧，回头再说</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:ReorderList ID="ReorderList1" runat="server"</p>
+<p>DataSourceID="ObjectDataSource1"</p>
+<p>DragHandleAlignment="Left"</p>
+<p>ItemInsertLocation="Beginning"</p>
+<p>DataKeyField="ItemID"</p>
+<p>SortOrderField="Priority"</p>
+<p>AllowReorder="true"&gt;</p>
+<p><ItemTemplate></ItemTemplate></p>
+<p><ReorderTemplate></ReorderTemplate></p>
+<p><DragHandleTemplate></DragHandleTemplate></p>
+<p><InsertItemTemplate></InsertItemTemplate></p>
+<p></ajaxToolkit:ReorderList></p>
+<p>22.ResizableControl</p>
+<p>功能：就像设计状态一样可以拖动修改大小，可是有什么实际的意义么，放大字体？没有想到</p>
+<p>细节： (1)HandleCssClass - The name of the CSS class to apply to the resize
+handle 这个属性必须要有！</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:ResizableControlExtender ID="RCE" runat="server"</p>
+<p>TargetControlID="PanelImage"</p>
+<p>HandleCssClass="handleImage"</p>
+<p>ResizableCssClass="resizingImage"</p>
+<p>MinimumWidth="50"</p>
+<p>MinimumHeight="20"</p>
+<p>MaximumWidth="260"</p>
+<p>MaximumHeight="130"</p>
+<p>OnClientResize="OnClientResizeImage"</p>
+<p>HandleOffsetX="3"</p>
+<p>HandleOffsetY="3" /&gt;</p>
+<p>23.RoundedCorners</p>
+<p>功能：控件圆角 纯粹是控制外观的了，什么时候审美疲劳了还要改，呵呵</p>
+<p>细节： (1)还有一个非常非常坑人的地方：你必须要设置 CssClass="roundedPanel"要不然不起作用</p>
+<p>(2) Radius设置弧度，默认是5</p>
+<p>(3)好象只适用于容器</p>
+<p>代码示意：</p>
+<p><ajaxToolkit:RoundedCornersExtender ID="rce" runat="server"
+TargetControlID="Panel1"     Radius="6" /></p>
+<p>24.Slider</p>
+<p>功能：实现WinForm中的Slider控件效果</p>
+<p>细节： (1)修改文本框的值也可以影响Slider的状态！这个反馈还是有用的！</p>
+<p>代码示意：</p>
+<p><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></p>
+<p>&lt;cc1:SliderExtender ID="SliderExtender2" runat="server"</p>
+<p>BehaviorID="Slider2"</p>
+<p>TargetControlID="Slider2"</p>
+<p>BoundControlID="TextBox1"</p>
+<p>Orientation="Horizontal"</p>
+<p>EnableHandleAnimation="true"</p>
+<p>Minimum="0"</p>
+<p>Maximum="100"</p>
+<p>/&gt;</p>
+<p>25.TextBoxWatermark</p>
+<p>功能：文本水印</p>
+<p>细节： 没有什么说的看代码---&gt;</p>
+<p>代码示意：</p>
+<p><asp:TextBox ID="TextBox1" CssClass="unwatermarked" Width="150"
+runat="server"></asp:TextBox></p>
+<p><cc1:TextBoxWatermarkExtender ID="TextBoxWatermarkExtender1" runat="server"
+TargetControlID="TextBox1" WatermarkText="请输入用户名"
+WatermarkCssClass="watermarked" /></p>
+<p>26.UpdatePanelAnimation</p>
+<p>功能：更新动画效果</p>
+<p>细节：代码结构简单但是要说的东西很多，回头再说写专题吧</p>
+<p>代码示意：</p>
+<p>&lt;ajaxToolkit:UpdatePanelAnimationExtender ID="ae"</p>
+<p>runat="server" TargetControlID="up"&gt;</p>
+<p><Animations></p>
+<p><OnUpdating>  </OnUpdating></p>
+<p><OnUpdated>  </OnUpdated></p>
+<p></Animations></p>
+<p></ajaxToolkit:UpdatePanelAnimationExtender></p>
+<p>27.ToggleButton</p>
+<p>功能：就是把一个CheckBox的逻辑应用到一个按钮上，于是就有了双态按钮这么个玩意，有点意思啊</p>
+<p>闲言少叙，看代码：</p>
+<p><asp:CheckBox ID="CheckBox1" Checked="true" Text="I like ASP.NET"
+runat="server"/></p>
+<p>&lt;cc1:ToggleButtonExtender ID="ToggleButtonExtender1" runat="server"
+TargetControlID="CheckBox1" ImageWidth="19"</p>
+<p>ImageHeight="19" UncheckedImageUrl="Image/down.gif"
+CheckedImageUrl="Image/up.gif" CheckedImageAlternateText="Check"</p>
+<p>UncheckedImageAlternateText="UnCheck" /&gt;</p>
+<p>28.ValidatorCallout</p>
+<p>功能：Windows系统中最常见的气泡提示，比如你磁盘空间不足的时候……</p>
+<p>细节： 是对数据验证控件的扩展，比较新鲜</p>
+<p>代码示意：</p>
+<p><asp:RequiredFieldValidator runat="server" ID="NReq"
+ControlToValidate="NameTextBox" Display="None" ErrorMessage="<b>Required Field
+Missing</b><br />A name is required." /&gt;</p>
+<p><asp:RequiredFieldValidator runat="server" ID="PNReq"
+ControlToValidate="PhoneNumberTextBox" Display="None"
+ErrorMessage="<b>Required Field Missing</b><br />A phone number is
+required.<div style='margin-top:5px;padding:5px;border:1px solid #e9e9e9
+;background-color:white;'><b>Other Options:</b><br /><a
+href='javascript:alert(&quot;not implemented but you get the
+idea;)&quot;);'>Extract from Profile</a></div>" /&gt;</p>
+<p><asp:RegularExpressionValidator runat="server" ID="PNRegEx"
+ControlToValidate="PhoneNumberTextBox" Display="None" ErrorMessage="<b>Invalid
+Field</b><br />Please enter a phone number in the format:<br />(###) ###-####"
+ValidationExpression="(((d{3}) ?)|(d{3}-))?d{3}-d{4}" /&gt;</p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="NReqE" TargetControlID="NReq"
+HighlightCssClass="highlight" /></p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="PNReqE"
+TargetControlID="PNReq" HighlightCssClass="highlight" Width="350px" /></p>
+<p><cc1:ValidatorCalloutExtender runat="Server" ID="PNReqEx"
+TargetControlID="PNRegEx" HighlightCssClass="highlight" /></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'ajaxcontroltoolkit-controls-introduced-reproduced';
+            var disqus_url = '/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

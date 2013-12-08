@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Delphi学习笔记03</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Delphi学习笔记03"/>
+            <meta property="og:url" content="/2009/11/delphi-study-notes-03/"/>
+            <meta property="og:description" content="学习Delphi第三天，早晨起来之后跑去图书馆找了一本书《Delphi开发经验技巧宝典》，翻开这本书发现更适合作为手册查阅，而不是学习教材。最后借了一本《Delphi面向对象程序设计》的教材，属于"21世纪高等学校应用型教材"系列。 今天主要完成了Pascal到Delphi的过度，学习使用集合set、记录record、指针Pointer和简单的可视化编程。 在百度Delphi吧逛时候发现"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2009/11/delphi-study-notes-03/"
+                       rel="bookmark"
+                       title="Permalink to Delphi学习笔记03">
+                        Delphi学习笔记03
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2009-11-29
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag//"></a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>学习Delphi第三天，早晨起来之后跑去图书馆找了一本书《<a href="http://www.china-
+pub.com/36610">Delphi开发经验技巧宝典</a>》，翻开这本书发现更适合作为手册查阅，而不是学习教材。最后借了一本《<a href="http://www
+.china-pub.com/734474">Delphi面向对象程序设计</a>》的教材，属于"21世纪高等学校应用型教材"系列。</p>
+<p>今天主要完成了Pascal到Delphi的过度，学习使用<strong>集合set</strong>、<strong>记录record</strong>、<strong>指针Pointer</strong>和<strong>简单的可视化编程</strong>。</p>
+<p>在百度<a href="http://tieba.baidu.com/f?kw=delphi">Delphi吧</a>逛时候发现<a href="http://passport.ba
+idu.com/?business&amp;un=%CB%F7%D2%FD%D4%BD%BD%E7#0">索引越界</a>居然是Delphi吧主，里面有一篇文章关于<a href="http://tieba.baidu.com/f?kz=84767888">Delphi的编
+码风格</a>，我一会转过来。</p>
+<p>Ps:啊，你不知道索引越界？！那百度贴吧伴侣总应该听过吧，偷偷告诉你，这个软件就是索引越界用Delphi开发的。</p>
+<p>好了，下面是正文，我今天使用的代码，咱们让代码来反应思想吧（其实我是懒得总结每个用法~）。</p>
+<div class="highlight"><pre><span class="n">program</span> <span class="n">P2</span><span class="p">;</span>
+<span class="p">{</span><span class="err">集合、记录、指针学习</span><span class="p">}</span>
+<span class="p">{</span><span class="err">$</span><span class="n">APPTYPE</span> <span class="n">CONSOLE</span><span class="p">}</span>
+</pre></div>
+
+
+<p>uses</p>
+<p>SysUtils;</p>
+<p>{集合set}</p>
+<p>procedure SetTest();</p>
+<p>type</p>
+<p>{定义子集类型,子集类型元素不能超过256}</p>
+<p>TSomeInts = 1..250;</p>
+<p>TIntSet = set of TSomeInts;</p>
+<p>var</p>
+<p>set1, set2 : TIntSet;</p>
+<p>i : integer;</p>
+<p>begin</p>
+<p>set1 := [1, 3, 5, 7, 9];</p>
+<p>set2 := [2, 4, 6, 8, 10];</p>
+<p>{似乎Pascal不能输出Set内元素，书上解释是</p>
+<p>因为Set是无序的，只能使用下列方式来判断。</p>
+<p>使用Low()/Hign()函数获得有序数据类型的边</p>
+<p>界。}</p>
+<p>for i:= Low(TSomeInts) to High(TSomeInts) do</p>
+<p>begin</p>
+<p>{Set有一套操作方法，就是并、交、叉、等于</p>
+<p>、不等于、属于，下面就是用到属于in}</p>
+<p>if i in set1 then Write(i);</p>
+<p>end;</p>
+<p>Writeln;</p>
+<p>end;</p>
+<p>{记录record}</p>
+<p>procedure RecordTest ();</p>
+<p>type</p>
+<p>{这是定义一个记录，类似于结构体}</p>
+<p>TStudent = record</p>
+<p>StNumber : integer;</p>
+<p>StName : string;</p>
+<p>stScore : Real;</p>
+<p>end;</p>
+<p>var</p>
+<p>{其实我对这里的数据初始化不太懂，也许</p>
+<p>是因为受C++/Java影响，我始终觉得应该</p>
+<p>有一个构造过程，不知道这一个构造过程</p>
+<p>是在var实现还是在给成员变量初次赋值实</p>
+<p>现。}</p>
+<p>student1 : TStudent;</p>
+<p>begin</p>
+<p>student1.StNumber := 1000;</p>
+<p>student1.StName := '张三';</p>
+<p>student1.stScore := 85.5;</p>
+<p>Writeln(student1.StName);</p>
+<p>end;</p>
+<p>{指针}</p>
+<p>procedure PointerTest ();</p>
+<p>var</p>
+<p>{定义指针}</p>
+<p>p1, p2 : ^integer;</p>
+<p>x : integer;</p>
+<p>begin</p>
+<p>x := 100;</p>
+<p>{使用@取变量地址}</p>
+<p>p1 := @x;</p>
+<p>Writeln('x = ', x);</p>
+<p>{注意^的使用}</p>
+<p>Writeln('p1^ = ', p1^);</p>
+<p>{使用New()对指针分配内存空间</p>
+<p>ps；Object Pascal有一种Pointer类型，使用GetMem()</p>
+<p>来分配未知大小内存情况，Pointer表示无类型指针。}</p>
+<p>New(p2);</p>
+<p>p2^ := 20;</p>
+<p>Writeln('p2 = ', p2^);</p>
+<p>{使用Dispose()释放内存空间}</p>
+<p>Dispose(p2);</p>
+<p>end;</p>
+<p>begin</p>
+<p>SetTest();</p>
+<p>RecordTest();</p>
+<p>PointerTest ();</p>
+<p>Readln;</p>
+<p>end.</p>
+<p>&amp;nbsp_place_holder;下面是一个学生分数登记系统，用了<code>TEdit/TRadioGroup/TListBox</code>等简单控件。整个项目一共三个文
+件"<code>P3.dpr</code>"、"<code>UScore.dfm</code>"、"<code>UScore.pas</code>"，分别是项目文件、窗体文件、模块文件。下面是对应的代码（我发现Delphi
+7想在代码状态编辑.dpr/.dfm这种文件特别麻烦）。</p>
+<div class="highlight"><pre><span class="n">program</span> <span class="n">P3</span><span class="p">;</span>
+<span class="p">{</span><span class="err">项目文件，也是入口程序，相当于</span><span class="n">C</span><span class="err">#的</span><span class="n">application</span><span class="p">.</span><span class="n">cs</span><span class="p">}</span>
+<span class="n">uses</span>
+  <span class="n">Forms</span><span class="p">,</span>
+  <span class="n">UScore</span> <span class="n">in</span> <span class="err">&#39;</span><span class="n">UScore</span><span class="p">.</span><span class="n">pas</span><span class="err">&#39;</span> <span class="p">{</span><span class="n">FrmScore</span><span class="p">};</span>
+</pre></div>
+
+
+<p>{$R *.res}</p>
+<p>begin</p>
+<p>{Hejlsberg不愧是Delphi/C#之父，如此神似}</p>
+<p>Application.Initialize;</p>
+<p>Application.CreateForm(TFrmScore, FrmScore);</p>
+<p>Application.Run;</p>
+<p>end.</p>
+<p>下面是窗体文件UScore.dfm，注释始终无法加入。</p>
+<div class="highlight"><pre><span class="n">object</span> <span class="n">FrmScore</span><span class="o">:</span> <span class="n">TFrmScore</span>
+  <span class="n">Left</span> <span class="o">=</span> <span class="mi">612</span>
+  <span class="n">Top</span> <span class="o">=</span> <span class="mi">163</span>
+  <span class="n">Width</span> <span class="o">=</span> <span class="mi">315</span>
+  <span class="n">Height</span> <span class="o">=</span> <span class="mi">389</span>
+  <span class="n">Caption</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Student</span> <span class="n">Score</span><span class="err">&#39;</span>
+  <span class="n">Color</span> <span class="o">=</span> <span class="n">clBtnFace</span>
+  <span class="n">Font</span><span class="p">.</span><span class="n">Charset</span> <span class="o">=</span> <span class="n">DEFAULT_CHARSET</span>
+  <span class="n">Font</span><span class="p">.</span><span class="n">Color</span> <span class="o">=</span> <span class="n">clWindowText</span>
+  <span class="n">Font</span><span class="p">.</span><span class="n">Height</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span>
+  <span class="n">Font</span><span class="p">.</span><span class="n">Name</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">MS</span> <span class="n">Sans</span> <span class="n">Serif</span><span class="err">&#39;</span>
+  <span class="n">Font</span><span class="p">.</span><span class="n">Style</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">OldCreateOrder</span> <span class="o">=</span> <span class="n">False</span>
+  <span class="n">PixelsPerInch</span> <span class="o">=</span> <span class="mi">96</span>
+  <span class="n">TextHeight</span> <span class="o">=</span> <span class="mi">13</span>
+  <span class="n">object</span> <span class="n">edtNo</span><span class="o">:</span> <span class="n">TEdit</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">121</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">21</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">edtName</span><span class="o">:</span> <span class="n">TEdit</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">72</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">121</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">21</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">rgSex</span><span class="o">:</span> <span class="n">TRadioGroup</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">176</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">105</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">65</span>
+    <span class="n">Caption</span> <span class="o">=</span> <span class="err">#</span><span class="mi">24615</span><span class="err">#</span><span class="mi">21035</span>
+    <span class="n">ItemIndex</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Items</span><span class="p">.</span><span class="n">Strings</span> <span class="o">=</span> <span class="p">(</span>
+      <span class="err">#</span><span class="mi">30007</span>
+      <span class="err">#</span><span class="mi">22899</span><span class="p">)</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">gbScore</span><span class="o">:</span> <span class="n">TGroupBox</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">112</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">249</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">81</span>
+    <span class="n">Caption</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">gbScore</span><span class="err">&#39;</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">object</span> <span class="n">edtChinese</span><span class="o">:</span> <span class="n">TEdit</span>
+      <span class="n">Left</span> <span class="o">=</span> <span class="mi">16</span>
+      <span class="n">Top</span> <span class="o">=</span> <span class="mi">16</span>
+      <span class="n">Width</span> <span class="o">=</span> <span class="mi">121</span>
+      <span class="n">Height</span> <span class="o">=</span> <span class="mi">21</span>
+      <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">end</span>
+    <span class="n">object</span> <span class="n">edtMath</span><span class="o">:</span> <span class="n">TEdit</span>
+      <span class="n">Left</span> <span class="o">=</span> <span class="mi">16</span>
+      <span class="n">Top</span> <span class="o">=</span> <span class="mi">48</span>
+      <span class="n">Width</span> <span class="o">=</span> <span class="mi">121</span>
+      <span class="n">Height</span> <span class="o">=</span> <span class="mi">21</span>
+      <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">end</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">lbDisplay</span><span class="o">:</span> <span class="n">TListBox</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">32</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">248</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">249</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">105</span>
+    <span class="n">ItemHeight</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">4</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">btnAdd</span><span class="o">:</span> <span class="n">TButton</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">56</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">208</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">75</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">25</span>
+    <span class="n">Caption</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">btnAdd</span><span class="err">&#39;</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">OnClick</span> <span class="o">=</span> <span class="n">btnAddClick</span>
+  <span class="n">end</span>
+  <span class="n">object</span> <span class="n">btnDisplay</span><span class="o">:</span> <span class="n">TButton</span>
+    <span class="n">Left</span> <span class="o">=</span> <span class="mi">168</span>
+    <span class="n">Top</span> <span class="o">=</span> <span class="mi">208</span>
+    <span class="n">Width</span> <span class="o">=</span> <span class="mi">75</span>
+    <span class="n">Height</span> <span class="o">=</span> <span class="mi">25</span>
+    <span class="n">Caption</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">btnDisplay</span><span class="err">&#39;</span>
+    <span class="n">TabOrder</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">OnClick</span> <span class="o">=</span> <span class="n">btnDisplayClick</span>
+  <span class="n">end</span>
+<span class="n">end</span>
+
+
+<span class="n">unit</span> <span class="n">UScore</span><span class="p">;</span>
+<span class="p">{</span><span class="n">UScore</span><span class="p">.</span><span class="n">pas</span><span class="err">，一个模块文件</span><span class="p">}</span>
+</pre></div>
+
+
+<p>interface</p>
+<p>uses</p>
+<p>Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,</p>
+<p>Dialogs, StdCtrls, ExtCtrls;</p>
+<p>type</p>
+<p>TFrmScore = class(TForm)</p>
+<p>edtNo: TEdit;</p>
+<p>edtName: TEdit;</p>
+<p>rgSex: TRadioGroup;</p>
+<p>gbScore: TGroupBox;</p>
+<p>edtChinese: TEdit;</p>
+<p>edtMath: TEdit;</p>
+<p>lbDisplay: TListBox;</p>
+<p>btnAdd: TButton;</p>
+<p>btnDisplay: TButton;</p>
+<p>procedure btnAddClick(Sender: TObject);</p>
+<p>procedure btnDisplayClick(Sender: TObject);</p>
+<p>private</p>
+<p>{ Private declarations }</p>
+<p>public</p>
+<p>{ Public declarations }</p>
+<p>end;</p>
+<p>{定义一个Student类型记录}</p>
+<p>Student = record</p>
+<p>stuNo : string[8];</p>
+<p>name : String[8];</p>
+<p>sex : String[2];</p>
+<p>chinese, math : integer;</p>
+<p>end;</p>
+<p>var</p>
+<p>frmScore: TFrmScore;</p>
+<p>{定义Student类型动态数组}</p>
+<p>stus : array of Student;</p>
+<p>{我没找到这个count初始化为0，应该是自动初始化为0了}</p>
+<p>count : integer;</p>
+<p>{不知道书上原始代码定义这个file干嘛，莫非想写入文件？}</p>
+<p>f : file of Student;</p>
+<p>implementation</p>
+<p>{$R *.dfm}</p>
+<p>procedure TFrmScore.btnAddClick(Sender: TObject);</p>
+<p>begin</p>
+<p>count := count + 1;</p>
+<p>SetLength(stus, count);</p>
+<p>{这里使用了with开域语句，省去重复输入stus}</p>
+<p>with stus[count - 1] do</p>
+<p>begin</p>
+<p>stuNo := edtNo.Text;</p>
+<p>name := edtName.Text;</p>
+<p>if rgSex.ItemIndex = 0 then</p>
+<p>sex := '男'</p>
+<p>else</p>
+<p>sex := '女';</p>
+<p>chinese := StrToInt(edtChinese.Text);</p>
+<p>math := StrToInt(edtMath.Text);</p>
+<p>end;</p>
+<p>ShowMessage('第' + IntToStr(count) +'条记录添加完毕。');</p>
+<p>{直接调用DisplayClick，使用Sender作为触发源}</p>
+<p>btnDisplayClick(Sender);</p>
+<p>end;</p>
+<p>procedure TFrmScore.btnDisplayClick(Sender: TObject);</p>
+<p>var</p>
+<p>i : integer;</p>
+<p>s : string;</p>
+<p>begin</p>
+<p>{ListBox增加Item}</p>
+<p>lbDisplay.Items.Clear();</p>
+<p>for i := Low(stus) to High(stus) do</p>
+<p>begin</p>
+<p>s := stus[i].stuNo + ', ' + stus[i].name + ', ' +</p>
+<p>stus[i].sex + IntToStr(stus[i].chinese) + ', ' +</p>
+<p>IntToStr(stus[i].math);</p>
+<p>lbDisplay.Items.Add(s);</p>
+<p>end;</p>
+<p>end;</p>
+<p>end.</p>
+<p>这个分数记录系统的作用仅仅是为了熟悉Delphi可视化开发，没有任何可实用价值，Google过来的同学估计要哭了，哈哈~</p>
+<p>明天开始要准备Object Pascal的内容，再加强控件的认识和使用。</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'delphi-study-notes-03';
+            var disqus_url = '/2009/11/delphi-study-notes-03/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

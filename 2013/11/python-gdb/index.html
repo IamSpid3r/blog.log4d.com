@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>在 Python 中使用 GDB 来调试[译文]</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="在 Python 中使用 GDB 来调试[译文]"/>
+            <meta property="og:url" content="/2013/11/python-gdb/"/>
+            <meta property="og:description" content="大约一年前，我接触了 Java 中的 Btrace 能够不停机查看线上 JVM 运行情况的特性让我艳羡不已。 另外还有强悍的 jStack 和 jConsole 来进行运行期侦测，JVM 的工业级强度果然不是盖的。 当时公司技术方面也遇到了一些瓶颈，一部分原因是 CPython 本身的 IO 模型问题， 另一方面也和早期代码写的极不工整脱不了关系。万般无奈之下，我们用 Jython 推翻重做了主要业务，效果立竿见影，但同时也把真实问题给规避掉了。 在这之后我们在 JVM 的领导下，走上了康庄大道。但我心中始终还有一个梗， 就是想对性能遇到瓶颈的 Python Process 进行线上侦测。 这篇文章就是开始的第一步。 PS:这篇文章理论上是可行的，但是在我机器（Ubuntu 12.04 / 系统自带 Python） 无法正常执行，会爆出 unable to read python frame information 的问题。解决方法我会在下篇文章中写出。这里只是单纯翻译一下原文。 原文可以移步 https://wiki.python.org/moin/DebuggingWithGdb。"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2013/11/python-gdb/"
+                       rel="bookmark"
+                       title="Permalink to 在 Python 中使用 GDB 来调试[译文]">
+                        在 Python 中使用 GDB 来调试[译文]
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2013-11-01
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/gdb/">GDB</a>
+        /
+	<a href="/tag/yi-wen/">译文</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>大约一年前，我接触了 Java 中的 <a href="http://kenai.com/projects/btrace">Btrace</a>
+能够不停机查看线上 JVM 运行情况的特性让我艳羡不已。
+另外还有强悍的 jStack 和 jConsole 来进行运行期侦测，JVM 的工业级强度果然不是盖的。</p>
+<p>当时公司技术方面也遇到了一些瓶颈，一部分原因是 CPython 本身的 IO 模型问题，
+另一方面也和早期代码写的极不工整脱不了关系。万般无奈之下，我们用
+Jython 推翻重做了主要业务，效果立竿见影，但同时也把真实问题给规避掉了。</p>
+<p>在这之后我们在 JVM 的领导下，走上了康庄大道。但我心中始终还有一个梗，
+就是想对性能遇到瓶颈的 Python Process 进行线上侦测。
+这篇文章就是开始的第一步。</p>
+<p>PS:这篇文章理论上是可行的，但是在我机器（Ubuntu 12.04 / 系统自带 Python）
+无法正常执行，会爆出 <code>unable to read python frame information</code>
+的问题。解决方法我会在下篇文章中写出。这里只是单纯翻译一下原文。</p>
+<p>原文可以移步 <a href="https://wiki.python.org/moin/DebuggingWithGdb">https://wiki.python.org/moin/DebuggingWithGdb</a>。</p>
+
+
+<hr />
+<p>有一些类型的 bugs 很难使用 Python 直接进行 debug，比如</p>
+<ul>
+<li>段错误（无法被捕捉的 Python 异常）</li>
+<li>卡住的进程（这种情况下面没法使用 <code>pdb</code> 来进行跟踪）</li>
+<li>控制之外的后台处理 daemon 进程</li>
+</ul>
+<p>这些情况下，你可以使用尝试使用 <code>gdb</code>。</p>
+<h2>准备</h2>
+<p>需要在系统安装 <code>gdb</code> 和 Python debug 扩展。
+Python debug 扩展包含了一些 debug 命令，并且添加了一些 Python 特定的命令到 <code>gdb</code>。
+在主流的 Linux 发行版中，你可以轻松的安装他们：</p>
+<p>Fedora:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">gdb</span> <span class="n">python</span><span class="o">-</span><span class="n">debuginfo</span>
+</pre></div>
+
+
+<p>Ubunt:</p>
+<div class="highlight"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gdb</span> <span class="n">python2</span><span class="mf">.7</span><span class="o">-</span><span class="n">dbg</span>
+</pre></div>
+
+
+<p>在一些老系统上面，也一样可以使用 <code>gdb</code>，具体看文章末尾。</p>
+<h2>使用 <code>GDB</code></h2>
+<p>有两种可行的方法：</p>
+<ol>
+<li>一开始就使用 <code>gdb</code> 来启动应用</li>
+<li>连接到一个已经运行的 Python 进程</li>
+</ol>
+<p>在 <code>gdb</code> 下面启动 Python 同样有两种方式：</p>
+<p>交互式：</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="nx">gdb</span> <span class="nx">python</span>
+<span class="nx">...</span>
+<span class="p">(</span><span class="nx">gdb</span><span class="p">)</span> <span class="nb">run</span> <span class="o">&lt;</span><span class="nx">programname</span><span class="o">&gt;</span><span class="bp">.</span><span class="nx">py</span> <span class="o">&lt;</span><span class="nb">arguments</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>自动：</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="nx">gdb</span> <span class="na">-ex</span> <span class="nb">r</span> <span class="o">--</span><span class="nx">args</span> <span class="nx">python</span> <span class="o">&lt;</span><span class="nx">programname</span><span class="o">&gt;</span><span class="bp">.</span><span class="nx">py</span> <span class="o">&lt;</span><span class="nb">arguments</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>这样的话，它会一直运行直到退出、段错误、或者人为的停止（使用 <code>Ctrl+C</code>）。</p>
+<p>如果进程已经开始运行，你可以通过 PID 来接入它：</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">gdb</span> <span class="n">python</span> <span class="o">&lt;</span><span class="n">pid</span> <span class="n">of</span> <span class="n">running</span> <span class="n">process</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<h2>调试进程</h2>
+<p>如果你的程序段错误了， <code>gdb</code> 会自动暂停程序，这样你可以切换到 <code>gdb</code>
+命令行来检查状态。你也可以人为地使用 <code>Ctrl+C</code> 来暂停程序运行。</p>
+<p>查看 <a href="https://fedoraproject.org/wiki/Features/EasierPythonDebugging">EasierPythonDebugging</a>
+获得 <code>gdb</code> 里面的 Python 命令列表。</p>
+<h2>查看 C 调用栈</h2>
+<p>如果你在 debug 段错误，你最想做的可能就是查看 C 调用栈。</p>
+<p>在 <code>gdb</code> 的命令行里面，只要运行一下命令：</p>
+<div class="highlight"><pre><span class="p">(</span><span class="nx">gdb</span><span class="p">)</span> <span class="nx">bt</span>
+<span class="err">#</span><span class="mi">0</span>  <span class="mh">0x0000002a95b3b705</span> <span class="k">in</span> <span class="nx">raise</span> <span class="p">()</span> <span class="nx">from</span> <span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">libc</span><span class="p">.</span><span class="nx">so</span><span class="p">.</span><span class="mi">6</span>
+<span class="err">#</span><span class="mi">1</span>  <span class="mh">0x0000002a95b3ce8e</span> <span class="k">in</span> <span class="nx">abort</span> <span class="p">()</span> <span class="nx">from</span> <span class="o">/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">libc</span><span class="p">.</span><span class="nx">so</span><span class="p">.</span><span class="mi">6</span>
+<span class="err">#</span><span class="mi">2</span>  <span class="mh">0x00000000004c164f</span> <span class="k">in</span> <span class="nx">posix_abort</span> <span class="p">(</span><span class="nx">self</span><span class="o">=</span><span class="mh">0x0</span><span class="p">,</span> <span class="nx">noargs</span><span class="o">=</span><span class="mh">0x0</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="p">..</span><span class="o">/</span><span class="nx">Modules</span><span class="o">/</span><span class="nx">posixmodule</span><span class="p">.</span><span class="nx">c</span><span class="o">:</span><span class="mi">7158</span>
+<span class="err">#</span><span class="mi">3</span>  <span class="mh">0x0000000000489fac</span> <span class="k">in</span> <span class="nx">call_function</span> <span class="p">(</span><span class="nx">pp_stack</span><span class="o">=</span><span class="mh">0x7fbffff110</span><span class="p">,</span> <span class="nx">oparg</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="p">..</span><span class="o">/</span><span class="nx">Python</span><span class="o">/</span><span class="nx">ceval</span><span class="p">.</span><span class="nx">c</span><span class="o">:</span><span class="mi">3531</span>
+<span class="err">#</span><span class="mi">4</span>  <span class="mh">0x0000000000485fc2</span> <span class="k">in</span> <span class="nx">PyEval_EvalFrame</span> <span class="p">(</span><span class="nx">f</span><span class="o">=</span><span class="mh">0x66ccd8</span><span class="p">)</span>
+    <span class="nx">at</span> <span class="p">..</span><span class="o">/</span><span class="nx">Python</span><span class="o">/</span><span class="nx">ceval</span><span class="p">.</span><span class="nx">c</span><span class="o">:</span><span class="mi">2163</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>运气好的话，你可以直接看到问题出现在什么地方。如果它提供的信息不能直接帮你解决问题，
+你可以尝试继续追踪调用栈。
+调式的结果取决于 debug 信息的有效程度。</p>
+<h2>查看 Python 调用栈</h2>
+<p>如果你安装了 Python 扩展，你可以使用</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">py</span><span class="o">-</span><span class="n">bt</span>
+</pre></div>
+
+
+<p>可以获取熟悉的 Python 源代码。</p>
+<h2>对挂住的进程开刀</h2>
+<p>如果一个进程看上去挂住了，他可能在等待什么东西（比如锁、IO 等等）。
+也有可能在拼命的跑循环。连接上这个进程，然后检查调用栈也许可以帮上忙。</p>
+<p>如果进程在疯狂循环，你可以先让它运行一会，使用 <code>cont</code> 命令，
+然后使用 <code>Ctrl+C</code> 来暂停，并且打印出调用栈。</p>
+<p>如果一些线程卡住了，下面的命令可能会帮上忙：</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">info</span> <span class="n">threads</span>
+  <span class="n">Id</span>   <span class="n">Target</span> <span class="n">Id</span>         <span class="n">Frame</span>
+  <span class="mi">37</span>   <span class="n">Thread</span> <span class="mh">0xa29feb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17914</span><span class="p">)</span> <span class="s">&quot;NotificationThr&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">36</span>   <span class="n">Thread</span> <span class="mh">0xa03fcb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17913</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">35</span>   <span class="n">Thread</span> <span class="mh">0xa0bfdb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17911</span><span class="p">)</span> <span class="s">&quot;QProcessManager&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">34</span>   <span class="n">Thread</span> <span class="mh">0xa13feb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17910</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">33</span>   <span class="n">Thread</span> <span class="mh">0xa1bffb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17909</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">31</span>   <span class="n">Thread</span> <span class="mh">0xa31ffb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17907</span><span class="p">)</span> <span class="s">&quot;QFileInfoGather&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">30</span>   <span class="n">Thread</span> <span class="mh">0xa3fdfb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17906</span><span class="p">)</span> <span class="s">&quot;QInotifyFileSys&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">29</span>   <span class="n">Thread</span> <span class="mh">0xa481cb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17905</span><span class="p">)</span> <span class="s">&quot;QFileInfoGather&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">7</span>    <span class="n">Thread</span> <span class="mh">0xa508db40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17883</span><span class="p">)</span> <span class="s">&quot;QThread&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">6</span>    <span class="n">Thread</span> <span class="mh">0xa5cebb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17882</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">5</span>    <span class="n">Thread</span> <span class="mh">0xa660cb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17881</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">3</span>    <span class="n">Thread</span> <span class="mh">0xabdffb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17876</span><span class="p">)</span> <span class="s">&quot;gdbus&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+  <span class="mi">2</span>    <span class="n">Thread</span> <span class="mh">0xac7b7b40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17875</span><span class="p">)</span> <span class="s">&quot;dconf worker&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+<span class="o">*</span> <span class="mi">1</span>    <span class="n">Thread</span> <span class="mh">0xb7d876c0</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17863</span><span class="p">)</span> <span class="s">&quot;python2.7&quot;</span> <span class="mh">0xb7fdd424</span> <span class="n">in</span> <span class="n">__kernel_vsyscall</span> <span class="p">()</span>
+</pre></div>
+
+
+<p>当前运行的线程被标记为 <code>*</code>，要查看 Python 代码运行到哪里，使用 <code>py-list</code> 查看：</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">py</span><span class="o">-</span><span class="n">list</span>
+<span class="mi">2025</span>        <span class="err">#</span> <span class="n">Open</span> <span class="n">external</span> <span class="n">files</span> <span class="n">with</span> <span class="n">our</span> <span class="n">Mac</span> <span class="n">app</span>
+<span class="mi">2026</span>        <span class="k">if</span> <span class="n">sys</span><span class="p">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s">&quot;darwin&quot;</span> <span class="n">and</span> <span class="err">&#39;</span><span class="n">Spyder</span><span class="p">.</span><span class="n">app</span><span class="err">&#39;</span> <span class="n">in</span> <span class="n">__file__</span><span class="o">:</span>
+<span class="mi">2027</span>            <span class="n">main</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="err">&#39;</span><span class="n">open_external_file</span><span class="p">(</span><span class="n">QString</span><span class="p">)</span><span class="err">&#39;</span><span class="p">),</span>
+<span class="mi">2028</span>                         <span class="n">lambda</span> <span class="n">fname</span><span class="o">:</span> <span class="n">main</span><span class="p">.</span><span class="n">open_external_file</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+<span class="mi">2029</span>
+<span class="o">&gt;</span><span class="mi">2030</span>        <span class="n">app</span><span class="p">.</span><span class="n">exec_</span><span class="p">()</span>
+<span class="mi">2031</span>        <span class="k">return</span> <span class="n">main</span>
+<span class="mi">2032</span>
+<span class="mi">2033</span>
+<span class="mi">2034</span>    <span class="n">def</span> <span class="n">__remove_temp_session</span><span class="p">()</span><span class="o">:</span>
+<span class="mi">2035</span>        <span class="k">if</span> <span class="n">osp</span><span class="p">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">TEMP_SESSION_PATH</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+
+
+<p>查看所有进程的 Python 代码位置，可以使用：</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="kr">thread</span> <span class="n">apply</span> <span class="n">all</span> <span class="n">py</span><span class="o">-</span><span class="n">list</span>
+<span class="p">...</span>
+ <span class="mi">200</span>
+ <span class="mi">201</span>        <span class="n">def</span> <span class="n">accept</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+<span class="o">&gt;</span><span class="mi">202</span>            <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_sock</span><span class="p">.</span><span class="n">accept</span><span class="p">()</span>
+ <span class="mi">203</span>            <span class="k">return</span> <span class="n">_socketobject</span><span class="p">(</span><span class="n">_sock</span><span class="o">=</span><span class="n">sock</span><span class="p">),</span> <span class="n">addr</span>
+ <span class="mi">204</span>        <span class="n">accept</span><span class="p">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">_realsocket</span><span class="p">.</span><span class="n">accept</span><span class="p">.</span><span class="n">__doc__</span>
+ <span class="mi">205</span>
+ <span class="mi">206</span>        <span class="n">def</span> <span class="n">dup</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+ <span class="mi">207</span>            <span class="s">&quot;&quot;&quot;dup() -&gt; socket object</span>
+
+<span class="n">Thread</span> <span class="mi">35</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0xa0bfdb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17911</span><span class="p">))</span><span class="o">:</span>
+<span class="n">Unable</span> <span class="n">to</span> <span class="n">locate</span> <span class="n">python</span> <span class="n">frame</span>
+
+<span class="n">Thread</span> <span class="mi">34</span> <span class="p">(</span><span class="n">Thread</span> <span class="mh">0xa13feb40</span> <span class="p">(</span><span class="n">LWP</span> <span class="mi">17910</span><span class="p">))</span><span class="o">:</span>
+ <span class="mi">197</span>            <span class="k">for</span> <span class="n">method</span> <span class="n">in</span> <span class="n">_delegate_methods</span><span class="o">:</span>
+ <span class="mi">198</span>                <span class="n">setattr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">dummy</span><span class="p">)</span>
+ <span class="mi">199</span>        <span class="n">close</span><span class="p">.</span><span class="n">__doc__</span> <span class="o">=</span> <span class="n">_realsocket</span><span class="p">.</span><span class="n">close</span><span class="p">.</span><span class="n">__doc__</span>
+ <span class="mi">200</span>
+ <span class="mi">201</span>        <span class="n">def</span> <span class="n">accept</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+<span class="o">&gt;</span><span class="mi">202</span>            <span class="n">sock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_sock</span><span class="p">.</span><span class="n">accept</span><span class="p">()</span>
+ <span class="mi">203</span>            <span class="k">return</span> <span class="n">_socketobject</span><span class="p">(</span><span class="n">_sock</span><span class="o">=</span><span class="n">sock</span><span class="p">),</span> <span class="n">addr</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<h2>引用</h2>
+<ul>
+<li><a href="http://fedoraproject.org/wiki/Features/EasierPythonDebugging">http://fedoraproject.org/wiki/Features/EasierPythonDebugging</a></li>
+<li><a href="https://code.google.com/p/spyderlib/wiki/HowToDebugDeadlock">https://code.google.com/p/spyderlib/wiki/HowToDebugDeadlock</a></li>
+</ul>
+<h2>老系统上的 GDB</h2>
+<p>有时候你需要在老系统上面安装 <code>gdb</code>，这时候你可能需要下列信息：</p>
+<h3>GDB Macros</h3>
+<p>一些随着 Python 发布的 GDB 脚本可以用来调试 Python 进程。
+你可以把 Python 源码里面的 <code>Misc/gdbinit</code>  拷贝到 <code>~/.gdbinit</code>，
+或者从 <a href="http://svn.python.org/view/python/branches/release27-maint/Misc/gdbinit?view=log">Subversion</a>
+来拷贝他们。请注意你的 Python，确保使用正确的代码版本，否则有些功能可能无法工作。</p>
+<p>请注意有些新的 GDB 命令只有在 debug 需要的库存在才能正常工作。</p>
+<p>这个脚本在 Ubuntu 上面的 gcc 4.5.2 工作时，会爆出错误
+<code>No symbol "co" in current context.</code>，是因为 <code>call_function</code> 在
+<a href="https://wiki.python.org/moin/EvalFrameEx">PyEval_EvalFrameEx</a> 和
+<a href="https://wiki.python.org/moin/EvalCodeEx">PyEval_EvalCodeEx</a> 之间。
+重新使用 <code>make "CFLAGS=-g -fno-inline -fno-strict-aliasing"</code>
+编译 Python 可以解决这个问题。</p>
+<h3>使用 Python Stack Traces GDB 脚本</h3>
+<p>在 gdb 命令行里，可以这样查看 Python stack trace:</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">pystack</span>
+</pre></div>
+
+
+<p>同样的，可以获取一列 stack frame 的 Python 变量：</p>
+<div class="highlight"><pre><span class="p">(</span><span class="n">gdb</span><span class="p">)</span> <span class="n">pystackv</span>
+</pre></div>
+
+
+<p>更多 gdbinit 里面没定义的有用的脚本可以在这里找到：</p>
+<p><a href="http://web.archive.org/web/20070915134837/http://www.mashebali.com/?Python_GDB_macros:The_Macros">http://web.archive.org/web/20070915134837/http://www.mashebali.com/?Python_GDB_macros:The_Macros</a></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'python-gdb';
+            var disqus_url = '/2013/11/python-gdb/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

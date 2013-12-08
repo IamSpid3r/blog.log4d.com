@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Flotr2 - 我最喜欢的 Javascript 图形库[译文]</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Flotr2 - 我最喜欢的 Javascript 图形库[译文]"/>
+            <meta property="og:url" content="/2012/06/flotr2/"/>
+            <meta property="og:description" content="原文地址：Flotr2 - my favorite javascript graph library 译者：alswl 我研究了很久，得到的终极数据可视化方案是 javascript + html ，这是唯一像样又好用的。 Gnuplot 虽然看上去不错，但是不太漂亮。 一些基于 Python 的图形化工具也有同样的问题。 Mathematica 在我看来则太正式了，所以我不怎么用它。 基于 javascript 的图形化工具其中一个巨大优势是易于共享。 通过设置 Github Page、分享链接等方法，我们都可以很方便的获取最新图表数据， 甚至可以进行交互。 那些基于 javascript 的图形化工具 有很多 javascript 图形化库，从极简到复杂绚丽的风格，都极为丰富。 最流行的可能就是 d3.js 和 Raphael 了。 他们用起来相当麻烦，但却能实现绚丽到超越你想象的可视化效果。"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2012/06/flotr2/"
+                       rel="bookmark"
+                       title="Permalink to Flotr2 - 我最喜欢的 Javascript 图形库[译文]">
+                        Flotr2 - 我最喜欢的 Javascript 图形库[译文]
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2012-06-19
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/d3js/">D3.js</a>
+        /
+	<a href="/tag/raphael/">Raphael</a>
+        /
+	<a href="/tag/flotr2/">Flotr2</a>
+        /
+	<a href="/tag/yi-wen/">译文</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>原文地址：<a href="http://swizec.com/blog/flotr2-my-favorite-javascript-graph-library">Flotr2 - my favorite javascript graph library</a></p>
+<p>译者：<a href="http://log4d.com/2012/06/flotr2/">alswl</a></p>
+<hr />
+<p>我研究了很久，得到的终极数据可视化方案是 javascript + html ，这是唯一像样又好用的。</p>
+<p><a href="http://www.gnuplot.info/">Gnuplot</a> 虽然看上去不错，但是不太漂亮。
+一些基于 Python 的图形化工具也有同样的问题。
+<a href="http://www.wolfram.com/products/mathematica/">Mathematica</a> 在我看来则太正式了，所以我不怎么用它。</p>
+<p>基于 javascript 的图形化工具其中一个巨大优势是易于共享。
+通过设置 Github Page、分享链接等方法，我们都可以很方便的获取最新图表数据，
+甚至可以进行交互。</p>
+<h2>那些基于 javascript 的图形化工具</h2>
+<p>有很多 javascript 图形化库，从极简到复杂绚丽的风格，都极为丰富。</p>
+<p>最流行的可能就是 <a href="http://d3js.org/">d3.js</a> 和 <a href="http://raphaeljs.com/">Raphael</a> 了。
+他们用起来<em>相当</em>麻烦，但却能实现绚丽到超越你想象的可视化效果。</p>
+
+
+<p>Raphael 还一个 web 矢量库，外观同样很漂亮。</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d"><img alt="An analytics graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d" /></a></p>
+<p>Raphael 中的分析图表</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d"><img alt="Bubble graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d" /></a></p>
+<p>Raphael 中的气泡图</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d"><img alt="A clock made with Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d" /></a></p>
+<p>Raphael 中的钟表时间图</p>
+<p>D3.js 的愿景是帮助人们轻松的完成数据可视化，可惜事与愿违，
+它弄得太复杂了。</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d"><img alt="HN top titles visualisation in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d" /></a></p>
+<p>Hacker News 文章标题的可视化数据</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d"><img alt="House hunting in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d" /></a></p>
+<p>用 d3.js 绘制购房信息</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d"><img alt="Scatterplots made with d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d" /></a></p>
+<p>用 d3.js 制作的散布图</p>
+<h2>Flotr2</h2>
+<p>这些可视化工具，虽然看上去很华丽，但是<em>难以</em>使用。
+他们会很浪费时间，让人捣鼓到最后却发现什么都没弄出来。
+大部分 Raphael 和 d3 的功能矫正过枉了，有时我们只想要一个简单的绘图工具而已。</p>
+<p>为了将<a href="http://swizec.com/blog/a-year-of-750words-com-with-shiny-graphs/swizec/4378">我去年的 750 个关键字</a>数据可视化，我使用了 <a href="http://humblesoftware.com/flotr2/">Flotr2</a>。
+只花费我数分钟，就能通过操作 javascript 将数据转化成 Flotr2 能理解的函数，
+然后 Flotr2 就将数据转化成漂亮的图表。</p>
+<p>Flotr2 最大的优点是他没有过度设计，当你只想要一个简单图表时候，
+它不会让你去操作过多东西。</p>
+<p>往往只需要你设定必要的数据和一两个标签，比如：</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">draw_time</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">title</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span>
+    <span class="nx">start</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">DATA</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">date</span><span class="p">).</span><span class="nx">getTime</span><span class="p">(),</span>
+    <span class="nx">options</span><span class="p">,</span>
+    <span class="nx">graph</span><span class="p">,</span>
+    <span class="nx">i</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">o</span><span class="p">;</span>
+
+    <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">xaxis</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="nx">mode</span> <span class="o">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span>
+            <span class="nx">labelsAngle</span> <span class="o">:</span> <span class="mi">45</span>
+        <span class="p">},</span>
+        <span class="nx">selection</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="nx">mode</span> <span class="o">:</span> <span class="s1">&#39;x&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">legend</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;se&#39;</span>
+        <span class="p">},</span>
+        <span class="nx">HtmlText</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nx">title</span> <span class="o">:</span> <span class="nx">title</span>
+    <span class="p">};</span>
+
+    <span class="c1">// Draw graph with default options, overwriting with passed options</span>
+    <span class="kd">function</span> <span class="nx">drawGraph</span> <span class="p">(</span><span class="nx">opts</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="c1">// Clone the options, so the &#39;options&#39; variable always keeps intact.</span>
+        <span class="nx">o</span> <span class="o">=</span> <span class="nx">Flotr</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">Flotr</span><span class="p">.</span><span class="nx">_</span><span class="p">.</span><span class="nx">clone</span><span class="p">(</span><span class="nx">options</span><span class="p">),</span> <span class="nx">opts</span> <span class="o">||</span> <span class="p">{});</span>
+
+        <span class="c1">// Return a new graph.</span>
+        <span class="k">return</span> <span class="nx">Flotr</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span>
+            <span class="nx">container</span><span class="p">,</span>
+            <span class="nx">data</span><span class="p">,</span>
+            <span class="nx">options</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">graph</span> <span class="o">=</span> <span class="nx">drawGraph</span><span class="p">();</span>
+
+    <span class="nx">Flotr</span><span class="p">.</span><span class="nx">EventAdapter</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="s1">&#39;flotr:select&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">area</span><span class="p">){</span>
+        <span class="c1">// Draw selected area</span>
+        <span class="nx">graph</span> <span class="o">=</span> <span class="nx">drawGraph</span><span class="p">({</span>
+            <span class="nx">xaxis</span> <span class="o">:</span> <span class="p">{</span> <span class="nx">min</span> <span class="o">:</span> <span class="nx">area</span><span class="p">.</span><span class="nx">x1</span><span class="p">,</span> <span class="nx">max</span> <span class="o">:</span> <span class="nx">area</span><span class="p">.</span><span class="nx">x2</span><span class="p">,</span> <span class="nx">mode</span> <span class="o">:</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="nx">labelsAngle</span> <span class="o">:</span> <span class="mi">45</span> <span class="p">},</span>
+            <span class="nx">yaxis</span> <span class="o">:</span> <span class="p">{</span> <span class="nx">min</span> <span class="o">:</span> <span class="nx">area</span><span class="p">.</span><span class="nx">y1</span><span class="p">,</span> <span class="nx">max</span> <span class="o">:</span> <span class="nx">area</span><span class="p">.</span><span class="nx">y2</span> <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="c1">// When graph is clicked, draw the graph with default area.</span>
+    <span class="nx">Flotr</span><span class="p">.</span><span class="nx">EventAdapter</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">container</span><span class="p">,</span> <span class="s1">&#39;flotr:click&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">graph</span> <span class="o">=</span> <span class="nx">drawGraph</span><span class="p">();});</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>然后你就能获得下面这张图表：</p>
+<p><a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d"><img alt="A graph in Flotr2" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d" /></a></p>
+<p>好用吧。</p>
+<p>看上去蛮漂亮，符合它简洁易用的特点。</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'flotr2';
+            var disqus_url = '/2012/06/flotr2/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

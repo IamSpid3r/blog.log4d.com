@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>CakePHP的全局变量</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="CakePHP的全局变量"/>
+            <meta property="og:url" content="/2010/05/cakephp-global-variables/"/>
+            <meta property="og:description" content="毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。 忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application 和全局变量其实完全不是同一个概念） 我使用的框架是CakePHP，查找资料后，找到了几种CakePHP中使用全局变量的方法。 一、使用bootstrap.php文件 在app/config 下面，有一个bootstrap文件，从名字就可以看出，这个是在控制器之前加载的文件，根据官方的描述，有下面几个用法。 定义方便的函数 注册全局常量 定义新增的控制器，视图，控制器路径 通过这个文件可以实现全局变量的声明。 if (!isset ($globalAAC)) { global $globalAAC; $globalAAC = array ( 'currentMessageId' => -1, 'onlineUsers' => array() ); } 在其他文件中就可以调用这个全局变量了。 二、通过Configure 类 Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ..."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2010/05/cakephp-global-variables/"
+                       rel="bookmark"
+                       title="Permalink to CakePHP的全局变量">
+                        CakePHP的全局变量
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2010-05-17
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/azaajaxchat/">AzaAjaxChat</a>
+        /
+	<a href="/tag/cakephp/">CakePHP</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
+<p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
+和全局变量其实完全不是同一个概念）</p>
+<p>我使用的框架是CakePHP，查找资料后，找到了几种CakePHP中使用全局变量的方法。</p>
+<h3>一、使用bootstrap.php文件</h3>
+<p>在app/config 下面，有一个bootstrap文件，从名字就可以看出，这个是在控制器之前加载的文件，根据官方的描述，有下面几个用法。</p>
+<blockquote>
+<ul>
+<li>
+<p>定义方便的函数</p>
+</li>
+<li>
+<p>注册全局常量</p>
+</li>
+<li>
+<p>定义新增的控制器，视图，控制器路径</p>
+</li>
+</ul>
+</blockquote>
+<p>通过这个文件可以实现全局变量的声明。</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isset</span> <span class="p">(</span><span class="err">$</span><span class="n">globalAAC</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">global</span> <span class="err">$</span><span class="n">globalAAC</span><span class="p">;</span>
+    <span class="err">$</span><span class="n">globalAAC</span> <span class="o">=</span> <span class="n">array</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">currentMessageId</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">onlineUsers</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="n">array</span><span class="p">()</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>在其他文件中就可以调用这个全局变量了。</p>
+<h3>二、通过Configure 类</h3>
+<p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法，也能实现全局变量的读写操作。</p>
+<div class="highlight"><pre><span class="n">Configure</span><span class="o">::</span><span class="n">write</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Aac</span><span class="p">.</span><span class="n">currentMessageId</span><span class="err">&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Configure</span><span class="o">::</span><span class="n">read</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Aac</span><span class="p">.</span><span class="n">currentMessageId</span><span class="err">&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>其中，还有一个使用Configure的偏门方法，我从 <a href="http://debuggable.com/posts/need-to-share-global-
+variables-throughout-your-app:480f4dd5-6f64-4c88-812d-46d5cbdd56cb">Need to share global variables throughout your
+app? » Debuggable Ltd</a> 看到的。</p>
+<div class="highlight"><pre><span class="err">$</span><span class="n">config</span> <span class="o">=&amp;</span> <span class="n">Configure</span><span class="o">::</span><span class="n">getInstance</span><span class="p">();</span>
+<span class="err">$</span><span class="n">config</span><span class="o">-&gt;</span><span class="n">myVariable</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Hello</span> <span class="n">World</span><span class="err">&#39;</span><span class="p">;</span>
+</pre></div>
+
+
+<p>$config =&amp; Configure::getInstance();</p>
+<p>debug($config-&gt;myVariable);</p>
+<p>其实就是通过引用操作Configure 类内部的getInstance() 方法，看源码就能看出来。</p>
+<h3>三、关于类似Application 对象的全局变量</h3>
+<p>以上两种方法都没错，都可以操作全局变量，但是我却都操作失败了，为此我折腾了整整一天。</p>
+<p>我甚至一度把错误归结到CakePHP，后来才发现，原来我冤枉它了。问题的根本是在于，这个全局变量根本不是我所想的那个Application 对象。</p>
+<p>什么是Application 对象？Application 对象用于存储和访问来自任何页面的变量，类似于 session
+对象。不同之处在于，所有的用户分享一个 Application 对象，而 session 对象和用户的关系是一一对应的。</p>
+<p>在翻阅PHP资料之后，我终于在ChinaUNIX找到一些蛛丝马迹 <a href="http://bbs.chinaunix.net/viewthread.php?tid=79537">全局变量，在多个页面的可以使用吗？ - Php -
+ChinaUnix.net</a>
+。文中一位读者给了很肯定的回答"php中没有基于整个网站的全局变量，一般用数据库什么的替代方案。"。</p>
+<p>我再检查一个基于PHP的聊天系统，果然是通过数据库的 online_users来实现在线用户的保存。</p>
+<p>吃亏吃在用传统的Java思想做PHP编程，并且PHP接触时间太短，以后学习的时候必须多用用心了~</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'cakephp-global-variables';
+            var disqus_url = '/2010/05/cakephp-global-variables/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

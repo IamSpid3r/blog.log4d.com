@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>使用独立图床子域名</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="使用独立图床子域名"/>
+            <meta property="og:url" content="/2012/05/image-host/"/>
+            <meta property="og:description" content="最近在将 Wordpres 切换到 OctoPress，顺便将图片统一放到Upload4D管理。 我挑选图床管理程序有下面几个需求，需求由强到弱排列： 开源 简单 不需数据库支持 支持分目录 允许上传图片 支持后台直接操作文件 支持用户管理，不允许其他人上传 页面美观 不要生成缩略图等文件 软件持续更新 于是我踏上了「考古之旅」，先后试用了 MiniGal Nano / MG2 / CF Image Host Script / minishowcase 等等图床软件，评测记录如下。"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2012/05/image-host/"
+                       rel="bookmark"
+                       title="Permalink to 使用独立图床子域名">
+                        使用独立图床子域名
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2012-05-09
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/minigal-nano/">minigal nano</a>
+        /
+	<a href="/tag/cf-image-host-script/">CF Image Host Script</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>最近在将 Wordpres 切换到 OctoPress，顺便将图片统一放到<a href="http://upload-log4d.qiniudn.com">Upload4D</a>管理。</p>
+<p>我挑选图床管理程序有下面几个需求，需求由强到弱排列：</p>
+<ul>
+<li>开源</li>
+<li>简单</li>
+<li>不需数据库支持</li>
+<li>支持分目录</li>
+<li>允许上传图片</li>
+<li>支持后台直接操作文件</li>
+<li>支持用户管理，不允许其他人上传</li>
+<li>页面美观</li>
+<li>不要生成缩略图等文件</li>
+<li>软件持续更新</li>
+</ul>
+<p>于是我踏上了「考古之旅」，先后试用了 MiniGal Nano / MG2 /
+CF Image Host Script / minishowcase 等等图床软件，评测记录如下。</p>
+
+
+<h2>参赛选手</h2>
+<h3><a href="http://www.minigal.dk/minigal-nano.html">MiniGal Nano</a></h3>
+<p><img alt="MG Nano" src="http://upload-log4d.qiniudn.com/2012/05/mg-nano.png" title="MiniGal Nano" /></p>
+<ul>
+<li>没有上传功能</li>
+<li>没有后台管理功能</li>
+<li>2010年最后更新</li>
+</ul>
+<h3><a href="http://www.minigal.dk/mg2.html">MG2</a></h3>
+<p><img alt="MG2 前台" src="http://upload-log4d.qiniudn.com/2012/05/mg2-front.png" />
+<img alt="MG2 管理界面" src="http://upload-log4d.qiniudn.com/2012/05/mg2-admin.png" /></p>
+<ul>
+<li>假目录，其实所有照片在同一目录下面</li>
+<li>界面丑</li>
+<li>09年更新</li>
+</ul>
+<h3><a href="http://meiu.cn/">美优网 Meiu Studio|php相册系统</a></h3>
+<ul>
+<li>国产</li>
+<li>需要 MySQL</li>
+</ul>
+<h3><a href="http://www.codefuture.co.uk/projects/imagehost/">CF Image Hosting Script v1.4.2</a></h3>
+<p><img alt="CF Image Hosting" src="http://upload-log4d.qiniudn.com/2012/05/cf-image-host.png" /></p>
+<ul>
+<li>据说煎蛋在使用</li>
+<li>无法用户控制</li>
+<li>无目录</li>
+</ul>
+<h3><a href="http://minishowcase.net/">Minishowcase</a></h3>
+<ul>
+<li>没看见上传功能</li>
+<li>没看见目录功能</li>
+<li>丑</li>
+<li>2009年更新</li>
+</ul>
+<h3><a href="http://qdig.sourceforge.net/">Qdig</a></h3>
+<p><img alt="Qdig" src="http://upload-log4d.qiniudn.com/2012/05/qdig.png" /></p>
+<ul>
+<li>无法上传</li>
+<li>丑</li>
+<li>2006年更新</li>
+</ul>
+<h3><a href="http://sourceforge.net/projects/ifoto/">iFoto, CSS-based GD2 photo gallery</a></h3>
+<p><img alt="iFoto" src="http://upload-log4d.qiniudn.com/2012/05/ifoto.png" /></p>
+<ul>
+<li>无法上传</li>
+<li>丑</li>
+<li>2006年更新</li>
+</ul>
+<h3><a href="http://encode-explorer.siineiolekala.net/">Encode Explorer</a></h3>
+<p><img alt="Encode Explorer" src="http://upload-log4d.qiniudn.com/2012/05/encode-explorer.png" /></p>
+<ul>
+<li>这其实是一个文件管理器</li>
+<li>支持预览</li>
+<li>不支持多文件上传</li>
+<li>其他要求全部达到</li>
+</ul>
+<h2>最终选择</h2>
+<p>最后，我选择了 Encode Explorer，坑爹吧，获胜者居然是一个文件管理软件，
+而不是一个图床软件。</p>
+<p>Encode Explorer 是单文件程序，代码一共3k多行，我看了一下，还能支持多语言，
+我就加上了中文支持，并且修正了新建目录/新建文件的权限 bug，改为目录755,
+文件644，并且这两个模式可以在配置文件修改。</p>
+<p>修改之后的 Encode Explorer 可以在
+<a href="https://github.com/alswl/encode-explorer">alswl / encode-explorer</a> 找到。</p>
+<p>既然已经不单纯是图床了，那我也把以前的一些附件放到这个子域名下，域名也要由
+img.log4d.com 改为 upload.log4d.com 。</p>
+<p>我用 sed 命令将原来的图片和附件命令批量修改，命令如下
+<code>sed -i 's/log4d.com\/wp-content\/uploads/upload.log4d.com/g' ./_posts/*</code>。</p>
+<p>ps:今天是我博客独立3周年纪念日，本来想在今天之前把 Wordpress 迁移到
+OctoPress，可惜最近太忙，就耽误了。</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'image-host';
+            var disqus_url = '/2012/05/image-host/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

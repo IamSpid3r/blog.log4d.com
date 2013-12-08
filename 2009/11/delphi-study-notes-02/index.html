@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Delphi学习笔记02</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Delphi学习笔记02"/>
+            <meta property="og:url" content="/2009/11/delphi-study-notes-02/"/>
+            <meta property="og:description" content="今天算是学习Delphi的第二天，昨天熟悉了一下基本概念和开发环境，写了一个简单的Hello world!（传送门-Hello world!）。 说是学Delphi，其实今天我一下午都在学习Pascal语法，这里有一个要点我需要强调"Delphi与其说一门语言，不如说是一个开发环境和开发框架，使用的是 Object Pascal语言"。我今天还停留在Delphi基本语法、变量、数组、指针这些学习上。 说说我对Pascal的第一感觉吧：语法很繁琐，比起C/Java，if/while/repeate/for这些语法结构都begin/end才支持多语句 （C/Java使用{}，Python使用缩进）。不过正是这个原因，所以代码特别直观，在教学使用和信息学比赛就很适合了。 今天使用的教材是《Pascal基础教程》（传送门-更多教程 ..."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/2009/11/delphi-study-notes-02/"
+                       rel="bookmark"
+                       title="Permalink to Delphi学习笔记02">
+                        Delphi学习笔记02
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="icon-calendar"></i>2009-11-28
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/pascal/">Pascal</a>
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>今天算是学习Delphi的第二天，昨天熟悉了一下基本概念和开发环境，写了一个简单的Hello world!（传送门-<a href="http://log4d.com/2009/11/delphi-study-notes-01">Hello
+world!</a>）。</p>
+<p>说是学Delphi，其实今天我一下午都在学习Pascal语法，这里有一个要点我需要强调"Delphi与其说一门语言，不如说是一个开发环境和开发框架，使用的是
+Object Pascal语言"。我今天还停留在Delphi基本语法、变量、数组、指针这些学习上。</p>
+<p>说说我对Pascal的第一感觉吧：语法很繁琐，比起C/Java，<code>if/while/repeate/for</code>这些语法结构都<code>begin/end</code>才支持多语句
+（C/Java使用{}，Python使用缩进）。不过正是这个原因，所以代码特别直观，在教学使用和信息学比赛就很适合了。</p>
+<p>今天使用的教材是《Pascal基础教程》（传送门-<a href="http://log4d.com/2009/11/delphi-study-
+notes-01">更多教程</a>），还是那句话，相当精简，适合有编程基础的童鞋。</p>
+<p>下面是我今天使用的几个例子，我都尽量附带注释了，放在这里以后复习和分享。</p>
+<p><strong>常量、变量、函数、过程、If语句</strong></p>
+<div class="highlight"><pre><span class="n">program</span> <span class="n">p1</span><span class="p">;</span>
+<span class="p">{</span><span class="err">常量、变量、函数、过程、</span><span class="n">If</span><span class="err">语句</span><span class="p">}</span>
+</pre></div>
+
+
+<p>{加上$意味着编译指令}</p>
+<p>{$APPTYPE CONSOLE}</p>
+<p>uses</p>
+<p>SysUtils;</p>
+<p>const</p>
+<p>{标识符，有效长度为63个字符，并且大小写等效}</p>
+<p>{常量定义}</p>
+<p>pi = 3.14159;</p>
+<p>var</p>
+<p>{变量定义}</p>
+<p>s : Real;</p>
+<p>t1_ : String;</p>
+<p>_t2 : Integer;</p>
+<p>{函数}</p>
+<p>function Area(): Real;</p>
+<p>var</p>
+<p>r : Real;</p>
+<p>begin</p>
+<p>{输出一串字符串}</p>
+<p>Writeln('Pleae enter a number:');</p>
+<p>Readln(r);</p>
+<p>{标准函数-算术函数-sqr()}</p>
+<p>{赋值语句 :=}</p>
+<p>Area := pi * sqr(r);</p>
+<p>end;</p>
+<p>{过程定义-打印较大值}</p>
+<p>procedure Larger(x, y : Integer);</p>
+<p>begin</p>
+<p>{分支语句 if-then-else}</p>
+<p>if x &gt; y then</p>
+<p>Write(x)</p>
+<p>else</p>
+<p>Write(y);</p>
+<p>Writeln;</p>
+<p>end;</p>
+<p>begin</p>
+<p>Writeln('Call Area function');</p>
+<p>{调用函数Area()}</p>
+<p>s := Area();</p>
+<p>Writeln('s = ', s);</p>
+<p>Writeln('back to main');</p>
+<p>Writeln('call Larger procedure');</p>
+<p>{调用过程Larger()}</p>
+<p>Larger(10, 9);</p>
+<p>Writeln('back to main');</p>
+<p>Readln;</p>
+<p>end.</p>
+<p><strong>&amp;nbsp_place_holder;学习if/case/while/repeat/for语句</strong></p>
+<p>&amp;nbsp_place_holder;</p>
+<div class="highlight"><pre><span class="o">**</span><span class="n">program</span> <span class="n">P2</span><span class="p">;</span>
+<span class="p">{</span><span class="err">学习</span><span class="k">if</span><span class="o">/</span><span class="k">case</span><span class="o">/</span><span class="k">while</span><span class="o">/</span><span class="n">repeat</span><span class="o">/</span><span class="k">for</span><span class="err">语句</span><span class="p">}</span>
+<span class="p">{</span><span class="err">$</span><span class="n">APPTYPE</span> <span class="n">CONSOLE</span><span class="p">}</span><span class="o">**</span>
+</pre></div>
+
+
+<p>uses</p>
+<p>SysUtils;</p>
+<p>{测试单语句if-then}</p>
+<p>procedure IfTest1(x : Real);</p>
+<p>var</p>
+<p>y : Real;</p>
+<p>begin</p>
+<p>if x &gt; 0 then</p>
+<p>y := 1;</p>
+<p>if x = 0 then</p>
+<p>y := 0;</p>
+<p>if x &lt; 0 then</p>
+<p>y := -1;</p>
+<p>Writeln(y);</p>
+<p>end;</p>
+<p>{测试多语句if-then，嵌套begin-...-end语句}</p>
+<p>procedure IfTest2(x : Integer);</p>
+<p>begin</p>
+<p>if x &gt; 0 then</p>
+<p>begin</p>
+<p>Writeln('test line1');</p>
+<p>Writeln('test line2');</p>
+<p>end</p>
+<p>else</p>
+<p>begin</p>
+<p>Writeln('test line3');</p>
+<p>Writeln('test line4');</p>
+<p>end;</p>
+<p>end;</p>
+<p>{Case语句}</p>
+<p>function CaseTest (score : Integer): Char;</p>
+<p>var</p>
+<p>r : Char;</p>
+<p>begin</p>
+<p>case score div 10 of</p>
+<p>10, 9 : r := 'A';</p>
+<p>8 : r := 'B';</p>
+<p>7, 6 : r := 'C';</p>
+<p>else</p>
+<p>r := 'D';</p>
+<p>end;</p>
+<p>CaseTest := r;</p>
+<p>end;</p>
+<p>{While...do语句}</p>
+<p>procedure WhileTest(n : Integer);</p>
+<p>begin</p>
+<p>while n &gt; 0 do</p>
+<p>begin</p>
+<p>{writeln(I：n)-单域宽输出格式}</p>
+<p>WriteLn('*' : n);</p>
+<p>n := n - 1;</p>
+<p>end;</p>
+<p>end;</p>
+<p>{Repeat语句（自带语句括号功能）}</p>
+<p>procedure RepeatTest(n : Integer);</p>
+<p>begin</p>
+<p>repeat</p>
+<p>Writeln('Im in repeater ');</p>
+<p>n := n -1;</p>
+<p>until n &lt; 0;</p>
+<p>end;</p>
+<p>{for...do语句}</p>
+<p>function ForTest(n : Integer): Integer;</p>
+<p>var</p>
+<p>i, sum : Integer;</p>
+<p>begin</p>
+<p>sum := 0;</p>
+<p>for i:=1 to 100 do</p>
+<p>sum := sum + i;</p>
+<p>Writeln(sum);</p>
+<p>end;</p>
+<p>begin</p>
+<p>IfTest1(10);</p>
+<p>IfTest1(-5);</p>
+<p>IfTest1(0);</p>
+<p>IfTest2(3);</p>
+<p>IfTest2(-2);</p>
+<p>Writeln(CaseTest(95));</p>
+<p>Writeln(CaseTest(85));</p>
+<p>Writeln(CaseTest(75));</p>
+<p>Writeln(CaseTest(65));</p>
+<p>Writeln(CaseTest(55));</p>
+<p>WhileTest(4);</p>
+<p>WhileTest(5);</p>
+<p>WhileTest(0);</p>
+<p>RepeatTest(5);</p>
+<p>ForTest(100);</p>
+<p>Readln;</p>
+<p>end.</p>
+<p><strong>使用数组</strong></p>
+<div class="highlight"><pre><span class="n">program</span> <span class="n">P3</span><span class="p">;</span>
+<span class="p">{</span><span class="err">使用数组</span><span class="p">}</span>
+<span class="p">{</span><span class="err">$</span><span class="n">APPTYPE</span> <span class="n">CONSOLE</span><span class="p">}</span>
+</pre></div>
+
+
+<p>uses</p>
+<p>SysUtils;</p>
+<p>const</p>
+<p>n = 5;</p>
+<p>type</p>
+<p>{定义类型-数组类型}</p>
+<p>No = array[1..n] of Integer;</p>
+<p>S = array[1..n] of Real;</p>
+<p>var</p>
+<p>i : Integer;</p>
+<p>k : Real;</p>
+<p>{创建数组类型变量}</p>
+<p>num : No;</p>
+<p>score : S;</p>
+<p>{直接创建一个数组变量}</p>
+<p>t : array[0..5] of Integer;</p>
+<p>begin</p>
+<p>k := 0;</p>
+<p>for i := 1 to n do</p>
+<p>begin</p>
+<p>Readln(score[i]);</p>
+<p>k := k + score[i];</p>
+<p>end;</p>
+<p>k := k / n;</p>
+<p>Writeln('平均分为：', k);</p>
+<p>Readln;</p>
+<p>end.</p>
+<p>&amp;nbsp_place_holder;今天基础部分到这儿，明天理一理集合、记录，再练习一些小程序，就可以由Pascal转入Delphi了~</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+            var disqus_identifier = 'delphi-study-notes-02';
+            var disqus_url = '/2009/11/delphi-study-notes-02/';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>

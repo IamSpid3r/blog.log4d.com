@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Log4D - 网络编程</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph tags -->
+
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="Log4D"/>
+            <meta property="og:url" content=""/>
+            <meta property="og:description" content="Log4D"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/theme/css/pygments.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <!-- JavaScript plugins (requires jQuery) -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Log4D</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives/"><i class="icon-th-list"></i>Archives</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</nav>
+<!-- /.navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9">
+            <article>
+                <h2><a href="/2009/06/xiaoneicaicai-gadget-v0-1/">校内踩踩小工具v0.1</a></h2>
+                <div class="summary"><p>明天要考数据库应用了，今天仍然忍不住把校内踩踩小工具写完。</p>
+<p>上次被打击了，人家刷人气的工具是建立一个平台进行互踩，但是安全性存在问题。我自己写的这个小东西能在校内限制范围内刷50个相同区域的页面(校内限制次数是100
+，可以执行两次，以后再执行就必须到网页输入验证码)，然后通过他人回踩来提高人气。</p>
+<p>纯粹是自己写着玩，几乎没有什么应用价值，不过既然写了这么久，也就放上来，大家把玩一下。</p>
+<p>压缩包内两个文件，一个xml保存帐号密码，用文本编辑器就可以编辑，另外一个是jar文件，在cmd下面用"java -jar
+XiaoneiCaiCai.jar"运行。</p>
+<p>纯属娱乐，水平很菜，大家不要喷我。</p>
+<p><a href="http://upload-
+log4d.qiniudn.com/2009/06/xiaoneicaicai.rar">猛击这里下载xiaoneicaicai</a></p>
+                    <a class="btn btn-default btn-xs" href="/2009/06/xiaoneicaicai-gadget-v0-1/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2009/06/java-net-operation-session-get-post-method/">java.net.*操作session/GET/POST方法</a></h2>
+                <div class="summary"><p>终于又考完一门试，开始做课程设计了，结果课程设计给工作室一个尾气3个月的项目，而这次的先用我写的贴吧放上去，我变得暂时空闲了，开始着手写校内开心农场小工具-
+全能拖拉机。 首先要解决的就是校内登录的问题，那就是Get/Post方法了，还有用户状态保存，就是session的操作。Java不同于C#，那位可以集成系统
+的浏览器或者之间创建一个Browser。</p>
+<p>开始写了自己的第一个版本。</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">BufferedReader</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">IOException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">InputStreamReader</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">MalformedURLException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ProtocolException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">URL</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">HttpURLConnection</span><span class="p">;</span>
+</pre></div>
+
+
+<p>public class FarmerHelper {</p>
+<p>/**</p>
+<ul>
+<li>@param args  </li>
+<li>@throws ...</li></ul>
+                    <a class="btn btn-default btn-xs" href="/2009/06/java-net-operation-session-get-post-method/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2009/03/socket-programming-on-the-select/">Socket编程之Select【转载】</a></h2>
+                <div class="summary"><p>这篇文章讲的是Socket中的select，我觉得还不错就转来了</p>
+<p>出处：<a href="http://www.cnblogs.
+com/xuyuan77/articles/1206418.html">http://www.cnblogs.com/xuyuan77/articles/1206418.html</a></p>
+<p>感谢原作者</p>
+<p>Select在Socket编程中还是比较重要的，可是对于初学Socket的人来说都不太爱用Select写程序，他们只是习惯写诸如connect、accept
+、recv或recvfrom这样的阻塞程序（所谓阻塞方式block，顾名思义，就是进程或是线程执行到这些函数时必须等待某个事件的发生，如果事件没有发生，进程
+或线程就被阻塞，函数不能立即返回）。可是使用Select就可以完成非阻塞（所谓非阻塞方式non-block，就是进程或线程执行此函数时不必非要等待事件的发生
+，一旦执行肯定返回，以返回值的不同来反映函数的执行情况，如果事件发生则与阻塞方式相同，若事件没有发生则返回一个代码来告知事件未发生，而进程或线程继续执行，所
+以效率较高）方式工作的程序，它能够监视我们需要监视的文件描述符的变化情况——读写或是异常。</p>
+<p>下面详细介绍一下！</p>
+<p>Select的函数格式(我所说的是Unix系统下的伯克利socket编程 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/03/socket-programming-on-the-select/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2009/02/java-triggered-by-the-post/">Java中的POST引发的...</a></h2>
+                <div class="summary"><p>因为一直想写一个刷人气的工具，其中最基本的就是post方法了，然后再收集页面中的元素。今天我就开始着手写Java的POST方法。</p>
+<p>在Java.net.*;中用URL构造地址，然后用流写入，似乎应该是很简单的方案，我却一直没成功。我百度Google了很久，参考了很多别人代码，似乎很容易实
+现，可是我的一直问题，而我觉得和网上提供的一样。我的代码如下</p>
+<p>package netStudy01;</p>
+<p>import java.io.*;</p>
+<p>import java.net.*;</p>
+<p>public class PostBaidu</p>
+<p>{</p>
+<p>public static void main(String[] args)</p>
+<p>{</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; try</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; {</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;&amp;nbsp_place_holder; URL url = new URL("<a href="http://localhost ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/02/java-triggered-by-the-post/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/">网络编程学习日记(3)_利用WinPcap实现ARP的发送和接受</a></h2>
+                <div class="summary"><p>网络编程学习日记(2)_利用WinPcap实现ARP的发送和接受</p>
+<p>网络编程学完以太网帧的结构，就开始正式进入IP层的学习了，在学习编程之前，对网络协议的有一定的了解，而且还要知道每个数据包，或者是报文，或者是帧他们每个字节
+的含义</p>
+<p>玩ARP么，肯定得知道他的原理，我就不做什么说明了，书上一大堆的</p>
+<p>首先是ARP的接收，来看一下程序的流程</p>
+<p>获取网络设备列表</p>
+<p>pcap_findalldevs_ex(PCAP_SRC_IF_STRING, NULL, &amp;alldevs, errbuf)</p>
+<p>然后人机交互一下，获得需要工作的网卡</p>
+<p>打开需要的网卡</p>
+<p>(adhandle= pcap_open(d-&gt;name, // 设备名</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; 65536, // 要捕捉的数据包的部分</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 65535保证能捕获到不同数据链路层上的每个数据包的全部内容</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;
+PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混杂模式</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;
+1000,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 读取超时时间 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2008/09/arp/">ARP</a></h2>
+                <div class="summary"><p>挺累的，连续两天忙到3点睡觉，早上9点起来继续做</p>
+<p>开始挺没状态，但后来写着写着状态来了，一个一个新的想法也加入了。代码就变得丰富多彩起来。</p>
+<p>这是网络编程，也就是我的专业方向课的第一份作业，我特别看中这次，当初分方向时候，鑫爷和大妈都去了软件，我留在网络了。似乎都觉得网络好学，简单，不要写程序</p>
+<p>那么我就写</p>
+<p>第一次将c++与系统底层结合起来，去操作网络上的数据包，感觉真是，太perfect了，不再是呆板的代码，而是真实的数据，真实的操作，甚至我感觉通过键盘，我能
+控制一切的感觉</p>
+<p>从连接网卡，获取数据，过滤数据包，容错纠正，类型匹配，发送数据，匹配数据包，发送伪装数据攻击，我甚至写出了一套简单的ARP病毒…</p>
+<p>其实说起来也不难，只要稍微组合一下几个函数而已</p>
+<p>呵呵，挺开心的，自己做东西真好，真实在</p>
+<p>唔…睡觉了…</p>
+<p>手机打字还是挺累的…</p>
+<p>待会儿放上详细流程</p>
+                    <a class="btn btn-default btn-xs" href="/2008/09/arp/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">网络编程学习日记(2)_WinPcap自带教程的一些例子的学习</a></h2>
+                <div class="summary"><p>1.编译时候会出现函数问题</p>
+<p>'pcap_findalldevs_ex' : undeclared identifier</p>
+<p>'PCAP_SRC_IF_STRING' : undeclared identifier</p>
+<p>'pcap_open' : undeclared identifier</p>
+<p>'PCAP_OPENFLAG_PROMISCUOUS' : undeclared identifier</p>
+<p>'=' : cannot convert from 'int' to 'struct pcap *'</p>
+<p>等一系列函数找不到的问题，导致这些问题的关键在于他们的函数声明并不包含在pcap.h这个</p>
+<p>头文件里面，而是包含在remote-ext.h这个函数里面，所以只需要在</p>
+<h1>include "pcap.h"后面加上</h1>
+<h1>include "remote-ext.h"</h1>
+<p>就可以编译通过了。</p>
+<p>网上有网友戏称说是WinPcap开发小组故意做的恶作剧或者是撰写doc说明时候忘记加入了</p>
+<p>= =#</p>
+<p>2.出现连接错误</p>
+<p>Cpp3.obj : error LNK2001: unresolved external symbol
+<a href="mailto:__imp__ntohs@4">__imp__ntohs@4</a></p>
+<p>Debug/Cpp3 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/">网络编程学习日记(1)_WinPcap和VC的配置</a></h2>
+                <div class="summary"><p>下学期有网络变成，用的是《计算机网络高级软件编程技术》，研究生教材，感觉书写的很泛泛，毕竟是给研究生用的书籍，很多基础的细节都没有写清楚，搞不懂学校怎么弄这
+种书，叹一个。</p>
+<p>直接导致了我很多东西都得一点一点去网上查找。</p>
+<p>很多函数都是用的WinPcap的，所以我又抓紧时间看WinPcap的入门知识。</p>
+<p>WinPcap开发包下载：<a href="http://www.winpcap.o
+rg/install/default.htm">http://www.winpcap.org/install/default.htm</a></p>
+<p>里面有开发者包Developer's Pack和普通使用的安装程序，宽带上网助手就是普通的安装包，而开发要使用的则是Developer's Pack。</p>
+<p>下来之后，安装到某个目录，然后配置VC，把那个目录的include和lib两个目录放到VC的选项-&gt;目录里面。</p>
+<p>WinPcap目录下有doc文档，里面的东西相当全面。我运行了两个，都不能直接运行。</p>
+<p>第一个简单程序是获取网卡适配器信息，里面一个函数pcap_findalldevs_ex找不到，网上资料说是因为这个函数属于远程网卡获取 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="/2008/07/course-design-works-great-debut/">课程设计作品大登场</a></h2>
+                <div class="summary"><p>本文乃08-09校内日志存档，我一起给发布了，如果给大家阅读造成困难，我深感抱歉</p>
+<p>这个系统我还是很得意的，是我大二时候学C#时候巅峰之作，那时候刚学完网络，
+还没开任何网络编程，那时候第一次接触SourceForge，参考了好多英文资料。</p>
+<hr />
+<h1>AzaChat管理系统</h1>
+<p>Powered by DDD &amp; King ZD</p>
+<h2>系统功能</h2>
+<ul>
+<li>登录，注册，群聊，私聊，踢人，聊天字体设置，字体颜色，图片插入，图文混编，音效播放，抖动窗体(模仿QQ)</li>
+<li>聊天人员管理，数据库管理，数据库查找功能</li>
+<li>皮肤更换功能</li>
+</ul>
+<h2>系统说明</h2>
+<p>这个系统是我这个学期课程设计，花了我将近一个多月的时间(期末考试阶段，很忙 - -#)，在写之前，我完全不懂数据库和网络传输，C#和面向对象思想也是这学期刚开的。虽然Bug还很多，但我仍然写出来了，很是开心。</p>
+<p>上传到CSDN，希望对大家有帮助。 
+Aza的来源是因为一个笑话，一个女人是500只鸭子 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2008/07/course-design-works-great-debut/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        </div>
+        <div class="col-lg-3 well well-sm" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
+                            class="icon-twitter-sign icon-large"></i>twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i
+                            class="icon-github-sign icon-large"></i>github
+                    </a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
+                            class="icon-weibo-sign icon-large"></i>weibo
+                    </a></li>
+
+
+                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category/c/">
+                            <i class="icon-folder-open icon-large"></i>C
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/cheng-xu-ren-sheng/">
+                            <i class="icon-folder-open icon-large"></i>程序人生
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/delphibian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Delphi编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/dotnet/">
+                            <i class="icon-folder-open icon-large"></i>dotNet
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/flashbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Flash编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gan-wu/">
+                            <i class="icon-folder-open icon-large"></i>感悟
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/guan-zhu-hu-lian-wang/">
+                            <i class="icon-folder-open icon-large"></i>关注互联网
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
+                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ji-zhu-da-ren/">
+                            <i class="icon-folder-open icon-large"></i>技术达人
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan/">
+                            <i class="icon-folder-open icon-large"></i>建站
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/jian-zhan-xin-de/">
+                            <i class="icon-folder-open icon-large"></i>建站心得
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/linuxer/">
+                            <i class="icon-folder-open icon-large"></i>Linuxer
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/mei-shi-peng-ren/">
+                            <i class="icon-folder-open icon-large"></i>美食|烹饪
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/microsoft-net/">
+                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/net-zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/phpbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>PHP编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/pythonbian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Python编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qian-duan/">
+                            <i class="icon-folder-open icon-large"></i>前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/qing-chun-de-cai-hong/">
+                            <i class="icon-folder-open icon-large"></i>青春的彩虹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ri-ji/">
+                            <i class="icon-folder-open icon-large"></i>日记
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/ruby-bian-cheng/">
+                            <i class="icon-folder-open icon-large"></i>Ruby 编程
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/shi-jue-she-ji/">
+                            <i class="icon-folder-open icon-large"></i>视觉设计
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/sui-sui-nian/">
+                            <i class="icon-folder-open icon-large"></i>碎碎念
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/webqian-duan/">
+                            <i class="icon-folder-open icon-large"></i>Web前端
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/wu-hua-ba-men/">
+                            <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xue-hai-wu-ya/">
+                            <i class="icon-folder-open icon-large"></i>学海无涯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yi-dong-shou-chi/">
+                            <i class="icon-folder-open icon-large"></i>移动手持
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/yu-le/">
+                            <i class="icon-folder-open icon-large"></i>娱乐
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/zong-he-ji-zhu/">
+                            <i class="icon-folder-open icon-large"></i>综合技术
+                        </a>
+                    </li>
+
+        </ul>
+    </section>
+</aside>        </div>
+    </div>
+</div>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+</body>
+</html>
