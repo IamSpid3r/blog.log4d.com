@@ -72,6 +72,17 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
+                <div class="summary"><p>今天看到一个高中同学的qq签名，人活着是为什么。</p>
+<p>她当时读的很潇洒，艺术生，现在已经工作了，男朋友换了无数</p>
+<p>我看了这个签名，觉得有点悲哀，现在已经不是应该考虑这个问题的时候了</p>
+<p>这个问题应该由小学生、初中生、最多高中生提出来。到了大学如果还搞不清楚自己活着的目的，自己人生的目标是什么，我觉得这是很悲哀的</p>
+<p>如果现在对自己提出这个问题，就已经问的太晚了</p>
+                    <a class="btn btn-default btn-xs" href="/2009/01/too-late-to-ask-a-question/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/01/i-look-at-design-patterns/">我在看设计模式</a></h2>
                 <div class="summary"><p>花了6天时间把创建型5种模式看完了，很有感触，但是感触不意味着我理解，我甚至私下里觉得OOD的设计模式不适合我现在做的那些程序，那些都是一次成型，根本谈不上
 需求的改变。没有改变，就不需要OO思想。因为我这样的想法，我看起来很累。
@@ -213,29 +224,6 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
 <p>手机打字还是挺累的…</p>
 <p>待会儿放上详细流程</p>
                     <a class="btn btn-default btn-xs" href="/2008/09/arp/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">网络编程学习日记(2)_WinPcap自带教程的一些例子的学习</a></h2>
-                <div class="summary"><p>1.编译时候会出现函数问题</p>
-<p>'pcap_findalldevs_ex' : undeclared identifier</p>
-<p>'PCAP_SRC_IF_STRING' : undeclared identifier</p>
-<p>'pcap_open' : undeclared identifier</p>
-<p>'PCAP_OPENFLAG_PROMISCUOUS' : undeclared identifier</p>
-<p>'=' : cannot convert from 'int' to 'struct pcap *'</p>
-<p>等一系列函数找不到的问题，导致这些问题的关键在于他们的函数声明并不包含在pcap.h这个</p>
-<p>头文件里面，而是包含在remote-ext.h这个函数里面，所以只需要在</p>
-<h1>include "pcap.h"后面加上</h1>
-<h1>include "remote-ext.h"</h1>
-<p>就可以编译通过了。</p>
-<p>网上有网友戏称说是WinPcap开发小组故意做的恶作剧或者是撰写doc说明时候忘记加入了</p>
-<p>= =#</p>
-<p>2.出现连接错误</p>
-<p>Cpp3.obj : error LNK2001: unresolved external symbol
-<a href="mailto:__imp__ntohs@4">__imp__ntohs@4</a></p>
-<p>Debug/Cpp3 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">more ...</a>
                 </div>
             </article>
             <hr/>

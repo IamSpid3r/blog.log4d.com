@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 08 Dec 2013 15:44:00 +0800</lastBuildDate><item><title>Linux 程序员的 Mac 安装记录</title><link>/2013/12/mac/</link><description>&lt;p&gt;作为一个 Linux 的老用户，我再一次验证了那句老话「Linux 用户有钱就换 Mac」。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 Dec 2013 23:55:00 +0800</lastBuildDate><item><title>Goodbye 2013, Hello 2014</title><link>/2013/12/2013/</link><description>&lt;p&gt;2013 年末，我给自己制定了几个年度目标：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;离梦想更近一步&lt;/p&gt;
+&lt;p&gt;找一个靠谱的姑娘，我感觉她需要我，我也需要她了&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;成为一个为百万用户级别提供技术支撑的人物，要能独当一面&lt;/li&gt;
+&lt;li&gt;帮助网站进行性能优化&lt;/li&gt;
+&lt;li&gt;制定规则，平衡猥琐实现和优雅&lt;/li&gt;
+&lt;li&gt;继续写博客，分享积累 + 翻译文章&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;先来谈谈感情，我和她在一起一年半了，虽然偶尔有小摩擦，但总体上面还是非常幸福的。
+找到一个能产生共鸣，生活兴趣相近，相互欣赏的人太难了。一定会珍惜的。&lt;/p&gt;
+
+
+&lt;p&gt;再谈谈协作，相当艰辛的跨过了去年年末的痛苦挣扎，然后看待事物和进行平衡选择时候
+就没那么痛苦了。我的一大问题就是，从小认为人或事都可以非黑即白，这种决定性的判断，
+会让我在处理事情时候，失去对重心的控制，有可能花费大量时间在细枝末节的地方。
+2013 年初时候，我甚至想一度放弃，而熬过来之后，工作就又变得非常开心，
+现在可以包容别人的不同意见，尝试寻找相同共性（虽然处理的能力还不够）。&lt;/p&gt;
+&lt;p&gt;也许是因为从小不够出色，所以工作之后在自己擅长的领域，反而变得异常强势和绝对，
+这一点近来控制的不错，但是还可以做的更好。&lt;/p&gt;
+&lt;p&gt;技术方面，似乎没有学习什么特别的语言、框架、类库之类的。不过我现在对 IO 模型，
+资源限制，缓存的策略，性能侦查，运维有了更多的认识。去年夸下海口，要在 2013
+年做到 &lt;code&gt;成为一个为百万用户级别提供技术支撑的人物，要能独当一面&lt;/code&gt;，
+恩，觉得这个目标没那么遥不可及了。&lt;/p&gt;
+&lt;p&gt;今年博客写的文章很少，只有 10 篇，还有一半是翻译的文章，只能托词说工作太忙了。
+不过明年应该会好起来，因为在公司每周都有一次 Tech Share，我可以把新姿势
+一并整理到博客来。&lt;/p&gt;
+&lt;p&gt;总的来说，2013 我很幸福，但是还不够强，2014，我要达成这些：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;让她开心、幸福&lt;/li&gt;
+&lt;li&gt;实施几个可以长期支撑堆糖核心业务的系统，让系统更健壮，产品给用户带来更多价值&lt;/li&gt;
+&lt;li&gt;把我的想法和同事交流，推动更高效的团队协作，个体都很强，所以团队应该更强&lt;/li&gt;
+&lt;li&gt;出去旅行至少一次&lt;/li&gt;
+&lt;li&gt;每个月把思考和收获写成博客&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 31 Dec 2013 23:55:00 +0800</pubDate><guid>tag:,2013-12-31:2013/12/2013/</guid></item><item><title>Linux 程序员的 Mac 安装记录</title><link>/2013/12/mac/</link><description>&lt;p&gt;作为一个 Linux 的老用户，我再一次验证了那句老话「Linux 用户有钱就换 Mac」。
 前段时间，托朋友从香港购入一台 rMBP，下面就是我的 Mac 使用安装记录。&lt;/p&gt;
 &lt;h2&gt;Brew&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://brew.sh/"&gt;Brew&lt;/a&gt; 是 Mac 下面的包管理工具，通过 Github 托管适合 Mac
@@ -2956,100 +2992,4 @@ VIP 可以享受一些排队优惠，就我感觉最明显的是理论考、桩�
 同时 VIP 的优势还是较明显的，普通班一般需要4-5个月，VIP 双休班大约40天，
 日常班可以在一个月学完。&lt;/p&gt;
 &lt;p&gt;我大概就提供这么多信息了，总的来说，驾校考试只要好好学，考试发挥正常，
-都没有什么大问题。祝搜索到这篇文章的人考试顺利。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Thu, 26 Jul 2012 22:21:00 +0800</pubDate><guid>tag:,2012-07-26:2012/07/learning-driving/</guid></item><item><title>Flotr2 - 我最喜欢的 Javascript 图形库[译文]</title><link>/2012/06/flotr2/</link><description>&lt;p&gt;原文地址：&lt;a href="http://swizec.com/blog/flotr2-my-favorite-javascript-graph-library"&gt;Flotr2 - my favorite javascript graph library&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;译者：&lt;a href="http://log4d.com/2012/06/flotr2/"&gt;alswl&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;我研究了很久，得到的终极数据可视化方案是 javascript + html ，这是唯一像样又好用的。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.gnuplot.info/"&gt;Gnuplot&lt;/a&gt; 虽然看上去不错，但是不太漂亮。
-一些基于 Python 的图形化工具也有同样的问题。
-&lt;a href="http://www.wolfram.com/products/mathematica/"&gt;Mathematica&lt;/a&gt; 在我看来则太正式了，所以我不怎么用它。&lt;/p&gt;
-&lt;p&gt;基于 javascript 的图形化工具其中一个巨大优势是易于共享。
-通过设置 Github Page、分享链接等方法，我们都可以很方便的获取最新图表数据，
-甚至可以进行交互。&lt;/p&gt;
-&lt;h2&gt;那些基于 javascript 的图形化工具&lt;/h2&gt;
-&lt;p&gt;有很多 javascript 图形化库，从极简到复杂绚丽的风格，都极为丰富。&lt;/p&gt;
-&lt;p&gt;最流行的可能就是 &lt;a href="http://d3js.org/"&gt;d3.js&lt;/a&gt; 和 &lt;a href="http://raphaeljs.com/"&gt;Raphael&lt;/a&gt; 了。
-他们用起来&lt;em&gt;相当&lt;/em&gt;麻烦，但却能实现绚丽到超越你想象的可视化效果。&lt;/p&gt;
-
-
-&lt;p&gt;Raphael 还一个 web 矢量库，外观同样很漂亮。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d"&gt;&lt;img alt="An analytics graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Raphael 中的分析图表&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d"&gt;&lt;img alt="Bubble graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Raphael 中的气泡图&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d"&gt;&lt;img alt="A clock made with Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Raphael 中的钟表时间图&lt;/p&gt;
-&lt;p&gt;D3.js 的愿景是帮助人们轻松的完成数据可视化，可惜事与愿违，
-它弄得太复杂了。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d"&gt;&lt;img alt="HN top titles visualisation in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Hacker News 文章标题的可视化数据&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d"&gt;&lt;img alt="House hunting in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;用 d3.js 绘制购房信息&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d"&gt;&lt;img alt="Scatterplots made with d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;用 d3.js 制作的散布图&lt;/p&gt;
-&lt;h2&gt;Flotr2&lt;/h2&gt;
-&lt;p&gt;这些可视化工具，虽然看上去很华丽，但是&lt;em&gt;难以&lt;/em&gt;使用。
-他们会很浪费时间，让人捣鼓到最后却发现什么都没弄出来。
-大部分 Raphael 和 d3 的功能矫正过枉了，有时我们只想要一个简单的绘图工具而已。&lt;/p&gt;
-&lt;p&gt;为了将&lt;a href="http://swizec.com/blog/a-year-of-750words-com-with-shiny-graphs/swizec/4378"&gt;我去年的 750 个关键字&lt;/a&gt;数据可视化，我使用了 &lt;a href="http://humblesoftware.com/flotr2/"&gt;Flotr2&lt;/a&gt;。
-只花费我数分钟，就能通过操作 javascript 将数据转化成 Flotr2 能理解的函数，
-然后 Flotr2 就将数据转化成漂亮的图表。&lt;/p&gt;
-&lt;p&gt;Flotr2 最大的优点是他没有过度设计，当你只想要一个简单图表时候，
-它不会让你去操作过多东西。&lt;/p&gt;
-&lt;p&gt;往往只需要你设定必要的数据和一两个标签，比如：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;draw_time&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kd"&gt;var&lt;/span&gt;
-    &lt;span class="nx"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;getTime&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
-    &lt;span class="nx"&gt;options&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="nx"&gt;graph&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-    &lt;span class="nx"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;xaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="nx"&gt;labelsAngle&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-        &lt;span class="nx"&gt;selection&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-        &lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="nx"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;se&amp;#39;&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-        &lt;span class="nx"&gt;HtmlText&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="nx"&gt;title&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;title&lt;/span&gt;
-    &lt;span class="p"&gt;};&lt;/span&gt;
-
-    &lt;span class="c1"&gt;// Draw graph with default options, overwriting with passed options&lt;/span&gt;
-    &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;opts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-
-        &lt;span class="c1"&gt;// Clone the options, so the &amp;#39;options&amp;#39; variable always keeps intact.&lt;/span&gt;
-        &lt;span class="nx"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;clone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;options&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;opts&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="p"&gt;{});&lt;/span&gt;
-
-        &lt;span class="c1"&gt;// Return a new graph.&lt;/span&gt;
-        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-            &lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="nx"&gt;options&lt;/span&gt;
-        &lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-
-    &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-
-    &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;EventAdapter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;observe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;flotr:select&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="c1"&gt;// Draw selected area&lt;/span&gt;
-        &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
-            &lt;span class="nx"&gt;xaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;min&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;max&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;labelsAngle&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt;
-            &lt;span class="nx"&gt;yaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;min&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;max&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;});&lt;/span&gt;
-    &lt;span class="p"&gt;});&lt;/span&gt;
-
-    &lt;span class="c1"&gt;// When graph is clicked, draw the graph with default area.&lt;/span&gt;
-    &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;EventAdapter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;observe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;flotr:click&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;();});&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;然后你就能获得下面这张图表：&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d"&gt;&lt;img alt="A graph in Flotr2" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;好用吧。&lt;/p&gt;
-&lt;p&gt;看上去蛮漂亮，符合它简洁易用的特点。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 19 Jun 2012 07:03:00 +0800</pubDate><guid>tag:,2012-06-19:2012/06/flotr2/</guid><category>D3.js</category><category>Raphael</category><category>Flotr2</category><category>译文</category></item></channel></rss>
+都没有什么大问题。祝搜索到这篇文章的人考试顺利。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Thu, 26 Jul 2012 22:21:00 +0800</pubDate><guid>tag:,2012-07-26:2012/07/learning-driving/</guid></item></channel></rss>
