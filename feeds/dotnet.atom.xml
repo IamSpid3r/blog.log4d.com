@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/feeds/dotnet.atom.xml" rel="self"></link><id>/</id><updated>2010-12-14T00:00:00+08:00</updated><entry><title>C#+VBA操作Excel总结</title><link href="/2010/12/csharp-vba-excel/" rel="alternate"></link><updated>2010-12-14T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-12-14:2010/12/csharp-vba-excel/</id><summary type="html">&lt;p&gt;Excel在日常办公中应用非常广泛，这次我接到一个案子，需要往Excel中写入数据并能够打印出固定格式，前前后后大概花了将近2星期才搞定，现在做一些分享。&lt;/p&gt;
+&lt;h2&gt;一、关于操作Excel的几种方式&lt;/h2&gt;
+&lt;p&gt;我们导出Excel，大抵是有两种方法，一种是在服务器端用一些类库或者COM组件直接生成Excel成品，其二是在后台只写入数据，而不写入具体格式，等用户下载完
+Excel之后再在客户端上利用vba生成Excel成品。&lt;/p&gt;
+&lt;h3&gt;1.1使用"自动化"功能-后台生成成品&lt;/h3&gt;
+&lt;p&gt;微软把后台使用COM组件称之为"自动化"，其实它本身是不建议这种用法，在&lt;a href="http://support.microsoft.com/kb/257757"&gt;257757 号文章（服务器端 Office
+自动化注意事项）&lt;/a&gt;也明文标出"Microsoft
+目前建议不要从任何无人参与的、非交互式客户端应用程序或组件（包括 ASP、DCOM 和 NT Service）中进行 Microsoft Office
+应用程序的"自动化"，也不为此提供支持，因为 Office 在这种环境中运行时可能会出现不稳定的现象并且/或者会死锁。"&lt;/p&gt;
+&lt;p&gt;这种方法的优点是给用户更简洁的展现，毕竟原生的Excel成品比半成品来更容易接受，而且可以避免宏安全问题，万一客户端禁止了宏，就只能看到丑陋的模板界面+一坨
+数据。&lt;/p&gt;
+&lt;p&gt;缺点是需要服务端支持，编写成本也比较高（VBA有时候可以直接录制）。服务端支持体现在需要安装一些微软或者第三方的类库。我当时采用的是Office类库，也就是
+在安装有Office的机器上面使用Interop.Excel.dll这个中间动态链接库进行操作，需要麻烦的安全设置，效率低不说还会扯出Excel无法关闭的B
+ug。&lt;/p&gt;
+&lt;p&gt;关于效率低我深有体会，我使用这种方法生成5页数据大约2m，客户等的急死，其根本原因是由于COM组件在调用时候，每一个Range这种对象都会产生一个借口请求。&lt;/p&gt;
+&lt;h3&gt;1.2、使用ADO.net传输数据+VBA控制模板和数据&lt;/h3&gt;
+&lt;p&gt;这方法的优缺点正好与上文相反，由于只是写入数据，即通过ADO.net的连接方式INSERT一堆数据到Excel文件的隐藏Sheet里面去（别跟我说你不知道E
+xcel可以隐藏某个Sheet），所以速度后台速度极快。前台Excel文件虽然需要VBA编程支持，但是在理解Excel模型之后也不是很难的事情。&lt;/p&gt;
+&lt;h3&gt;1.3&amp;amp;nbsp_place_holder;&lt;/h3&gt;
+&lt;p&gt;选择哪种方式，取决于你的需求，如果你在Java平台下面并且输出文件页面格式不复杂，我推荐第一种，如果是.net平台又或者要处理复杂的页面样式，就选用第二种吧
+（我前期使用第一种，后来因为效率问题和无法关闭Excel的问题，重写逻辑，选用第二种）。&lt;/p&gt;
+&lt;p&gt;关于Excel导出方案的选择，微软官方也是不建议使用第一种方案，甚至不提供技术支持。它推荐了一些方案，包括使用报表导出Excel或者ADO.net方式导出（
+即第二种），具体文章见&lt;a href="http://support.microsoft.com/kb/306023/zh-cn"&gt;如何使用 Visual C# 2005 或 Visual C# .NET 向 Excel
+工作簿传输数据&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;二、Office Excel文档模型&lt;/h2&gt;
+&lt;p&gt;在写操作Excel代码之前，需要了解一下Excel的文档模型，才能想当然的把代码写出来。&lt;/p&gt;
+&lt;p&gt;简单说来，我们只要了解Application 、Workbook 、Worksheet
+、Range这四种类型，如果需要操作图像的话，还需要多了解一种Chart。&lt;/p&gt;
+&lt;p&gt;Application就是Excel实例，不仅仅是一个Excel文件，而是整体的Excel程序（Office都是MDI文档体系）。&lt;/p&gt;
+&lt;p&gt;WorkBook就是实质意义上的某个Excel文件，你可以进行保存操作等等。&lt;/p&gt;
+&lt;p&gt;Worksheet是某个工作簿类型。&lt;/p&gt;
+&lt;p&gt;Range是我们打交道最多的，可以理解成一个区域快，也就是常见的"A2:B5"这种表示方式。&lt;/p&gt;
+&lt;p&gt;了解这几种之后，我们就可以下手操作了。更详细的微软官方文档，可以在&lt;a href="http://msdn.microsoft.com/zh-
+cn/library/wss56bz7(v=vs.80).aspx"&gt;Excel 对象模型概述&lt;/a&gt;找到。&lt;/p&gt;
+&lt;h2&gt;三、使用C#操作Excel&lt;/h2&gt;
+&lt;p&gt;我虽然不推荐第一种，但是毕竟是一种解决方案。&lt;/p&gt;
+&lt;p&gt;需要使用的命名空间为using Excel = Microsoft.Office.Interop.Excel;（使用别名简化一下）&lt;/p&gt;
+&lt;p&gt;另外需要项目引用Office的类库，如果不是项目形式而是网站形式，则需要手动编译对应Interop.Excel.dll到网站bin目录下面，我使用Excel
+2007编译出这个链接库，版本为1.6.0.0，需要的可以点击&lt;a href="http://upload-
+log4d.qiniudn.com/2010/12/Interop_Excel.zip"&gt;Interop.Excel.dll&lt;/a&gt;下载。&lt;/p&gt;
+&lt;h3&gt;3.1 编译Interop.Excel.dll&lt;/h3&gt;
+&lt;p&gt;编译的方法出自于"&lt;a href="http://www.
+cnblogs.com/Mainz/archive/2009/11/11/Microsoft_Office_Interop_Excel.html"&gt;使用Office组件读取Excel，引用Microsoft.Office.Interop.Excel出现的问题&lt;/a&gt;"&amp;amp;nbs
+p_place_holder;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;进入你的visual studio的sdk下的bin目录，找到TlbImp.exe文件，如果没有，请用光盘安装此文件，详细说明请参照MSDN。&amp;amp;nbsp
+_place_holder;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder;命令行(cmd)进入bin目录，运行TlbImp /out:Interop.Excel.dll
+Office安装目录+Excel.exe&lt;/p&gt;
+&lt;p&gt;此时很可能会报错：TlbImp &amp;amp;nbsp_place_holder; error: &amp;amp;nbsp_place_holder; Unable
+&amp;amp;nbsp_place_holder; to &amp;amp;nbsp_place_holder; locate &amp;amp;nbsp_place_holder; input
+&amp;amp;nbsp_place_holder; type &amp;amp;nbsp_place_holder; library: &amp;amp;nbsp_place_holder;
+'c:program filesmcrosoft officeofficeEXCEL.EXE'&amp;amp;nbsp_place_holder;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;此问题很有可能是TlbImp的bug，不支持空格式的路径；（具体原因不明）不要紧，将Excel.exe拷贝入bin目录，直接运行TlbImp
+/out:Interop.Excel.dll Excel.exe,提示"Type library imported to
+Interop.Excel.dll路径"&lt;/p&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder;在bin目录下找到Interop.Excel.dll文件。在你的visual studio里将其引用即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;3.2 封装的一个C#操作Excel类库&lt;/h3&gt;
+&lt;p&gt;我把我之前封装的C#操作Excel类库分享一下&lt;/p&gt;
+&lt;p&gt;注：这个类的Dispose仍然没有解决Excel文件生成之后Excel进程无法正常关闭的问题，目前看来只有杀死进程方法才能起实质性作用。&lt;/p&gt;
+&lt;p&gt;其实我觉得这个类库除了让我熟悉一下Excel模型之外，并没派上实质的用场~&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;/// &amp;lt;summary&amp;gt;&lt;/span&gt;
+&lt;span class="c1"&gt;/// Excel帮助类&lt;/span&gt;
+&lt;span class="c1"&gt;/// Add by alswl 20101130&lt;/span&gt;
+&lt;span class="c1"&gt;/// &amp;lt;/summary&amp;gt;&lt;/span&gt;
+&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ExcelHelper&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;IDisposable&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;Excel._Application&lt;/span&gt; &lt;span class="n"&gt;excelApplication&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Excel._Workbook&lt;/span&gt; &lt;span class="n"&gt;workbook&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;Excel._Worksheet&lt;/span&gt; &lt;span class="n"&gt;worksheet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kt"&gt;null&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;private&lt;/span&gt; &lt;span class="nf"&gt;object&lt;/span&gt; &lt;span class="n"&gt;missing&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;System.Reflection.Missing.Value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;public ExcelHelper()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (excelApplication == null)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;excelApplication = new Excel.ApplicationClass();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// ~&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;~ExcelHelper()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (excelApplication != null)&lt;/p&gt;
+&lt;p&gt;excelApplication.Quit();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 释放非托管资源&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public void Dispose()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;try&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (excelApplication != null)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (!workbook.Saved)&lt;/p&gt;
+&lt;p&gt;this.Close(false);&lt;/p&gt;
+&lt;p&gt;excelApplication.Quit();&lt;/p&gt;
+&lt;p&gt;System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);&lt;/p&gt;
+&lt;p&gt;System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);&lt;/p&gt;
+&lt;p&gt;System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApplication);&lt;/p&gt;
+&lt;p&gt;GC.Collect(System.GC.GetGeneration(worksheet));&lt;/p&gt;
+&lt;p&gt;GC.Collect(System.GC.GetGeneration(workbook));&lt;/p&gt;
+&lt;p&gt;GC.Collect(System.GC.GetGeneration(excelApplication));&lt;/p&gt;
+&lt;p&gt;if (excelApplication != null)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;excelApplication = null;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;GC.WaitForPendingFinalizers();&lt;/p&gt;
+&lt;p&gt;GC.Collect();&lt;/p&gt;
+&lt;p&gt;GC.WaitForPendingFinalizers();&lt;/p&gt;
+&lt;p&gt;GC.Collect();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;catch&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;finally&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;GC.Collect();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设置当前工作表&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public int CurrentWorksheetIndex&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;set&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (value &amp;lt;= 0 || value &amp;gt; workbook.Worksheets.Count)&lt;/p&gt;
+&lt;p&gt;throw new ArgumentException("索引超出范围");&lt;/p&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;object index = value;&lt;/p&gt;
+&lt;p&gt;worksheet = workbook.Worksheets[index] as Excel._Worksheet;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 打开一个Excel工作薄&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="fileName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void OpenWorkbook(string fileName)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;workbook = excelApplication.Workbooks.Open(fileName, missing, missing,
+missing, missing, missing,&lt;/p&gt;
+&lt;p&gt;missing, missing, missing, missing, missing, missing, missing, missing,
+missing);&lt;/p&gt;
+&lt;p&gt;if (workbook.Worksheets.Count &amp;gt; 0)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;int index = 1;&lt;/p&gt;
+&lt;p&gt;worksheet = workbook.Worksheets[index] as Excel._Worksheet;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 添加一个工作表&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="SheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;returns&gt;&lt;/returns&gt;&lt;/p&gt;
+&lt;p&gt;public Excel.Worksheet AddSheet(string sheetName)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet worksheet =
+(Excel.Worksheet)workbook.Worksheets.Add(Type.Missing, Type.Missing,
+Type.Missing, Type.Missing);&lt;/p&gt;
+&lt;p&gt;worksheet.Name = sheetName;&lt;/p&gt;
+&lt;p&gt;return worksheet;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 删除一个Sheet&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void DeleteSheet(string sheetName)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;excelApplication.DisplayAlerts = false;&lt;/p&gt;
+&lt;p&gt;sheet.Delete();&lt;/p&gt;
+&lt;p&gt;excelApplication.DisplayAlerts = true;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 保存数据&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public void Save()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (workbook != null)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;workbook.Save();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 关闭文档&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="isSave"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void Close(bool isSave)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;object obj_Save = isSave;&lt;/p&gt;
+&lt;p&gt;workbook.Close(obj_Save, missing, missing);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设置当前工作表中某单元格的值&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="value"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeValue(string range, object value)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetRangeValue(worksheet.Name, range, value);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设置工作表中某单元格的值&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="value"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeValue(string sheetName, string range, object value)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;sheet.get_Range(range, missing).Value2 = value;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 删除某个Range，右侧左移&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void DeleteRange(string sheetName, string rangeStr)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;sheet.get_Range(rangeStr,
+missing).Delete(Excel.XlDeleteShiftDirection.xlShiftToLeft);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 删除某个Range，右侧左移&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void DeleteRange(string rangeStr)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;DeleteRange(worksheet.Name, rangeStr);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 合并单元格&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range1"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range2"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void Merge(string sheetName, string range1, string range2)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;Excel.Range range = worksheet.get_Range(range1, range2);&lt;/p&gt;
+&lt;p&gt;range.Merge(true);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 合并单元格&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range1"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range2"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void Merge(string range1, string range2)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Merge(worksheet.Name, range1, range2);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设置一个单元格的属性&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="size"&gt;大小&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="name"&gt;字体&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="color"&gt;颜色&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="HorizontalAlignment"&gt;对齐方式&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetCellProperty(string sheetName, string rangeStr, double
+fontSize, string fontName,&lt;/p&gt;
+&lt;p&gt;double height, Excel.Constants horizontalStyle)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;Excel.Range range = sheet.get_Range(rangeStr, missing);&lt;/p&gt;
+&lt;p&gt;range.Font.Size = fontSize;&lt;/p&gt;
+&lt;p&gt;range.Font.Name = fontName;&lt;/p&gt;
+&lt;p&gt;//range.Font.Color = fontColor;&lt;/p&gt;
+&lt;p&gt;range.RowHeight = height;&lt;/p&gt;
+&lt;p&gt;range.HorizontalAlignment = horizontalStyle;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设置一个单元格的属性&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="range"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="fontSize"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="fontName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="fontColor"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="horizontalStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetCellProperty(string range, double fontSize, string fontName,&lt;/p&gt;
+&lt;p&gt;double height, Excel.Constants horizontalStyle)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetCellProperty(worksheet.Name, range, fontSize, fontName,&lt;/p&gt;
+&lt;p&gt;height, horizontalStyle);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定Range的边框格式&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStart"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeEnd"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="topStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rightStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="bottomStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="leftStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeBorderStyle(string sheetName, string rangeStr,
+Excel.XlLineStyle topStyle,&lt;/p&gt;
+&lt;p&gt;Excel.XlLineStyle rightStyle, Excel.XlLineStyle bottomStyle, Excel.XlLineStyle
+leftStyle)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;Excel.Range range = sheet.get_Range(rangeStr, missing);&lt;/p&gt;
+&lt;p&gt;range.Borders[Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeTop].LineSty
+le = topStyle;&lt;/p&gt;
+&lt;p&gt;range.Borders[Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeRight].LineS
+tyle = rightStyle;&lt;/p&gt;
+&lt;p&gt;range.Borders[Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeBottom].Line
+Style = bottomStyle;&lt;/p&gt;
+&lt;p&gt;range.Borders[Microsoft.Office.Interop.Excel.XlBordersIndex.xlEdgeLeft].LineSt
+yle = leftStyle;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定Range的边框格式&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="topStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rightStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="bottomStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="leftStyle"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeBorderStyle(string rangeStr, Excel.XlLineStyle topStyle,&lt;/p&gt;
+&lt;p&gt;Excel.XlLineStyle rightStyle, Excel.XlLineStyle bottomStyle, Excel.XlLineStyle
+leftStyle)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetRangeBorderStyle(worksheet.Name, rangeStr, topStyle,&lt;/p&gt;
+&lt;p&gt;rightStyle, bottomStyle, leftStyle);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定Range数字格式&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="format"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeNumberFormat(string sheetName, string rangeStr, string
+format)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;Excel.Range range = sheet.get_Range(rangeStr, missing);&lt;/p&gt;
+&lt;p&gt;range.NumberFormat = format;//0%&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定Range数字格式&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="format"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetRangeNumberFormat(string rangeStr, string format)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetRangeNumberFormat(worksheet.Name, rangeStr, format);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 将数据表格添加到Excel指定工作表的指定位置&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="dt"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="ws"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="startX"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="startY"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void AddTable(System.Data.DataTable dt, int startX, int startY)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;for (int i = 0; i &amp;lt;= dt.Rows.Count - 1; i++)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;for (int j = 0; j &amp;lt;= dt.Columns.Count - 1; j++)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;worksheet.Cells[i + startX, j + startY] = dt.Rows[i][j];&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 加入分页符&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="rangeStr"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="lineNumber"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void AddPageBreak(string rangeStr, int lineNumber)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Range range = worksheet.get_Range("A" + lineNumber.ToString(), missing);&lt;/p&gt;
+&lt;p&gt;worksheet.HPageBreaks.Add(range);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 加入分页符&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="lineNumber"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void AddPageBreak(int lineNumber)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;AddPageBreak(worksheet.Name, lineNumber);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 从当前工作表数据区域复制数据到另一个区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetFromRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetToRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void CopyRange2Range(string sheetFromRange, string sheetToRange)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;CopyRange2Range(worksheet.Name, worksheet.Name, sheetFromRange, sheetToRange);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 从一个表的某个数据区域复制数据到另一个表的某个区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetFromName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetToName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetFromRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetToRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void CopyRange2Range(string sheetFromName, string sheetToName, string
+sheetFromRange, string sheetToRange)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheetFrom = workbook.Worksheets[sheetFromName] as
+Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheetTo = workbook.Worksheets[sheetToName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;sheetFrom.get_Range(sheetFromRange,
+missing).Copy(sheetTo.get_Range(sheetToRange, missing));&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 移动Range到另一个Range&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="FromRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="ToRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void MoveRange2Range(string FromRange, string ToRange)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;MoveRange2Range(worksheet.Name, FromRange, ToRange);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 移动Range到另一个Range&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="FromRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="ToRange"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void MoveRange2Range(string sheetName, string FromRange, string
+ToRange)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;sheet.get_Range(FromRange, missing).Cut(sheet.get_Range(ToRange, missing));&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 重设当前工作目录的打印区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public void ResetPrintArea()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetPrintArea(worksheet.Name, "");&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 重设工作目录的打印区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public void ResetPrintArea(string sheetName)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetPrintArea(sheetName, "");&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定工作目录的打印区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="area"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetPrintArea(string area)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;SetPrintArea(worksheet.Name, area);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 设定工作目录的打印区域&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="sheetName"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;/// &lt;param name="area"&gt;&lt;/param&gt;&lt;/p&gt;
+&lt;p&gt;public void SetPrintArea(string sheetName, string area)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;Excel.Worksheet sheet = workbook.Worksheets[sheetName] as Excel.Worksheet;&lt;/p&gt;
+&lt;p&gt;sheet.PageSetup.PrintArea = area;&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;/// &lt;summary&gt;&lt;/p&gt;
+&lt;p&gt;/// 将当前工作表中的表格数据复制到剪切板&lt;/p&gt;
+&lt;p&gt;/// &lt;/summary&gt;&lt;/p&gt;
+&lt;p&gt;public void Copy()&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (worksheet != null)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;try&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;worksheet.UsedRange.Select();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;catch { }&lt;/p&gt;
+&lt;p&gt;worksheet.UsedRange.Copy(missing);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;h2&gt;四、使用ADO.net+VBA操作Excel&lt;/h2&gt;
+&lt;p&gt;我手头的这个案子在用第一种方法撰写一个星期之后遇到效率瓶颈，无奈改为第二种方法，由于对Excel的文档模型有了较全面的认识，几个主流函数也很清楚，所以写的速
+度很快。&lt;/p&gt;
+&lt;p&gt;这里我还是要佩服一下微软，曾经我对Office很不屑，后来看完《&lt;a href="http://book.douban.com/subject/1193
+565/"&gt;Word排版艺术&lt;/a&gt;》才开始认识Office，再之后深入PPT和Excel，更是感觉文档模型了不起。。。咳咳咳，扯远了~&lt;/p&gt;
+&lt;h3&gt;4.1 使用ADO.net写入数据到Excel文件&lt;/h3&gt;
+&lt;p&gt;废话不说了，上核心代码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OleDb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OleDbConnection&lt;/span&gt; &lt;span class="n"&gt;objConn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OleDb&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;OleDbConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;
+                    &lt;span class="n"&gt;destFileName&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;;Extended Properties=Excel 8.0;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;objConn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Open&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;System.Data.OleDb.OleDbCommand objCmd = new System.Data.OleDb.OleDbCommand();&lt;/p&gt;
+&lt;p&gt;objCmd.Connection = objConn;&lt;/p&gt;
+&lt;p&gt;foreach (DataRow row in dt.Rows)&lt;/p&gt;
+&lt;p&gt;{ StringBuilder stringBuilder = new StringBuilder();&lt;/p&gt;
+&lt;p&gt;stringBuilder.AppendFormat("INSERT INTO [{0}$] (", sheetName);&lt;/p&gt;
+&lt;p&gt;for (int i = 0; i &amp;lt; dt.Columns.Count; i++)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (i &amp;lt; dt.Columns.Count - 1)&lt;/p&gt;
+&lt;p&gt;stringBuilder.Append(dt.Columns[i].ColumnName + ",");&lt;/p&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;p&gt;stringBuilder.Append(dt.Columns[i].ColumnName + ") VALUES (");&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;for (int i = 0; i &amp;lt; dt.Columns.Count; i++)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;if (i &amp;lt; dt.Columns.Count - 1)&lt;/p&gt;
+&lt;p&gt;stringBuilder.Append("@" + dt.Columns[i].ColumnName + ",");&lt;/p&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;p&gt;stringBuilder.Append("@" + dt.Columns[i].ColumnName + ");");&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;objCmd.Parameters.Clear();&lt;/p&gt;
+&lt;p&gt;for (int i = 0; i &amp;lt; dt.Columns.Count; i++)&lt;/p&gt;
+&lt;p&gt;{&lt;/p&gt;
+&lt;p&gt;objCmd.Parameters.Add(dt.Columns[i].ColumnName, row[i]);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;objCmd.CommandText = stringBuilder.ToString();&lt;/p&gt;
+&lt;p&gt;objCmd.ExecuteNonQuery();&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;注意点就是INSERT的表明就是Sheet的名字加上中括号和$符号。&lt;/p&gt;
+&lt;h3&gt;4.2 使用VBA操作模板和数据&lt;/h3&gt;
+&lt;p&gt;使用VBA操作模板和数据的过程是一个assign的过程，就是把数据和模板杂糅起来，类似于MVC中C控制M输出到V中，我建议针对不同类型的页面制作多个模板，而
+不要使用VBA进行各种样式修改操作，减少代码量。我这个案子中使用了8个不同类型模板，毕竟直接使用鼠标拖拽出一个模板比用VBA代码修改处一个模板简单的多。&lt;/p&gt;
+&lt;p&gt;Excel2007的VBA界面在"开发工具"-"Visual
+Basic"中打开，千万不要以为写VBA就是录制宏呀~另外附赠一个小技巧，在VBA编辑界面里面使用Ctrl+J可以自动补全，相当实用。&lt;/p&gt;
+&lt;p&gt;我把项目分成5个模块：Golbal 、Init 、Insert 、Finalize
+、Utils，看名字就知道意思了，其中Utils包含一个中文大写数字转换的函数，供前面使用。&lt;/p&gt;
+&lt;p&gt;我们需要在Excel自动打开时候进行操作，需要使用函数Workbook_Open，另有Auto_Open，两个有不同之处，可以Google之。&lt;/p&gt;
+&lt;p&gt;启用代码如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;&amp;#39;开启工作簿时候动作&lt;/span&gt;
+&lt;span class="n"&gt;Private&lt;/span&gt; &lt;span class="n"&gt;Sub&lt;/span&gt; &lt;span class="n"&gt;Workbook_Open&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="n"&gt;MAIN_SHEET&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;报价模板&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;For&lt;/span&gt; &lt;span class="n"&gt;Each&lt;/span&gt; &lt;span class="n"&gt;Sheet&lt;/span&gt; &lt;span class="n"&gt;In&lt;/span&gt; &lt;span class="n"&gt;Sheets&lt;/span&gt;
+        &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;Sheet&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;MAIN_SHEET&lt;/span&gt; &lt;span class="n"&gt;Then&lt;/span&gt;
+            &lt;span class="n"&gt;Exit&lt;/span&gt; &lt;span class="n"&gt;Sub&lt;/span&gt;
+        &lt;span class="n"&gt;End&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt;
+    &lt;span class="n"&gt;Next&lt;/span&gt;
+    &lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;Sheets&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;OPTION&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;Range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;B2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;Then&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;如果不存在&lt;/span&gt;&lt;span class="n"&gt;DH&lt;/span&gt;&lt;span class="err"&gt;行数，则退出&lt;/span&gt;
+        &lt;span class="n"&gt;Exit&lt;/span&gt; &lt;span class="n"&gt;Sub&lt;/span&gt;
+    &lt;span class="n"&gt;End&lt;/span&gt; &lt;span class="n"&gt;If&lt;/span&gt;
+
+    &lt;span class="n"&gt;MsgBox&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;初始化数据，请稍等片刻！&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;Call&lt;/span&gt; &lt;span class="n"&gt;Run&lt;/span&gt;
+    &lt;span class="n"&gt;Call&lt;/span&gt; &lt;span class="n"&gt;DeleteSheets&lt;/span&gt;
+    &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Call&lt;/span&gt; &lt;span class="n"&gt;ActiveWorkbook&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Save&lt;/span&gt;
+    &lt;span class="n"&gt;MsgBox&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;初始化数据完成，请保存Excel文件！&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;End Sub&lt;/p&gt;
+&lt;p&gt;核心代码的话。。。其实没什么核心代码，就是频繁的使用赋值和Copy函数。。。。&lt;/p&gt;
+&lt;h2&gt;五、相关资料链接&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/dahuzizyd/archive/2007/04/11/CSharp
+_Excel_Report_Chart_All.html"&gt;C#操作Excel开发报表系列整理&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/HQT/archive/2006/05/22/406345.html"&gt;检索 COM 类工厂中 CLSID 为 {00024500-0000-0000-C000-000000000046} 的组件时失败，原因是出现以下错误:
+80070005&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PS:8000401a的错误会在服务器上出现，不会在xp上出现，原因是交互式用户也没有Excel操作权限，这时候要给Excel手动制动一个有Excel操作权
+限用户，比如administrator。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://archive.cnblogs.com/a/567305/"&gt;Office编程在dot Net环境中总结(Excel篇)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;好了，这就是我这次Excel学习的分享，谢谢大家耐着性子看完~&lt;/p&gt;</summary><category term="Excel"></category><category term="Office"></category><category term="VBA"></category></entry><entry><title>PDA"未能建立与网络的连接"的解决办法</title><link href="/2010/03/solution-of-pda-failed-to-establish-a-network-connection/" rel="alternate"></link><updated>2010-03-31T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-31:2010/03/solution-of-pda-failed-to-establish-a-network-connection/</id><summary type="html">&lt;p&gt;遇到这个问题大凡是因为模拟器或者真机无法连接网络，所以需要先测试网络是否畅通，在真机或者模拟器的IE中打开需要的WebService地址，看看是否能够正常获
+取。&lt;/p&gt;
+&lt;p&gt;确定是网络原因后，可以采用多种方式连接网络，比如使用虚拟网卡来实现，又或者使用ActiveSync来实现。&lt;/p&gt;
+&lt;h3&gt;使用本地网卡&lt;/h3&gt;
+&lt;p&gt;在模拟器的文件-配置中的网卡中，选择本地网卡，可能会需要提示安装Virtual PC
+2007，我不愿意装这么一个大家伙，也就没有尝试这种方法，需要的朋友可以在&lt;a href="http:
+//www.microsoft.com/downloads/details.aspx?FamilyID=04d26402-3199-48a3-afa2-2d
+c0b40a73b6&amp;amp;DisplayLang=en"&gt;Download details: Virtual PC 2007&lt;/a&gt;来下载Virtual PC 2007进而连接互联网。&lt;/p&gt;
+&lt;h3&gt;使用ActiveSync&lt;/h3&gt;
+&lt;p&gt;ActiveSync是一个连接Win系列手持到电脑的同步软件，通过它可以使真机或者模拟机连接网络，步骤如下。&lt;/p&gt;
+&lt;p&gt;1、打开ActiveSync ，点击文件-连接设置，在"允许连接到以下其中一个端口"下选择"DMA"。&lt;/p&gt;
+&lt;p&gt;2、打开 VS2005，点击菜单工具-设备仿真管理器，选择一个windows mobile 5.0 PocketPC
+模拟器。在右键菜单中点击"连接"。等模拟器启动后，再点击"插入底座"，此时，通过ActiveSync来连接到模拟器，并进行数据同步。&lt;/p&gt;
+&lt;p&gt;3、测试一下能不能连上网络，比如说Baidu（现在G.cn已经不能作为能否上网的标志了）或者WebService地址。&lt;/p&gt;
+&lt;h3&gt;参考连接&lt;/h3&gt;
+&lt;p&gt;[PDA智能程序访问WebService，报告"未能建立与网络的连接"?&lt;/p&gt;
+&lt;p&gt;](http://www.chinaret.com/user/topic_view.aspx?u=jianfangkk&amp;amp;id=0b10f862-db59-4
+a52-9ceb-9ef1023acd9a)&lt;/p&gt;
+&lt;p&gt;[请问PDA智能程序访问WebService，报告"未能建立与网络的连接"?&lt;/p&gt;
+&lt;p&gt;](http://topic.csdn.net/u/20080610/18/da506852-57da-
+4df0-beb4-6952eece2f4e.html)&lt;/p&gt;</summary><category term="PDA"></category><category term="VisualStudio"></category><category term="WinCE"></category></entry><entry><title>VS2005无法创建或打开"智能设备"项目的一个问题的解决方法</title><link href="/2010/03/a-solution-of-can-not-create-or-open-the-smart-device-project-in-vs2005/" rel="alternate"></link><updated>2010-03-29T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-29:2010/03/a-solution-of-can-not-create-or-open-the-smart-device-project-in-vs2005/</id><summary type="html">&lt;h3&gt;状况&lt;/h3&gt;
+&lt;p&gt;在VS2005中创建或打开"智能设备"项目时，提示以下错误： "从用户数据存储中检索信息时出错。系统未找到指定的对象。" 和
+"由于数据存储中不存在项目引用的设备平台，因此无法打开项目。"&lt;/p&gt;
+&lt;p&gt;在打开VS2005的"工具"－"设备仿真器管理器"时，提示以下错误： "未能正确加载包"Smart Device Configuration
+Package"( GUID = {D245F354-3F45-4516-B1E6-04608DA126CC}
+)。请与包供应商联系以获得帮助。由于可能会发生环境损坏，建议重新启动应用程序。要禁止将来加载此包吗? 可以使用"devenv
+/resetskippkgs"重新启用包加载。"&lt;/p&gt;
+&lt;h3&gt;不成功的解决办法&lt;/h3&gt;
+&lt;p&gt;有说把.csproj文件中的&lt;code&gt;&amp;lt;PlatformID&amp;gt;4118C335-430C-497f-
+BE48-11C3316B135E&amp;lt;/PlatformID&amp;gt;&lt;/code&gt;改成&lt;code&gt;&amp;lt;PlatformID&amp;gt;3C41C503-53EF-4c2a-
+8DD4-A8217CAD115E&amp;lt;/PlatformID&amp;gt;&lt;/code&gt;，原因说是"3C41C503-53EF-4c2a-
+8DD4-A8217CAD115E"来自任意一个能运行的.net
+cf2.0项目的.csproj文件，目标平台是ppc2003或wm5.0都可以"，但是很可惜，这个办法在我电脑上没有起作用。&lt;/p&gt;
+&lt;h3&gt;成功的解决方法&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;关闭VS2005。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重命名文件夹&lt;code&gt;c:Documents and Settings&amp;lt;user&amp;gt;Local SettingsApplication
+DataMicrosoftCoreCon1.0&lt;/code&gt;，这将删除所有关于设备配置属性的定制。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启VS2005，VS2005会自动重建上述配置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;原文链接：&lt;a href="http://blog.csdn.net/bingrrx/archive/2008/07/10/2634481.aspx"&gt;VS2005 无法创建或打开"智能设备"项目的一个问题的解决方法 - bingrrx的专栏 -
+CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文的原文链接：&lt;del&gt;http://forums.microsoft.com/MSDN/ShowPost.aspx?PostID=140668&amp;amp;
+SiteID=1&lt;/del&gt;链接已失效&lt;/p&gt;</summary><category term="VisualStudio"></category><category term="WinCE"></category></entry><entry><title>jQuery图片圈人功能在ASP.NET下的改进</title><link href="/2009/09/jquery-to-achieve-the-school-network-image-circle-of-people-function-results/" rel="alternate"></link><updated>2009-09-02T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-09-02:2009/09/jquery-to-achieve-the-school-network-image-circle-of-people-function-results/</id><summary type="html">&lt;p&gt;项目中需要一个类似于校内圈人效果的js控件，找了一下基本没有直接能用的，只有一些未完成，我只能自己动手了。 基本框架参照这篇文章《&lt;a href="http://www.cnblogs.com/czy1121/archive/2009/03/03/1402105.html"&gt;JS实现校内网"图片圈人
+"功能效果&lt;/a&gt;》（强烈推荐这篇
+文章，这段代码写的很帅气） 我把代码摘录如下，不过还是建议大家去看原文的一些分析。&lt;/p&gt;
+&lt;h2&gt;原始Code:&lt;/h2&gt;
+&lt;p&gt;运行环境： 1.jQuery支持 2.DragResize类（czy1121作者写的一个js类，更多信息可以参照《&lt;a href="http://www.cnblogs.com/czy1121/archive/2009/02/26/1398971.html"&gt;Javascript Resize和Dr
+ag类,基于jQuery&lt;/a&gt;》
+）&lt;/p&gt;
+&lt;h3&gt;样式：&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nf"&gt;#enclose-wrapper&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;z-index&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;4px&lt;/span&gt; &lt;span class="k"&gt;solid&lt;/span&gt; &lt;span class="m"&gt;#DDD&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#FFF&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#form-add-tag&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;margin-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;8px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;5px&lt;/span&gt; &lt;span class="m"&gt;3px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1px&lt;/span&gt; &lt;span class="k"&gt;solid&lt;/span&gt; &lt;span class="m"&gt;#005EAC&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;display&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;inline&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#FFF&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;5px&lt;/span&gt; &lt;span class="k"&gt;solid&lt;/span&gt; &lt;span class="m"&gt;#D8DFEA&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;relative&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;2px&lt;/span&gt; &lt;span class="k"&gt;solid&lt;/span&gt; &lt;span class="m"&gt;#005EAC&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;z-index&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;15&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="sx"&gt;url(spacer.gif)&lt;/span&gt; &lt;span class="k"&gt;no-repeat&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;absolute&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;border&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;1px&lt;/span&gt; &lt;span class="k"&gt;solid&lt;/span&gt; &lt;span class="m"&gt;#005EAC&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;width&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;8px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;height&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;8px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#FFF&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;z-index&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;18&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.north-west-resize&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;nw-resize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.north-east-resize&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;ne-resize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.south-west-resize&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;sw-resize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#select-area-box&lt;/span&gt; &lt;span class="nt"&gt;span&lt;/span&gt;&lt;span class="nc"&gt;.south-east-resize&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;cursor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;se-resize&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin-bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;-1px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#enclose-wrapper&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="nf"&gt;#tag-list&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;list-style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;font-size&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;13px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#enclose-wrapper&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="nf"&gt;#tag-list&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;list-style&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;none&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;float&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;left&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nf"&gt;#enclose-wrapper&lt;/span&gt; &lt;span class="nt"&gt;ul&lt;/span&gt;&lt;span class="nf"&gt;#tag-list&lt;/span&gt; &lt;span class="nt"&gt;li&lt;/span&gt; &lt;span class="nt"&gt;a&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="m"&gt;#F60&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;js实现代码：&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;photoTag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;show_resize_square&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+        &lt;span class="p"&gt;})&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;show_resize_square&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tag_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tag_value&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;floor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="s1"&gt;  * &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;删除&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s1"&gt;(javascript:;))&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;remove&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;parentNode&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;removeChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// 选区左上角,和高宽&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;offset&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;border-left-width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;offset&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;border-top-width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dnr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DragResize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;minWidth&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;minHeight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;bound&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9999&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// 7为左(上)边两个边框的宽度的和, 4为左右(上下)篮色边框宽度的和&lt;/span&gt;
+            &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+            &lt;span class="p"&gt;};&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="c1"&gt;// 将添加标签的表单定位在选区的右边&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;
+            &lt;span class="p"&gt;});&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 拖动选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;dnr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 调整选区大小&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;dnr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;resize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;className&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;-resize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 在图片上点击一下,开始获取选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#photo-wrapper img&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;is_started&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pageX&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pageY&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+        &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;
+        &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 鼠标进入图片内时,显示选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#photo-wrapper img&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mouseenter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;is_started&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 确定添加一个标签,或取消&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#btn-add-tag, #btn-cancel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;click&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;btn-cancel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag, #select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;标签名不能为空！&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="c1"&gt;// 添加标签&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="c1"&gt;// 隐藏选区和表单&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag, #select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Html代码&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;enclose-wrapper&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photo-wrapper&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;margin:15px auto;text-align:center;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;img&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photo&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;src=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;heroes_s3_peter.jpg&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tag-list&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt;相片中：&lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class="nt"&gt;&amp;lt;li&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;span&lt;/span&gt; &lt;span class="na"&gt;onmouseover=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoTag.show(0,0,85,66);&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onmouseout=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoTag.hide();&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;aaa&lt;span class="nt"&gt;&amp;lt;/span&amp;gt;&lt;/span&gt; (&lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;javascript:;&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onclick=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoTag.remove(&amp;#39;342&amp;#39;,this.parentNode);&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onmouseover=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoTag.show(0,0,85,66);&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onmouseout=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoTag.hide();&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;删除&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;) &lt;span class="nt"&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;select-area-box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;select-area&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-add-tag&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;display:none;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; 输入标签：
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;input id="tag-name" name="tag-name" type="text" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btn-add-tag" type="button"&gt;确认&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btn-cancel" type="button"&gt;取消&lt;/button&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;h2&gt;改进&lt;/h2&gt;
+&lt;p&gt;在Asp.NET下这段代码存在几个问题（毕竟这段代码应该只能算是Demo）：1.无法和服务器进行数据交互。2.无法在ASP.NET环境下获取相关id。3.只
+能提交到服务器一个"标签"，不足以完成需求。&lt;/p&gt;
+&lt;h3&gt;修改后js:&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;photoTag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;show_resize_square&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+        &lt;span class="p"&gt;})&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;show_resize_square&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tag_name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;tag_value&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;json&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;floor&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;Math&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="c1"&gt;//$.getJSON(&amp;#39;add_tag.php&amp;#39;, {&amp;#39;name&amp;#39;:tag_name,&amp;#39;left&amp;#39;:left,&amp;#39;top&amp;#39;:top,&amp;#39;width&amp;#39;:width,&amp;#39;height&amp;#39;:height}, function(json) {&lt;/span&gt;
+        &lt;span class="c1"&gt;//reflesh tag list&lt;/span&gt;
+        &lt;span class="c1"&gt;//    if(json.message) alert(json.message);&lt;/span&gt;
+        &lt;span class="c1"&gt;//    if(json.error == 0) {&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;,&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="s1"&gt;  * &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="err"&gt;删除&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="s1"&gt;(javascript:;))&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="nx"&gt;li&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="c1"&gt;//    }&lt;/span&gt;
+        &lt;span class="c1"&gt;//});&lt;/span&gt;
+    &lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="nx"&gt;remove&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="c1"&gt;//$.getJSON(&amp;#39;remove_tag.php&amp;#39;, {&amp;#39;tag_id&amp;#39;:id}, function(json) {&lt;/span&gt;
+        &lt;span class="c1"&gt;//reflesh tag list&lt;/span&gt;
+        &lt;span class="c1"&gt;//    if(json.message) alert(json.message);&lt;/span&gt;
+        &lt;span class="c1"&gt;//    if(json.error == 0)&lt;/span&gt;
+        &lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;parentNode&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;removeChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;li&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="c1"&gt;//});&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;};&lt;/span&gt;
+&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// 选区左上角,和高宽&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;offset&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;border-left-width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+        &lt;span class="nx"&gt;y&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;offset&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#enclose-wrapper&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;border-top-width&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dnr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DragResize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;minWidth&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;minHeight&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;bound&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;right&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9999&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;bottom&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;9999&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;callback&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="c1"&gt;// 7为左(上)边两个边框的宽度的和, 4为左右(上下)篮色边框宽度的和&lt;/span&gt;
+            &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+            &lt;span class="p"&gt;};&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="c1"&gt;// 将添加标签的表单定位在选区的右边&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;
+            &lt;span class="p"&gt;});&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 拖动选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;dnr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;drag&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 调整选区大小&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#select-area-box span&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;dnr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;resize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;className&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;replace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;-resize&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 在图片上点击一下,开始获取选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#photo-wrapper img&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;mousedown&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;is_started&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pageX&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pageY&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nx"&gt;origin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;info&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;width&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;height&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;
+        &lt;span class="p"&gt;};&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;css&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;left&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;left&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;top&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;top&lt;/span&gt;
+        &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 鼠标进入图片内时,显示选区&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#photo-wrapper img&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;bind&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;mouseenter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;is_started&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;show&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="c1"&gt;// 确定添加一个标签,或取消&lt;/span&gt;
+    &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#btn-add-tag, #btn-cancel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;click&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;id&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;btn-cancel&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag, #select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;标签名不能为空！&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="c1"&gt;// 添加标签&lt;/span&gt;
+        &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#tag-value&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;val&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;left&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;top&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;width&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;info&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="c1"&gt;// 隐藏选区和表单&lt;/span&gt;
+        &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;#form-add-tag, #select-area-box&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="nx"&gt;is_started&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="nx"&gt;photoTag&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;hide&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Html代码：&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;enclose-wrapper&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photo-wrapper&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;asp:Image&lt;/span&gt; &lt;span class="na"&gt;ID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ImgPhoto&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;Visible=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;false&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;ul&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tag-list&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;select-area-box&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;select-area&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt; &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form-add-tag&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;display: none;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; 名称：
+    &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tag-name&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tag-name&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;数值：&lt;/p&gt;
+&lt;p&gt;&lt;input id="tag-value" name="tag-value" type="text" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btn-add-tag" type="button"&gt; 确认&lt;/button&gt;&lt;/p&gt;
+&lt;p&gt;&lt;button id="btn-cancel" type="button"&gt; 取消&lt;/button&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;这边的主要修改在于把框子的右边的内容增加为名称和数值，方便数据的识别。&lt;/p&gt;
+&lt;h3&gt;后台ASP.NET文件读取&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;fields&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Params&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetValues&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;photoField&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这里呢，由于上传的元素&lt;code&gt;name&lt;/code&gt;相同，都是&lt;code&gt;photoField&lt;/code&gt;，所以通过&lt;code&gt;Params.GetValues()&lt;/code&gt;就可以取出&lt;code&gt;string&lt;/code&gt;数组，这样就
+能获取所有数据了。数据格式是"&lt;code&gt;ddl:小楠,x:98.88333129882812,y:146,width:100,height:100&lt;/code&gt;"这种形式，依靠
+","分割。&lt;/p&gt;
+&lt;h3&gt;相关下载&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2009/09/DragResize.js"&gt;DragResize.js&lt;/a&gt;
+&lt;a href="http://upload-log4d.qiniudn.com/2009/09/template.js"&gt;template.js&lt;/a&gt;
+&lt;a href="http://upload-log4d.qiniudn.com/2009/09/css.css"&gt;css.css&lt;/a&gt;&lt;/p&gt;</summary><category term="JavaScript"></category><category term="jQuery"></category><category term="人人"></category></entry><entry><title>AjaxControlToolkit中CalendarExtender样式修正</title><link href="/2009/08/ajaxcontroltoolkit-amendment-in-calendarextender-styles/" rel="alternate"></link><updated>2009-08-28T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-08-28:2009/08/ajaxcontroltoolkit-amendment-in-calendarextender-styles/</id><summary type="html">&lt;p&gt;在&lt;a href="http://www.asp.net"&gt;The Official Microsoft ASP.NET Site&lt;/a&gt;上有一个很强大的控件&lt;a href="http://ajaxcontroltoolkit.codeplex.com/Release/ProjectRelease
+s.aspx?ReleaseId=27326"&gt;AJAX
+Control Toolkit&lt;/a&gt;，其功能非常完整，几乎涵盖了表现层方面各种应用，使用也很方便，有中文详细支持，能给程序员很大帮助。&lt;/p&gt;
+&lt;p&gt;我现在使用的其中一款控件叫做CalendarExtender，其实是一个DatePicker（日期选择器），这个控件可以直接在Input控件上添加「扩展程序
+」，就完成了所有工作。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http
+://upload-log4d.qiniudn.com/2009/09/0e9aa6590cdc.jpg"&gt;&lt;img alt="偏移" src="http://upload-log4d.qiniudn.com/2009/09/0e9aa6590cdc.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;让我意外的是，这个控件在我的页面上工作时候样式似乎有些不正常。&lt;/p&gt;
+&lt;p&gt;页面漂移了！我仔细检查了FireBug，发现下面的样式中的padding影响了其td。(页面可不是我设计的```)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http
+://upload-log4d.qiniudn.com/2009/09/Firebug.jpg"&gt;&lt;img alt="Firebug" src="http://upload-log4d.qiniudn.com/2009/09/Firebug.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;如果修改CSS，就带来了大量的页面需要修改class/id，所以我只能修正CalendarExtender。（话说人家jQuery在这儿丝毫不受影响，全部元
+素都覆盖了样式，AJAX Control Toolkit在样式上还是不如jQuery）&lt;/p&gt;
+&lt;p&gt;我在CalendarExtender外面包了一层div，再覆盖CalendarExtender的td属性。&lt;/p&gt;
+&lt;p&gt;Html代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;asp:TextBox&lt;/span&gt; &lt;span class="na"&gt;ID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;TbBirthday&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/asp:TextBox&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;cc1:CalendarExtender&lt;/span&gt; &lt;span class="na"&gt;ID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;TbBirthday_CldEx&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;Enabled=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;True&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;TargetControlID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;TbBirthday&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;FirstDayOfWeek=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Monday&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;Format=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yyyy-MM-dd&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;PopupPosition=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;BottomRight&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/cc1:CalendarExtender&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;CSS代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/*bugs for CalendarExtends*/&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;calendar&lt;/span&gt; &lt;span class="n"&gt;td&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="cm"&gt;/*.calender td 前的类是我网页中的上层元素*/&lt;/span&gt;
+&lt;span class="nl"&gt;margin:&lt;/span&gt; &lt;span class="mh"&gt;0&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nl"&gt;padding:&lt;/span&gt; &lt;span class="mh"&gt;0&lt;/span&gt;&lt;span class="n"&gt;px&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样一来，就可以解决这个问题了。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http
+://upload-log4d.qiniudn.com/2009/09/e249092a13bc.jpg"&gt;&lt;img alt="修正" src="http://upload-log4d.qiniudn.com/2009/09/e249092a13bc.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后，附送一个汉化控件的技巧：其实下载后，已经有语言包在下载包里面，之所以没有启用中文，是因为没有打开ScriptManager的全球化控制，把Script
+Manager的EnableScriptGlobalization改为true即可。&lt;/p&gt;
+&lt;p&gt;Asp.NET代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;asp:ScriptManager&lt;/span&gt; &lt;span class="na"&gt;ID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ScriptManager1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;EnableScriptGlobalization=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;True&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/asp:ScriptManager&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="AjaxControlToolkit"></category><category term="CSS"></category></entry></feed>

@@ -72,6 +72,20 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
+                <div class="summary"><p>唔，继续整理笔记，这些是在代码编写中遇到的问题和解决办法的总结，不是Turtial，问题有针对性，内容枯燥，路人可以直接忽略~</p>
+<h3>一、Comet服务器推技术</h3>
+<p>Comet推技术，一句话概括，就是形成一个不断开的连接，使得服务器能主动向客户端发送信息。这种技术在交互性强的Web产品中应用的非常多，比如GMail。Co
+met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式和基于 Iframe 及 htmlfile
+的流（streaming）方式，具体两种实现方式可以参考<a href="http://www.ibm.com/developerworks/cn/web/wa-lo-comet/">Comet：基于 HTTP
+长连接的"服务器推"技术</a>。</p>
+<p>我计划把这个技术引入，成为一个亮点，第二种Comet实现方式过于复杂（GMail使用的就是这种），我就尝试第一种。我在测试环境测试了基于 AJAX 的长轮询
+（long-polling）方式。这种方式说白了就是在Ajax获取返回数据时候，在状态吗为4（数据传输完成）情况随后进行下次查询。进行循环的查询 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2010/08/azaajaxchat-notes-implementation/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2010/08/cook-book/">新手入厨好书-《从零开始学下厨》</a></h2>
                 <div class="summary"><p>今天在人人戏言"其实，我高考第一志愿是新东方烹饪学校，分数不够才学的计算机"，居然有朋友问我真的假的，认真你就输了~</p>
 <p>不过话说回来，烹饪是我为数不多的爱好之一，虽然技术不是很娴熟，会做的菜也不多，但毕竟保持兴趣还是不错的。</p>
@@ -273,25 +287,6 @@ Nettuts+</a></p>
 log4d.qiniudn.com/2010/07/ximilu.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/07/ximilu.jpg" /></a></p>
 <p>下次继续努力咯～</p>
                     <a class="btn btn-default btn-xs" href="/2010/07/xi-mi-lu-with-milk/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2010/07/love-qiezishaorou/">最爱茄子烧肉</a></h2>
-                <div class="summary"><p>大学里面有一条小吃一条街，其中有一个店面叫"思味特"，取义"Sweet"，其中有一道名为茄子烧肉的盖浇饭特别好吃，今天，我就来试试茄子烧肉。</p>
-<p>在这里，首先感谢我娘亲周末到我这里来看我，帮我清理小狗窝，其次感谢国家，让我有感谢我娘亲的机会。</p>
-<h2>1.准备材料</h2>
-<p>材料如下：茄子两根，姜切片，香葱切段，红烧肉若干，油盐酱糖味精。</p>
-<p>茄子切成滚刀状，有朋友问我滚刀何意，其实就是削一片再把茄子转一下，这样切出来的接触面积比较大，容易入味。</p>
-<p>红烧肉是昨天在老妈指导下完成的，等下次我亲手实施时候再上详细流程。若没有红烧肉，素炒茄子一样可口。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/07/qiezirou1.jpg" /></p>
-<h2>2.流程</h2>
-<p>①油下锅，调和油的话可以直接下姜和葱（菜子油的话，需要油烧热来杀灭病菌），翻炒片刻后下茄子。</p>
-<p>②大概翻炒4-5分钟左右，可以放肉了，继续翻炒几分钟然后加入酱油（我用的是老抽，色泽比较好，生抽亦可）和盐。</p>
-<p>③差不多茄子和肉的香味溢出后，放入少量糖和味精，起锅。</p>
-<h2>3.成品</h2>
-<p>放老抽时候手抖了一下 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/07/love-qiezishaorou/">more ...</a>
                 </div>
             </article>
             <hr/>

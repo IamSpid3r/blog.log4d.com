@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/feeds/jian-zhan-xin-de.atom.xml" rel="self"></link><id>/</id><updated>2011-11-02T00:00:00+08:00</updated><entry><title>域名迁移</title><link href="/2011/11/to-log4d/" rel="alternate"></link><updated>2011-11-02T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2011-11-02:2011/11/to-log4d/</id><summary type="html">&lt;p&gt;各位好，我将在一个星期之内完成&lt;a href="http://dddspace.com"&gt;dddspace.com&lt;/a&gt;到&lt;a href="http://log4d.co
+m"&gt;log4d.com&lt;/a&gt;域名的迁移。&lt;/p&gt;
+&lt;p&gt;Log4D的域名最早叫dddspace.cn，创建于2009年5月14日，再之后09年12月份某次cn域名爆发群体性拔线之后，我注册了dddspace.co
+m这个域名。&lt;/p&gt;
+&lt;p&gt;不知不觉Log4D博客已经走过了2个多年头，我也终于在守候1年多时间里面抢到了名正言顺的log4d.com域名。同时我在&lt;a href="http:/
+/www.photonvps.com/billing/aff.php?aff=2188"&gt;PhotonVPS&lt;/a&gt;购买了一个XEN
+VPS，128M内存，300G流量，我用来运行这个博客，同时配置了VPN用作它用，你们懂的。&lt;/p&gt;
+&lt;p&gt;顺便给PhotonVPS做个广告，我那款VPS每个月4.95美元，然后用优惠码打7折，差不多26块钱一个月。我之前使用的虚拟主机+VPN每个月也是26块钱，
+何乐而不为呢。PhotonVPS速度还凑合（有些线路可能比较慢，江苏电信/江苏联通速度不错），128M内存小了一点，需要优化一下才能跑的很顺畅。有兴趣的可以
+压力测试一下我的Log4D。&lt;/p&gt;
+&lt;p&gt;Log4D的主题也在紧锣密鼓的重写中，我现在使用Toolbox 1.3版本作为模板来写主题，新主题的源码在 &lt;a href="https://github.com/alswl/simpletoolbox"&gt;https://github.com/alsw
+l/simpletoolbox&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;log4d.com现在已经可以访问，由于主题的不完善，看上去还比较粗糙。不过评论回复什么的我已经配置好了，现在用的是WordPress 3.x原生嵌套评论。&lt;/p&gt;
+&lt;p&gt;最后，我之前用三个订阅地址：dddspace.com/feed原始订阅地址;FeedBurner地址;FeedSky地址;现在厚着脸皮请大家将订阅地址改为F
+eedBurner地址，&lt;a href="http://feeds.feedburner.com
+/dddspace"&gt;http://feeds.feedburner.com/dddspace&lt;/a&gt; 或者 &lt;a href="http://log4d.com/feed"&gt;http://log4d.com/feed&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以后就用这个域名了，再也不想换了～&lt;/p&gt;</summary><category term=""></category></entry><entry><title>新logo</title><link href="/2011/09/new-logo/" rel="alternate"></link><updated>2011-09-29T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2011-09-29:2011/09/new-logo/</id><summary type="html">&lt;p&gt;策划了一年的博客改版终于跨出了第一步----新Logo。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2011/09/d3_128.png" /&gt;&lt;/p&gt;
+&lt;p&gt;有木有觉得帅气无比啊，这是用gimp做的，非PS出品。&lt;/p&gt;
+&lt;p&gt;ps：此乃山寨之作～&lt;/p&gt;</summary><category term=""></category></entry><entry><title>Log4D改版完成</title><link href="/2010/04/log4d-revision-completed/" rel="alternate"></link><updated>2010-04-14T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-04-14:2010/04/log4d-revision-completed/</id><summary type="html">&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/04/log4d_screenshot.png" /&gt;新主题SimpleD也运行
+了一段时间了，没出什么大Bug。其实从刚工作时候，也就是11月份，就一直说要自己写一个主题，拖啊拖，拖啊拖，拖到上个月才正式发布SimpleD
+1.0版。现在缝缝补补到1.3了。&lt;/p&gt;
+&lt;p&gt;根据我的工作性质，我本身也算半个Web Designer，花这么长时间搞鼓一个主题是有原因的。最大的问题不是来自主题本身，毕竟我不是艺术家，问题大部分集中在
+插件的测试和融合上。下面我就把制作我主题的预期目标和中间遇到问题的解决方案分享一下。&lt;/p&gt;
+&lt;h2&gt;一、使用框架&lt;/h2&gt;
+&lt;p&gt;第一件要做的事情是使用一套现有的WordPress主题框架。对于IT从业者来说，编码之前使用一个健壮灵活的框架是多么重要。这里推荐2个框架Sandbox 和
+WordPress Basis Theme。&lt;/p&gt;
+&lt;h3&gt;1.Sandbox&lt;/h3&gt;
+&lt;p&gt;下载地址：&lt;a href="http://code.google.com/p
+/sandbox-theme"&gt;sandbox-theme - Project Hosting on Google Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;sandbox主题中文语言(汉化)包：&lt;a href="http://www.keelii.com
+/sandbox-zh-cn-package/"&gt;sandbox主题中文语言(汉化)包 - Kily's Blog&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我使用的就是SandBox主题，模块分割比较清晰，默认是英文，可以找到第三方的中文语言包。&lt;/p&gt;
+&lt;h3&gt;2.WordPress Basis Theme&lt;/h3&gt;
+&lt;p&gt;不用wpbasis并不是说它不好，它甚至提供了基于HTML5的框架，但是问题的关键是，他默认输出是德文。如果是英文的话，我还能翻译成mo包，德文的话～～～呃
+～～～&lt;/p&gt;
+&lt;p&gt;基本上，如果只是想尝鲜，wpbasis也挺适合，小巧，而且默认的css看上去也不错。&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href="http://code.google.com/p/wp-basis-theme/"&gt;wp-basis-theme - Project Hosting on Google
+Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;除了框架，还有一些基本的WordPress自带函数和模板结构需要学习。如果真想做自己的主题，这一步是没法逃避的，强烈推荐水煮鱼的一套教程&lt;a href="http://fairyfish.net/series/wordpress-theme-tutorials/"&gt;
+WordPress 主题教程 &lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;二、难对付的插件&lt;/h2&gt;
+&lt;h3&gt;1.首先要保证的插件是邮件回复&lt;/h3&gt;
+&lt;p&gt;我之前使用的是 MailToCommenter，因为最早时候的cn所在服务器不支持 Thread Comment，之久将就使用 MailToCommente
+r。它不支持Ajax，使用和嵌套起来也比较麻烦，有些主题需要简单的修改源码。之前一直使用@单条回复方式，后来感觉嵌套式回复风格更人性化。
+关于是否需要使用嵌套的讨论，详见mg12大大的 &lt;a href="http://www.neoease.com/wordpress-
+thread-comments/"&gt;WordPress 嵌套回复&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;经过测试SandBox 和Wordpress Thread Comment 配合没有问题。&lt;/p&gt;
+&lt;p&gt;在移动手持上，G3自带浏览器中能够完美使用JavaScript。使用UCWeb for
+Android，关闭JavaScript之后点击[回复]，会需要重新打开一次页面，但是回复输入框已经移动了，应该也没有问题。&lt;/p&gt;
+&lt;h3&gt;2.代码高亮插件&lt;/h3&gt;
+&lt;p&gt;这个是我需要换主题的根本原因，之前的使用了几个插件都和主题有些不适应，现在索性一步到位。&lt;/p&gt;
+&lt;p&gt;切换代码高亮插件还牵扯到编辑器的切换问题，所以又牵扯到到底使用哪个在线编辑器的问题。我之前使用的是Dean's FCKEditor 和 deans
+fckeditor with pwwangs code plugin for
+wordpress，都存在和代码高亮的不兼容情况（在使用html转义时候尤其会出现问题）。&lt;/p&gt;
+&lt;p&gt;我花了一个晚上对一些插件进行评估，要求如下"可以自由模式切换、兼容pre、插件不在仍然可以运行、自己控制转义符而不是自动转换，否则切换回带来问题、兼容CKE
+ditor插件使用"，我还制作了一个xls文档。最后，我发现了一位老外的文章 &lt;a href="http://www.travislin.com/2009/05/guide-to-find-a-wordpress-syntax-
+highlighter-that-works/"&gt;Travaganza Blog » Archive » Guide to
+find a WordPress syntax highlighter that works
+&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;，解决了我长久以来一直的问题，我曾把这篇文章做了翻译 &lt;a href="http://log4d.com/2010/03
+/guide-to-find-a-wordpress-syntax-highlighter-that-works-translation"&gt;WordPress代码高亮插件指南[译文]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后我选用了Syntax Highlighter and Code Colorizer for Wordpress，详情看我那篇翻译的文章。&lt;/p&gt;
+&lt;h3&gt;3.内容编辑器&lt;/h3&gt;
+&lt;p&gt;其实TinyMCE功能很强，可以媲美CKEditor，可以参看我自己在服务器上建立的完整的TinyMCE &lt;a href="http://e.log4d.com/tinymce.html"&gt;http://e.log4d.com/tinym
+ce.html&lt;/a&gt;，可惜WP和的TinyMCE被阉割的一塌糊涂，还会产生多余的照片缩略图。我
+不得不投奔最强的文本编辑器CKEditor（FCKEditor）。&lt;/p&gt;
+&lt;p&gt;原先使用 Dean's FCKEditor With pwwang's Code Plugin For Wordpress ，是为了解决代码格式问题&lt;/p&gt;
+&lt;p&gt;现在代码问题解决了，使用 Dean's FCKEditor For Wordpress&lt;/p&gt;
+&lt;p&gt;如果需要使用原始WP的文件上传路径，需要修改一下Dean's FCKEditor For Wordpress 的js配置代码。&lt;/p&gt;
+&lt;h3&gt;4.移动手持插件&lt;/h3&gt;
+&lt;p&gt;最早时候用T-Wap这款国人制作的插件，支持域名重定向，但是会在根目录下生成一个多余的目录，生成的wap页面也不是很漂亮，后台界面很简陋。&lt;/p&gt;
+&lt;h4&gt;Wordpress PDA &amp;amp; iPhone。&lt;/h4&gt;
+&lt;p&gt;使用时候需要加入User-Agent:Android才能识别G3，功能比较强大，甚至能使用Add- this插件。&lt;/p&gt;
+&lt;p&gt;会和Cool-tags冲突，导致Cool-tag无法加载，可惜这款插件不是通过域名判断，而是通过User-
+Agent来判断的，其实也不支持其他域名，恩，它不是我的菜。&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href="http://wordpress.org/extend/plugins/wp-pda/"&gt;WordPress › Wordpress PDA &amp;amp; iPhone « WordPress
+Plugins&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;WPhone&lt;/h4&gt;
+&lt;p&gt;只适合后台管理，很鸡肋&lt;/p&gt;
+&lt;p&gt;实话实说，后台功能做得的确比较强。&lt;/p&gt;
+&lt;p&gt;插件地址：&lt;a href="http://wordpress.org/extend/plugins/wphone/"&gt;WordPress › WPhone « WordPress
+Plugins&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Mobile Pack（最后出现的显然是胜利者了）&lt;/h4&gt;
+&lt;p&gt;完美达到我的要求，支持检测User-Agent或者绑定域名的双重显示方法。不过绑定域名时候遇到一些问题，插件没给太多的提示。如果选择
+m.log4d.com的域名，cPanel创建子域默认是public/m，这是需要修改为public/才能使用Mobile
+Pack，如果定位到public/m，插件无效。顾名思义，Mobile Pack其实是一种插件包的形式：Mobile Pack= Mobile Theme
++ Mobile Widgets + Mobile Switcher + mpexo。插件可以切换主题，自定义Wigget显示。&lt;/p&gt;
+&lt;p&gt;下载地址：&lt;a href="http://wordpress.org/extend/plugins/wordpress-mobile-pack/"&gt;WordPress › WordPress Mobile Pack « WordPress
+Plugins&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Last、&lt;/h2&gt;
+&lt;p&gt;虽然版本增加到v1.3，但是很多东西都没有做到自定义，所以我暂时也不想把这个主题发布了。&lt;/p&gt;
+&lt;p&gt;需要参考的朋友可以到svn获取一下，地址在：&lt;a href="https://workspace4alswl.googlecode.com/svn/trunk/PHP/SimpleD"&gt;https://workspace4alswl.googlecode.com/svn/trunk/PHP/Si
+mpleD&lt;/a&gt;&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>Dean's FCKEditor上传目录修改</title><link href="/2010/03/dean-s-fckeditor-upload-directory-modify/" rel="alternate"></link><updated>2010-03-24T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-24:2010/03/dean-s-fckeditor-upload-directory-modify/</id><summary type="html">&lt;p&gt;一直喜欢WorePress默认的上传文件方法，通过&lt;code&gt;WP-content/uploads/年/月&lt;/code&gt;分组。&lt;/p&gt;
+&lt;p&gt;网站改版时候果断的把&lt;a href="http://wordpress.org/extend/plugins/deans-fckeditor-with-pwwangs-
+code-plugin-for-wordpress/"&gt;Dean's FCKEditor With pwwang's Code Plugin For
+Wordpress&lt;/a&gt;换成了&lt;a href="http://wordpress.org/extend/plugins/deans-fckeditor-for-wordpress-
+plugin/"&gt;Dean's FCKEditor For
+Wordpress&lt;/a&gt;，Dean's FCKEditor With pwwang's Code Plugin For
+Wordpress是带一个代码编辑器的CKEditor插件，和WP-Syntax配合很好用，而Dean's FCKEditor For
+Wordpress是常规的CKEditor。&lt;/p&gt;
+&lt;p&gt;PS:为神马要用两款插件呢，其实都是为了代码高亮，现在我发现Dean's FCKEditor For
+Wordpress+&lt;a href="http://github.com/RichGuk/syntaxhl"&gt;SyntaxHL&lt;/a&gt;才是王道啊～&lt;/p&gt;
+&lt;p&gt;这两款插件都会把文件上传到&lt;code&gt;/wp-
+content/uploads/image&lt;/code&gt;(file/flash子文件夹)。这点让我很不喜欢，我还是喜欢默认的WordPress上传路径。&lt;/p&gt;
+&lt;p&gt;修改&lt;code&gt;wp-contentpluginsfckeditor-for-wordpress-
+pluginfilemanagerconnectorsphpconfig.php&lt;/code&gt;如下。其实就是声明一个变量，然后替换掉文件路径。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Enabled&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;deans_fckeditor&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;can_upload&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;dateMonth&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesPath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;deans_fckeditor&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;user_files_url&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;dateMonth&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;deans_fckeditor&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;user_files_absolute_path&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;dateMonth&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;AllowedExtensions&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;aiff&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;asf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;avi&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;bmp&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;csv&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;fla&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;flv&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;gif&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;gz&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;gzip&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;jpeg&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;jpg&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mov&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mp3&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mpc&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mpeg&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mpg&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ods&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;odt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;pdf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ppt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;pxd&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;qt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ram&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;rar&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;rm&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;rmi&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;rmvb&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;rtf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sdc&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sitd&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;swf&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sxc&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;sxw&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;tar&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;tgz&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;tif&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;tiff&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;vsd&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;wav&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;wma&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;wmv&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;xls&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;zip&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;DeniedExtensions&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;FileTypesPath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;        &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesPath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;FileTypesAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;QuickUploadPath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;      &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesPath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;QuickUploadAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;Config&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;UserFilesAbsolutePath&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;呃，懒孩子们我就直接提供下载了。&lt;/p&gt;
+&lt;p&gt;config.php文件下载：&lt;a href="http://upload-
+log4d.qiniudn.com/2010/03/fckeditor-for-wordpress-plugin_config.zip"&gt;fckeditor-for-wordpress-plugin_config.zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;看不懂的就算了～&lt;/p&gt;</summary><category term="CKeditor"></category><category term="WordPress"></category></entry><entry><title>WordPress代码高亮插件指南[译文]</title><link href="/2010/03/guide-to-find-a-wordpress-syntax-highlighter-that-works-translation/" rel="alternate"></link><updated>2010-03-19T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-19:2010/03/guide-to-find-a-wordpress-syntax-highlighter-that-works-translation/</id><summary type="html">&lt;p&gt;这是我第二篇译文，第一篇见这里 &lt;a href="http://log4d.com/2010/03/use-
+firebug-and-firephp-debugging-php"&gt;使用Firebug和 FirePHP调试PHP[译文]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;关注我博客的作者可能知道，我在年前就在做自己的主题，但是因为种种原因，一直到现在才完成beta1.0，不仅仅是主题的原因，还有各种插件的匹配，最让我头疼的两
+个"回复插件"和"代码着色插件"。&lt;/p&gt;
+&lt;p&gt;这篇文章做了一个很好的评测，自此我找到了真正好用的代码着色软件。&lt;/p&gt;
+&lt;p&gt;关于博客改版的一些经验，我会在稍后的日志中总结出来。&lt;/p&gt;
+&lt;p&gt;原文链接：&lt;a href="http://www.travislin.com/2009/05/guide-to-find-a
+-wordpress-syntax-highlighter-that-works/"&gt;http://www.travislin.com/2009/05/guide-to-find-a-wordpress-syntax-
+highlighter-that-works/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;原文作者：Travis&lt;/p&gt;
+&lt;p&gt;译者：&lt;a href="http://log4d.com"&gt;alswl&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/2009/05/autonomy-of-syntax-highlighter/"&gt;之前&lt;/a&gt;，我曾经抱怨过我
+多么需要一个代码高亮插件但是却没有收到好的建议…我亲自测试审核了一些我在&lt;a href="http://wordpress.org/extend/plugins
+/"&gt;插件目录&lt;/a&gt;找到较为的流行插件。这些被我列出的插件满足下列的要求：&lt;/p&gt;
+&lt;p&gt;支持WordPress 2.7.1&lt;/p&gt;
+&lt;p&gt;在2009年有过更新&lt;/p&gt;
+&lt;p&gt;我寻找代码高亮插件的标准除了以上两点上还有：&lt;/p&gt;
+&lt;p&gt;代码在切换可视化模式和HTML代码模式后没有变化&lt;/p&gt;
+&lt;p&gt;下载后立即可以使用，不需要配置或者少量的配置即可&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://wordpress.org/extend/plugins/syntaxhighlighter/"&gt;SyntaxHighlighter
+Evolved&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上次更新: 2009-5-4 (Version 2.1.0)&lt;/p&gt;
+&lt;p&gt;标记: 可视化的. Eg/ [php], [javascript]&lt;/p&gt;
+&lt;p&gt;SyntaxHighlighter Evolved 的一个功能是它有一个漂亮的工具栏在代码快的转角处，允许你使用下列功能：在一个弹出窗体内查看代码、复制代码
+到剪贴板和打印代码。出于某些原因Syntaxhighter Evolved喜欢去掉我的代码里缩进（空格）（译者按：这可能是WordPress自带TinyMC
+E在FireFox下的Bug）。如果我尝试在HTML模式保存，我会收到PHP警告同时我的代码在我的文章中消失。总之，这个插件不是我想要的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-content/uploads/2009/05/p06-syntax-
+highlighter-evolved.gif"&gt;&lt;img alt="p06-syntax-highlighter-evolved" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-syntax-highlighter-evolved- 300x269.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-
+content/uploads/2009/05/p06-syntax-highlighter-evolved-02.gif"&gt;&lt;img alt="p06-syntax-highlighter-evolved-02" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-syntax-highlighter- evolved-02-300x157.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;[Syntax Highlighter Plus](http://wordpress.org/extend/plugins&lt;/h3&gt;
+&lt;p&gt;/syntaxhighlighter-plus/)&lt;/p&gt;
+&lt;p&gt;上次更新: 2009-2-11 (Version 1.0b2)&lt;/p&gt;
+&lt;p&gt;标记: 可视化的. Eg/ [sourcecode language='css']&lt;/p&gt;
+&lt;p&gt;就像_Syntax Highlighter_家庭的其他插件，这款插件也有一个工具条，并且和Syntax Highlighter
+Evolved一样，它也因为在我尝试保存到HTML模式时候丢失了我代码的缩进而失败。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-content/uploads/2009/05/p06-syntax-
+highlighter-plus.gif"&gt;&lt;img alt="p06-syntax-highlighter-plus" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-syntax-highlighter-plus- 287x300.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;[Google Syntax Highlighter for&lt;/h3&gt;
+&lt;p&gt;WordPress](http://wordpress.org/extend/plugins/google-syntax-highlighter/)&lt;/p&gt;
+&lt;p&gt;上次更新: 2007-8-14 (Version 1.5.1)&lt;/p&gt;
+&lt;p&gt;标记: HTML. Eg/&lt;/p&gt;
+&lt;p&gt;尽管它已经快2年没有更新了，Google Syntax Highlighter似乎还是博主们的流行选择，所以我决定把它放到测试中来。Google
+Syntax Highlighter 有一个文本化的工具栏，没有Syntax Highlighter家族那么花俏但是却功能一样。这个插件在代码行比较长时候会
+遇到样式的问题，不过没什么大关系。直到我在切换可视模式和HTML模式时候失败了，又是一位让人失望的候选者。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-content/uploads/2009/05/p06-google-
+syntax-lighlighter.gif"&gt;&lt;img alt="p06-google-syntax-lighlighter" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-google-syntax-lighlighter- 275x300.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-
+content/uploads/2009/05/p06-google-syntax-lighlighter-02.gif"&gt;&lt;img alt="p06-google-syntax-lighlighter-02" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-google-syntax- lighlighter-02-300x162.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a href="http://wordpress.org/extend/plugins/wp-chili/"&gt;WP-Chili&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;上次更新: 2008-7-24 (Version 1.1)&lt;/p&gt;
+&lt;p&gt;标记: HTML. Eg/&lt;/p&gt;
+&lt;p&gt;WP-Chili 是另外一位比较特殊的候选者，它在&lt;a href="http://www.cagintranet.com/archive/the-definitive-guide-on-wordpress-
+syntax-highligher-
+plugins/"&gt;another WordPress syntax highlighter
+review&lt;/a&gt;进行过评测，我依然给它一个测试机会。和之前的几位候选者不同的是，它需要手动字符转义。我使用&lt;a href="http://www.elliotswan.com/postable/"&gt;Elliot's postable
+script&lt;/a&gt;
+(推荐)来完成这个工作。它的样式有些简单，可能需要一些调整（比如说修正长换行、附加背景和边框颜色以便从正常的段落中区分出来）。WP-
+Chili可以可视模式和HTML模式切换下工作，遗憾的是代码缩进在数次保存之后丢失了……难道没有一个插件接受我的空格缩进？！&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-content/uploads/2009/05/p06
+-wp-chili.gif"&gt;&lt;img alt="p06-wp-chili" src="http://www.travislin.com/wp-content/uploads/2009/05/p06-wp-" title="chili-300x247.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a href="http://wordpress.org/extend/plugins/codecolorer/"&gt;Code Colorer&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;上次更新: 2009-1-27 (Version 0.7.3)&lt;/p&gt;
+&lt;p&gt;标记:可视化的&amp;amp;HTML . Eg/ &lt;code lang="php"&gt;, [cc lang="php"]&lt;/p&gt;
+&lt;p&gt;我在插件目录找到了一个新的插件。由于某些原因，我不能正确获取代码，尽管使用Firebug能查看到HTML代码。（译者按：我之前有使用过Code
+Colorer，在切换也存在问题，但能正常显示）&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-
+content/uploads/2009/05/p06-code-colorer.gif"&gt;&lt;img alt="p06-code-colorer" src="http://www.travislin.com/wp-content/uploads/2009/05/p06" title="-code-colorer-300x270.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;[Dojox Wordpress Syntax Highlighter](http://wordpress.org/extend/plugins&lt;/h3&gt;
+&lt;p&gt;/wp-dojox-syntax-highlighter/)&lt;/p&gt;
+&lt;p&gt;上次更新: 2009-1-27 (Version 0.7.3)&lt;/p&gt;
+&lt;p&gt;标记: HTML. Eg/ &lt;pre&gt;&lt;code class="php"&gt;&lt;/p&gt;
+&lt;p&gt;Dojox 是第一个通过测试的插件：代码在数次不同模式切换下仍然保存。Dojox使用双重标记并且需要手动编码转义。虽然背景颜色也许需要修改一下来适应博客的主
+题，但除此之外，最终这是一个可以工作的插件。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-
+content/uploads/2009/05/p06-dojox.gif"&gt;&lt;img alt="p06-dojox" src="http://www.travislin.com/wp-content/uploads/2009/05/p06-dojox-" title="256x300.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;[Syntax Highlighter and Code Colorizer for&lt;/h3&gt;
+&lt;p&gt;Wordpress](http://wordpress.org/extend/plugins/syntax-highlighter-and-code-
+prettifier/)&lt;/p&gt;
+&lt;p&gt;上次更新: 2009-5-5 (Version 2.0.296)&lt;/p&gt;
+&lt;p&gt;标记: HTML. Eg/ &lt;pre class="brush:php"&gt;&lt;/p&gt;
+&lt;p&gt;很显然这款插件也称作代码美化插件。代码美化默认自动执行，同时作为Syntax Highlighter家族的成员它也会会有一个工具栏在右上角。不同于这个家族其
+他成员，它的确能够正常使用！无论在切换可视化或者HTML模式时候都没有问题。当然，你得自己手动转义你的代码。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-
+content/uploads/2009/05/p06-code-colorizer.gif"&gt;&lt;img alt="p06-code-colorizer" src="http://www.travislin.com/wp-content/uploads/2009/05/p06" title="-code-colorizer-274x300.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a href="http://wordpress.org/extend/plugins/wp-synhighlight/"&gt;WP-SynHighlight&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;上次更新: 2009-1-27 (Version 0.91)&lt;/p&gt;
+&lt;p&gt;标记: 可视化的. Eg/ [codesyntax lang="php"]&lt;/p&gt;
+&lt;p&gt;这是我能找到的唯一一个使用可视化标记并且在不同模式之间切换还能工作的插件。一旦你在可视化模式粘贴代码，不需要加上转义字符，这是在可视化编辑模式下的优势。但是
+当我使用它自带的例子时，不管我怎么做，我都没有办法通过WP-SynHightlight为代码着色。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.travislin.com/wp-content/uploads/2009/05/p06-wp-
+synhighlight.gif"&gt;&lt;img alt="p06-wp-synhighlight" src="http://www.travislin.com/wp-" title="content/uploads/2009/05/p06-wp-synhighlight- 265x300.gif" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;结论&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Syntax Highlighter and Code Colorizer for Wordpress&lt;/em&gt;
+赢的了我的评选，它简单强大而且确实在工作。这个插件是现成的，意味着我不需要在CSS中修改为他重新着色以保证和我主题匹配。我知道我会享受我的选择的。&lt;/p&gt;</summary><category term="WordPress"></category><category term="译文"></category></entry><entry><title>解决WordPress升级后出现Warning: Cannot modify header information - headers already sent by</title><link href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/" rel="alternate"></link><updated>2010-02-21T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-02-21:2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/</id><summary type="html">&lt;p&gt;WordPress 2.9.2升级之后出现一个问题，在一些操作，比如删除垃圾留言、发表新的文章时候会提醒一下的错误。&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;Warning: Cannot modify header information - headers already sent by (output
+started at /home/alswl/public_html/wp-settings.php:1) in
+/home/alswl/public_html/wp-includes/pluggable.php on line 868&lt;/p&gt;
+&lt;p&gt;我简单查找了一下，这是一个简单的编码问题，1分钟可以搞定了。&lt;/p&gt;
+&lt;p&gt;1.Ftp下载wp-settings.php这个文件，用记事本打开这个文档。&lt;/p&gt;
+&lt;p&gt;2.另存为"ANSI"格式的文本。&lt;/p&gt;
+&lt;p&gt;3.重新上传覆盖原文件。&lt;/p&gt;
+&lt;p&gt;如果还有其他文件出现问题，继续修改编码有问题的文件。&lt;/p&gt;
+&lt;p&gt;这样问题就可以解决了，为了以防万一，建议在操作之前记得备份。&lt;/p&gt;
+&lt;p&gt;参考文章：&lt;a href="http://poshi.org/post/401.html"&gt;解決Wordpress安裝時出現Warning: Cannot modify header information - headers
+already sent by - 新後園 - 德語學習部落格 - Poshi的網誌&lt;/a&gt;&lt;/p&gt;</summary><category term="WordPress"></category><category term="编码"></category></entry><entry><title>换了一个自制的ICON</title><link href="/2010/01/a-change-of-home-made-icon/" rel="alternate"></link><updated>2010-01-23T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-01-23:2010/01/a-change-of-home-made-icon/</id><summary type="html">&lt;p&gt;今天终于把自己主题框架建起来了，不过感觉好丑的说～～alswl一点艺术细胞都没有～&lt;/p&gt;
+&lt;p&gt;伟人说的好啊，没有困难创造困难也要上，今天就硬着头皮做了一个ICON。&lt;/p&gt;
+&lt;p&gt;什么是Icon呢，就是网站的图标啦，对于一个网站来说，很有标志性意义的。我们的口号是："Logo可以没有，Icon一定要独一无二。"&lt;/p&gt;
+&lt;p&gt;低调而华丽的放上我下午刚新鲜出炉的制作，同学们只要Ctrl+F5就可以刷新缓存看到啦。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/01/D.png" /&gt;&lt;/p&gt;
+&lt;p&gt;下面，砸鸡蛋和番茄吧～～～&lt;/p&gt;
+&lt;p&gt;最后，推荐一个Icon的Flickr组：&lt;a href="http://www.flickr.com/groups/fluid_icons/"&gt;Fluid Icons&lt;/a&gt;
+暂时不想自己做的童鞋可以去那里搞一个自己喜欢的。&lt;/p&gt;
+&lt;p&gt;ps:Yahoo的密码找回真难用，害的我重新注册了一个Yahoo ID。&lt;/p&gt;
+&lt;p&gt;ps:ps:alswl@yahoo.com居然是一个36岁的韩国妇女，悲剧啊，我这个ID完全是凭空捏造的，怎么会重合呢，怎么会呢。。。怎么会呢。。。&lt;/p&gt;</summary><category term=""></category></entry><entry><title>DDDSpace.com浴火重生了</title><link href="/2009/12/dddspace-com-bathed-in-fire-and-gave-birth-to/" rel="alternate"></link><updated>2009-12-24T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-12-24:2009/12/dddspace-com-bathed-in-fire-and-gave-birth-to/</id><summary type="html">&lt;p&gt;一大早过来，我就开始部署DDDSpace.com，上传文件和数据，修改数据库的域名，文章参考了&lt;a href="http://wange.im/after-change-
+domain.html"&gt;"更换域名后应该做的事情 » Life
+Studio&lt;/a&gt;"。我原来的DDDSpace.cn所在的重庆主机还在停止80端口状态，域名管理器我也无法登录，所以不能做301修改了。&lt;/p&gt;
+&lt;p&gt;之后我索性更新到WordPress 2.9，出现了"wordpress Fatal error: Allowed memory size of
+33554432 bytes
+exhausted"这个错误，大意就是说内存超出指定大小。我在WordPress官方论坛找到了解决办法，原文在"&lt;a href="http://wordpress.org/support/topic/194370?replies=16"&gt;WordPress › Support »
+Fatal error: Allowed memory size of 33554432 bytes exhausted (tried to
+allocate&lt;/a&gt;",解决办法是修改根目录下的
+"wp-settings.php"，将内存限制由32M改到64M，直接搜索32M就可以了。&lt;/p&gt;
+&lt;p&gt;搜素数据库，一大堆DDDSpcae.cn，唉，还得慢慢测试慢慢改，还要重新申请各种域名上的服务。不过不管怎样，DDDSpace终于复活了。&lt;/p&gt;
+&lt;p&gt;同学们，赶紧修改你们的Feed地址啊！！！！&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2009/12/phoenix.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;感谢小张的支持，10号主机挺棒哦。&lt;/p&gt;
+&lt;p&gt;感谢GoDaddy支持支付宝，省了好多麻烦。&lt;/p&gt;</summary><category term=""></category></entry><entry><title>Godaddy已经支持支付宝</title><link href="/2009/12/godaddy-has-supported-alipay/" rel="alternate"></link><updated>2009-12-23T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-12-23:2009/12/godaddy-has-supported-alipay/</id><summary type="html">&lt;p&gt;&amp;amp;nbsp_place_holder;&lt;/p&gt;
+&lt;p&gt;昨天在小张那里买了美国10号主机，今天下午开始买com域名。&lt;/p&gt;
+&lt;p&gt;正在发愁代购的事情，小张突然跟我说，Godaddy已经支持支付宝了。&lt;/p&gt;
+&lt;p&gt;我立马犀利的操作了一把。&lt;/p&gt;
+&lt;p&gt;有图有真像&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2009/12/godaddy_alipay.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;我犀利了，应该是今天下午开始支持的。&lt;/p&gt;
+&lt;p&gt;同志们，冲啊！！！&lt;/p&gt;</summary><category term=""></category></entry><entry><title>紧急声明-关于回复通知是垃圾邮件</title><link href="/2009/11/emergency-declaration-on-the-reply-notification-is-spam/" rel="alternate"></link><updated>2009-11-17T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-11-17:2009/11/emergency-declaration-on-the-reply-notification-is-spam/</id><summary type="html">&lt;p&gt;最近alswl发现，Google对本博客发出的回复通知邮件都判定为垃圾邮件。我正在找客服查此时，据我估计，可能同一IP上有其他域名发送大量垃圾邮件导致Goo
+gle服务器误判本博客。&lt;/p&gt;
+&lt;p&gt;在此声明，本博客从来不发送任何垃圾邮件！&lt;/p&gt;
+&lt;p&gt;请各位朋友检查自己的垃圾箱翻翻，估计里面有alswl大量回复，悲剧啊……烦请点击"这不是垃圾邮件"....谢谢了…&lt;/p&gt;
+&lt;p&gt;Update 09_11_17&lt;/p&gt;
+&lt;p&gt;我按照"&lt;a href="http://xfuxing.com/2009/modify-the-mail-to-commenter-so-that-more-
+user-friendly-e-mail-notification.html"&gt;修改 mail to commenter,让邮件通知更加友好 |&amp;amp;nbsp_place_holder; Simple
+happiness&lt;/a&gt;"修改了Mail To Comment插件。请大家帮忙在这个页面测试回复
+^_^&lt;/p&gt;
+&lt;p&gt;Update second&lt;/p&gt;
+&lt;p&gt;&lt;strike&gt;测试均告失败啊，我使用的是Mail To Commenter，大家是怎么修改sendMail函数的，请赐教，不胜感激啊。&lt;/strike&gt;&lt;/p&gt;
+&lt;p&gt;Update third&lt;/p&gt;
+&lt;p&gt;测试完成，问题出在发出的内容上，也许是因为我从来没有修改过Mail To Commenter的内容吧，我修改之后就可以了。下面专门写一篇文章来说明这个问题。&lt;/p&gt;
+&lt;p&gt;Update fourth&lt;/p&gt;
+&lt;p&gt;问题已经解决，解决方案我定时发布在&lt;a href="http://log4d.com/2009/11/mailtocommenter-of-the-spam-
+problem"&gt;http://log4d.com/2009/11/mailtocommenter-of-the-spam-
+problem&lt;/a&gt;，定在12点发布，不过现在也能够点击，呵呵。&lt;/p&gt;</summary><category term=""></category></entry><entry><title>MailToCommenter的垃圾邮件问题</title><link href="/2009/11/mailtocommenter-of-the-spam-problem/" rel="alternate"></link><updated>2009-11-17T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-11-17:2009/11/mailtocommenter-of-the-spam-problem/</id><summary type="html">&lt;p&gt;Mail To Commenter发出的邮件会被GMail判定为垃圾邮件，这个问题我曾经发现，不过没有重视起来。鸵鸟理论告诉我说也许只有自己的GMail这样
+，别人都是完好的，直到&lt;a href="http://www.derekblog.cn/"&gt;derek&lt;/a&gt;同学提出来。&lt;/p&gt;
+&lt;p&gt;于是乎我开始修改，经过十余次的发送垃圾邮件，我反复查看邮件源码，检查&lt;code&gt;Mail To
+Commenter的&lt;/code&gt;mailtocommenter_send_email&lt;code&gt;函数，终于修改如下代码。&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;代码部分分别参考&lt;/code&gt;&lt;a href="http://xfuxing.com/2009/modify-the-mail-to-commenter-so-that-more-
+user-friendly-e-mail-notification.html"&gt;修改 mail to commenter,让邮件通知更加友好 |&amp;amp;nbsp_place_holder; Simple
+happiness&lt;/a&gt;和&lt;a href="http://www.evlos.org/2009/11/03/edit-the-poster-of-
+mailtocomments/#comment-1278"&gt;邪罗刹的菠萝阁 »
+如何修改MailToCommenter插件的发件人&lt;/a&gt;，html部分代码是模仿&lt;a href="http://www.evlos.org/"&gt;邪 罗刹&lt;/a&gt;的回复修改。&lt;/p&gt;
+&lt;p&gt;修改&lt;code&gt;wp-content/plugins/mailtocommenter&lt;/code&gt;下面的&lt;code&gt;mailtocommenter_functions.php&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;mailtocommenter_send_email&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;subject&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;hostname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;preg_match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/^(http://)?([^/]+)/i&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;hostname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blognameO&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot; &amp;lt;no-reply@&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;matches&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+    &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;blogname&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;$charset = get_option('blog_charset');&lt;/p&gt;
+&lt;p&gt;$headers = "From: $blognameO &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#110;&amp;#111;&amp;#45;&amp;#114;&amp;#101;&amp;#112;&amp;#108;&amp;#121;&amp;#64;&amp;#36;&amp;#109;&amp;#97;&amp;#116;&amp;#99;&amp;#104;&amp;#101;&amp;#115;&amp;#91;&amp;#50;&amp;#93;"&gt;&amp;#110;&amp;#111;&amp;#45;&amp;#114;&amp;#101;&amp;#112;&amp;#108;&amp;#121;&amp;#64;&amp;#36;&amp;#109;&amp;#97;&amp;#116;&amp;#99;&amp;#104;&amp;#101;&amp;#115;&amp;#91;&amp;#50;&amp;#93;&lt;/a&gt; n" ;&lt;/p&gt;
+&lt;p&gt;$headers .= "MIME-Version: 1.0n";&lt;/p&gt;
+&lt;p&gt;$headers .= "Content-Type: text/html;charset="$charset"n";&lt;/p&gt;
+&lt;p&gt;$to = strtolower($to);&lt;/p&gt;
+&lt;p&gt;return @wp_mail($to, $subject, $message, $headers);&lt;/p&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder;修改Mail To Commenter的邮件代码，我的如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;border: 1px solid rgb(183, 183, 183); margin: 1em 40px; padding: 0pt 15px; background-color: #CCFFFF; color: rgb(17, 17, 17);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Hi！&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;%user%&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;，你在 &lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;%post_title%&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; 上的评论有了新回复&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;div&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;border: 1px solid rgb(183, 183, 183); margin: 1em 40px; padding: 0pt 15px; background-color: #CCFFFF; color: rgb(17, 17, 17);&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&amp;gt;&amp;gt;&lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;你&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; 说：&lt;span class="nt"&gt;&amp;lt;br/&amp;gt;&lt;/span&gt;
+    %your_comment%
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&amp;gt;&amp;gt; &lt;span class="nt"&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;%comment_author%&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt; 回复说： &lt;span class="nt"&gt;&amp;lt;br/&amp;gt;&lt;/span&gt;
+    %reply_comment%
+  &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;&amp;gt;&amp;gt; 查看原文，请至： &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%comment_link%&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;%comment_link%&lt;span class="nt"&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;float: right;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; ---- From &lt;span class="nt"&gt;&amp;lt;a&lt;/span&gt; &lt;span class="na"&gt;target=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;_blank&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;href=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%blog_link%/&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;strong&amp;gt;&lt;/span&gt;%blog_name%&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&amp;amp;nbsp_place_holder;收到邮件的效果如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi！&lt;strong&gt;alswlx&lt;/strong&gt;，你在 &lt;strong&gt;紧急声明-关于回复通知是垃圾邮件&lt;/strong&gt; 上的评论有了新回复&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;你&lt;/strong&gt; 说：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;测试GMail是否通过&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;alswl&lt;/strong&gt; 回复说：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;@alswlx&lt;/p&gt;
+&lt;p&gt;第7次测试成功，修改内容&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看原文，请至： &lt;a href="http://log4d.com/2009/11/emergency-
+declaration-on-the-reply-notification-is-spam#comment-6766"&gt;http://log4d.com/2009/11/emergency-declaration-on-the-reply-
+notification-is-spam#comment-6766&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;---- From &lt;a href="http://log4d.com/"&gt;&lt;strong&gt;DDD的一亩三分地&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="WordPress"></category></entry><entry><title>给Share this加入人人、豆瓣新标签</title><link href="/2009/11/share-this-accession-to-everyonenew-label/" rel="alternate"></link><updated>2009-11-08T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-11-08:2009/11/share-this-accession-to-everyonenew-label/</id><summary type="html">&lt;h2&gt;Share this&lt;/h2&gt;
+&lt;p&gt;Share this是给博文加上分享按钮，基于prototype的一款WordPress插件。 Share this
+中文，从名字你就已经知道，这个Share
+this插件的中文版本。当然，我想先告诉你的是，这并不是汉化，而是中文化（本土化）。还辨别不清楚吗？那就是这个插件将更适合于中文用户使用了。 Share
+this 由&lt;a href="http://www.happinesz.cn/archives/328/"&gt;幸福收藏夹&lt;/a&gt;修改。
+&lt;a href="http://www.happinesz.cn/file/share-this.zip"&gt;点击这里下载&lt;/a&gt;（此为Share this
+中文原版，为了方便，我们以下所用版本都是该版本，请不要升级你的Share this插件，否则会还原为英文） share-this唯一遗憾是用的prototy
+pe，这个js比较大，网上有&lt;a href="http://www.thunderguy.com/semicolon/2007/07/30
+/share-this-jquery-a-wordpress-plugin/"&gt;jQuery版本的第三方修改版&lt;/a&gt;，不过最好还是自行实现js。&lt;/p&gt;
+&lt;h2&gt;增加新的按钮&lt;/h2&gt;
+&lt;p&gt;下载的Share this 中文还是07年11月份的产品，很多新的Web2.0网站，比如人人、豆瓣还没有相应的分享按钮。在这里，我就把他们添上去。 1
+.打开share-this.php，你会惊喜的发现里面有很多sofish的注释，使修改变得异常简单。在112行左右加入新的代码。&lt;/p&gt;
+&lt;p&gt;`, 'renren' =&amp;gt; array(&lt;/p&gt;
+&lt;p&gt;'name' =&amp;gt; '人人网'&lt;/p&gt;
+&lt;p&gt;, 'url' =&amp;gt;
+'http://share.renren.com/share/buttonshare.do?link={url}&amp;amp;title={title}'&lt;/p&gt;
+&lt;p&gt;) , 'douban' =&amp;gt; array(&lt;/p&gt;
+&lt;p&gt;'name' =&amp;gt; '豆瓣网'&lt;/p&gt;
+&lt;p&gt;, 'url' =&amp;gt;
+'http://www.douban.com/recommend/?url={url}&amp;amp;title={title}&amp;amp;sel=&amp;amp;v=1'&lt;/p&gt;
+&lt;p&gt;)`&lt;/p&gt;
+&lt;p&gt;2.加入网站图片，你可以保存&lt;img alt="" src="http://log4d.com/wp-content/plugins/share-this/renren.gif" /&gt;
+和&lt;img alt="" src="http://log4d.com/wp-content/plugins/share-this/douban.gif" /&gt; 并上传到share-
+this.php同一文件夹下。 3.刷新页面，你会发现新的按钮出来了。&lt;/p&gt;
+&lt;h2&gt;加入更多按钮&lt;/h2&gt;
+&lt;p&gt;其实加入按钮的关键在于相应url，这个url怎么获取呢。其实我们可以从对应网站&lt;a href="http://share.renren.com/"&gt;人人网分享&lt;/a&gt;、&lt;a href="http://www.douban.com/service/bookmarklet"&gt;豆瓣网分
+享&lt;/a&gt;加入自己的浏览器。然后随便通过这些按钮收藏一个网页，如百度。那么就
+会弹出一个收藏页面。 &lt;a href="http://upload-
+log4d.qiniudn.com/2009/11/douban_share.jpg"&gt;&lt;img alt="douban_share" src="http://upload-" title="log4d.qiniudn.com/2009/11/douban_share.jpg" /&gt;&lt;/a&gt;
+这时候获取图中的网页地址，然后修改其中真实的url和title，替换为{url},{title}，这两个标记供share-this插件识别
+。再将相应代码加入share-this.php，就大功告成了。
+图片的获取可以使用FireFox的查看页面信息，其中媒体页面可以获得favicon.ico，转换为.gif格式上传即可。&lt;/p&gt;
+&lt;h2&gt;相关下载&lt;/h2&gt;
+&lt;p&gt;懒人来下载这个吧，都是经过修改的，不过第一个jQuery没汉化...我懒了...如果英语不好就下载第二个吧 &lt;a href="http
+://upload-log4d.qiniudn.com/2009/11/share-this_jquery.zip"&gt;share-this_jquery&lt;/a&gt;（Share this
+jQuery版本，Jason Ti本地化+未汉化+已经汉化） &lt;a href="http://upload-
+log4d.qiniudn.com/2009/11/share-this_prototype.zip"&gt;share-this_prototype&lt;/a&gt;（Share this
+prototype版本，sofish本地化+汉化） 哦，最后，如果觉得本文不错，你也可以分享哦，谢谢咯。&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>程序员博客分类目录</title><link href="/2009/11/programmer-blog-categories/" rel="alternate"></link><updated>2009-11-06T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-11-06:2009/11/programmer-blog-categories/</id><summary type="html">&lt;p&gt;文章渐渐多了，经常在给一篇文章设定目录和标签时候犹豫。不光是因为为了SEO，也需要找到一种合适的分类对自己所有技术性文章进行划分。为此，我重新设定了自己的分
+类目录，参考了&lt;a href="http://www.javaeye.com/ask"&gt;JavaEye问答频道&lt;/a&gt;的「问答分类」。&lt;/p&gt;
+&lt;p&gt;我将「OO 设计模式领域模型」从「Java编程和Java企业应用」挪到「软件开发和项目管理」，感觉这样更适合。&lt;/p&gt;
+&lt;p&gt;大标题可以作为分类，而小标题更适合作为标签。&lt;/p&gt;
+&lt;p&gt;这样的划分之后，相信大部分程序员的文章可以对号入座了。&lt;/p&gt;
+&lt;p&gt;ps:这个分类也能很好的检测自己行业知识的了解程度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;华丽丽的擦身而过&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt; &lt;/p&gt;
+&lt;h4&gt;Java编程和Java企业应用&lt;/h4&gt;
+&lt;p&gt;企业应用 Struts Hibernate Spring Tomcat JBoss SOA DAO Swing iBATIS&lt;/p&gt;
+&lt;h4&gt;Web前端技术：AJAX和RIA&lt;/h4&gt;
+&lt;p&gt;EXT JavaScript AJAX JQuery DWR CSS GWT UI prototype dojo JavaFX YUI&lt;/p&gt;
+&lt;h4&gt;移动编程和手机应用开发&lt;/h4&gt;
+&lt;p&gt;J2ME Android iPhone WAP Symbian moblin BlackBerry&lt;/p&gt;
+&lt;h4&gt;C/C++编程&lt;/h4&gt;
+&lt;p&gt;C++ C D语言&lt;/p&gt;
+&lt;h4&gt;Ruby编程&lt;/h4&gt;
+&lt;p&gt;rails ruby&lt;/p&gt;
+&lt;h4&gt;Python编程&lt;/h4&gt;
+&lt;p&gt;python django GAE&lt;/p&gt;
+&lt;h4&gt;PHP编程&lt;/h4&gt;
+&lt;p&gt;PHP&lt;/p&gt;
+&lt;h4&gt;Flash编程&lt;/h4&gt;
+&lt;p&gt;Flex Flash ActionScript&lt;/p&gt;
+&lt;h4&gt;Microsoft .Net&lt;/h4&gt;
+&lt;p&gt;.net C# ASP.net Windows Mobile WPF SilverLight&lt;/p&gt;
+&lt;h4&gt;综合技术&lt;/h4&gt;
+&lt;p&gt;Database Linux 数据结构和算法 Erlang FP Haskell&lt;/p&gt;
+&lt;h4&gt;软件开发和项目管理&lt;/h4&gt;
+&lt;p&gt;项目管理 软件测试 配置管理 敏捷开发 UML 单元测试 UseCase XP CMM TDD UP OO 设计模式领域模型&lt;/p&gt;
+&lt;h4&gt;行业应用&lt;/h4&gt;
+&lt;p&gt;互联网 电信 金融 咨询 电子政务 教育 物流 嵌入式 网游 交通 SAAS 制造 医疗&lt;/p&gt;</summary><category term=""></category></entry><entry><title>关于WordPress中TinyMCE空格</title><link href="/2009/09/about-wordpress-spaces-in-tinymce/" rel="alternate"></link><updated>2009-09-09T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-09-09:2009/09/about-wordpress-spaces-in-tinymce/</id><summary type="html">&lt;p&gt;在FireFox下，粘贴到WordPress编辑器中的内容会被自动去掉空格，这对于像Python这种靠缩进控制代码段的code就是毁灭性的打击。而同时作为一
+个FireFox用户，我又不愿意为了这个看上去很小的问题切换到IE下。&lt;/p&gt;
+&lt;p&gt;我开始漫长的征途。&lt;/p&gt;
+&lt;p&gt;相关链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.hi1980.com/2009/04/01/tinymce-
+advanced-wp-plugins.html"&gt;TinyMCE-Advanced-WP插件 | 80&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://veryi.com/w/104.html"&gt;「不聪明」的wordpress在线编辑器-Dean... For Wordpress |
+素食勤俭敬老孝慈&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.tgb.net.cn/index.php?load=read&amp;amp;id=161"&gt;TinyMce对火狐不太好 - 我的博客 - 真空实验室 VLab
+2.2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.tgb.net.cn/index.php?load=read&amp;amp;id=615"&gt;F2blog和Wordpress的空格那点事 - 我的博客 - 真空实验室 VLab
+2.2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我又考虑FireFox粘贴的问题，考虑是不是这个原因，给FireFox取消了粘贴限制。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://chifanhezhou.blogbus.com/logs/1406504.html"&gt;关于firefox粘贴问题的解决方法 - 愿得一心人，白首不相离 -
+博客大巴&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;还是无用。&lt;/p&gt;
+&lt;p&gt;最后我求助了Google in English，又尝试了几种方法。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://
+wiki.moxiecode.com/index.php/TinyMCE:Configuration/entity_encoding"&gt;TinyMCE:Configuration/entity encoding - Moxiecode Documentation Wiki&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://drupal.org/node/72570"&gt;TinyMCE wipes out non-breaking space characters (&amp;nbsp;) |
+drupal.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;依然失败。&lt;/p&gt;
+&lt;p&gt;我下载了TinyMCE原装的版本，发现它完全能在FireFox3下完美粘贴……&lt;/p&gt;
+&lt;p&gt;前前后后大概试了4小时，仍然没有什么进展，算了，我被征服了```。&lt;/p&gt;
+&lt;p&gt;还是感谢以上这些链接文章的作者贡献。&lt;/p&gt;
+&lt;p&gt;无奈之下，我拿起Vim，它提供一个输出为Html的功能，用那个直接拷贝吧...&lt;/p&gt;</summary><category term="TinyMCE"></category><category term="WordPress"></category></entry><entry><title>iNove下的heading样式修改</title><link href="/2009/09/inove-changes-under-the-heading-style/" rel="alternate"></link><updated>2009-09-08T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-09-08:2009/09/inove-changes-under-the-heading-style/</id><summary type="html">&lt;p&gt;前段时间主体选择了7color，但是后来发现还是iNove对各种插件的兼容性好，又转回了iNove。&lt;/p&gt;
+&lt;p&gt;而iNove在我看来并不是完美的，存在些许问题，Heading问题就是我尤其不能忍受的问题。&lt;/p&gt;
+&lt;p&gt;看看一般的heading，下图是LightWord的&lt;/p&gt;
+&lt;p&gt;[caption id="attachment_12635" align="alignnone" width="250"
+caption="lightWord的heading"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/7colorHeading.jpg"&gt;&lt;img alt="7color的heading" src="http://upload-" title="log4d.qiniudn.com/2009/09/7colorHeading.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;再看看iNove的&lt;/p&gt;
+&lt;p&gt;[caption id="attachment_12636" align="alignnone" width="200"
+caption="iNove的Heading"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/iNoveHeading.jpg"&gt;&lt;img alt="iNove的Heading" src="http://upload-" title="log4d.qiniudn.com/2009/09/iNoveHeading.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;iNove的文章内容Heading CSS和主题的Heading混合在一起，非常不雅观。我稍作修改，在iNove的style.css最后加上一些样式。&lt;/p&gt;
+&lt;p&gt;`/&lt;em&gt; dddspace.cn heading fix STAET &lt;/em&gt;/&lt;/p&gt;
+&lt;p&gt;.post .content h1 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:2.15em;&lt;/p&gt;
+&lt;p&gt;} .post .content h2 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:1.85em;&lt;/p&gt;
+&lt;p&gt;} .post .content h3 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:1.6em;&lt;/p&gt;
+&lt;p&gt;} .post .content h4 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:1.4em;&lt;/p&gt;
+&lt;p&gt;} .post .content h5 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:1.2em;&lt;/p&gt;
+&lt;p&gt;} .post .content h6 {&lt;/p&gt;
+&lt;p&gt;font-family:Georgia,"Times New Roman","Bitstream Charter",Times,serif;&lt;/p&gt;
+&lt;p&gt;margin: 0;&lt;/p&gt;
+&lt;p&gt;padding: 0;&lt;/p&gt;
+&lt;p&gt;border: none;&lt;/p&gt;
+&lt;p&gt;color:#555555;&lt;/p&gt;
+&lt;p&gt;font-size:13px;&lt;/p&gt;
+&lt;p&gt;font-size-adjust:none;&lt;/p&gt;
+&lt;p&gt;font-style:normal;&lt;/p&gt;
+&lt;p&gt;font-variant:normal;&lt;/p&gt;
+&lt;p&gt;font-weight:normal;&lt;/p&gt;
+&lt;p&gt;line-height:19px;&lt;/p&gt;
+&lt;p&gt;font-size:1em;&lt;/p&gt;
+&lt;p&gt;} /&lt;em&gt; dddspace.cn heading fix END &lt;/em&gt;/`&lt;/p&gt;
+&lt;p&gt;好了，这下子样式就修复了，基本覆盖了边框，位置，文字大小宽度这些元素了。&lt;/p&gt;
+&lt;p&gt;现在的样式：&lt;/p&gt;
+&lt;h1&gt;&lt;h1&gt;Heading1&lt;/h1&gt;&lt;/h1&gt;
+&lt;h2&gt;&lt;h2&gt;Heading1&lt;/h2&gt;&lt;/h2&gt;
+&lt;h3&gt;&lt;h3&gt;Heading1&lt;/h3&gt;&lt;/h3&gt;
+&lt;h4&gt;&lt;h4&gt;Heading1&lt;/h4&gt;&lt;/h4&gt;
+&lt;h5&gt;&lt;h5&gt;Heading1&lt;/h5&gt;&lt;/h5&gt;
+&lt;h6&gt;&lt;h6&gt;Heading1&lt;/h6&gt;&lt;/h6&gt;</summary><category term="CSS"></category><category term="WordPress"></category></entry><entry><title>CodeColorer的Html转义</title><link href="/2009/09/the-html-escape-codecolorer/" rel="alternate"></link><updated>2009-09-07T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-09-07:2009/09/the-html-escape-codecolorer/</id><summary type="html">&lt;p&gt;刚开始写博客时候我用的CodeColorer进行WordPress的代码高亮。后来，我觉得这个插件在格式上有些不满意的地方，于是就停用了。之后写的文章都是直
+接包在WordPress的Code元素内。&lt;/p&gt;
+&lt;p&gt;几天之后，我发现了这个问题，大部分的代码在这两种模式下还算正常，但是如果是遇到html下的一些转义字符，就变得麻烦了。CodeColorer的html代码添
+加是在编辑器的HTML模式下编辑，编辑后不能切换到可视化编辑器下，否则代码会被编辑器格式化。HTML代码的转义靠CodeColorer自动完成。&lt;/p&gt;
+&lt;p&gt;在使用WordPress自己的code元素后，也就是关闭了CodeColorer插件，代码转义靠在可视化编辑器下就进行了转义。&lt;/p&gt;
+&lt;p&gt;像我这个博客，前半段代码存放的是直接html代码，而后来的存放了几篇经过转义的html代码，造成了代码显示混乱。&lt;/p&gt;
+&lt;h2&gt;症状&lt;/h2&gt;
+&lt;p&gt;[caption id="attachment_12631" align="alignnone" width="345"
+caption="开启CodeColorer+可视化界面编辑结果"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/Snap2.jpg"&gt;&lt;img alt="Snap2" src="http://upload-" title="log4d.qiniudn.com/2009/09/Snap2.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id="attachment_12632" align="alignnone" width="304"
+caption="关闭CodeColorer+HTML编辑结果在首页显示"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/Snap3.jpg"&gt;&lt;img alt="关闭CodeColorer+HTML编辑结果" src="http" title="://upload-log4d.qiniudn.com/2009/09/Snap3.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id="attachment_12633" align="alignnone" width="312"
+caption="关闭CodeColorer+HTML编辑结果在内容页"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/Snap4.jpg"&gt;&lt;img alt="关闭CodeColorer+HTML编辑结果在内容页" src="http" title="://upload-log4d.qiniudn.com/2009/09/Snap4.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;p&gt;[caption id="attachment_12634" align="alignnone" width="365"
+caption="正确显示"]&lt;a href="http://upload-
+log4d.qiniudn.com/2009/09/Snap5.jpg"&gt;&lt;img alt="正确显示" src="http://upload-" title="log4d.qiniudn.com/2009/09/Snap5.jpg" /&gt;&lt;/a&gt;[/caption]&lt;/p&gt;
+&lt;h2&gt;解决方法&lt;/h2&gt;
+&lt;p&gt;CodeColorer开着和关着都成问题，要么影响我之前的代码，要么影响我后来的代码。所以必须有第三种方法解决，我检查了CodeColorer源码
+，发现了在codecolorer-core.php一段代码。&lt;/p&gt;
+&lt;p&gt;`if ($options['escaped']) {&lt;/p&gt;
+&lt;p&gt;$text = html_entity_decode($text);&lt;/p&gt;
+&lt;p&gt;}`&lt;/p&gt;
+&lt;p&gt;大意是如果选项有escaped的话，就对text进行html转换。&lt;/p&gt;
+&lt;p&gt;（其实我觉得把if给注释了，直接用转义，可以更好的使用，省的每段代码加入escaped="true"）&lt;/p&gt;
+&lt;p&gt;果然，我在官方的&lt;a href="http://kpumuk.info/projects/wordpress-
+plugins/codecolorer/#faq"&gt;Frequently Asked Questions&lt;/a&gt;中找到这么一段话：&lt;/p&gt;
+&lt;p&gt;Q. I see &amp;lt; instead of &amp;lt; (or other HTML entities like &amp;gt;, &amp;amp;, ") in my code.&lt;/p&gt;
+&lt;p&gt;A. You should use [cc escaped="true"] or [cce] in the visual editor when
+inserting code into the post.&lt;/p&gt;
+&lt;p&gt;就是说在&lt;code&gt;标签中加入escaped="true"就可以防止Html被转义。&lt;/p&gt;
+&lt;p&gt;我坚持使用code标签，以防在没有CodeColorer的环境下[cc]解析出现错误。&lt;/p&gt;</summary><category term=""></category></entry><entry><title>测试在Google Reader下使用Flash</title><link href="/2009/08/tested-in-google-reader-using-flash/" rel="alternate"></link><updated>2009-08-31T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-08-31:2009/08/tested-in-google-reader-using-flash/</id><summary type="html">&lt;p&gt;发现我贴的Flash都不能在Google
+Reader中显示，而&lt;a href="http://jandan.net"&gt;煎蛋&lt;/a&gt;的可以，我FireBug了一下，发现它的Flash代码和我的略有区别。&lt;/p&gt;
+&lt;p&gt;我之前的Flash代码~ &lt;code&gt;&amp;lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+width="420" height="363" codebase="http://download.macromedia.com/pub/shockwav
+e/cabs/flash/swflash.cab#version=6,0,40,0"&amp;gt;&amp;lt;param name="allowFullScreen"
+value="true" /&amp;gt;&amp;lt;param name="allowscriptaccess" value="always" /&amp;gt;&amp;lt;param
+name="wmode" value="opaque" /&amp;gt;&amp;lt;param name="src"
+value="http://www.tudou.com/v/pO3E-u-qBPM" /&amp;gt;&amp;lt;param name="allowfullscreen"
+value="true" /&amp;gt;&amp;lt;embed type="application/x-shockwave-flash" width="420"
+height="363" src="http://www.tudou.com/v/pO3E-u-qBPM" wmode="opaque"
+allowscriptaccess="always" allowfullscreen="true"&amp;gt;&amp;lt;/embed&amp;gt;&amp;lt;/object&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这种代码是直接从土豆的「贴到博客或BBS」功能实现的，使用了object
+Html元素。可能出于安全考虑，object并不在大多数的RSS订阅网站使用，也就播放不了使用object元素放置Flash的视屏。而煎蛋的代码如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;embed width="480" height="400" align="middle" type="application/x-shockwave-
+flash" wmode="transparent" allowscriptaccess="never"
+src="http://player.youku.com/player.php/sid/XMTE1MDI5OTUy/v.txt"/&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用了embed元素（embed元素解释：embed可以用来插入各种多媒体，格式可以是
+Midi、Wav、AIFF、AU、MP3等等，Netscape及新版的IE 都支持。url为音频或视频文件及其路径，可以是相对路径或绝对路径。）&lt;/p&gt;
+&lt;p&gt;如果要把土豆或者优酷等视频网站换成这种embed元素，只需要将&lt;code&gt;http://www.tudou.com/v/pO3E-u-qBPM&lt;/code&gt;这种代码填入embed
+元素的src位置即可，这个视屏地址可以从视频网站的「FLASH播放器的地址」这栏获得。&lt;/p&gt;
+&lt;p&gt;测试一下视频：&lt;/p&gt;
+&lt;p&gt;好吧，测试失败```(12:56)&lt;/p&gt;</summary><category term="Html"></category></entry><entry><title>wordpress关键字自动链接匹配插件[转]</title><link href="/2009/08/wordpress-plug-match-keywords-automatically-link-to/" rel="alternate"></link><updated>2009-08-11T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-08-11:2009/08/wordpress-plug-match-keywords-automatically-link-to/</id><summary type="html">&lt;p&gt;原文链接：《&lt;a href="http://www.changshaseo.com/seo-
+tools/882.html"&gt;wordpress关键字自动链接匹配插件 | 长沙SEO特色高端咨询顾问服务&lt;/a&gt;》&lt;a href="http://www.changshaseo.com/seo-tools/882.html"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;相关链接：《&lt;a href="http://muboard.com/591"&gt;wordpress插件 中文关键词自动连接 |
+Muboard&lt;/a&gt;》（这位博主曾为该插件0.3x版本做过中文优化）&lt;/p&gt;
+&lt;p&gt;中文版下载地址：&lt;a href="href=&amp;quot;http://www.changshaseo.com/blog-mechanics-keyword-link-
+plugin-v01.zip"&gt;猛击这里下载&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;wordpress关键字自动匹配链接插件&lt;/strong&gt; 这个工具非常好使，我找了很久了，以后发文章就省事多了，不用一个一个去加链接了，呵呵，So Cool！&lt;/p&gt;
+&lt;p&gt;下面引用原文：&lt;/p&gt;
+&lt;p&gt;Wordpress Keyword Link Plugin&lt;/p&gt;
+&lt;p&gt;This is a little Wordpress 2.3+ plugin that helps you to automatically link
+defined keywords to certain articles on your own blog, or elsewhere on the
+internet.&lt;/p&gt;
+&lt;p&gt;A plugin that allows you to define keyword/link pairs. The keywords are
+automatically linked in each of your posts. This is usefull for improving the
+internal cross referencing pages inside your site or to automatically link to
+external partners (SEO).&lt;/p&gt;
+&lt;p&gt;Example:  「A visit to the UK is not complete without a visit to Stonehenge.」&lt;/p&gt;
+&lt;p&gt;Would become:  「A visit to the UK is not complete without a visit  to &lt;A
+href=」link」&gt;Stonehenge&lt;/a&gt;.」&lt;/p&gt;
+&lt;p&gt;You can decided for each link if you would like to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add a 「No Follow」&lt;/li&gt;
+&lt;li&gt;Match only on the first mention&lt;/li&gt;
+&lt;li&gt;Open a new window on clicking the link&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Match any case (ignore case) in the keyword
+It is possible to CSS style links:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the link is an affiliate you would like to disclose&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Any other link tagged by the plugin
+To help maintain longer keyword lists it is also possible to import and export
+lists of keywords to a comma seperated values (CSV) file, handy if you would
+like to edit the list of keywords in a spreadsheet.  &lt;strong&gt; &lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Features &lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional: Only link the first instance of a keyword [default is all]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Optional: Open a new window for a link&lt;/li&gt;
+&lt;li&gt;Optional: Mark a link as 「nofollow」&lt;/li&gt;
+&lt;li&gt;Optional: Ignore case when matching [Rome,ROME,ROMe]
+&lt;strong&gt;Screenshot&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.dijksterhuis.org/wp-content/uploads/2008/09/keywordlink2.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Installation &lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Just &lt;a href="http://downloads.wordpress.org/plugin/blog-mechanics-keyword-link-plugin-v01.zip"&gt;download the ZIP file&lt;/a&gt;, and unpack it in the /wp-content/plugins directory.&lt;/li&gt;
+&lt;li&gt;中文版，点击这里下载  &lt;a href="http://www.changshaseo.com/blog-mechanics-keyword-link-plugin-v01.zip"&gt;DOWN&lt;/a&gt; ，中文wrodpress 一定要,而且只能用这个，&lt;strong&gt;改造兼容中文字符.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Activate the plugin&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter your keyword-link pairs in the option panel for the plug-in.
+v0.6&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It is now possible to use apostrophes in keywords (the boy’s hat)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You can import and export the keyword list to and from a comma seperated filed
+v0.5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fixed a 「space」 issue&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Added basic help to the configuration page&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added support for affiliate links
+v0.4.5&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Added: A little bit of javascript to allow for editing of existing keywords as some of you  now have over 150 entries it will also jump to the editor at the bottom of the screen.
+v0.4.2&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fixed: Compatibly problem with Ozh Click counter plugin
+v0.4&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fixed the linking of matching url’s problem&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;It is now possible to open a new window for a link (target=_blank)&lt;/li&gt;
+&lt;li&gt;It is now possible to ignore case when matching a keyword
+v0.3.1&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It is now possible to specify per link if you would like to :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Link only the first mention of the keyword in the article (or all, which is the default)&lt;/li&gt;
+&lt;li&gt;Tag a link as 「nofollow」 , useful for external links.
+The replacement routine is also smarter about linking keywords. For example:
+「magic」 will match 「magic」 , but no longer to 「magically」.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;version 0.2&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you would like to modify the style of the link. For example to make the
+link bold add the following to your style.css file:&lt;/p&gt;
+&lt;p&gt;.bm_keywordlink { font-weight: bold; }&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>换了7Color的主题</title><link href="/2009/08/the-theme-for-the-7color/" rel="alternate"></link><updated>2009-08-10T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-08-10:2009/08/the-theme-for-the-7color/</id><summary type="html">&lt;p&gt;买了空间后，就一直使用iNove主题，虽然iNove这个主题很优秀，但时间长了，难免有些审美疲劳。我一直想换一个主题，但苦于喜欢的主题要么没有汉化，要么在I
+E6下不兼容，要么就是色调、字体大小不符合我的要求。&lt;/p&gt;
+&lt;p&gt;我喜欢大气，亲切一点的主题，比如说Fusion，我也花了几天时间汉化了Fusion的主题，可惜最后关节，发现Fusion在IE6下显示不正常，我又没有勇气抛
+弃IE6的用户，只能作罢。国内毕竟过半的人仍然在XP/IE6这个平台下，真无奈。&lt;/p&gt;
+&lt;p&gt;看到&lt;a href="http://wordpress.org/extend/themes/7color"&gt;7Color&lt;/a&gt;这个主题后，被吸引住了，是国人自己的主题，作者为&lt;a href="http://nishuang.de/"&gt;
+Ni Shuang&lt;/a&gt;,
+色调什么都挺好看，界面是自适应宽度。唯一遗憾的是文章没有加上标签，瑕不掩瑜，这还是一个很优秀的主题。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://wp-themes.com/wp-content/themes/7color/screenshot.png" /&gt;&lt;/p&gt;
+&lt;p&gt;调一下footer后，加入cnzz的分析，唔，可以enjoy it啦~&lt;/p&gt;</summary><category term="WordPress"></category></entry><entry><title>给WordPress加上robots.txt</title><link href="/2009/08/wordpress-to-add-robots-txt/" rel="alternate"></link><updated>2009-08-05T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2009-08-05:2009/08/wordpress-to-add-robots-txt/</id><summary type="html">&lt;p&gt;在Google搜索我的页面，能出来400+页面，但好多都是额外的页面，比如分页下的信息，比如说wap下的信息，最可怕的是甚至登录页面都暴露在Google搜索
+结果中，这让我有点害怕了。&lt;/p&gt;
+&lt;p&gt;参考下面两篇文章《&lt;a href="http://wangyueblog.com/2009/02/11/wordpress-robots-
+txt/"&gt;善用 robots.txt 优化 Wordpress 博客 |
+望月的博客&lt;/a&gt;》、《&lt;a href="http://www.itokit.com/bbs/viewthread.php?tid=45"&gt;总结一下Meta的用法及robot.txt的讲解 - SEO搜索引擎优化 -  ITOKIT.COM |WEB开发技术,站长交流论坛 -
+Powered by Discuz!&lt;/a&gt;》&lt;/p&gt;
+&lt;p&gt;为了优化WordPress的SEO效率，我们可以使用&lt;a href="http://log4d.com/robots.txt"&gt;robots.txt&lt;/a&gt;文件来对搜索引擎搜索范
+围进行限制。&lt;/p&gt;
+&lt;p&gt;下面是我的robots.txt内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;User&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;agent&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="nl"&gt;Disallow:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;
+&lt;span class="nl"&gt;Disallow:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="nl"&gt;Disallow:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="nl"&gt;Disallow:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;comments&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;
+&lt;span class="nl"&gt;Disallow:&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;wap&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="cp"&gt;# BEGIN XML-SITEMAP-PLUGIN&lt;/span&gt;
+&lt;span class="nl"&gt;Sitemap:&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/sitemap.xml.gz&lt;/span&gt;
+&lt;span class="cp"&gt;# END XML-SITEMAP-PLUGIN&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中屏蔽了page的分页、feed页面（据说feed容易引起baidu收录页面低下）、wp-页面（为了安全）、wap页面。&lt;/p&gt;
+&lt;p&gt;最后一句话为搜索引擎指出sitemap位置。&lt;/p&gt;
+&lt;p&gt;祝大家被Google/Baidu收录更多更有用的文章。&lt;/p&gt;
+&lt;p&gt;更新（09-08-12）：这段时间发现Google收录骤减，检查后发现很多以前日志没了，想了一下原因，发现下列代码阻止了蜘蛛爬以前的日志，造成收录减少，删除
+下面的代码即可。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Disallow: /page/&lt;/code&gt;&lt;/p&gt;</summary><category term="WordPress"></category></entry></feed>

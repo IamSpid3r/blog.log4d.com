@@ -1,0 +1,1420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/feeds/gong-yu-shan-qi-shi-bi-xian-li-qi-qi.atom.xml" rel="self"></link><id>/</id><updated>2012-06-19T07:03:00+08:00</updated><entry><title>Flotr2 - 我最喜欢的 Javascript 图形库[译文]</title><link href="/2012/06/flotr2/" rel="alternate"></link><updated>2012-06-19T07:03:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-06-19:2012/06/flotr2/</id><summary type="html">&lt;p&gt;原文地址：&lt;a href="http://swizec.com/blog/flotr2-my-favorite-javascript-graph-library"&gt;Flotr2 - my favorite javascript graph library&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;译者：&lt;a href="http://log4d.com/2012/06/flotr2/"&gt;alswl&lt;/a&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;我研究了很久，得到的终极数据可视化方案是 javascript + html ，这是唯一像样又好用的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gnuplot.info/"&gt;Gnuplot&lt;/a&gt; 虽然看上去不错，但是不太漂亮。
+一些基于 Python 的图形化工具也有同样的问题。
+&lt;a href="http://www.wolfram.com/products/mathematica/"&gt;Mathematica&lt;/a&gt; 在我看来则太正式了，所以我不怎么用它。&lt;/p&gt;
+&lt;p&gt;基于 javascript 的图形化工具其中一个巨大优势是易于共享。
+通过设置 Github Page、分享链接等方法，我们都可以很方便的获取最新图表数据，
+甚至可以进行交互。&lt;/p&gt;
+&lt;h2&gt;那些基于 javascript 的图形化工具&lt;/h2&gt;
+&lt;p&gt;有很多 javascript 图形化库，从极简到复杂绚丽的风格，都极为丰富。&lt;/p&gt;
+&lt;p&gt;最流行的可能就是 &lt;a href="http://d3js.org/"&gt;d3.js&lt;/a&gt; 和 &lt;a href="http://raphaeljs.com/"&gt;Raphael&lt;/a&gt; 了。
+他们用起来&lt;em&gt;相当&lt;/em&gt;麻烦，但却能实现绚丽到超越你想象的可视化效果。&lt;/p&gt;
+
+
+&lt;p&gt;Raphael 还一个 web 矢量库，外观同样很漂亮。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d"&gt;&lt;img alt="An analytics graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.41.59-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Raphael 中的分析图表&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d"&gt;&lt;img alt="Bubble graph in Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.12-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Raphael 中的气泡图&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d"&gt;&lt;img alt="A clock made with Raphael" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.42.31-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Raphael 中的钟表时间图&lt;/p&gt;
+&lt;p&gt;D3.js 的愿景是帮助人们轻松的完成数据可视化，可惜事与愿违，
+它弄得太复杂了。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d"&gt;&lt;img alt="HN top titles visualisation in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-3.03.35-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hacker News 文章标题的可视化数据&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d"&gt;&lt;img alt="House hunting in d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.31-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用 d3.js 绘制购房信息&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d"&gt;&lt;img alt="Scatterplots made with d3.js" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.46.53-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;用 d3.js 制作的散布图&lt;/p&gt;
+&lt;h2&gt;Flotr2&lt;/h2&gt;
+&lt;p&gt;这些可视化工具，虽然看上去很华丽，但是&lt;em&gt;难以&lt;/em&gt;使用。
+他们会很浪费时间，让人捣鼓到最后却发现什么都没弄出来。
+大部分 Raphael 和 d3 的功能矫正过枉了，有时我们只想要一个简单的绘图工具而已。&lt;/p&gt;
+&lt;p&gt;为了将&lt;a href="http://swizec.com/blog/a-year-of-750words-com-with-shiny-graphs/swizec/4378"&gt;我去年的 750 个关键字&lt;/a&gt;数据可视化，我使用了 &lt;a href="http://humblesoftware.com/flotr2/"&gt;Flotr2&lt;/a&gt;。
+只花费我数分钟，就能通过操作 javascript 将数据转化成 Flotr2 能理解的函数，
+然后 Flotr2 就将数据转化成漂亮的图表。&lt;/p&gt;
+&lt;p&gt;Flotr2 最大的优点是他没有过度设计，当你只想要一个简单图表时候，
+它不会让你去操作过多东西。&lt;/p&gt;
+&lt;p&gt;往往只需要你设定必要的数据和一两个标签，比如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;draw_time&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;title&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt;
+    &lt;span class="nx"&gt;start&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nx"&gt;date&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nx"&gt;getTime&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+    &lt;span class="nx"&gt;options&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;graph&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;o&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="nx"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;xaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;labelsAngle&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;selection&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;x&amp;#39;&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;legend&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nx"&gt;position&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;se&amp;#39;&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="nx"&gt;HtmlText&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nx"&gt;title&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;title&lt;/span&gt;
+    &lt;span class="p"&gt;};&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Draw graph with default options, overwriting with passed options&lt;/span&gt;
+    &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;opts&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Clone the options, so the &amp;#39;options&amp;#39; variable always keeps intact.&lt;/span&gt;
+        &lt;span class="nx"&gt;o&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;_&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;clone&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;options&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nx"&gt;opts&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="p"&gt;{});&lt;/span&gt;
+
+        &lt;span class="c1"&gt;// Return a new graph.&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;draw&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+            &lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nx"&gt;options&lt;/span&gt;
+        &lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;EventAdapter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;observe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;flotr:select&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="c1"&gt;// Draw selected area&lt;/span&gt;
+        &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="nx"&gt;xaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;min&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;max&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;x2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;mode&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;time&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;labelsAngle&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;45&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+            &lt;span class="nx"&gt;yaxis&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;min&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;max&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;area&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;y2&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;});&lt;/span&gt;
+    &lt;span class="p"&gt;});&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// When graph is clicked, draw the graph with default area.&lt;/span&gt;
+    &lt;span class="nx"&gt;Flotr&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;EventAdapter&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;observe&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;container&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;flotr:click&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;graph&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;drawGraph&lt;/span&gt;&lt;span class="p"&gt;();});&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后你就能获得下面这张图表：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d"&gt;&lt;img alt="A graph in Flotr2" src="http://upload-log4d.qiniudn.com/2012/06/Screen-Shot-2012-06-01-at-2.58.02-PM.png?1d5d3d" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;好用吧。&lt;/p&gt;
+&lt;p&gt;看上去蛮漂亮，符合它简洁易用的特点。&lt;/p&gt;</summary><category term="D3.js"></category><category term="Raphael"></category><category term="Flotr2"></category><category term="译文"></category></entry><entry><title>Vundle 和 Submodule</title><link href="/2012/06/vundle-submodule/" rel="alternate"></link><updated>2012-06-11T22:07:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-06-11:2012/06/vundle-submodule/</id><summary type="html">&lt;h2&gt;问题背景&lt;/h2&gt;
+&lt;p&gt;Vundle 是个好东西，可以用来管理 vim 配置和 vim 插件。Vundle
+会将所有插件管理在 &lt;code&gt;.vim/bundle/&lt;/code&gt; 中，详情可看
+&lt;a href="/2012/04/vundle/"&gt;使用 Vundle 管理 Vim 插件&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;官方安装 Vundle 方法如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我的 Vundle 的版本是 &lt;code&gt;59bff0c457f68c3d52bcebbf6068ea01ac8f5dac&lt;/code&gt;，
+git 版本是 &lt;code&gt;git version 1.7.10.2&lt;/code&gt; 。
+使用 &lt;code&gt;BundleInstall&lt;/code&gt; 可以安装 &lt;code&gt;.vimrc&lt;/code&gt; 中配置的插件，&lt;/p&gt;
+&lt;p&gt;我使用 git 控制 &lt;code&gt;.vim&lt;/code&gt; 和 &lt;code&gt;.vimrc&lt;/code&gt; 版本。在 &lt;code&gt;BundleInstall&lt;/code&gt;
+之后会导致 vundle 目录项目状态混乱，要么形成一个无法追踪的
+submodule 比如 &lt;code&gt;.vim/bundle/The-NERD-Commenter (untracked content)&lt;/code&gt;
+，要么变成一个普通的文件夹 &lt;code&gt;.vim/bundle/vim-markdown&lt;/code&gt;。&lt;/p&gt;
+
+
+&lt;h2&gt;使用 Submodule 管理 插件&lt;/h2&gt;
+&lt;p&gt;为了解决这个问题，我们需要先了解一点 Git 中 Submodule 的知识，详情可以查看
+&lt;a href="http://gitbook.liuhui998.com/5_10.html"&gt;Git Book 中文版 - 子模块&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;用 Submodule 来初始化 Vundle ，使用下面的语句：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git submodule add  https://github.com/gmarik/vundle.git .vim/bundle/vundle
+
+git submodule status &lt;span class="c"&gt;# 查看子模块状态&lt;/span&gt;
+ 59bff0c457f68c3d52bcebbf6068ea01ac8f5dac .vim/bundle/vundle &lt;span class="o"&gt;(&lt;/span&gt;0.9.1-18-g59bff0c&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Submodule 的映射是被记录在 .gitmodules 文件中的，初始化完 Vundle 之后如下：&lt;/p&gt;
+&lt;p&gt;``` ini .gitmodules
+[submodule ".vim/bundle/vundle"]
+        path = .vim/bundle/vundle
+        url = https://github.com/gmarik/vundle.git&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;## 最佳实践 ##&lt;/span&gt;
+
+&lt;span class="err"&gt;使用&lt;/span&gt; &lt;span class="n"&gt;Submodule&lt;/span&gt; &lt;span class="err"&gt;能够很完美的控制&lt;/span&gt; &lt;span class="n"&gt;Vundle&lt;/span&gt; &lt;span class="err"&gt;管理下的&lt;/span&gt; &lt;span class="n"&gt;Vim&lt;/span&gt; &lt;span class="err"&gt;插件。&lt;/span&gt;
+&lt;span class="err"&gt;可惜&lt;/span&gt; &lt;span class="n"&gt;Vundle&lt;/span&gt; &lt;span class="err"&gt;无法自动帮我们初始化插件的&lt;/span&gt; &lt;span class="n"&gt;Submodule&lt;/span&gt;&lt;span class="err"&gt;。曾经也有热心用户建议&lt;/span&gt; &lt;span class="n"&gt;Vundle&lt;/span&gt;
+&lt;span class="err"&gt;加上这个功能：&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/gmarik/vundle/pull/41](Init/update submodules in git bundles)。&lt;/span&gt;
+&lt;span class="err"&gt;不过&lt;/span&gt; &lt;span class="n"&gt;Vundle&lt;/span&gt; &lt;span class="err"&gt;的作者很残暴的拒绝了，他认为&lt;/span&gt; &lt;span class="n"&gt;Vim&lt;/span&gt; &lt;span class="err"&gt;插件可能需要深入定制，&lt;/span&gt;
+&lt;span class="err"&gt;因此不希望使用&lt;/span&gt; &lt;span class="n"&gt;Submodule&lt;/span&gt; &lt;span class="err"&gt;来管理插件。&lt;/span&gt;
+
+&lt;span class="err"&gt;我崇尚自动化构建，甚至宁愿牺牲一些所谓的定制，&lt;/span&gt;
+&lt;span class="err"&gt;少量的修改我可以放弃&lt;/span&gt; &lt;span class="n"&gt;Vundle&lt;/span&gt; &lt;span class="err"&gt;而手工管理。我琢磨了一下我的最佳实践：&lt;/span&gt;
+
+&lt;span class="err"&gt;使用&lt;/span&gt; &lt;span class="n"&gt;Submodule&lt;/span&gt; &lt;span class="err"&gt;来初始化&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bundle&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vundle&lt;/span&gt;&lt;span class="err"&gt;`，然后在使用&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="n"&gt;BundleInstall&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;
+&lt;span class="err"&gt;来安装其它插件。两个步骤分别为：&lt;/span&gt;
+
+&lt;span class="err"&gt;```&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;submodule&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt;  &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/gmarik/vundle.git .vim/bundle/vundle&lt;/span&gt;
+&lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;BundleInstall&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;大功告成，既能享受插件升级带来的优势，又可以使用 Vundle 统一管理，管理 vim
+环境甚为方便。我的 Vim 配置文件在
+&lt;a href="alswl%20/%20dotfiles"&gt;https://github.com/alswl/dotfiles&lt;/a&gt;，还包括 Awesome
+/ 按键映射等等配置。&lt;/p&gt;</summary><category term="git"></category><category term="Vundle"></category></entry><entry><title>Vim 下模拟 Emacs 键绑定</title><link href="/2012/04/vim-emacs-key-binding/" rel="alternate"></link><updated>2012-04-20T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-04-20:2012/04/vim-emacs-key-binding/</id><summary type="html">&lt;p&gt;Vimer 需要 Emacs 键绑定？看上去很蛋疼的需求吧。其实不然，大部分的 Shell / Readline 默认绑定的是 Emacs 键位绑定（处于输入状态下，Emacs 的键位很好用）。Vim 的模式切换很牛逼，但是 Insert 模式下面，只有寥寥几个快捷键，我修改了配置文件，绑定需要的 Emcas 按键到 Vim 中来。&lt;/p&gt;
+&lt;p&gt;Github 中搜索关键字 Vim Emcas key bind，出来一些结果，不是很完美，我又慢慢调教了几个星期，放出我的 .vimrc。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="s2"&gt;&amp;quot; 模拟 Emacs 键绑定&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; Move
+inoremap &amp;lt;C-a&amp;gt; &amp;lt;Home&amp;gt;
+inoremap &amp;lt;C-e&amp;gt; &amp;lt;End&amp;gt;
+&lt;span class="s2"&gt;&amp;quot;inoremap &amp;lt;C-p&amp;gt; &amp;lt;Up&amp;gt;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;inoremap &amp;lt;C-n&amp;gt; &amp;lt;Down&amp;gt;
+inoremap &amp;lt;C-b&amp;gt; &amp;lt;Left&amp;gt;
+inoremap &amp;lt;C-f&amp;gt; &amp;lt;Right&amp;gt;
+inoremap &amp;lt;M-b&amp;gt; &amp;lt;C-o&amp;gt;b
+inoremap &amp;lt;M-f&amp;gt; &amp;lt;C-o&amp;gt;w
+&lt;span class="s2"&gt;&amp;quot; Rubout word / line and enter insert mode&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; use &amp;lt;Esc&amp;gt;&amp;lt;Right&amp;gt; instead of &amp;lt;C-o&amp;gt;
+inoremap &amp;lt;C-w&amp;gt; &amp;lt;Esc&amp;gt;dbcl
+&lt;span class="err"&gt;&amp;quot;&lt;/span&gt; delete
+inoremap &amp;lt;C-u&amp;gt; &amp;lt;Esc&amp;gt;d0cl
+inoremap &amp;lt;C-k&amp;gt; &amp;lt;Esc&amp;gt;&amp;lt;Right&amp;gt;C
+inoremap &amp;lt;C-d&amp;gt; &amp;lt;Esc&amp;gt;&amp;lt;Right&amp;gt;s
+inoremap &amp;lt;M-d&amp;gt; &amp;lt;C-o&amp;gt;de
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;需要的朋友请取用，我的 Vim 配置文件和插件在 &lt;a href="https://github.com/alswl/dotfiles"&gt;https://github.com/alswl/dotfiles&lt;/a&gt; 。&lt;/p&gt;</summary><category term="Emacs"></category><category term="Readline"></category><category term="Shell"></category><category term="Vim"></category></entry><entry><title>使用 Vundle 管理 Vim 插件</title><link href="/2012/04/vundle/" rel="alternate"></link><updated>2012-04-14T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-04-14:2012/04/vundle/</id><summary type="html">&lt;p&gt;早在这个月初，我就在 Vim 的邮件列表看到了一封关于 Vim 插件管理的
+&lt;a href="https://groups.google.com/d/topic/vim-cn/mPES0sNT87Q/discussion"&gt;邮件&lt;/a&gt;。
+才惊呼原来有这么强大的插件可以用来管理我那一坨插件，
+今天细细阅读并查了一些资料，变开始配置自己的 Vim。&lt;/p&gt;
+&lt;h2&gt;几种管理插件&lt;/h2&gt;
+&lt;p&gt;Vim 的插件管理工具有蛮多，比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/gmarik/vundle"&gt;Vundle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vim.org/scripts/script.php?script_id=2905"&gt;vim-addon-manager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vim.org/scripts/script.php?script_id=2332"&gt;vpathogen.vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.vim.org/scripts/script.php?script_id=3458"&gt;vvundle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/c9s/Vimana"&gt;vvimana&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.douban.com/note/173144456/"&gt;一位同学自己写的&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vim-addon-manager 和 vimana 的对比，参见
+&lt;a href="http://yixf.name/2011/10/26/vim的插件管理工具/"&gt;Vim的插件管理工具&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我最会选择了 Vundle，通过子目录管理插件，支持 Git 更新。
+我其实不太喜欢子目录，觉得目录太多看着烦，但是考虑到在没有一个良好的 PKG
+包描述文件的前提下，分子目录是一种简单有效的方法。&lt;/p&gt;
+
+
+&lt;p&gt;Vundle 通过 git 来对插件进行更新，有三种源可以添加：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;github 中 vim-scripts 的项目（这个账号是为 Pathogen 建的，用来建立对 Vim.org 上脚本的镜像）&lt;/li&gt;
+&lt;li&gt;github 某个 Vim 插件项目&lt;/li&gt;
+&lt;li&gt;某个 git 源&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上也是我推荐的选择插件顺序，我认为没有必要去取最新的开发版插件。&lt;/p&gt;
+&lt;h2&gt;Vundle 安装&lt;/h2&gt;
+&lt;p&gt;无二话，官方文档的 &lt;a href="https://github.com/gmarik/vundle"&gt;Quick Start&lt;/a&gt;
+写的很详细 ，一句话：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后开始配置 .vimrc，我的 &lt;a href="https://github.com/alswl/dotfiles/blob/master/.vimrc"&gt;.vimrc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;重点是配置各种 &lt;code&gt;Bundle&lt;/code&gt; 我的配置如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;&amp;quot; My Bundles here:&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; vim-scripts repos&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; Syntax&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;asciidoc.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;confluencewiki.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;html5.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;JavaScript-syntax&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;mako.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;moin.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;python.vim--Vasiliev&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;xml.vim&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; Color&lt;/span&gt;
+
+Bundle &lt;span class="s1"&gt;&amp;#39;desert256.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;Impact&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;matrix.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;vibrantink&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;vividchalk.vim&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; Ftplugin&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;python_fold&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; Indent&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;indent/html.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;IndentAnything&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;Javascript-Indentation&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;mako.vim--Torborg&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;gg/python.vim&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;&amp;quot; Plugin&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;The-NERD-tree&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;AutoClose--Alves&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;auto_mkdir&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;cecutil&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;fcitx.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;FencView.vim&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;FuzzyFinder&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;jsbeautify&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;L9&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;Mark&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;matrix.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;mru.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;The-NERD-Commenter&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;project.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;restart.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;taglist.vim&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;templates.vim&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;Bundle &amp;#39;vimim.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;ZenCoding.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;css_color.vim&amp;#39;&lt;/span&gt;
+Bundle &lt;span class="s1"&gt;&amp;#39;hallettj/jslint.vim&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;需要注意的是，Vim 插件名称可能存在重名的情况，这时候就需要在插件后面加上作者的姓氏，
+比如 &lt;code&gt;Bundle 'Javascript-Indentation'&lt;/code&gt; ，而遇到插件名有空格和斜杠的话，
+需要将空格和斜杠替换为 &lt;code&gt;-&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;BundleInstall&lt;/code&gt; 即可完成安装，如果出现错误提示，多半是名称有问题，
+去 github 和 vim.org 搜索一下吧。&lt;/p&gt;
+&lt;p&gt;更多参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://blog.houqp.me/use-vundle-to-manage-your-plugins/"&gt;Vim插件管理利器——Vundle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.cnblogs.com/qiangji/archive/2011/07/31/Vundle.html"&gt;使用Vundle 来管理 Vim 插件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ps：这篇文章使用 Markdown 写的，以前都是用 Asciidoc 写，貌似是由于 github 带动，
+Mardown 自 2010 年之后使用人群猛涨，证据在此，上图是 Markdown，下图是 Asciidoc&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Markdown vs Asciidoc" src="http://upload-log4d.qiniudn.com/2012/04/markdown-asciidoc.png" /&gt;&lt;/p&gt;</summary><category term="Vim"></category><category term="Vundle"></category></entry><entry><title>使用MoinMoin作为个人KMS</title><link href="/2011/12/moinmoin-kms/" rel="alternate"></link><updated>2011-12-26T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2011-12-26:2011/12/moinmoin-kms/</id><summary type="html">&lt;p&gt;去年9月份时候，我写过一篇《&lt;a href="http://log4d.com/2010/09/my-kms"&gt;我所使用的知识管理系统&lt;/a&gt;》
+来介绍我使用的KMS系统。当时经过我层层筛选之后，我选用了Wiz作为我的KMS。&lt;/p&gt;
+&lt;p&gt;一年多过去了，Wiz在Windows下面工作的非常不错，Wiz团队里陆续推出了iOS / Android /
+&lt;a href="http://service.wiz.cn/web/"&gt;Web&lt;/a&gt;版本。我的Wiz收藏的内容也增加到近1000篇。&lt;/p&gt;
+&lt;p&gt;此时我遇到了KMS再选型的问题，原因很简单：我全线转换到Linux平台， Wiz不符合我的要求了。&lt;/p&gt;
+&lt;p&gt;我重新整理一下我要求KMS的特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;跨平台：Linux / Web / iOS / Android / Windows&lt;/li&gt;
+&lt;li&gt;数据保存格式：移植方便，将图片保存到本地&lt;/li&gt;
+&lt;li&gt;数据采集方式：支持网络直接拷贝复制&lt;/li&gt;
+&lt;li&gt;数据索引：支持分类 + tag&lt;/li&gt;
+&lt;li&gt;协同工作：方便的分享机制&lt;/li&gt;
+&lt;li&gt;免费&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;经过我历时N月的搜寻筛选，MoinMoin Wiki中标了！&lt;/p&gt;
+&lt;h2&gt;1. 关于MoinMoin&lt;/h2&gt;
+&lt;p&gt;MoinMoin是使用Python编写的Wiki实现，MoinMoin当前版本1.9。&lt;/p&gt;
+&lt;p&gt;MoinMoin的优点是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;安装简单;&lt;/li&gt;
+&lt;li&gt;支持中文全文检索；&lt;/li&gt;
+&lt;li&gt;汉化较好；&lt;/li&gt;
+&lt;li&gt;不依赖外界的数据库, 使用纯文本保存, 备份非常容易, 直接复制即可。&lt;/li&gt;
+&lt;li&gt;支持从html转换到MoinMoin Wiki格式，纯文本的wiki格式比html来的更纯粹，只保存需要的数据，而不保存冗余的样式，MoinMoin这点做的非常好，支持几乎全部html标记的转换。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 安装MoinMoin&lt;/h2&gt;
+&lt;p&gt;MoinMoin基于Python，因此安装比基于php的MediaWiki麻烦一点。&lt;/p&gt;
+&lt;p&gt;你也可以参考&lt;a href="http://moinmo.in/HowTo"&gt;官方安装指导（英文）&lt;/a&gt;，里面有 Ubuntu / CentOS / SuSE
+等系统的安装方法。&lt;/p&gt;
+&lt;h3&gt;2.1. 使用MoinMoin桌面版（最简单）&lt;/h3&gt;
+&lt;p&gt;好在有MoinMoin下载包里面包含了简单的可执行版本，只需3个步骤就可以运行了。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载MoinMoin &lt;a href="http://moinmo.in/MoinMoinDownload"&gt;http://moinmo.in/MoinMoinDownload&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;解压缩到合适的目录（安装目录）&lt;/li&gt;
+&lt;li&gt;运行目录下面的 &lt;code&gt;wikiserver.py&lt;/code&gt;&lt;ol&gt;
+&lt;li&gt;Linux/Unix：在命令行里面运行 &lt;code&gt;wikiserver.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Mac：在 &lt;code&gt;wikiserver.py&lt;/code&gt; 上面点击右键，选择 &lt;code&gt;open with...&lt;/code&gt; - &lt;code&gt;All Applications&lt;/code&gt; - &lt;code&gt;Always Open With&lt;/code&gt; - &lt;code&gt;Terminal.app&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Windows：下载 &lt;a href="http://www.python.org/download/"&gt;Python&lt;/a&gt; （2.5-2.6）， 安装之后双击 &lt;code&gt;wikiserver.py&lt;/code&gt; 运行。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;安装好之后，打开浏览器，在地址栏输入 &lt;a href="http://localhost:8080/"&gt;http://localhost:8080/&lt;/a&gt; 即可访问。&lt;/p&gt;
+&lt;p&gt;PS：如果你将MoinMoin安装的优盘，甚至可以做成移动知识库哦~&lt;/p&gt;
+&lt;p&gt;更多可以参考 &lt;a href="http://moinmo.in/DesktopEdition"&gt;官方DesktopEdition帮助文档（英文）&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;2.2. nginx+uWsgi方式（程序员适用）&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;wikiserver.py&lt;/code&gt; 虽然可以运行，但是作为开发者，我当然要使用效率更高的方式。 运行Python Web应用需要 &lt;code&gt;Appach / ngnix
++ CGI / FastCGI / uWSGI&lt;/code&gt; 环境。 我这里使用nginx + uWSGI进行环境配置。&lt;/p&gt;
+&lt;p&gt;Google了N多资料之后，这篇 &lt;a href="http://typedef.me/2011/08/30/archlinux-nginx-uwsgi-moinmoin-setup"&gt;ArchLinux 下使用 Nginx + uWSGI 部署
+MoinMoin&lt;/a&gt;
+最是详细，另外还可以参考 &lt;a href="http://garfileo.is-
+programmer.com/2011/4/24/run-moinmoin-on-uwsgi-and-nginx.26347.html"&gt;运行在 nginx 与 uwsgi 之上的 moinmoin&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我将主要步骤和我的一些修改列出来。&lt;/p&gt;
+&lt;h4&gt;2.2.1. 安装需要软件&lt;/h4&gt;
+&lt;p&gt;我当前系统是Arch，运行一下命令安装，其他系统也类似&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt; &lt;span class="n"&gt;moinmoin&lt;/span&gt;
+&lt;span class="n"&gt;yaourt&lt;/span&gt; &lt;span class="n"&gt;uwsgi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2.2.2. 配置MoinMoin&lt;/h4&gt;
+&lt;p&gt;默认情况下，moinmoin 被安装在了 &lt;code&gt;/usr/lib/python2.7/site-packages/MoinMoin&lt;/code&gt; 和
+&lt;code&gt;/usr/moin/share&lt;/code&gt; 这两个目录下。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;moin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;moin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;moin&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;wsgi&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;moin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;wikiconfig&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2.2.3. 配置nginx&lt;/h4&gt;
+&lt;p&gt;在上文的基础上，我做了一些小修改，我的nginx站点配置如下，我没有使用端口9090 作为uwsgi的监听端口，而是使用了UNIX
+Sock，这样相对安全一些。&lt;/p&gt;
+&lt;p&gt;ps：貌似这个版本的uwsgi 0.9.9.2有点小问题，无法在 &lt;code&gt;/var/run&lt;/code&gt; 里面创建sock， 我只能将 &lt;code&gt;uwsgi.sock&lt;/code&gt; 放在
+&lt;code&gt;/tmp&lt;/code&gt; 里面&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;listen&lt;/span&gt;       &lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;server_name&lt;/span&gt;  &lt;span class="n"&gt;wiki&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;localhost&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;location&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="n"&gt;include&lt;/span&gt; &lt;span class="n"&gt;uwsgi_params&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;uwsgi_pass&lt;/span&gt; &lt;span class="mf"&gt;127.0.0.1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9090&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="n"&gt;uwsgi_pass&lt;/span&gt; &lt;span class="n"&gt;unix&lt;/span&gt;&lt;span class="o"&gt;:/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;uwsgi&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="n"&gt;uwsgi_param&lt;/span&gt; &lt;span class="n"&gt;UWSGI_PYHOME&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;python2&lt;/span&gt;&lt;span class="mf"&gt;.7&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;MoinMoin&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="n"&gt;uwsgi_param&lt;/span&gt; &lt;span class="n"&gt;UWSGI_CHDIR&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;moin&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="n"&gt;uwsgi_param&lt;/span&gt; &lt;span class="n"&gt;UWSGI_SCRIPT&lt;/span&gt; &lt;span class="n"&gt;moin_wsgi&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1&gt;vim: set ft=conf:&lt;/h1&gt;
+&lt;h4&gt;2.2.4. 配置启动文件&lt;/h4&gt;
+&lt;p&gt;因为使用 UNIX Sock 连接，所以 &lt;code&gt;/etc/rc.d/uwsgi&lt;/code&gt; 启动文件也略做修改（ Ubunt 的启动配置文件在
+&lt;code&gt;/etc/init.d/&lt;/code&gt; 下面）， 加入了 &lt;code&gt;SOCK&lt;/code&gt; ，同时我为 uwsgi 指定运行用户 &lt;code&gt;http&lt;/code&gt; ，避免root启动带来的安全隐患。&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h1&gt;PORT=9090&lt;/h1&gt;
+&lt;p&gt;SOCK=/tmp/uwsgi.sock&lt;/p&gt;
+&lt;p&gt;PROCESSES=4&lt;/p&gt;
+&lt;p&gt;USER=http&lt;/p&gt;
+&lt;p&gt;LOG=/var/log/uwsgi.log&lt;/p&gt;
+&lt;p&gt;PID=&lt;code&gt;pidof -o %PPID /usr/bin/uwsgi&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;. /etc/rc.conf&lt;/p&gt;
+&lt;p&gt;. /etc/rc.d/functions&lt;/p&gt;
+&lt;p&gt;case "$1" in&lt;/p&gt;
+&lt;p&gt;start)&lt;/p&gt;
+&lt;p&gt;stat_busy "Starting uwsgi"&lt;/p&gt;
+&lt;p&gt;if [ -n "$PID" ]; then&lt;/p&gt;
+&lt;p&gt;stat_busy "uwsgi is already running"&lt;/p&gt;
+&lt;p&gt;stat_die&lt;/p&gt;
+&lt;p&gt;else&lt;/p&gt;
+&lt;h1&gt;uwsgi --uid $USER -s ":$PORT" -M -p $PROCESSES -d $LOG &amp;amp;&amp;gt; /dev/null # use&lt;/h1&gt;
+&lt;p&gt;socket port&lt;/p&gt;
+&lt;p&gt;uwsgi --uid $USER --socket $SOCK -M -p $PROCESSES -d $LOG &amp;amp;&amp;gt; /dev/null # use
+unix sock&lt;/p&gt;
+&lt;p&gt;add_daemon uwsgi&lt;/p&gt;
+&lt;p&gt;stat_done&lt;/p&gt;
+&lt;p&gt;fi&lt;/p&gt;
+&lt;p&gt;;;&lt;/p&gt;
+&lt;p&gt;stop)&lt;/p&gt;
+&lt;p&gt;stat_busy "Stopping uwsgi"&lt;/p&gt;
+&lt;p&gt;killall -QUIT uwsgi &amp;amp;&amp;gt; /dev/null&lt;/p&gt;
+&lt;p&gt;rm_daemon uwsgi&lt;/p&gt;
+&lt;p&gt;stat_done&lt;/p&gt;
+&lt;p&gt;;;&lt;/p&gt;
+&lt;p&gt;restart)&lt;/p&gt;
+&lt;p&gt;$0 stop&lt;/p&gt;
+&lt;p&gt;sleep 1&lt;/p&gt;
+&lt;p&gt;$0 start&lt;/p&gt;
+&lt;p&gt;;;&lt;/p&gt;
+&lt;p&gt;*)&lt;br /&gt;
+echo "usage: $0 {start|stop|restart}"&lt;/p&gt;
+&lt;p&gt;esac&lt;/p&gt;
+&lt;p&gt;exit 0&lt;/p&gt;
+&lt;h2&gt;3. Image2Attach&lt;/h2&gt;
+&lt;p&gt;去年我选择Wiz而不选择Wiki类产品时候，是考虑到一个图片保存本地化的问题。 即保存一篇网页时候，要将里面的图片保存到本地，而不是使用链接方式保存，
+因为由于各种不可预测的原因，原始图片数据很有可能丢失或者无法连接。&lt;/p&gt;
+&lt;p&gt;Wiz使用的方案是使用mht格式将图片保存在问题，而大部分 Wiki，包括 MoinMoin 都以 文本的形式保存数据，那就无法保存远程图片了。&lt;/p&gt;
+&lt;p&gt;经我研究，MoinMoin 中有附件的方法可以保存文件，并且当这种附件存放的是图片文件时， 也可以直接使用 &lt;code&gt;{{attachment:xxx.jpg}}&lt;/code&gt;
+这样的 Wiki 语法来查看图片。&lt;/p&gt;
+&lt;p&gt;我尝试在 MoinMoin 插件库里面找将远程图片本地化的插件未果，于是就花了一个星期左右 时间写了一个实现这样功能的插件 Image2Attach。&lt;/p&gt;
+&lt;p&gt;更多使用可以参考这篇文章 &lt;a href="http://log4d.com/2011/12/moinmoin-plugin-image2attach"&gt;MoinMoin plugin: image2attach v0.0.2
+released&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所以说，当程序员就是好，功能没有就自己实现呗。&lt;/p&gt;
+&lt;h2&gt;4. MoinMoin的简单上手&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://zhanggang.net/"&gt;@张刚&lt;/a&gt; 同学发邮件给我和我交流了两个问题，我顺便整理到这里。（2011-12-28更新）&lt;/p&gt;
+&lt;h3&gt;安装语言包&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;首先请确保当前登录账户是超级用户，超级用户设置在 &lt;code&gt;/usr/share/moin/wikiconfig.py&lt;/code&gt; （可能路径有所差异）里面的 &lt;code&gt;superuser = [u"yourid"]&lt;/code&gt; ，加入你需要设定的用户id&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;中文界面会根据浏览器语言设定获取，而相应的中文帮助文件默认没有安装，我建议安装。安装步骤如下：  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问http://localhost/LanguageSetup，里面有安装文档链接http://localhost/LanguageSetup?action=language_setup&lt;/li&gt;
+&lt;li&gt;在http://wiki.localhost/LanguageSetup?action=language_setup中，选择 &lt;code&gt;Simplified_Chinese&lt;/code&gt; 点击最下面 &lt;code&gt;all_pages&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;同时我也建议安装英文版本的 &lt;code&gt;all_pages&lt;/code&gt; ，因为中文有一些翻译不全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更多的中文信息你可以访问&lt;a href="http://master.moinmo.in/%E9%A6%96%E9%A1%B5"&gt;MoinMoin主版本中文网站&lt;/a&gt;。&lt;/p&gt;
+&lt;h3&gt;如何加入内容&lt;/h3&gt;
+&lt;p&gt;下面是我自己总结的步骤，目前工作的还不错。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入新页面http://localhost/newpage，如果不存在就会创建新页面&lt;/li&gt;
+&lt;li&gt;默认是文本模式编辑器，切换到图形编辑模式（默认编辑器可以在个人设置里面修改）&lt;/li&gt;
+&lt;li&gt;从某个网页粘帖内容到图形编辑模式（这个图形编辑器是CKEditor的精简版）。&lt;/li&gt;
+&lt;li&gt;查看图形编辑器原始码，再返回"所见即所得"状态（这个步骤可以去除一些空格）&lt;/li&gt;
+&lt;li&gt;返回文本模式编辑器，MoinMoin会自动转换html-&amp;gt;wiki（目前我遇到3个bug，中文开头空格/BR换行/fieldset，前两个我已经修 复，diff文件在&lt;a href="http://upload-log4d.qiniudn.com/2011/12/moinmoin.diff"&gt;http://upload-log4d.qiniudn.com/2011/12/moinmoin.diff&lt;/a&gt;）&lt;/li&gt;
+&lt;li&gt;人工审核一下wiki，也顺便仔细看看文章内容&lt;/li&gt;
+&lt;li&gt;加入Category，预览，保存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;5. MoinMoin的一些修改&lt;/h2&gt;
+&lt;p&gt;在使用MoinMoin这段时间，我发现了一些小问题，就对源码做了一些小修改。 当然如果你觉得麻烦，不做这些修改也一样可以使用的很好。&lt;/p&gt;
+&lt;p&gt;我修改了 &lt;code&gt;/usr/lib/python2.7/site-
+packages/MoinMoin/converter/text_html_text_moin_wiki.py&lt;/code&gt; 这个文件。点击 &lt;a href="http
+://upload-log4d.qiniudn.com/2011/12/moinmoin.diff"&gt;diff文件&lt;/a&gt;下载。&lt;/p&gt;
+&lt;h2&gt;6. wiz转MoinMoin经验&lt;/h2&gt;
+&lt;p&gt;Wiz中数据存储格式其实是mht，微软的鸟东西，数据转换颇为不方便。&lt;/p&gt;
+&lt;p&gt;第一种方法是借助Wiz Web服务，Wiz小组推出的 &lt;a href="http://service.wiz.cn/web"&gt;Web服务&lt;/a&gt; 可以很方便的查看所有同步
+过的内容，里面就是标准的html代码了，直接可以复制粘帖。Wiz的Web端图片也不用 Cookie认证，取到图片地址就可以抓取了。&lt;/p&gt;
+&lt;p&gt;另一种办法就是使用Wiz的导出功能，导出成mht格式， 然后使用MoinMoin站点提供的插件
+&lt;a href="http://moinmo.in/MicrosoftWordConverter"&gt;Word2Moin&lt;/a&gt; 脚本进行转换。&lt;/p&gt;
+&lt;p&gt;我使用的方法是第一种。&lt;/p&gt;</summary><category term="image2attach"></category><category term="KMS"></category><category term="MoinMoin"></category><category term="nginx"></category><category term="uwsgi"></category><category term="wiz"></category></entry><entry><title>Gource-可视化你的代码历史</title><link href="/2011/11/gource/" rel="alternate"></link><updated>2011-11-26T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2011-11-26:2011/11/gource/</id><summary type="html">&lt;p&gt;昨天我在&lt;a href="http://sunng.info/blog/2011/10/clojalk-scm-visualization/"&gt;sunng&lt;/a&gt;
+那里看到一个非常好玩的东西&lt;a href="http://code.google.com/p/gource/"&gt;Gource&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="gource" src="http://upload-log4d.qiniudn.com/2011/11/gource-logo.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Gource可以将代码版本控制系统里面的日志全部可视化， 所谓可视化就是可以看见每个成员在系统里面提交代码的行为。
+Gource目前支持git/hg/svn，cvs通过一个简单的脚本也可以被Gource支持。&lt;/p&gt;
+&lt;p&gt;官方视频在这里&lt;a href="http://www.youtu
+be.com/watch?v=E5xPMW5fg48&amp;amp;feature=player_embedded"&gt;Gource - Software Version Control Visualization Tool&lt;/a&gt;，里面有Moodle/Git/Drupal/Postg
+reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频。Ruby on Rails那一段特别帅有没有。&lt;/p&gt;
+&lt;p&gt;使用下列命令可以将视频录制下来(via &lt;a href="http://code.google.com/p/gource/wiki/Videos"&gt;wiki&lt;/a&gt;)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;pacman&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="n"&gt;x264&lt;/span&gt; &lt;span class="err"&gt;#在&lt;/span&gt;&lt;span class="n"&gt;archlinux&lt;/span&gt;&lt;span class="err"&gt;下安装&lt;/span&gt;&lt;span class="n"&gt;H264&lt;/span&gt;&lt;span class="err"&gt;支持&lt;/span&gt;
+&lt;span class="n"&gt;gource&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1280&lt;/span&gt;&lt;span class="n"&gt;x720&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;gource&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ppm&lt;/span&gt; &lt;span class="err"&gt;#在项目目录下运行，生成&lt;/span&gt;&lt;span class="n"&gt;ppm&lt;/span&gt;&lt;span class="err"&gt;文件&lt;/span&gt;
+&lt;span class="cp"&gt;#生成mp4文件，官方文档里面有-vpre slow项，会报错，去掉即可&lt;/span&gt;
+&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="n"&gt;K&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;image2pipe&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vcodec&lt;/span&gt; &lt;span class="n"&gt;ppm&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;gource&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ppm&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;vcodec&lt;/span&gt; &lt;span class="n"&gt;libx264&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;threads&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bf&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;gource&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x264&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;使用&lt;a href="http://www.red-bean.com/cvs2cl/"&gt;cvs2cl&lt;/a&gt;来支持CVS （via
+&lt;a href="http://code.google.com/p/gource/wiki/CVS"&gt;wiki&lt;/a&gt;)：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cvs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;
+&lt;span class="n"&gt;cvs2cl&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;chrono&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;stdout&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cvs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;
+&lt;span class="n"&gt;gource&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cvs&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xml&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Gource里面有几个快捷键，我常用的有&lt;code&gt;[&lt;/code&gt;放大，&lt;code&gt;]&lt;/code&gt;缩小，方向键移动，&lt;code&gt;+&lt;/code&gt;加速，&lt;code&gt;-&lt;/code&gt;减速。&lt;/p&gt;
+&lt;p&gt;我本来想把我的dbevent2gc拿来凑了一个热闹，结果h264编码传到要哭土豆似乎一直有问题，只能作罢。ps：3分钟的视频，生成的ppm有1.2个G，转换
+成mp4是1.2M。&lt;/p&gt;</summary><category term="cvs"></category><category term="dbevent2gc"></category><category term="git"></category><category term="gource"></category></entry><entry><title>CodeSmith使用心得</title><link href="/2011/02/codesmith/" rel="alternate"></link><updated>2011-02-26T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2011-02-26:2011/02/codesmith/</id><summary type="html">&lt;p&gt;CodeSmith是一款著名的代码生成器，可以帮助开发者完成一些重复性的劳动，并且能够保证更高的代码质量。CodeSmith使用Template（*.cst
+）模板进行基础代码片段的定义，支持语言包括C#, Java, VB, PHP, ASP.NET, SQL等等。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="CodeSmith" src="http://www.codesmithtools.com/lib/images/product/generator-h2.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;一个简单的Sample&lt;/h2&gt;
+&lt;p&gt;CodeSmith使用的模板使用方式类似于aspx/jsp页面，也就是基础代码+脚本的方式，大致代码如下（官方的sample2）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;CodeTemplate&lt;/span&gt; &lt;span class="no"&gt;Language&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C#&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;TargetLanguage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Text&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This template demonstrates using properties in your template.&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Property&lt;/span&gt; &lt;span class="no"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Person&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;System.String&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;This will show up at the bottom of the property grid when the property is selected.&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%-&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; 
+&lt;span class="no"&gt;This&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="n"&gt;demonstrates&lt;/span&gt; &lt;span class="n"&gt;using&lt;/span&gt; &lt;span class="n"&gt;properties&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;template&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="cp"&gt;-%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;This is some static content (just like the static HTML in a ASP page).&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Person&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;!&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;This is more static content.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这个结构熟悉吧，几行代码分别表示模板属性，参数，脚本（注释），脚本（输出），静态文本。&lt;/p&gt;
+&lt;p&gt;通过上面这个例子可以直观看到CodeSmith使用方式，无非是在固有的代码片段上面进行一些动态的输出。&lt;/p&gt;
+&lt;p&gt;例子使用了一个名为Person的属性，其类型是String。在CodeSmith中，所有.net的基础属性都能够使用，除此之外，CodeSmith还封装了一
+些特殊的属性类型，方便用户使用，像多行文本，文件选择，XML序列化文件、Key-Value键值对等等。&lt;/p&gt;
+&lt;p&gt;通过&amp;lt;%@ Assembly Name="SchemaExplorer" %&amp;gt;和&amp;lt;%@ Import Namespace="SchemaExplorer"
+%&amp;gt;，我们能够使用自定义的dll和命名空间，托.net平台类库的福，系统的灵活性大大提高了。&lt;/p&gt;
+&lt;h2&gt;数据接入&lt;/h2&gt;
+&lt;p&gt;仅仅拥有上面这些特性，CodeSmith还不足以成为一个趁手的工具。真正让自定义功能发挥到极致的是CodeSmith中的SchemaExplorer。&lt;/p&gt;
+&lt;p&gt;SchemaExplorer的作用是给CodeSmith提供各类基础数据，比如字段的设计、表结构的设计。SchemaExplorer下面有两个比较常用的类，
+TableSchema和ViewSchema，能够读取表信息和视图信息。&lt;/p&gt;
+&lt;p&gt;官方代码片段如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Property&lt;/span&gt; &lt;span class="no"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1.Database&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Tables&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Optional&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;False&amp;quot;&lt;/span&gt;
+    &lt;span class="no"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SchemaExplorer.TableSchemaCollection&amp;quot;&lt;/span&gt; 
+    &lt;span class="no"&gt;Description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Database to create SQLite DDL from.&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;foreach&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;TableSchema&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="no"&gt;Tables&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;-- Table &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;EscapeFormat&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt; data&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;columnDefinition&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;BuildColumns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;tableName&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;BuildTableName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="no"&gt;DataTable&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;table&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetTableData&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="n"&gt;foreach&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;DataRow&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Rows&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;INSERT INTO &lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;tableName&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&amp;lt;%=&lt;/span&gt; &lt;span class="n"&gt;columnDefinition&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt; VALUES (&lt;/span&gt;&lt;span class="cp"&gt;&amp;lt;%=&lt;/span&gt; &lt;span class="no"&gt;BuildInsert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;);&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="sr"&gt;//&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;% } // for each table%&gt;
+
+&lt;p&gt;上面代码通过便利Table，生成了一系列INSERT语句。&lt;/p&gt;
+&lt;p&gt;细心的童鞋可能发现了，描述中提到了"Database to create SQLite DDL from"，没错，通过SchemaExplorer，Code
+Smith屏蔽了数据库差异，所以能够使用各大主流数据库，从MySQL到MSSQL，从SQLite到PostreSQL，并且，只要把提供实现了SechemaE
+xplorer接口的dll放入CodeSmith/SchemaProviders目录下面，就能够理论上实现各种数据接入（其实。。。官方的SQLite接入都有
+问题，反正我死活没成功，最后还是用了原生支持的MSSQL）。&lt;/p&gt;
+&lt;h2&gt;我使用的数据接入&lt;/h2&gt;
+&lt;p&gt;CodeSmith提供的SechemaExplorer虽然强大，但是却有一个弊端：它设计用来读取数据库结构，而不是其中的数据。TableSchema类型只提
+供字段类型信息，而不提供具体数据内容。&lt;/p&gt;
+&lt;p&gt;我需要读取的数据并不是表结构，而是里面具体的数据，我需要根据这些数据生成具体代码，所以需求和CodeSmith的设计思路不一致，我早起使用了ViewSche
+ma来曲线实现读取数据库内容的功能。（ViewSchema可以读取具体内容）&lt;/p&gt;
+&lt;p&gt;通过DataRow row in this.V_JOB.GetViewData().Rows，我可以获取视图里面所有数据列。这种方法比较取巧，缺点也显而易见
+：每次不同的SQL需要定义一个额外的视图，很快我就放弃了这种办法。&lt;/p&gt;
+&lt;p&gt;最后我决定使用原生的SQL来获取数据，例子如下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Assembly&lt;/span&gt; &lt;span class="no"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Microsoft.ApplicationBlocks.Data&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Import&lt;/span&gt; &lt;span class="no"&gt;Namespace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;System.Data&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Import&lt;/span&gt; &lt;span class="no"&gt;Namespace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;System.Data.SqlClient&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Import&lt;/span&gt; &lt;span class="no"&gt;Namespace&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Microsoft.ApplicationBlocks.Data&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;
+&lt;span class="no"&gt;StringBuilder&lt;/span&gt;  &lt;span class="n"&gt;sql&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kp"&gt;new&lt;/span&gt; &lt;span class="no"&gt;StringBuilder&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;SELECT * n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;FROM   TASK n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;       LEFT  JOIN CONTROLER n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;         ON TASK.guid = CONTROLER.taskGuid n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AppendFormat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;WHERE  TASK.confirmId = &amp;#39;{0}&amp;#39; n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;ConfirmId&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AppendFormat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;       AND TASK.id = &amp;#39;{0}&amp;#39; n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="no"&gt;TaskId&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;       AND CONTROLER.bodyNo IS NULL n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;sql&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;        OR CONTROLER.bodyNo = 0 &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;SqlConnection connection = new SqlConnection(databaseSchema.ConnectionString);&lt;/p&gt;
+&lt;p&gt;connection.Open();&lt;/p&gt;
+&lt;p&gt;DataTable dataTable = SqlHelper.ExecuteDataset(connection, CommandType.Text,
+sql.ToString()).Tables[0];&lt;/p&gt;
+&lt;p&gt;foreach (DataRow row in dataTable.Rows) {&lt;/p&gt;
+&lt;p&gt;} %&amp;gt;&lt;/p&gt;
+&lt;p&gt;这个例子就是引用原生的System.Data.SqlClient完成读数据，另外为了简化操作，我使用了微软的SqlHelper进行数据操作封装，即Micro
+soft.ApplicationBlocks.Data这个类库。（SqlHelper可以在微软官网下载到）需要引用的类库记得放入CodeSmith/bin目
+录下面。&lt;/p&gt;
+&lt;p&gt;最后，如果Template过于复杂，记得把Template进行分割成小模块，再使用Register关键字引用，以提高复用，DRY。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;&amp;lt;%&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt; &lt;span class="no"&gt;Register&lt;/span&gt; &lt;span class="no"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;DscHideField&amp;quot;&lt;/span&gt; &lt;span class="no"&gt;Template&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;../Controler/DscHideField.cs.cst&amp;quot;&lt;/span&gt; &lt;span class="cp"&gt;%&amp;gt;&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;相关链接&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.codesmithtools.com/"&gt;CodeSmith官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/lxf120/archive/2007/04/03
+/698707.html"&gt;CodeSmith 介绍 - 代码生成之路 - 博客园&lt;/a&gt;里面有个很详细的Tutorial&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://terrylee.cnblogs.com/archive/2005/12/28/306254.aspx"&gt;CodeSmith开发系列资料总结 - TerryLee's Tech
+Space&lt;/a&gt; -
+博客园李银河的CodeSmith系列文章，有几个高级议题&lt;/p&gt;</summary><category term="CodeSmith"></category></entry><entry><title>将VisualStudio打造成Vim</title><link href="/2010/09/vs-vim/" rel="alternate"></link><updated>2010-09-03T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-09-03:2010/09/vs-vim/</id><summary type="html">&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/09/ViEmu.jpg" /&gt;&lt;/p&gt;
+&lt;h3&gt;背景：Vim in VisualStudio?&lt;/h3&gt;
+&lt;p&gt;最近痴迷于Vim，尝试着在.net环境中（70%C#+20%ASPX+10%JS）使用Vim进行开发。但是似乎现成的Vim插件不太适应.net开发平台，在进
+行调试、编译以及ASPX页面调整时候还是需要切换到VS。&lt;/p&gt;
+&lt;p&gt;内事不决问老婆，外事不决问Google，我以关键词"Vim C#"向G神询问，很可惜一圈一圈找下来，都没有什么有价值的答案。在StackOverlow上找到
+了一些相关资源，其中几位资深人士（使用Vi/Vim大约20年）提到了一款叫做ViEmu的软件，就好奇的跑去看看。&lt;/p&gt;
+&lt;h3&gt;ViEmu&lt;/h3&gt;
+&lt;p&gt;让我们来见识一下ViEmu的厉害吧。ViEmu支持模式切换、移动、宏、高亮搜索，键盘映射、增强命令、正则表达、可视模式等等。反正常用的Vim功能都具备。它自
+己也敢宣称支持Vim大部分功能（Vim太强大，不敢说完全模拟~）。下面是一张ViEmu的官方示意图。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/09/viemu-movie.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;ViEmu不但有支持VS的版本，还有支持Word &amp;amp; Outlook &amp;amp; SQL Server Management
+Studio（SQL解析器），确实是相当强大。&lt;/p&gt;
+&lt;p&gt;ViEmu的收费标准是Only $99，唉，真是残酷+万恶的资本主义啊。囊中羞涩，不得不去求破解版本。功夫不负有心人，终于找到了当前最新版本ViEmu.v.
+2.5.4的破解版"&lt;a href="http://www.52pojie.cn/viewthread.php?tid=59277"&gt;ViEmu.v.2.5.4.for.VS.Classic.CracKed-LCG - 『LCG Area』 - 吾爱破解论坛【 LCG
+】 破解论坛|破解软件|加密解密|逆向工程|软件安全|病毒分析|精品软件|破解补丁|注册机|序列号|QQ|下载|Crack|Patch|Key|SN -
+Powered by Discuz!&lt;/a&gt;"。（这标题真TMD长
+，不过论坛够意思，不用注册即可下载）。网上还有一种破解方法（我没有试过，感兴趣可以尝试）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p 17582A9E-740A-47F2-8256-D09F1378E7FA="17582A9E-740A-47F2-8256-D09F1378E7FA"&gt;1.删除目录 C:Documents and Settings用户名Local SettingsApplication DataIdentities&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2.删除注册表项HKEY_CURRENT_USERSoftwareClassesCLSID{D31F31E1-B08F-46FF-
+92C5-CA111A2053DF}&lt;/p&gt;
+&lt;h3&gt;安装失败&lt;/h3&gt;
+&lt;p&gt;在公司电脑安装ViEmu没有问题，在我的机器上面（XP Sp3+VS2008+ReSharper
+v4.1）却出现了重大错误。启动VS之后立刻提示"ViEmu incorrectly installed, please
+reinstall"，卸载重装之后不起任何作用。&lt;/p&gt;
+&lt;p&gt;我在官方支持论坛上面找到了相关讨论&lt;a href="http://www.viemu.com/forums/viewtopic.php?id=395"&gt;ViEmu forums / ViEmu incorrectly installed message under VS 
+2008&lt;/a&gt;。作者会给所有遇到问题的人发一封邮件，包含一个
+Tool，能够解决这个问题并且将时间恢复至30天，&lt;strike&gt;下载点击&lt;a href="http://www.viemu.com/for-
+ajsd8/XtendTest.exe"&gt;这里&lt;/a&gt;&lt;/strike&gt;（作者发送给我时候，该链接已失效）。&lt;/p&gt;
+&lt;p&gt;好在我有十全大补丸，就是上文提到的那个破解包，破解之后，连带着这个莫名的问题也莫名的解决了~&lt;/p&gt;
+&lt;h3&gt;主题&lt;/h3&gt;
+&lt;p&gt;厌倦了VisualStudio那种白底黑字加上几个蓝色函数的主题了么，想回到Geek Feel的Vim主题嘛，这里就要向你隆重推荐一个网站：Studio
+Styles - Visual Studio color
+schemes，里面包含了N套VS的主题，大部分是深色背景浅色文字、保护视力的背景。比如排名最高，也是我比较喜欢的&lt;a href="http://studiostyles.info/schemes/wekeroad-ink"&gt;WekeRoad
+Ink&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/09/WekeRoad_Ink.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;通过工具-导入和导出设置就可以把新主题颜色导入VS了。话说回来，真不知道VS设计团队怎么想的，需要一个一个设置不同类型的字体和颜色~~~&lt;/p&gt;
+&lt;h3&gt;相关链接&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.viemu.com/"&gt;ViEmu: vi-vim editor emulation for Visual Studio, Word, Outlook and SQL
+Server&lt;/a&gt; ViEmu官网&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/597077/is-learning-vim-worth-the-effort"&gt;Is learning VIM worth the effort? - Stack Overflow
+&lt;/a&gt;
+CSharper怎么用Vim，老程序员的回答&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.vimer.cn/"&gt;Vimer的程序世界&lt;/a&gt; 一个Vim爱好者的Blog&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://xbeta.info/vimperator.htm"&gt;Vimperator：VIM化的Firefox&lt;/a&gt;
+想在FireFox下脱离鼠标用Vim模式化操作么？&lt;/p&gt;</summary><category term="ViEmu"></category><category term="Vim"></category><category term="VisualStudio"></category></entry><entry><title>SQL格式化工具-SQL Pretty Printer</title><link href="/2010/07/sql-format-tool-sql-pretty-printer/" rel="alternate"></link><updated>2010-07-28T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-07-28:2010/07/sql-format-tool-sql-pretty-printer/</id><summary type="html">&lt;h3&gt;背景&lt;/h3&gt;
+&lt;p&gt;最近写了一些SQL，数据库用的是MS-SQL，而SQL Server Management
+Studio是不自带代码格式化功能的，这让我用起来很郁闷，PL/SQL Developer格式起来多爽啊。&lt;/p&gt;
+&lt;p&gt;在网上找了一下SQL格式化工具，只有一个用起来还不错的&lt;a href="http://www.dpriver.com/pp/sqlformat.htm"&gt;在线版本&lt;/a&gt;，我测试
+了一下，功能强大，可惜不支持中文，注释的中文会被打上？？&lt;/p&gt;
+&lt;h3&gt;SQL Pretty Printer&lt;/h3&gt;
+&lt;p&gt;我在那个在线网站看到了Desktop Version的菜单，进去一看，哦，原来这个网站本身就在做一款SQL格式化工具的产品，叫做 SQL Pretty
+Printer。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-
+log4d.qiniudn.com/2010/07/spp_app.jpg"&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/07/spp_app.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SQL Pretty Printer 的桌面版本&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/07/spp_code.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;格式化好之后的代码&lt;/p&gt;
+&lt;h3&gt;功能&lt;/h3&gt;
+&lt;p&gt;SQL Pretty Printer目前提供4种使用方式，桌面版本，SSMS(SQL Server Management
+Studio)插件，VS插件，和提供API接口。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-
+log4d.qiniudn.com/2010/07/spp_ssms.jpg"&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/07/spp_ssms.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SSMS(SQL Server Management Studio)插件版本&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/07/spp2code.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;可以将SQL转化成代码格式，支持数种语言&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/07/spp2html.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;可以将SQL转化成HTML格式&lt;/p&gt;
+&lt;h3&gt;获取&lt;/h3&gt;
+&lt;p&gt;使用版本只能提供30次，而且桌面版本的无法将代码复制出来，我使用的是SSMS插件版本，可以直接在查询器里面格式化，试用版的限制比较多。&lt;/p&gt;
+&lt;p&gt;翻遍SQL Pretty Printer的网站，终于发现了Get SQL Pretty Printer Desktop Version For
+Free信息，作者说可以通过4种途径获取免费的授权码。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;1.If you are a technical/software blogger or journalist willing to write
+us up (honest reviews are the most useful to us) &lt;a href="mailto:support@dpr
+iver.com?subject=I%20want%20to%20review%20sql%20pretty%20printer%20on%20my%20s
+oftware%20blog%21"&gt;email us&lt;/a&gt; a short blurb with the link to your blog and we'll send you
+a license, FREE of charge, so that you can evaluate sql pretty printer
+properly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;2.If you are willing to demo SQL Pretty Printer to an audience of at
+least 15 people (at a user group, a conference, a BarCamp), &lt;a href="mailto:
+support@dpriver.com?subject=I%20want%20to%20demo%20SQL%20Pretty%20Printer%21"&gt;email us&lt;/a&gt;
+your info and we'll give you two licenses, one for you to keep and one to give
+away at the event, FREE of charge.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3.If you teach a high-school class, &lt;a href="mailto:support@dpriver.com?subject=I%20teach%20high-school%21"&gt;email
+us&lt;/a&gt; the name of
+your school and your class, plus the number of students in your class. We will
+send you a license for all of them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;4.A note to university students and professors: we currently do not
+offer free licenses to universities, but we'll be happy to offer you an
+additional 50% off any orders of 10 or more licenses. &lt;a href="mailto:support@dpriver.com?subject=Student%20Discount"&gt;Let us
+know&lt;/a&gt; if you're
+interested and we'll set up a discount code for you.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;很幸运，我有自己的软件博客，写完这篇文章之后，我就会向作者发出申请邮件。&lt;/p&gt;
+&lt;h3&gt;最后&lt;/h3&gt;
+&lt;p&gt;说说这个软件的弊病吧，那就是功能太单一。现在大部分的查询器都有格式化功能，只是M$这边没有加入这个功能，从该软件的产品线来看，很依赖于SSMS和VS，一旦他
+们加入格式化功能，这个软件的使用价值就大大降低了。&lt;/p&gt;
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;p&gt;下载链接：&lt;a href="http://www.dpriver.com/dlaction.php"&gt;http://www.dpriver.com/dlaction.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在线版本（不支持中文）：&lt;a href="http://www.dpriver.com/p
+p/sqlformat.htm"&gt;http://www.dpriver.com/pp/sqlformat.htm&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;获取免费的授权码：&lt;a href="http://www.dpr
+iver.com/products/sqlpp/getforfree.php"&gt;http://www.dpriver.com/products/sqlpp/getforfree.php&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Others&lt;/h3&gt;
+&lt;p&gt;WP Keyword Link这个插件在更新到版本 1.5.2之后会让正文中图片无法显示，出现类似http://log4d.com/****的URL，导致图
+片显示失败，停用这个插件之后即可，期待作者下个版本修复这个问题。&lt;/p&gt;
+&lt;h3&gt;Update-2010-7-29&lt;/h3&gt;
+&lt;p&gt;下午作者就给了答复，问我要哪一个版本的Key，第二天早晨拿到了SSMS版本的Licence。作者叫James
+Wang，而且工作组叫GuduSoft，我怀疑作者是华人&lt;/p&gt;
+&lt;p&gt;再次感谢作者的慷慨~&lt;/p&gt;</summary><category term="SQL Pretty Printer"></category></entry><entry><title>桌面记录神器-BooguNote</title><link href="/2010/04/desktop-recording-tool-boogunote/" rel="alternate"></link><updated>2010-04-07T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-04-07:2010/04/desktop-recording-tool-boogunote/</id><summary type="html">&lt;p&gt;之前做GTD一直基于Google Canledar，记录主要是Google NoteBook和Google Docs。尽管Google
+Docs支持Gears离线查看，但是并不支持离线创建文件（Docs的编辑能力还不如CKEditor）。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://upload-
+log4d.qiniudn.com/2010/04/boogu_note.jpg"&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/04/boogu_note.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我一直急迫的寻找一款本地保存内容的程序，终于被我发现了，BooguNote！&lt;/p&gt;
+&lt;p&gt;尽管这个软件还有很多不成熟的地方，比如界面不能在在置顶，启动大小不能记忆，快捷键设计不是很科学-
+没有switch设计，但是，但是，他的出现足以颠覆我的文本记录习惯。&lt;/p&gt;
+&lt;p&gt;现在的版本是0.3.1.1，期望下一个版本可以解决这些问题～&lt;/p&gt;
+&lt;p&gt;之前我还特意问过XDash，他如何做读书笔记，他回答划线和Google Doc。现在，如果有人问我这个问题，我会回答BooguNote。&lt;/p&gt;
+&lt;h3&gt;相关链接&lt;/h3&gt;
+&lt;p&gt;官网：&lt;a href="http://boogu.me/"&gt;BooguStudio - Collecting, Organizing and Sharing&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://geek4.us/all-in-boogunote/"&gt;BooguNote全解 « geek 4 us&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gtdstudy.com/?p=1761&amp;amp;replytocom=124821"&gt;提升生活效能的小软件：BooguNote的三种应用&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;下面是来自Lightory的介绍&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最近在用一款叫做 BooguNote 的笔记软件（官方介绍是&lt;strong&gt;收集与组织信息的新概念工具&lt;/strong&gt;）。BooguNote
+带给我前所未有的体验，使用它之前，我从未想过笔记软件可以做成这样。&lt;/p&gt;
+&lt;p&gt;现在，我使用 BooguNote 做读书笔记、收集箱（GTD）、思路整理、日记本。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://lightory.net/boogunote/479/"&gt;&lt;img alt="BooguNote - 新概念笔记软件" src="http://lightory.net/wp-" title="content/uploads/2010/03/BooguNote.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;BooguNote 小巧（绿色软件，单文件，约 600 KB）而强悍，吸引我的主要有以下几点。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;界面简单、优雅&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如截图所示，整个界面相当简洁，几乎没有一个按钮、菜单，有效利用空间显示内容。默认的蓝色样式非常舒服，让我忍不住用优雅形容。不喜欢默认样式？那也没关系，在
+界面设置中，几乎可以改变全部配色方案。&lt;/p&gt;
+&lt;p&gt;没有按钮怎么办？操作都有集成在右键菜单中，但那也太低效了。BooguNote
+有提供大量快捷键，上手后完全可以不碰鼠标，流畅操作。提高操作效率倒是其次，主要是能够不打断思路。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;树状信息视图&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;树状视图，让信息结构一目了然（如果你用过一些思维导图软件，一定对此很熟悉吧）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;可导出 mm 或 txt 文件&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;大多数思维导图软件（推荐 &lt;a href="http://www.xmind.net/"&gt;XMind&lt;/a&gt;）都支持 mm 文件。这就意味着，可以使用 BooguNote
+快速编辑，再导入其它软件中，生成漂亮的思维导图。&lt;/p&gt;
+&lt;p&gt;txt 则更佳，方便我将完成的读书笔记整理到 Google Docs。&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="BooguNote"></category><category term="GTD"></category></entry><entry><title>界面设计利器-Balsamiq Mockups</title><link href="/2010/04/ui-design-tool-balsamiq-mockups/" rel="alternate"></link><updated>2010-04-07T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-04-07:2010/04/ui-design-tool-balsamiq-mockups/</id><summary type="html">&lt;p&gt;在最近的一次项目进行过程中，我体会到UI前期Demo设计的重要性，为此付出了惨痛的代价，痛定思痛，我决定以后一定要通过一个完整的页面对界面进行描述，这里隆重
+介绍Mockups。&lt;/p&gt;
+&lt;p&gt;之前很多次接触过Balsamiq Mockups 这款界面设计利器（delicious最早收藏是在09年5月），也曾经试用过Demo版本，因为我本身是后台码
+代码的，所以用到UI设计的机会并不多，也没有特意去申请Mockups的许可证。&lt;/p&gt;
+&lt;h2&gt;介绍&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.balsamiq.com/images/mockupsair.jpg" /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Balsamiq Mockups 提供了 9 大类共 50 多个控件，涵盖了几乎所有常用的 UI 控件。不管是桌面软件、手机软件还是 Web
+站点，都能搞定。且软件极易上手，如上图的豆瓣新主页，是我首次使用 Balsamiq Mockups 时随手画的，仅用 15
+分钟。另外必须一提的是，Balsamiq Mockups 涂鸦式的手绘风格，能使人集中注意力，专注到于原型的原始目的，而不是对外观挑三拣四。&lt;/p&gt;
+&lt;p&gt;via &lt;a href="http://lightory.net/balsamiq-mockups/473/"&gt;Balsamiq Mockups - 产品原型设计工具&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;功能&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;操作方面，拖拽，控件分组，甚至元素之间的对齐都做得很贴心；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;预制了很多界面元素，从简单的输入框，下拉框，浏览器主要元素，到经常用得到的导航条，日历，表格，到复杂的Tag Cloud，Cover
+Flow, 地图，WYSWYG的格式工具栏等，有了这些不用从头画起，往往比用白板都快；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;界面元素的修改很简单，比如导航条的几个标签页的label，就是用逗号分隔的文字，下拉框的选项就是分行的文字；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用xml语言来记录和保存界面元素和布局，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;这使得每个设计都能被很好得放进SVN，Git，和CVS等工具中进行管理和跟踪；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以设计复杂的界面元素，保存后，以后可以重复使用（包括修改）；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以将设计导出成PNG格式的图片；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img alt="balsamiq markup exported to
+png" src="http://farm4.static.flickr.com/3451/3179518230_5ec1947cb9_m.jpg" /&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;可以用命令行进行导出操作，这样就能让我写个脚本，从svn里checkout某个目录下的所有设计文件后，导出图片，打包后用邮件发到项目经
+理，工程师甚至客户那；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跨平台，Balsamiq Mokups是用Flex和Air实现的，所以在Mac OS, Linux和Windows下都能使用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不仅仅有桌面版本，还有能集成在Confluence，JIRA，和XWiki中的版本，使得异地在线协作更方便有效；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;via &lt;a href="http://www.yining.org/2009/01/09/balsamiq-
+mockups-review/"&gt;推荐一款界面设计工具 Balsamiq Mockups&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;试用&lt;/h2&gt;
+&lt;p&gt;点击&lt;a href="http://www.balsamiq.com/products/mockups/web"&gt;myBalsamiq, the Balsamiq Mockups Web App |
+Balsamiq&lt;/a&gt; 即可尝试一下在线版本，看看它合不合你胃口。&lt;/p&gt;
+&lt;p&gt;点击&lt;a href="http://www.balsamiq.com/products/mockups/desktop"&gt;Balsamiq Mockups For Desktop |
+Balsamiq&lt;/a&gt;
+可以下载桌面Demo版本。这是AIR下的软件，需要AIR环境支持。&lt;/p&gt;
+&lt;h2&gt;获取免费的版本&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过让国内用户不习惯的是，这款软件定价为 $79 ，偏高。当然&amp;amp;nbsp_place_holder;Balsamiq&amp;amp;nbsp_place_holder
+;Studios&amp;amp;nbsp_place_holder;也为用户提供了 5 种免费获得&amp;amp;nbsp_place_holder;license key
+的机会，其中之一就是针对科技/软件 Blogger 或媒体从业者，鼓励这类用户通过写 Blog
+口碑传播的方式帮助&amp;amp;nbsp_place_holder;Balsamiq Mockups
+营销。写完本文，我也会尝试向作者申请一个&amp;amp;nbsp_place_holder;license key。&lt;/p&gt;
+&lt;p&gt;via &lt;a href="http://ecvip.org/archives/786"&gt;产品原型设计软件Balsamiq Mockups | 黄海均的互联网志&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;PS：我对作者这种做法表示很欣赏，通过一些可行的手段支持正版，同时提高了产品的口碑。&lt;/p&gt;
+&lt;h2&gt;更多&lt;/h2&gt;
+&lt;p&gt;使用Napkee插件可以将设计导出为Html+CSS+JS或者Flex格式，详情请参见&lt;a href="http://lightory.net/napkee/477/"&gt;Napkee - 导出Balsamiq
+Mockups网页原型&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2010-04-14 Update:&lt;/p&gt;
+&lt;p&gt;已拿到作者发送注册码～～～终于到了。。。&lt;/p&gt;</summary><category term="Mockups"></category><category term="UI"></category></entry><entry><title>Web开发利器-Aptana</title><link href="/2010/04/web-development-tool-aptana/" rel="alternate"></link><updated>2010-04-07T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-04-07:2010/04/web-development-tool-aptana/</id><summary type="html">&lt;p&gt;闲逛时候意外发现了一款开发利器Aptana，介绍说是JavaScript编辑利器，我冲着试一试的心理去官网溜达了一圈，发现那篇介绍问完完全全错了，Aptan
+a哪里只是JavaScript编辑器啊，完全是Web开发18般武艺样样精通啊。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.aptana.org/images/top.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;废话不多说，来自open-open的介绍（alswl懒得翻译官方文字了 ^_^）&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Aptana是一个非常强大,开源,专注于JavaScript的Ajax开发IDE。它的特性包括：
+&lt;em&gt;JavaScript,JavaScript函数,HTML,CSS语言的Code Assist功能。
+&lt;/em&gt;Outliner(大纲)：显示JavaScript,HTML和CSS的代码结构。&lt;/p&gt;
+&lt;p&gt;*支持JavaScript，HTML，CSS代码提示，包括JavaScript 自定函数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;代码语法错误提示。&lt;br /&gt;
+&lt;/em&gt;支持Aptana UI自定义和扩展。&lt;br /&gt;
+&lt;em&gt;支持跨平台。&lt;br /&gt;
+&lt;/em&gt; 支持FTP/SFTP&lt;br /&gt;
+&lt;em&gt;调试JavaScript&lt;br /&gt;
+&lt;/em&gt;支持流行AJAX框架的Code Assist 功能：AFLAX, Dojo, JQuery, MochiKit, Prototype, Rico, script.aculo.us, Yahoo UI, Ext&lt;br /&gt;
+*Adobe AIR与iPhone开发工具&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其主页上还提供如何使用该开发工具的视频。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;看得你心动心痒痒了么，我也恨没有早认识Aptana几年，马上下载下来试用吧，友情提示一下，Aptana其实是Eclipse的插件，需要Eclipse支持哦。&lt;/p&gt;
+&lt;h3&gt;官方链接&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.aptana.org/"&gt;Aptana 官方网站&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.aptana.org/studio/download"&gt;Aptana Studio 下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;简单教程&lt;/h3&gt;
+&lt;p&gt;其实我个人觉得Aptana装上去就可以用的很溜了，只要你用过Eclipse JavaEE模块或者DreamWeaver之类的IDE。&lt;/p&gt;
+&lt;p&gt;唯一一个问题可能是编码，参考&lt;a href="http://qops.blogspot.com/2007/11/aptana-
+studio-10-utf-8.html"&gt;qop's blog: Aptana Studio 1.0 設定 UTF-8
+編碼&lt;/a&gt;可以搞定（发布后发现这个链接是BlogSpot的，为了照顾墙内看客，我把原文转载过来）&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/jackielin/archive/2006/11/05/550422.html"&gt;不可多得的Javascript(AJAX)开发工具 － Aptana - BLACK JACK -
+博客园&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://http://www.cnblogs.com/jackielin/archive/2006/11/07/Aptana1.html"&gt;Aptana使用入门一：Code Assist - BLACK JACK -
+博客园&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.kuqin.com/developtool/20090318/40850.html"&gt;在Eclipse安装Aptana插件-开发工具-
+编程环境&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Aptana Studio 1.0 设定 UTF-8编码&lt;/h3&gt;
+&lt;p&gt;下面是转载过来的文章，在修改全局编码为UTF-
+8之后，可能导致之前用GBK编码文件乱码，在具体的项目属性中修改即可，或者，大不了咱们全部转成UTF-8，通用嘛～&lt;/p&gt;
+&lt;p&gt;×××××××××以下转载×××××××××&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/04/aptana_set_utf8.png" /&gt;&lt;/p&gt;
+&lt;p&gt;1)&amp;amp;nbsp_place_holder; 點選指令選單上 Window &amp;gt; Preferences...&lt;/p&gt;
+&lt;p&gt;2)&amp;amp;nbsp_place_holder; 在面板左側點選 General &amp;gt; Workspace&lt;/p&gt;
+&lt;p&gt;3) 在右下方的 Text file encoding 點選 other, 設定為「UTF-8」即可。&lt;/p&gt;</summary><category term="Aptana"></category><category term="Eclipse"></category><category term="IDE"></category></entry><entry><title>最常用的Notepad++的快捷键</title><link href="/2010/04/notepad-shortcut-keys/" rel="alternate"></link><updated>2010-04-01T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-04-01:2010/04/notepad-shortcut-keys/</id><summary type="html">&lt;p&gt;原文连接：&lt;a href="http://hanyionet.blogspot.com/2009/09/notepad.html"&gt;Hanyi on ET:
+最常用的Notepad++的快捷键&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;友情提示：今天愚人节哦～愚人节快乐～&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://www.salon.com/special/aprilone/2000/linux/cover.jpg" /&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;如果Notepad++是程序员的一个生产工具，那么快捷键的使用就可以提高生产效率，记住一些快捷键是挺有用的:-)。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://notepad-plus.sou
+rceforge.net/uk/shortcuts.php"&gt;http://notepad-plus.sourceforge.net/uk/shortcuts.php&lt;/a&gt;这上面有完整的快捷键表格，但是很多都记不住，因为很少用。除了Ctrl-C，Ctrl-X，Ctrl
+-V，Ctrl-Y，Ctrl-A，Ctrl-F，Ctrl-S，Ctrl-O，Ctrl-N，Ctrl-W，Ctrl-Tab，Ctrl-P，Alt-
+F4这些基本的，也许有些简单的比较有用的快捷键，你可能有兴趣知道。&lt;/p&gt;
+&lt;p&gt;Ctrl-H&lt;/p&gt;
+&lt;p&gt;打开Find / Replace 对话框&lt;/p&gt;
+&lt;p&gt;Ctrl-D&lt;/p&gt;
+&lt;p&gt;复制当前行&lt;/p&gt;
+&lt;p&gt;Ctrl-L&lt;/p&gt;
+&lt;p&gt;删除当前行&lt;/p&gt;
+&lt;p&gt;Ctrl-T&lt;/p&gt;
+&lt;p&gt;上下行交换&lt;/p&gt;
+&lt;p&gt;F3&lt;/p&gt;
+&lt;p&gt;找下一个&lt;/p&gt;
+&lt;p&gt;Shift-F3&lt;/p&gt;
+&lt;p&gt;找上一个&lt;/p&gt;
+&lt;p&gt;Ctrl-Shift-F&lt;/p&gt;
+&lt;p&gt;在文件中找&lt;/p&gt;
+&lt;p&gt;Ctrl-F2&lt;/p&gt;
+&lt;p&gt;触发书签&lt;/p&gt;
+&lt;p&gt;F2&lt;/p&gt;
+&lt;p&gt;到前一个书签&lt;/p&gt;
+&lt;p&gt;Shift-F2&lt;/p&gt;
+&lt;p&gt;到下一个书签&lt;/p&gt;
+&lt;p&gt;F5&lt;/p&gt;
+&lt;p&gt;打开run对话框&lt;/p&gt;
+&lt;p&gt;Ctrl-Space&lt;/p&gt;
+&lt;p&gt;打开CallTip列表框&lt;/p&gt;
+&lt;p&gt;Tab (selection of several lines)&lt;/p&gt;
+&lt;p&gt;加入Space&lt;/p&gt;
+&lt;p&gt;Shift-Tab (selection of several lines)&lt;/p&gt;
+&lt;p&gt;移除Space&lt;/p&gt;
+&lt;p&gt;F11&lt;/p&gt;
+&lt;p&gt;全屏&lt;/p&gt;
+&lt;p&gt;Alt-0&lt;/p&gt;
+&lt;p&gt;折叠全部&lt;/p&gt;
+&lt;p&gt;Alt-Shift-0&lt;/p&gt;
+&lt;p&gt;展开全部&lt;/p&gt;
+&lt;p&gt;Ctrl-U&lt;/p&gt;
+&lt;p&gt;变为小写&lt;/p&gt;
+&lt;p&gt;Ctrl-Shift-U&lt;/p&gt;
+&lt;p&gt;变为大写&lt;/p&gt;
+&lt;p&gt;Ctrl-Q&lt;/p&gt;
+&lt;p&gt;块注释/消除注释&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;-转载结束-&lt;/p&gt;
+&lt;p&gt;这是alswl从Notepad++的&lt;a href="http://notepad-
+plus.sourceforge.net/tw/site.htm"&gt;官网&lt;/a&gt;整理过来的快捷键～&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-C&lt;/strong&gt;
+Copy&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-X&lt;/strong&gt;
+Cut&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-V&lt;/strong&gt;
+Paste&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Z&lt;/strong&gt;
+Undo&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Y&lt;/strong&gt;
+Redo&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-A&lt;/strong&gt;
+Select All&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-F&lt;/strong&gt;
+Launch Find Dialog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-H&lt;/strong&gt;
+Launch Find / Replace Dialog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-D&lt;/strong&gt;
+Duplicate Current Line&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-L&lt;/strong&gt;
+Delete Current Line&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-T&lt;/strong&gt;
+Switch the current line position with the previous line position&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F3&lt;/strong&gt;
+Find Next&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shift-F3&lt;/strong&gt;
+Find Previous&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-F&lt;/strong&gt;
+Find in Files&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-F3&lt;/strong&gt;
+Find (volatil) Next&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-F3&lt;/strong&gt;
+Find (volatil) Previous&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-I&lt;/strong&gt;
+Incremental Search&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-S&lt;/strong&gt;
+Save File&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Alt-S&lt;/strong&gt;
+Save As&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-S&lt;/strong&gt;
+Save All&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-O&lt;/strong&gt;
+Open File&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-N&lt;/strong&gt;
+New File&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-F2&lt;/strong&gt;
+Toggle Bookmark&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F2&lt;/strong&gt;
+Go To Next Bookmark&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shift-F2&lt;/strong&gt;
+Go To Previous Bookmark&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-G&lt;/strong&gt;
+Launch GoToLine Dialog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-W&lt;/strong&gt;
+Close Current Document&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-Shift-Arrow keys or &lt;br /&gt;
+Alt + Left mouse click&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Column Mode Select&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F5&lt;/strong&gt;
+Launch Run Dialog&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Space&lt;/strong&gt;
+Launch CallTip ListBox&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-Space&lt;/strong&gt;
+Launch Word Completion ListBox&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tab (selection of several lines)&lt;/strong&gt;
+Insert Tabulation or Space (Indent)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shift-Tab (selection of several lines)&lt;/strong&gt;
+Remove Tabulation or Space (outdent)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-(Keypad-/Keypad+) or &lt;br /&gt;
+Ctrl + mouse wheel button (if any)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Zoom in (+ or up) and Zoom out (- or down)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Keypad/&lt;/strong&gt;
+Restore the original size from zoom&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F11&lt;/strong&gt;
+Toggle Full Screen Mode&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Tab&lt;/strong&gt;
+Next Document&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-Tab&lt;/strong&gt;
+Previous Document&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-Up&lt;/strong&gt;
+Move Current Line Up&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-Down&lt;/strong&gt;
+Move Current Line Down&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Alt-F&lt;/strong&gt;
+Collapse the Current Level&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Alt-Shift-F&lt;/strong&gt;
+Uncollapse the Current Level&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-0&lt;/strong&gt;
+Fold All&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-(1~8)&lt;/strong&gt;
+Collapse the Level (1~8)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-Shift-0&lt;/strong&gt;
+Unfold All&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-Shift-(1~8)&lt;/strong&gt;
+Uncollapse the Level (1~8)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-BackSpace&lt;/strong&gt;
+Delete to start of word&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Delete&lt;/strong&gt;
+Delete to end of word&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-BackSpace&lt;/strong&gt;
+Delete to start of line&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-Delete&lt;/strong&gt;
+Delete to end of line&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-U&lt;/strong&gt;
+Convert to lower case&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-U&lt;/strong&gt;
+Convert to UPPER CASE&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-B&lt;/strong&gt;
+Go to matching brace&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-R&lt;/strong&gt;
+Start to record /Stop recording the macro&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-P&lt;/strong&gt;
+Play recorded macro&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Q&lt;/strong&gt;
+Block comment/uncomment&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-Q&lt;/strong&gt;
+Stream comment&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Shift-T&lt;/strong&gt;
+Copy current line to clipboard&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-P&lt;/strong&gt;
+Print&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Alt-F4&lt;/strong&gt;
+Exit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-I&lt;/strong&gt;
+Split Lines&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-J&lt;/strong&gt;
+Join Lines&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Alt-R&lt;/strong&gt;
+Text Direction RTL&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ctrl-Alt-L&lt;/strong&gt;
+Text Direction LTR&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;F1&lt;/strong&gt;
+About&lt;/p&gt;</summary><category term="Notepad++"></category></entry><entry><title>Subclipse1.2.x的一个Bug</title><link href="/2010/03/a-bug-of-subclipse1-2-x/" rel="alternate"></link><updated>2010-03-20T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-20:2010/03/a-bug-of-subclipse1-2-x/</id><summary type="html">&lt;h3&gt;背景&lt;/h3&gt;
+&lt;p&gt;在使用Eclipse开发项目，提交属性svn:ignore时候，SVN报出一个错误。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Failed to execute WebDAV PROPPATCH&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;svn: Commit failed (details follow):&lt;/p&gt;
+&lt;p&gt;svn: At least one property change failed; repository is unchanged&lt;/p&gt;
+&lt;p&gt;整整花了3个小时的时间在这上面纠缠，终于在某个邮件论坛找到一点点线索。&lt;/p&gt;
+&lt;p&gt;在&lt;a href="http://marc.info/?l=subversion-
+users&amp;amp;m=121478169326627&amp;amp;w=2"&gt;Re: Failed to execute WebDAV PROPPATCH&lt;/a&gt;上面，有人提到Subclipse无法执行，但是Tortuial SVN没有问题&lt;/p&gt;
+&lt;h3&gt;原因&lt;/h3&gt;
+&lt;p&gt;我用的Subclispe还是07年在工作室时候安装的1.2.3版本，因为一直懒，所以没有更新。&lt;/p&gt;
+&lt;h3&gt;解决&lt;/h3&gt;
+&lt;p&gt;卸载老版本的Subclipse，使用新版的Subclipse&lt;/p&gt;
+&lt;p&gt;卸载方法：Help - Install New Soft -&amp;amp;nbsp_place_holder; What is already installed -&amp;gt;
+Uninstall&lt;/p&gt;
+&lt;p&gt;安装新版本Subclipse，传送门-&amp;gt;&lt;a href="http://subclipse.tigris.org/files/docume
+nts/906/47423/site-1.6.10.zip"&gt;Subclipse1.6.10&lt;/a&gt;&lt;/p&gt;</summary><category term="Subclipse"></category><category term="SVN"></category></entry><entry><title>Vim中缩进和空格的使用</title><link href="/2010/03/vim-indentation-and-space-config/" rel="alternate"></link><updated>2010-03-09T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-09:2010/03/vim-indentation-and-space-config/</id><summary type="html">&lt;p&gt;原文链接：&lt;a href="http://windwithstorm.blogspot.com/"&gt;WindStorm的技术空间: vim中缩进与空格的设置介绍&lt;/a&gt;（Blog
+Spot）&lt;/p&gt;
+&lt;p&gt;对于使用vim的程序员来说，&lt;code&gt;shiftwidth&lt;/code&gt;，&lt;code&gt;tabstop&lt;/code&gt;，&lt;code&gt;softtabstop&lt;/code&gt;绝对是经常接触的三个缩进因素。能否有方便美观的，整体化的
+缩进，主要是由他们相互间的配合决定。在经过一段时间试用后，总结一下我的设置经验。&lt;/p&gt;
+&lt;h2&gt;1 shiftwidth&lt;/h2&gt;
+&lt;p&gt;这个是用于程序中自动缩进所使用的空白长度指示的。一般来说为了保持程序的美观，和下面的参数最好一致。同时它也是符号移位长度的制定者。&lt;/p&gt;
+&lt;h2&gt;2 tabstop&lt;/h2&gt;
+&lt;p&gt;定义tab所等同的空格长度，一般来说最好设置成8，因为如果是其它值的话，可能引起文件在打印之类的场合中看起来很别扭。除非你设置了
+&lt;code&gt;expandtab&lt;/code&gt;模式，也就是把tabs转换成空格，这样的话就不会一起混淆，不过毕竟制表符为8是最常用最普遍的设置，所以一般还是不要改。&lt;/p&gt;
+&lt;h2&gt;3 softtabstop&lt;/h2&gt;
+&lt;p&gt;如果我们希望改变程序中的缩进怎么办？&lt;code&gt;shiftwidth&lt;/code&gt;和&lt;code&gt;tabstop&lt;/code&gt;不一样的话，你会发现程序比较难看的。这时候，&lt;code&gt;softtabstop&lt;/code&gt;就起作
+用了。可以从vim的说明中看到，一旦设置了&lt;code&gt;softtabstop&lt;/code&gt;的值时，你按下tab键，插入的是空格和tab制表符的混合，具体如何混合取决于你设定的&lt;code&gt;s
+ofttabstop&lt;/code&gt;，举个例子，如果设定softtabstop=8, 那么按下tab键，插入的就是正常的一个制表符;如果设定
+softtabstop=16,那么插入的就是两个制表符；如果softtabstop=12,那么插入的就是一个制表符加上4个空格；如果 &lt;code&gt;softtabsto
+p&lt;/code&gt;=4呢？那么一开始，插入的就是4个空格，此时一旦你再按下一次tab，这次的四个空格就会和上次的四个空格组合起来变成一个制表符。换句话说，&lt;code&gt;softtab
+stop&lt;/code&gt;是"逢8空格进1制表符",前提是你&lt;code&gt;tabstop=8&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;4 关于expandtab&lt;/h2&gt;
+&lt;p&gt;举个例子，在多人一起开发项目时，为了使代码风格尽量保持一致，一般不允许在代码使用TAB符，而以4个空格代之。我们可以编辑一个文件，包含下面的内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;shiftwidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;expandtab&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后把下面的命令加入到.vimrc中：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;autocmd&lt;/span&gt; &lt;span class="n"&gt;FileType&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cpp&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;shiftwidth&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;expandtab&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;就可以只在编辑c和cpp文件时实行这种设置了。&lt;/p&gt;</summary><category term="Vim"></category></entry><entry><title>SubVersion建立多个版本库</title><link href="/2010/03/subversion-multi-repository/" rel="alternate"></link><updated>2010-03-08T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-08:2010/03/subversion-multi-repository/</id><summary type="html">&lt;p&gt;由于刚接触SVN时间不长，当时建立版本库时候图方便，只建立了一个版本库。现在由于项目需要，需要建立多个版本库，这让我很头疼。经过一番摸索，终于知晓了如何在已
+有单个版本库情况下面建立多个版本库。&lt;/p&gt;
+&lt;h2&gt;一、单个库还是多个库？&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*原文链接：&lt;a href="http://www.subversion.org.cn/?action-viewnews-itemid-56"&gt;单个版本库还是多个？&lt;/a&gt; 作者：rocksun&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;&lt;/strong&gt;***&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我前&lt;a href="http://blogs.open.collab.net/svn/2007/04/subversion_repo.html"&gt;一个 blog&lt;/a&gt;中讨
+论了版本库的布局，这个条目会尝试回答是选择单版本库单项目还是单版本库存放所有项目的问题，这里没有一个唯一的正确答案，但希望本
+文可以帮助你理解代价，你才可以做出正确的决定来满足你的需求，下面是单版本库方法的优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;管理简单，只需要部署一组钩子，备份一个版本库等等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分支/标签灵活性，因为所有的代码在一个版本库，这样可以容易的 创建跨多个项目的分支或标签。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;移动代码更简单。你或许希望把代码从一个项目移动到另一个，或者将其作为多个项目的库，这样可以容易的将 代码在同一个版本库移动，并保持代码的历史。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面是单版本库的缺点，以及多版本库的优点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;大小。对付多个小版本库会比对付一个大版本库容易，例如你结束了一个项目，你只需要归档版本库到媒介，然后从磁盘删除并释放空间。也许因 为某些原
+因你需要转储/导入版本库，例如利用新的Subversion特性，如果库很小，会很容易做且影响很小，即使你最终希望对所有的版本库作这些事，也比一次
+完成的影响小，当然我们假定没有急迫的需要一次完成这些任务。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;全局修订版本号。即使这不应该是一个问题，一些人还是要求使用一个修订版 本号，不希望来看到版本库修订版本号的自己增加，造成修订版本历史的横沟。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;访问控制。Subversion的authz机制允许你根据
+版本库的部分需要限制访问，如果你有一个项目，只有一些选定的人可以访问，对于一个版本库，这样做很简单。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理灵活性。如果你有多个版
+本库，可以根据版本库/项目的需要实现不同的钩子，如果你希望统一钩子脚本，单个版本库会更好，但是如果每个项目希望自己的email样式，在不同的版本
+库中实现会更容易。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这里只是每种方法的赞成和反对意见，希望它可以帮助你做出决定，我更喜欢一个版本库一个项目的方法，如果我有多个项目互相关联，我会喜欢多项目单版
+本库的方法，我也希望通过组或团队分离版本库，尽管实际上是项目概念的变种。&lt;/p&gt;
+&lt;p&gt;例如，我有一个文档部门项目使用的版本库，当然，在这个例子里在线帮助经常与应用代码位于一个相同的项目，但是文档组也有他们制作的其他材料，我们
+给了他们另一个版本库。同样的，市场部也有一个版本库存放他们需要的东西，例如公司网站。因为我们讨论版本库的布局，这是可以最好工作的决定，也可以说，
+在设置好后，改变版本库可能会或多或少有点麻烦。&lt;/p&gt;
+&lt;p&gt;所以，很值得花时间理解需求来决定哪种方法更适合他们。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;二、单个版本库向多个版本库的迁移&lt;/h2&gt;
+&lt;p&gt;1.在原有的版本库repository中建立两个新文件夹，一个用来装原有版本库，一个用来防治新的版本库。&lt;/p&gt;
+&lt;p&gt;2.将原来版本库文件迁移到新的文件夹中。&lt;/p&gt;
+&lt;p&gt;3.建立新的版本库目录文件&lt;code&gt;svnadmin create c:repositorysvn_data_2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;4.最重要的一步，分别&lt;/code&gt;修改confsvnserve.conf ，去掉&lt;code&gt;realm&lt;/code&gt;注释&lt;/p&gt;
+&lt;p&gt;4.重启SubVersion系统服务。（不知道如何创建服务的看我之前的博文：&lt;a href="http://log4d.com/2010/03/svn-server-setup"&gt;配置SVN服务端 «
+Log4D&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;5.在客户端找到新的svn地址，如&lt;code&gt;svn://192.168.0.1/svn_data_1&lt;/code&gt;和&lt;code&gt;svn://192.168.0.1/svn_data_2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;6.大功告成！&lt;/p&gt;
+&lt;p&gt;PS:切记客户端的原有代码在迁移前进行提交，然后重新获取新的地址下的代码文件。&lt;/p&gt;</summary><category term="SVN"></category></entry><entry><title>TortoiseSVN中文版安装</title><link href="/2010/03/tortoisesvn-installation-chinese-pacakge/" rel="alternate"></link><updated>2010-03-05T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-05:2010/03/tortoisesvn-installation-chinese-pacakge/</id><summary type="html">&lt;p&gt;虽然大部分情况下我都是用Subclipse连接SVN服务器，但是为了让整个团队在Delphi下使用上SVN，就需要使用SVN的客户端了，TortoiseSV
+N是目前比较流行的SVN客户端，目前最新版是1.6.7。&lt;/p&gt;
+&lt;p&gt;传送门之-&lt;a href="http://downloads.sourceforg
+e.net/tortoisesvn/TortoiseSVN-1.6.7.18415-win32-svn-1.6.9.msi?download"&gt;TortoiseSVN-1.6.7.18415-win32-svn-1.6.9.msi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下面是一片TortoiseSVN中文版的安装方法，转载过来。&lt;/p&gt;
+&lt;p&gt;原文出处：&lt;a href="http://www.svn8.com/svnpz/20090622/6696.html"&gt;TortoiseSVN 中文版 安装 -
+Svn中文网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;××××______××××[&lt;/p&gt;
+&lt;p&gt;](http://www.svn8.com/svnpz/20090622/6696.html)&lt;/p&gt;
+&lt;p&gt;TortoiseSVN 是 Subversion 版本控制系统的一个免费开源客户端，可以超越时间的管理文件和目录。&lt;/p&gt;
+&lt;p&gt;如果是新安装,可以到
+&lt;a href="http://tortoisesvn.net/downloads"&gt;http://tortoisesvn.net/downloads&lt;/a&gt;
+下载最新版本.一般32位安装版和64位安装版.另外按安装方式来分会分为msi与GnuPG.
+GnuPG这东西对于很多人来说不怎么熟识.而且在windows下,我只下载msi的安装文件&lt;/p&gt;
+&lt;p&gt;先把TortoiseSVN安装好.安装基本上是点下一步就完成了.所以在这里就赘述了。&lt;/p&gt;
+&lt;p&gt;安装包里面默认语言是英语,对于很多中国人来说使用英语还是不怎么习惯. 不过TortoiseSVN是多语言软件,他会有一个中文包,还是在
+&lt;a href="http://tortoisesvn.net/downloads"&gt;http://tortoisesvn.net/downloads&lt;/a&gt;
+下载下了需要的语言包安装.安装完后,不用重启,可以在setting里面的语言设计里找到刚才安装的语言.&lt;/p&gt;
+&lt;p&gt;可能出现的问题&lt;/p&gt;
+&lt;p&gt;1,安装语言包失败 或者 安装语言包后没有中文选项&lt;/p&gt;
+&lt;p&gt;如果没有选项就是代表安装失败,原因可能是版本不对,例如我下载的TortoiseSVN的安装文件名是TortoiseSVN-
+1.6.2.16344-win32-svn-1.6.2.msi,就是说我安装的文件我是1.6.2版本,然后更新版本号是16344.语言包的安装文
+件也是类似这样.LanguagePack_1.6.2.16344-win32-zh_CN.msi,软件版是1.6.2,更新版本号是16344.只
+要软件版跟更新版对得上.基本上不会出现问题.所以安装前先确认这两个版号.&lt;/p&gt;
+&lt;p&gt;2,对于已经安装旧版的TortoiseSVN的人来说,可能已经找不到语言包的安装了.&lt;/p&gt;
+&lt;p&gt;不过没有关系,可以自己重写一下载的url http://sourceforge.net/project/downloading.php?groupname=
+tortoisesvn&amp;amp;filename=LanguagePack_1.6.2.16344-win32-zh_CN.msi&amp;amp;use_mirror=nchc
+看url很容易 看出来filenamer=后面的就是我们需要下载的文件名.而且文件名都很有规则.&lt;/p&gt;
+&lt;p&gt;只要TortoiseSVN的 about us里就会看到以下的内容了。&lt;/p&gt;
+&lt;p&gt;我的TortoiseSVN的版是TortoiseSVN 1.5.1, Build 13563 - 32 Bit 。我只需要把上面的url改成下面的就可以了 
+http://sourceforge.net/project/downloading.php?groupname=tortoisesvn&amp;amp;filename=
+LanguagePack_1.5.1.13563-win32-zh_CN.msi&amp;amp;use_mirror=nchc&lt;/p&gt;</summary><category term="SVN"></category><category term="TortoiseSVN"></category></entry><entry><title>使用subclipse代理</title><link href="/2010/03/use-subclipse-with-proxy/" rel="alternate"></link><updated>2010-03-03T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-03:2010/03/use-subclipse-with-proxy/</id><summary type="html">&lt;p&gt;&amp;amp;nbsp_place_holder;公司网络必须使用代理，今天更新自己写的一个Utils到Google Project
+Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了那几个目录，都没有问题，猜到是代理连接的问题。&lt;/p&gt;
+&lt;p&gt;Eclipse的代理设置在"&lt;strong&gt;General-Network Connections&lt;/strong&gt;"中设置，很明显，Subclipse不在这里设定。&lt;/p&gt;
+&lt;p&gt;PS：在写的是一个DataBase-&amp;gt;Java 3层代码生成器，想仿照&lt;a href="http://www.maticsoft.com/"&gt;&lt;strong&gt;动软.NET生成器&lt;/strong&gt;&lt;/a&gt;那
+样写，今天刚写完生成Bean的一些版本，自己计划在半年时间内写一个beta版。&lt;/p&gt;
+&lt;p&gt;下面是解决办法，来自 &lt;a href="http://blog.baimusenlin.com/83.html"&gt;百亩森林 »
+解决windows下subclipse穿过代理连接subversion服务器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;×××××&amp;amp;&amp;amp;以下原文&amp;amp;&amp;amp;×××××&lt;/p&gt;
+&lt;p&gt;解决windows下subclipse穿过代理连接subversion服务器&lt;/p&gt;
+&lt;p&gt;1、cmd命令提示符输入 echo %APPDATA%&lt;/p&gt;
+&lt;p&gt;2、进入第一步输出的目录下，并找到Subversion目录(如C:Documents and
+SettingsAdministratorApplication DataSubversion)，注意此目录为隐藏目录。&lt;/p&gt;
+&lt;p&gt;3、在servers文件中的最后[global]后增加&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;proxy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;192.168.1.1&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;proxy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;proxy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;username&lt;/span&gt;
+&lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;proxy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Eclipse"></category><category term="Subclipse"></category><category term="SVN"></category></entry><entry><title>配置SVN服务端</title><link href="/2010/03/svn-server-setup/" rel="alternate"></link><updated>2010-03-02T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-03-02:2010/03/svn-server-setup/</id><summary type="html">&lt;p&gt;实在忍受不了VSS了，下决心自己在虚拟机配置一个SVN服务器，然后再在服务器上安装一个SVN服务器端。以前都是使用现成的SVN服务器，或者使用Google
+Code提供的Project Host，今天就自己动手，丰衣足食吧。&lt;/p&gt;
+&lt;p&gt;话说VSS的确过时了，好多特性很麻烦，也难怪Louis嘲笑我Eclipse用VSS了～&lt;/p&gt;
+&lt;h2&gt;什么是SVN服务器&lt;/h2&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder;&lt;strong&gt;Subversion&lt;/strong&gt;，简称&lt;strong&gt;SVN&lt;/strong&gt;，是一个开放源代码的版本控制系统（SCM），相对于的RCS、CVS，采
+用了分支管理系统，它的设计目标就是取代CVS。互联网上越来越多的控制服务从CVS转移到Subversion。（via
+&lt;a href="http://zh.wikipedia.org/zh-cn/Subversion"&gt;wiki&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;关于SVN / VSS / CVS等源代码管理系统已经有很多比较的文章了，我这里推荐几篇&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://better-
+scm.berlios.de/comparison/comparison.html"&gt;Better SCM Initiative : Comparison&lt;/a&gt;
+这篇是老外写的一篇各种SCM比较，内容相当翔实，可以作为论文参考资料了都&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/yansc/archive/2008/09/27/1300954.html"&gt;SVN对比VSS,不知这样够了没 - 哥不是传说，是寂寞 -
+博客园&lt;/a&gt; 国人的一篇比较&lt;/p&gt;
+&lt;h2&gt;SVN服务端安装&lt;/h2&gt;
+&lt;p&gt;Subversion官网已经迁移到Apache项目组下了，点击&lt;a href="http://subversion.apache.or
+g/"&gt;Apache Subversion&lt;/a&gt;访问Subversion官网，上面提供各个操作系统的版本下载，Windows环境下面分了&lt;strong&gt;CollabNet &lt;/strong&gt;/ &lt;strong&gt;Tigris.org
+&lt;/strong&gt;/ &lt;strong&gt;SlikSVN &lt;/strong&gt;/ &lt;strong&gt;VisualSVN&lt;/strong&gt; 四个链接，我选择Tigris.org进行下载。&lt;/p&gt;
+&lt;p&gt;点击&lt;a href="http://subversion.tigris.org/files/documents/15/46906
+/Setup-Subversion-1.6.6.msi"&gt;Setup-
+Subversion-1.6.6.msi&lt;/a&gt;下载截至2010-03-02的最新版&lt;/p&gt;
+&lt;p&gt;下载完之后，一路Next就可以安装完毕，使用 &lt;strong&gt;svn --version&lt;/strong&gt; 测试一下能不能显示以下信息，如果可以，则说明安装没有问题了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C:Documents and SettingsAdministrator&amp;gt;svn --version&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;svn，版本 1.6.6 (r40053)&lt;/p&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder;&amp;amp;nbsp_place_holder; 编译于 Oct 26 2009，20:14:36&lt;/p&gt;
+&lt;p&gt;版权所有 (C) 2000-2009 CollabNet。&lt;/p&gt;
+&lt;p&gt;Subversion 是开放源代码软件，请参阅 http://subversion.tigris.org/ 站点。&lt;/p&gt;
+&lt;p&gt;此产品包含由 CollabNet(http://www.Collab.Net/) 开发的软件。&lt;/p&gt;
+&lt;p&gt;可使用以下的版本库访问模块:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ra_neon : 通过 WebDAV 协议使用 neon 访问版本库的模块。&lt;br /&gt;
+&amp;amp;nbsp_place_holder; - 处理"http"方案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder; - 处理"https"方案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ra_svn : 使用 svn 网络协议访问版本库的模块。&amp;amp;nbsp_place_holder; - 使用 Cyrus SASL 认证&lt;br /&gt;
+&amp;amp;nbsp_place_holder; - 处理"svn"方案&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ra_local : 访问本地磁盘的版本库模块。&lt;br /&gt;
+&amp;amp;nbsp_place_holder; - 处理"file"方案&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ra_serf : 通过 WebDAV 协议使用 serf 访问版本库的模块。&lt;br /&gt;
+&amp;amp;nbsp_place_holder; - 处理"http"方案&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;amp;nbsp_place_holder; - 处理"https"方案&lt;/p&gt;
+&lt;h2&gt;SVN服务端的配置&lt;/h2&gt;
+&lt;p&gt;1.手动创建一个文件夹，作为存储数据的地方，比如"&lt;code&gt;**c:repository**&lt;/code&gt;"&lt;/p&gt;
+&lt;p&gt;2.在命令提示符下面输入&lt;code&gt;svnadmin create
+c:repository&lt;/code&gt;，如果执行正确的话，会在repository文件夹下形成4个文件夹2个文件。&lt;/p&gt;
+&lt;p&gt;3.执行&lt;code&gt;svnserve.exe -d -r c:repository&lt;/code&gt;
+来启动服务，在外部就能通过TortoiseSVN这些SVN客户端进行访问。关于TortoiseSVN使用，我会在之后的文章中整理出来。&lt;/p&gt;
+&lt;p&gt;使用上述第3个步骤运行SVN服务器会很麻烦，必须开着一个CMD窗口，通常，我们后将这个功能作为Windows的一个服务载入，这样就可以开机自动启动，不用人去
+维护了。&lt;/p&gt;
+&lt;p&gt;执行脚本 &lt;code&gt;sc create svn binpath= ""C:Program FilesSubversionbinsvnserve.exe"
+--service -r"C:repository"" displayname= "Subversion Server" depend= Tcpip
+start= auto&lt;/code&gt; 就可以将svnserve程序作为服务载入。关于sc命令，可以点击&lt;a href="http://baike.baidu.com/view/
+1367668.htm"&gt;这里&lt;/a&gt;查看更多。&lt;/p&gt;
+&lt;h2&gt;SVN服务器用户管理&lt;/h2&gt;
+&lt;p&gt;设定SVN服务器用户的权限，需要修改 confsvnserve.conf 文件，如下所示&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[general]&lt;/span&gt;
+&lt;span class="c1"&gt;# password-db = passwd&lt;/span&gt;
+&lt;span class="c1"&gt;# anon-access = none&lt;/span&gt;
+&lt;span class="c1"&gt;# auth-access = write&lt;/span&gt;
+&lt;span class="c1"&gt;# authz-db = authz&lt;/span&gt;
+&lt;span class="c1"&gt;# realm = My First Repository&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;去之每行开头的#，其中第二行是指定身份验证的文件名，即passwd文件.a access = none
+是匿名用户不能访问，必须要有用户名和密码。（注意：问这，一定要注意格式去掉注释后要顶格不能有空）&lt;/p&gt;
+&lt;p&gt;用户管理相当简单，只需要在confpasswd中打开相应的权限，之后在confpasswd 加入用户就可以了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[users]&lt;/span&gt;
+&lt;span class="c1"&gt;# harry = harryssecret&lt;/span&gt;
+&lt;span class="c1"&gt;# sally = sallyssecret&lt;/span&gt;
+&lt;span class="na"&gt;alswl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;alswl&lt;/span&gt;
+&lt;span class="na"&gt;jason&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;jason&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;格式为"用户名 = 密码"，如可插入一行：mm = mm，即为系统添加一个mm，密码为mm的用户。（注意顶格写不要有空隙）&lt;/p&gt;
+&lt;p&gt;用户权限管理，如果是简单模式，可以直接将 confsvnserve.conf 中的 &lt;strong&gt;authz-db = authz&lt;/strong&gt; 前面加上 #
+即可，关于详细的权限分组管理，我现在还一知半解，等我搞明白再分享…… --_--#&lt;/p&gt;
+&lt;h2&gt;参考链接&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.svn8.com/svnsy/20090606/6224.html"&gt;SVN服务端的配置 - Svn中文网&lt;/a&gt;
+我今天所有看的文章中最详细准确的一篇&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.csdn.net/songrun/archive/2008/11/29/3410428.aspx"&gt;Subversion 安装与配置 - Panda -
+CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.iusesvn.com/bbs/thread-158-1-1.html"&gt;windows安装基于Apache的SVN服务器(包括SSL配置)[2007-8-19更新] - Windows下Subversion安装使用 -
+SVN中文论坛&lt;/a&gt; 这篇虽然老，但是条理很清晰&lt;/p&gt;
+&lt;h2&gt;参考书籍&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.subversion.org.cn/svnbook/"&gt;使用Subversion进行版本控制&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是使用Subversion进行版本控制在 Subversion中文站的在线主页，本书的在线主页在&lt;a href="http://svnbook.red-bean.com/"&gt;http://svnbook.red-
+bean.com/&lt;/a&gt;。 这是一本关于
+&lt;a href="http://subversion.tigris.org/"&gt;Subversion&lt;/a&gt;的 &lt;a href="http://www.subversion.org.cn/svnbook/1.4/svn.copyright.html"&gt;自
+由&lt;/a&gt;图书
+&lt;a href="http://subversion.tigris.org/"&gt;Subversion&lt;/a&gt;，Subversion
+被设计为CVS的替代产品。你可能从本页的布局上也猜到了，本书通过&lt;a href="http://www.oreilly.com/catalog/0596004486/"&gt;O'Reilly
+Media&lt;/a&gt;出版。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;传送门-&lt;a href="http://www.subversion.org.cn/svnbook/1.4/svnbook.pdf"&gt;PDF版本下载&lt;/a&gt;&lt;/p&gt;</summary><category term="SVN"></category></entry><entry><title>在Eclipse中使用VSS</title><link href="/2010/02/the-use-of-vss-in-eclipse/" rel="alternate"></link><updated>2010-02-24T00:00:00+08:00</updated><author><name>alswl</name></author><id>tag:,2010-02-24:2010/02/the-use-of-vss-in-eclipse/</id><summary type="html">&lt;p&gt;原文链接：&lt;a href="http://developer.51cto.com/art/200906/127171.htm"&gt;Eclipse中安装配置VSS -
+51CTO.COM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;alswl友情提示：&lt;strong&gt;VSS Plugin for Eclipse
+&lt;/strong&gt;已经更新至1.6.2，链接在&lt;a href="http://sourceforge.net/projects/vssplugin/"&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;-BOF-&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;vss安装&lt;/h2&gt;
+&lt;h3&gt;1. 安装Vss服务器&lt;/h3&gt;
+&lt;p&gt;在服务器上安装vss6.0d，安装好后，在服务器目录C:Program FilesMicrosoft Visual
+StudioCommonVSS下有个NETSETUP.EXE文件，共享这个目录，客户机就执行这个NETSETUP.EXE文件进行安装。&lt;/p&gt;
+&lt;h3&gt;2. 创建源代码管理数据库&lt;/h3&gt;
+&lt;p&gt;2-1. 在服务端要先创建一个源代码管理数据库，以存储您的开发团队的共享文件的服务器版本。为源代码管理数据库创建共享网络文件夹。在源代码管理服务器中，打开
+Windows 资源管理器，新建一个名为 test的文件夹。&lt;/p&gt;
+&lt;p&gt;2-2. 右击"test"，然后单击"属性"。&lt;/p&gt;
+&lt;p&gt;2-3. 在"test 属性"对话框中，单击"共享"选项卡，然后单击"共享该文件夹"。现在可以在共享的 test 中创建源代码管理数据库了。&lt;/p&gt;
+&lt;h3&gt;3. 创建源代码管理数据库&lt;/h3&gt;
+&lt;p&gt;3-1. 在服务器，单击"开始"按钮，指向"程序"，指向"Microsoft Visual SourceSafe"，然后单击"Visual
+SourceSafe 6.0 Admin"。&lt;/p&gt;
+&lt;p&gt;3-2. 在"Visual SourceSafe Administrator"对话框的"Tools"菜单中，单击"Create Database"。&lt;/p&gt;
+&lt;p&gt;3-3. 在"Create new VSS Database in"框中，找到上面建立的"test"目录&lt;/p&gt;
+&lt;p&gt;3-4. Visual Studio .NET
+的源代码管理数据库已设置成功。然后添加用户，就是开发团队的人员都给分配一个账号，以后要打开这个数据库要进行身份认证的。&lt;/p&gt;
+&lt;h2&gt;在eclipse中配置vss&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;到网站中下载免费的org.vssplugin_1.4.1-2.0-compability.zip到本机目录；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下载地址：&lt;a href="http://sourceforge.net/projec
+ts/vssplugin"&gt;http://sourceforge.net/projects/vssplugin&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将org.vssplugin_1.4.1-2.0-compability.zip解压缩；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将解完压缩后得到的org.vssplugin_1.4.1文件夹复制到ECLIPSE_PATHplugins下；（ECLIPSE_PATH是
+eclipse的安装路径）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重新启动eclipse；；(如果找不到，就先推出并删除configuration文件中除INI文件的所有文件)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Help-&amp;gt;About Eclipse Platform-&amp;gt;Plug-In Details确认插件加入成功；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Window-&amp;gt;Customize Perspective…，在对话框中的Window&amp;gt;Show
+View和Other中把VSS相关的选项打上钩，OK。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;在Eclipse中使用VSS（服务器）：&lt;/h2&gt;
+&lt;p&gt;新建程序：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;将工具生成好的源文件建好工作路径，将整个工作路径拷贝到服务器的相应位置；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开Eclipse-&amp;gt;File-&amp;gt;New-&amp;gt;Project…选择服务器上的此本程序的工作路径建立新工程；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右键点选工程-&amp;gt;Team-&amp;gt;Share Project…；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择VSS Configuration Wizard，点next；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;User Name和Password输入你的用户名和密码；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在确保自己的计算机可以在不输入密码的情况下登录到服务器上的情况下，直接输入或点Browse…选择VSS Database目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;（选择VSS文档库的目录：即有srcsafe.ini文件的那个数据库目录）；&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开VSS客户端，在总目录的下面建立一个自己子工程名称相对应的文件夹；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Realative mountpoint中选择刚刚在VSS中建好的文件夹后点确定(在VSS中建好的文件夹路径，即项目所要共享到vss的哪个目录下)；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将下面的那个多选框的钩打上，点Finish；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右键选择工程-&amp;gt;Team-&amp;gt;Add To VSS，输入相应注释后OK；（不可添加全项目）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这样就可以在Team中执行相应的Check-in、Check-out操作了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="" src="http://upload-log4d.qiniudn.com/2010/02/vss.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;打开一个VSS数据库中已有的工程（客户端）：&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打开Eclipse-&amp;gt;File-&amp;gt;New-&amp;gt;Project ；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右键点选工程-&amp;gt;Team-&amp;gt;Share Project…；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选择VSS Configuration Wizard，点next；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;User Name和Password输入你的用户名和密码；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在确保自己的计算机可以在不输入密码的情况下登录到服务器上的情况下，直接输入或点Browse…选择VSS Database目录；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Realative
+mountpoint中选择好相对应的VSS路径后点确定(在VSS中建好的放源代码的文件夹路径，即项目所要共享到vss的哪个目录下)；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将下面的那个多选框的钩打上，点Finish；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;右键选择工程-&amp;gt;Team-&amp;gt;Refresh。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;计算机重起后打开工程：&lt;/p&gt;
+&lt;p&gt;确保本地计算机可以在不输入密码的情况下等录到服务器上；&lt;/p&gt;
+&lt;p&gt;在服务器上打开Eclipse，右键工程-&amp;gt;Open Project；&lt;/p&gt;
+&lt;p&gt;右键点选工程-&amp;gt;Team-&amp;gt;Share Project…&lt;/p&gt;</summary><category term="Eclipse"></category><category term="VSS"></category></entry></feed>

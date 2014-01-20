@@ -72,6 +72,17 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/the-executable-file-mp3lrc/">Mp3Lrc的可执行文件</a></h2>
+                <div class="summary"><p>早上把代码输出成了Runnable Jar，生成一个jar格式的文件，只要是有JavaSE的电脑都可以运行了。</p>
+<p>当然，不是双击运行，进入CMD，然后进入jar文件所在文件夹，运行＂java -jar Mp3Lrc.jar＂</p>
+<p>就会出来提示输入Mp3根目录和歌词根目录，把两个目录输入就可以运行了。</p>
+<p><a href="http://upload-log4d.qiniudn.com/2009/05/mp3lrc.rar">猛击这里下载Mp3Lrc.rar</a></p>
+<p>这个程序是自己用的，可能存在Bug，由于会操作文件，请在使用前备份重要资料（虽然根本没有删除命令，只有复制命令）</p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/the-executable-file-mp3lrc/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/lyrics-written-in-java-replicator-mp3/">Java写的Mp3歌词复制器</a></h2>
                 <div class="summary"><p>大家可能会遇到这样的情况，Mp3里有很多歌，电脑上也有很多相同的歌，但是有歌词。把歌词同步到Mp3播放器非常麻烦，我以前用千千静听导入目录，然后逐个播放，或
 者用一个软件从网上搜索到Mp3播放器。 千千静听或者其他播放器都会有一个选项是设置歌词存储位置的，一般来说，我们听过的歌都是会自动下载歌词到这个文件夹，其实
@@ -248,24 +259,6 @@ find action or result</p>
 
 <p>这一段的作用是在原先webapps的目录下添加虚拟目录/postbar ...</p>
                     <a class="btn btn-default btn-xs" href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
-                <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
-重建博客。</p>
-<p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
-<p>1.重新创建原始的WordPress，并把原来的一些插件和主题重新安装好。重新创建的数据库名称可能与原来的数据库名称有出入，就需要修改导出的sql文件。</p>
-<p>2.比如我原始的数据库名称是alswl_wp，现在创建的数据库是dddspace_wp（记住哦，是全称，不是自己填的部分）。找到sql文件 ` --</p>
-<h2>-- 数据库: <code>alswl_wp</code></h2>
-<p>CREATE DATABASE <code>alswl_wp</code> DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</p>
-<p>USE <code>alswl_wp</code>;`</p>
-<p>只保留 USE 'alswl_wp'，并且修改为USE
-'dddspace_wp'，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。</p>
-<p>如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作</p>
-<p>3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/station-restoration-of-mind/">more ...</a>
                 </div>
             </article>
             <hr/>

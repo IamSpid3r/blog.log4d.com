@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 31 Dec 2013 23:55:00 +0800</lastBuildDate><item><title>Goodbye 2013, Hello 2014</title><link>/2013/12/2013/</link><description>&lt;p&gt;2013 年末，我给自己制定了几个年度目标：&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 21 Jan 2014 00:20:06 +0800</lastBuildDate><item><title>从 SVN 到 Git，找回丢失的历史</title><link>/2014/01/renamed-svn-to-git/</link><description>&lt;p&gt;前段时间在将公司的 SVN 项目迁移到 Git 上面去，遇到一个很少见的问题：
+有一个小伙伴使用 git-svn 做 &lt;code&gt;rename&lt;/code&gt; 操作时候，将一个目录 &lt;code&gt;svn mv&lt;/code&gt; 了，
+导致新目录只存了最近几个月提交历史，丢失了历史信息。对团队开发而言，
+历史提交是非常宝贵的财产，我们想了一些办法，把这些数据提取出来。&lt;/p&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# 找出丢失之前的版本，列出丢失目录上层的操作记录。&lt;/span&gt;
+&lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/trunk/apps/ios/ | less&lt;/span&gt;
+
+&lt;span class="cp"&gt;# 将重命名之前的版本拷贝到一个临时目录&lt;/span&gt;
+&lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/trunk/apps/ios/nami@43252 svn://log4d.com/trunk/apps/ios/nami_lost&lt;/span&gt;
+
+&lt;span class="cp"&gt;# 准备现有代码到 Git&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/ -T trunk/apps/ios/nami -t tags -b branches -r 13532 nami&lt;/span&gt;
+
+&lt;span class="cp"&gt;# 修改 .git/config 来加入丢失的历史数据 Remote&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;svn-lost&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com&lt;/span&gt;
+    &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ios&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nami_lost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;refs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;remotes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lost&lt;/span&gt;
+
+&lt;span class="cp"&gt;# 并抓取 Remote 内容&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt;
+
+&lt;span class="cp"&gt;# Rebase 新代码到恢复过来的历史记录上&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;rebase&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;committer&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;is&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lost&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;其中注意的是手动添加一个 &lt;code&gt;svn-remote&lt;/code&gt; 地址为历史数据副本地址。
+还有就是 &lt;code&gt;rebase&lt;/code&gt; 时候参数 &lt;code&gt;--committer-date-is-author-date&lt;/code&gt;
+可以保证 &lt;code&gt;rebase&lt;/code&gt; 不会造成提交时间被修改，方便回溯。&lt;/p&gt;
+&lt;p&gt;整整搞了一天，说出来都是泪，希望看到的人用不到，搜到的人用得到。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 21 Jan 2014 00:20:06 +0800</pubDate><guid>tag:,2014-01-21:2014/01/renamed-svn-to-git/</guid><category>SVN</category><category>Git</category></item><item><title>Goodbye 2013, Hello 2014</title><link>/2013/12/2013/</link><description>&lt;p&gt;2013 年末，我给自己制定了几个年度目标：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;离梦想更近一步&lt;/p&gt;
 &lt;p&gt;找一个靠谱的姑娘，我感觉她需要我，我也需要她了&lt;/p&gt;
@@ -2939,57 +2971,4 @@ Arg: *.txt
 
 
 &lt;p&gt;命令运行完，就能在对应目录生成一坨 txt 文件，文件名还是中文的，Mission complete.&lt;/p&gt;
-&lt;p&gt;我将这个命令加入了 cron，每天执行一次，保证 Dropbox 中是最新的 wiki。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 27 Jul 2012 09:02:00 +0800</pubDate><guid>tag:,2012-07-27:2012/07/moin2txt/</guid><category>MoinMoin</category></item><item><title>学车记</title><link>/2012/07/learning-driving/</link><description>&lt;p&gt;经过两个月的学习，今天下午终于把驾照拿到手了。期间各种苦逼各种悲催顿感消失，
-终于打赢了这场难度仅次于装修的战争。&lt;/p&gt;
-&lt;p&gt;博客也因学车而荒废了1个月，今天就顺便写点针对南京的驾校考试的东西。&lt;/p&gt;
-&lt;p&gt;南京驾照考试有4部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;理论考试，网上好好做题，2小时就可以考95分以上了，90分合格&lt;/li&gt;
-&lt;li&gt;桩考，就是考倒桩。80分合格，当场有一次补考机会。&lt;/li&gt;
-&lt;li&gt;电子路，2+1（侧方位停车、坡道定点停车和起步、起伏路、直角转弯、S 弯、
-百米加减档、限宽门、单边桥和连续障碍），其中「侧方位停车」和
-「坡道定点停车和起步」是必考，其他再抽一项。和桩考共享一次现场补考机会，80分合格。&lt;/li&gt;
-&lt;li&gt;人工路：上车在实际道路开一会。没有现场补考，80分合格。&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;如果现场补考不合格，或者压根没有现场补考机会，那么不合格的话需要等22天补考。&lt;/p&gt;
-&lt;p&gt;特别注意：如果桩考不是满分过的，而电子路又没通过，那就需要从桩考重新开始考，
-所以桩考不满分，后面电子路压力会很大。&lt;/p&gt;
-&lt;p&gt;我报的驾校是南京天保驾校，大明路分校，这是离我最近的天保驾校。
-天保的优势是它属于南京车管所，所以各种流程会稍微方便一些，你懂的。
-我报的是天保 VIP 课程，费用 4980,普通费用大概在2k 多。
-VIP 可以享受一些排队优惠，就我感觉最明显的是理论考、桩考、电子路考试时候 VIP
-是第一批，除此之外，VIP 的教练会和蔼一些，享受的学时也多一点，
-在选择学习时段也会更自由。&lt;/p&gt;
-&lt;p&gt;除了最开始的学费，考试期间还分别叫了 30 + 240 + 230 = 500 的各种费用，
-包括考试模拟费和证件费用。&lt;/p&gt;
-&lt;p&gt;我在天保经历了5个教练：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;路训教练负责上路找感觉&lt;/li&gt;
-&lt;li&gt;桩考教练&lt;/li&gt;
-&lt;li&gt;电子路教练&lt;/li&gt;
-&lt;li&gt;连续障碍「铁饼」教练&lt;/li&gt;
-&lt;li&gt;人工路教练&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;除了路训教练脾气不太好之外，其他教练都算是好说话。我比一般人多一个铁饼教练，
-因为电子路在学习时候不学铁饼，抽签抽到铁饼在考前跟教练去学。&lt;/p&gt;
-&lt;p&gt;都说铁饼难，天保的铁饼教练很牛逼，我们一起大明路分校的学员，
-10个人有7个抽到铁饼，现场学4遍，然后送入考场，全部通过了，通过率比起伏路还要高。&lt;/p&gt;
-&lt;p&gt;我的学习时段是这样：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;5/8 理论考试，满分&lt;/li&gt;
-&lt;li&gt;5/19 开始路训，每周末去两次（每次1小时），中间请假4次，总共12小时，18课时&lt;/li&gt;
-&lt;li&gt;5/26 开始练桩，每周末去两天，排队很浪费时间，中间请假2天，
-教练觉得可以了就会帮报名桩考，练到桩考开始&lt;/li&gt;
-&lt;li&gt;7/13 桩考，满分&lt;/li&gt;
-&lt;li&gt;7/14 电子路，三个半天学习，一个半天模拟&lt;/li&gt;
-&lt;li&gt;7/18 电子路考试，铁饼，满分&lt;/li&gt;
-&lt;li&gt;7/24 人工路学习，两个半天，然后加一个模拟&lt;/li&gt;
-&lt;li&gt;7/26 人工路考试，路况极好，考官人好，满分，考完后1小时拿驾照（仅限天保驾校）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;总的来说，我是推荐去天保驾校的，时间充裕可以报普通班，
-同时 VIP 的优势还是较明显的，普通班一般需要4-5个月，VIP 双休班大约40天，
-日常班可以在一个月学完。&lt;/p&gt;
-&lt;p&gt;我大概就提供这么多信息了，总的来说，驾校考试只要好好学，考试发挥正常，
-都没有什么大问题。祝搜索到这篇文章的人考试顺利。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Thu, 26 Jul 2012 22:21:00 +0800</pubDate><guid>tag:,2012-07-26:2012/07/learning-driving/</guid></item></channel></rss>
+&lt;p&gt;我将这个命令加入了 cron，每天执行一次，保证 Dropbox 中是最新的 wiki。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 27 Jul 2012 09:02:00 +0800</pubDate><guid>tag:,2012-07-27:2012/07/moin2txt/</guid><category>MoinMoin</category></item></channel></rss>
