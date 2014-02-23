@@ -72,6 +72,19 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2011/08/get-json-failed-in-ie/">get json failed in IE</a></h2>
+                <div class="summary"><p>半夜在开工打补丁，某个 bug 是 Firefox 下面能接受到 Ajax 回调请求，而 IE 不行。</p>
+<p>解决方案在<a href="http://stackoverflow.com/questions/425854/jquery-ajax-request-failing-
+in-ie">http://stackoverflow.com/questions/425854/jquery-ajax-request-failing-
+in-ie</a></p>
+<p>缘由是由于 IE 不能正常识别<code>application/json; charset=utf8</code></p>
+<p>于是修改为<code>response.headers['Content-Type'] = 'application/json'</code></p>
+<p>狗日的 IE！</p>
+                    <a class="btn btn-default btn-xs" href="/2011/08/get-json-failed-in-ie/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2011/08/go-pylons-py-in-python2-7/">go-pylons.py在Python2.7下错误解决</a></h2>
                 <div class="summary"><p>当使用 Python2.7 +<a href="http://pylonshq.com/download/1.0/go-pylons.py"> go-pylons.py</a>
 创建 Pylons 运行环境的话，会报一下错误。</p>
@@ -230,23 +243,6 @@ g/">Armin Ronacher</a>只更新到08年9月份。之后Mako更新了一些少许
 <p>原始mako.vim：<a href="http://www.v
 im.org/scripts/script.php?script_id=1858">http ...</p>
                     <a class="btn btn-default btn-xs" href="/2011/06/mako-vim/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/05/pylons/">Pylons使用小记</a></h2>
-                <div class="summary"><p>活着就是折腾，最近事情多的一塌糊涂，烦躁的很，导致log4d也荒废一个月了。今天趁着周五晚上，梳理一下最近学习的pylons知识。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/05/pylons.png" /></p>
-<h2>关于Pylons</h2>
-<p><a href="http://pylonsproject.org/">Pylons</a>是一个用pythons写的web框架，优点是配置灵活，默认使用<a href="http:
-//www.makotemplates.org/">Mako</a>作为Template，<a href="http://www.sqlalchemy.org/">SQLAlchemy</a>作为
-ORM映射。使用BSD作为授权协议。</p>
-<p>托WSGI的福，python的web框架超多，甚至高手5分钟可以自己手写一个web框架，这种情况也导致了Python
-web框架的纷杂。我这里选择Pylons（其实是被选择），并不是说Pylons一定最好，而是比较适合当前项目。更多的Python
-web框架对比建议看这篇<a href="http://feilong.me/2011/01/talk-about-python-web-
-framework">浅谈Python web框架</a>，另外，这个<a href="http://www.bestwebframeworks.com/python/">Best Web-
-Framework ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/05/pylons/">more ...</a>
                 </div>
             </article>
             <hr/>

@@ -72,6 +72,23 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/03/socket-programming-on-the-select/">Socket编程之Select【转载】</a></h2>
+                <div class="summary"><p>这篇文章讲的是Socket中的select，我觉得还不错就转来了</p>
+<p>出处：<a href="http://www.cnblogs.
+com/xuyuan77/articles/1206418.html">http://www.cnblogs.com/xuyuan77/articles/1206418.html</a></p>
+<p>感谢原作者</p>
+<p>Select在Socket编程中还是比较重要的，可是对于初学Socket的人来说都不太爱用Select写程序，他们只是习惯写诸如connect、accept
+、recv或recvfrom这样的阻塞程序（所谓阻塞方式block，顾名思义，就是进程或是线程执行到这些函数时必须等待某个事件的发生，如果事件没有发生，进程
+或线程就被阻塞，函数不能立即返回）。可是使用Select就可以完成非阻塞（所谓非阻塞方式non-block，就是进程或线程执行此函数时不必非要等待事件的发生
+，一旦执行肯定返回，以返回值的不同来反映函数的执行情况，如果事件发生则与阻塞方式相同，若事件没有发生则返回一个代码来告知事件未发生，而进程或线程继续执行，所
+以效率较高）方式工作的程序，它能够监视我们需要监视的文件描述符的变化情况——读写或是异常。</p>
+<p>下面详细介绍一下！</p>
+<p>Select的函数格式(我所说的是Unix系统下的伯克利socket编程 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/03/socket-programming-on-the-select/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/03/introduction-to-openssl-programming/">OpenSSL 编程入门【转载-这篇很精】</a></h2>
                 <div class="summary"><p><strong>OpenSSL </strong><strong>编程入门</strong></p>
 <p>作者:Eric Rescorla on Sat, 2001-09-01 01:0</p>
@@ -222,24 +239,6 @@ such file or directory 然后找到这篇文章，只要用生成相应的目录
 <p><img alt="" src="http://www.ntalker.com/images/img_4.jpg" /></p>
 <p><img alt="" src="http://www.ntalker.com/images/p_10.jpg" /></p>
                     <a class="btn btn-default btn-xs" href="/2009/03/to-be-ad-ntalker-station-chat-system/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/03/early-contact-with-openssl/">OpenSSL初接触</a></h2>
-                <div class="summary"><p>Boss昨个儿说，这两天把SSL上面的相关东西给他去看一下</p>
-<p>苦命啊，最近都在做Ajax，SSL几乎没有什么动静。唉，今天中午没吃饭，没睡觉，就开始做SSL</p>
-<p>耗费了很多时间，才正确的编译完OpenSSL</p>
-<p>要做的东西是基于C#的、利用OpenSSL开源代码完成的SSL分级服务器，很是麻烦，要用C#来调用C程序，而且OpenSSL本来就很难使用，唉，残念啊。</p>
-<p>下面把我今天的成果分享一下：</p>
-<p><a href="http://www.cnblogs.com/zhengyun_ustc/archive/2005/04/11/135821.aspx">[C#]用HttpWebRequest加载证书建立SSL通道时发生异常的解决办法- 旁观
-...</a></p>
-<p><a href="http://i.cn.yahoo.com/suntongo/blog/p_2/">OpenSSL- .net，C++/CLI语言的一次实践</a></p>
-<p><a href="http://www.openssl.org/">OpenSSL: The Open Source toolkit for SSL/TLS</a></p>
-<p><a href="http://www.ibm.com/developerworks/cn/linux/l-openssl.html">使用OpenSSL API
-进行安全编程</a></p>
-<p><a href="http://www.cnblogs.com/sleepingwit/archive/2008/11/03 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/early-contact-with-openssl/">more ...</a>
                 </div>
             </article>
             <hr/>

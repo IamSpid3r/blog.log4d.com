@@ -72,6 +72,26 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2010/03/use-subclipse-with-proxy/">使用subclipse代理</a></h2>
+                <div class="summary"><p>&amp;nbsp_place_holder;公司网络必须使用代理，今天更新自己写的一个Utils到Google Project
+Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了那几个目录，都没有问题，猜到是代理连接的问题。</p>
+<p>Eclipse的代理设置在"<strong>General-Network Connections</strong>"中设置，很明显，Subclipse不在这里设定。</p>
+<p>PS：在写的是一个DataBase-&gt;Java 3层代码生成器，想仿照<a href="http://www.maticsoft.com/"><strong>动软.NET生成器</strong></a>那
+样写，今天刚写完生成Bean的一些版本，自己计划在半年时间内写一个beta版。</p>
+<p>下面是解决办法，来自 <a href="http://blog.baimusenlin.com/83.html">百亩森林 »
+解决windows下subclipse穿过代理连接subversion服务器</a></p>
+<p>×××××&amp;&amp;以下原文&amp;&amp;×××××</p>
+<p>解决windows下subclipse穿过代理连接subversion服务器</p>
+<p>1、cmd命令提示符输入 echo %APPDATA%</p>
+<p>2、进入第一步输出的目录下，并找到Subversion目录(如C:Documents and
+SettingsAdministratorApplication DataSubversion)，注意此目录为隐藏目录。</p>
+<p>3、在servers文件中的最后[global]后增加</p>
+<div class="highlight"><pre><span class="n">http ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/2010/03/use-subclipse-with-proxy/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2010/03/svn-server-setup/">配置SVN服务端</a></h2>
                 <div class="summary"><p>实在忍受不了VSS了，下决心自己在虚拟机配置一个SVN服务器，然后再在服务器上安装一个SVN服务器端。以前都是使用现成的SVN服务器，或者使用Google
 Code提供的Project Host，今天就自己动手，丰衣足食吧。</p>
@@ -228,25 +248,6 @@ JavaScript / WebLogic / 数据连接池 等等等等～</p>
 <p>现在现在最怕我手机唱"从来就没有什么救世主"的音乐，就意味着生产线出问题了……</p>
 <p>恩～顺便推荐一下我的铃声，是《我是MT》的主题曲"地狱咆哮的挽歌"和"我叫MT"片头曲，很激昂的音乐哦～</p>
                     <a class="btn btn-default btn-xs" href="/2010/02/programmer-a-heavy-responsibility/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2010/01/development-of-cross-browser-javascript-should-pay-attention-to-the-problem/">开发跨浏览器JavaScript时要注意的问题</a></h2>
-                <div class="summary"><p>最近在做系统的B/S部分，用DWR做Ajax处理，期间遇到一些浏览器兼容的问题，<code>table.insertRow()</code>和<code>row.insertCell()</code>
-在IE下没有问题，但在FireFox下无效。同事说不用考虑FireFox的兼容，客户使用的环境就是IE。我偏执的认为就算不在所有浏览器下通过，至少在我的Fi
-reFox下需要正常运行。</p>
-<p>晚上花了一点时间稍微研究了一下跨浏览器开发JavaScript时要注意的问题，的确好多学问。我对JavaScript的认识还太浅，得花时间做一些功课了。</p>
-<p>顺便推荐一本JavaScript书《<strong>JavaScript语言精粹</strong> 》，是大名鼎鼎的"O'Reilly"系列，我只看了试读的第一章节，斗胆推荐</p>
-<p>在<a href="http://dancewithnet.com">随网之舞</a>的<a href="http://dancewithnet.com/2009/04/02/javascript-the-good-parts/">《JavaScript语言精粹》 @
-随网之舞</a>有更详细的介绍。</p>
-<p><img alt="" src="http://t.douban.com/lpic/s3651235.jpg" /></p>
-<p>传送门：</p>
-<p><a href="http://www.china-pub.com/195292">购买</a>《JavaScript语言精粹 》via China-Pub</p>
-<p><a href="http://www.douban.com/subject/3590768/">评论</a> 《JavaScript语言精粹》via 豆瓣</p>
-<p><strong>样章阅读</strong>：<a href="http://images.china-pub.com/ebook195001-200000/195292/ch01.pdf">第一章. 精华</a> <a href="http://images.china-pub.com/ebook195001-200000/195292/ch10.pdf">第十章. 优美的特性</a></p>
-<p>以下文章没有URL出处，作者 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/01/development-of-cross-browser-javascript-should-pay-attention-to-the-problem/">more ...</a>
                 </div>
             </article>
             <hr/>

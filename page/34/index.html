@@ -72,6 +72,20 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/ubuntu8-10-under-the-mysql-installation/">Ubuntu8.10下MySQL的安装</a></h2>
+                <div class="summary"><p>Ubuntu下的MySQL安装本应该很简单，但是如果因为修改了软件源的话，反而变得麻烦起来。</p>
+<p>为了加快更新一些组件的速度，我加入了清华的、交大等大学的源，是8.04下Ubuntu版本的，这个直接导致了之后安装MySQL的问题。</p>
+<p>当选择Mysql-server之后，需要一堆组建，要手动安装，基本上出现这种提示，就没戏了，硬着头皮查找软件包，最后到一个perl-
+api的软件包这里就再也进行不下去了。</p>
+<p>Google了好一会，才有一个人的答案正确，说是8.10下用8.04的源就会有这种问题，我换成原始的备份了的源</p>
+<p>下面就是原始的源，使用这个找到MySQL之后就一次成功了 ` # deb cdrom:[Ubuntu 8.10 <em>Intrepid Ibex</em> -
+Release i386 (20081029.5)]/ intrepid main restricted</p>
+<h1>See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade ...</h1>
+                    <a class="btn btn-default btn-xs" href="/2009/05/ubuntu8-10-under-the-mysql-installation/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/the-executable-file-mp3lrc/">Mp3Lrc的可执行文件</a></h2>
                 <div class="summary"><p>早上把代码输出成了Runnable Jar，生成一个jar格式的文件，只要是有JavaSE的电脑都可以运行了。</p>
 <p>当然，不是双击运行，进入CMD，然后进入jar文件所在文件夹，运行＂java -jar Mp3Lrc.jar＂</p>
@@ -237,28 +251,6 @@ find action or result</p>
 <span class="nt">&lt;s:else&gt;</span>
 <span class="nt">&lt;div&gt;</span>Will Not ...</pre></div>
                     <a class="btn btn-default btn-xs" href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
-                <div class="summary"><p>贴吧最基本的功能写完了，正好可以应付数据库设计课的实验。于是我准备把贴吧的项目从Eclipse的开发环境中移植出来，在Tomcat中进行部署。</p>
-<p>也许是习惯了Eclipse提供的便利，这个小小的移植，居然难倒了我，直接把Eclipse里的PostBar考出，根本不能运行，直接报404错误。Google
-上也没有提供详细的步骤，也许大家都觉得这个问题很简单吧，呵呵。</p>
-<p>我琢磨了一会，终于整理出了头绪。</p>
-<p>1.修改Apache-conf-server.xml这个文件，修改其中一段<Host>...</Host>如下所示</p>
-<div class="highlight"><pre><span class="nt">&lt;host</span> <span class="na">appbase=</span><span class="s">&quot;webapps&quot;</span> <span class="na">name=</span><span class="s">&quot;localhost&quot;</span>
-    <span class="na">unpackWARs=</span><span class="s">&quot;true&quot;</span> <span class="na">autoDeploy=</span><span class="s">&quot;true&quot;</span>
-    <span class="na">xmlValidation=</span><span class="s">&quot;false&quot;</span> <span class="na">xmlNamespaceAware=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;context</span> <span class="na">debug=</span><span class="s">&quot;0&quot;</span> <span class="na">docbase=</span><span class="s">&quot;F:T3&quot;</span> <span class="na">path=</span><span class="s">&quot;/postbar&quot;</span><span class="nt">&gt;</span>
-          reloadable=&quot;true&quot; crossContext=&quot;true&quot;&gt;
-    <span class="nt">&lt;/context&gt;</span>
-<span class="nt">&lt;/host&gt;</span>
-</pre></div>
-
-
-<p>这一段的作用是在原先webapps的目录下添加虚拟目录/postbar ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">more ...</a>
                 </div>
             </article>
             <hr/>

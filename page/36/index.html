@@ -72,6 +72,23 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/learning-to-use-log4j/">学习使用log4j</a></h2>
+                <div class="summary"><p>今天用Log4j时候，感觉只显示message讯息太少了，直觉上这些流行的工具应该会提供更强大的定制功能，就去google了一下</p>
+<p>果不其然：相关配置参数如下</p>
+<h1>Pattern to output the caller's file name and line number.</h1>
+<h1>%m 输出代码中指定的消息</h1>
+<h1>%p 输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL</h1>
+<h1>%r 输出自应用启动到输出该log信息耗费的毫秒数</h1>
+<h1>%c 输出所属的类目，通常就是所在类的全名</h1>
+<h1>%t 输出产生该日志事件的线程名</h1>
+<h1>%n 输出一个回车换行符，Windows平台为「rn」，Unix平台为「n」</h1>
+<h1>%d 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd</h1>
+<p>HH:mm ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/learning-to-use-log4j/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
                 <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
 <p>找了好几个方法都没有奏效。</p>
@@ -199,23 +216,6 @@ SSL_CTX_set_cipher_list(SSL </em>ssl, const char *char)</p>
 <p>后来还是邮件客服才知道的，郁闷，重新买了后三册</p>
 <p>呵呵，这本书是02年的，正在翻看，老外的书就是好，比国内那本《OpenSSL与网络信息安全》好不知道多少</p>
                     <a class="btn btn-default btn-xs" href="/2009/03/apabi-buy-archipelago/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/03/socket-programming-on-the-select/">Socket编程之Select【转载】</a></h2>
-                <div class="summary"><p>这篇文章讲的是Socket中的select，我觉得还不错就转来了</p>
-<p>出处：<a href="http://www.cnblogs.
-com/xuyuan77/articles/1206418.html">http://www.cnblogs.com/xuyuan77/articles/1206418.html</a></p>
-<p>感谢原作者</p>
-<p>Select在Socket编程中还是比较重要的，可是对于初学Socket的人来说都不太爱用Select写程序，他们只是习惯写诸如connect、accept
-、recv或recvfrom这样的阻塞程序（所谓阻塞方式block，顾名思义，就是进程或是线程执行到这些函数时必须等待某个事件的发生，如果事件没有发生，进程
-或线程就被阻塞，函数不能立即返回）。可是使用Select就可以完成非阻塞（所谓非阻塞方式non-block，就是进程或线程执行此函数时不必非要等待事件的发生
-，一旦执行肯定返回，以返回值的不同来反映函数的执行情况，如果事件发生则与阻塞方式相同，若事件没有发生则返回一个代码来告知事件未发生，而进程或线程继续执行，所
-以效率较高）方式工作的程序，它能够监视我们需要监视的文件描述符的变化情况——读写或是异常。</p>
-<p>下面详细介绍一下！</p>
-<p>Select的函数格式(我所说的是Unix系统下的伯克利socket编程 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/socket-programming-on-the-select/">more ...</a>
                 </div>
             </article>
             <hr/>
