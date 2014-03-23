@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-02-23T22:38:00+08:00</updated><entry><title>Redis 到底有多快[译文]</title><link href="/2014/02/redis-benchmarks/" rel="alternate"></link><updated>2014-02-23T22:38:00+08:00</updated><author><name>alswl</name></author><id>tag:,2014-02-23:2014/02/redis-benchmarks/</id><summary type="html">&lt;p&gt;原文地址 &lt;a href="http://redis.io/topics/benchmarks"&gt;http://redis.io/topics/benchmarks&lt;/a&gt;。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-03-22T18:31:55+08:00</updated><entry><title>Java 运行参数调整</title><link href="/2014/03/java-options/" rel="alternate"></link><updated>2014-03-22T18:31:55+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-22:2014/03/java-options/</id><summary type="html">&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
+&lt;p&gt;运行 &lt;code&gt;java -h&lt;/code&gt; 可以看到 Java 运行可调整的参数。
+运行 &lt;code&gt;java -X&lt;/code&gt; 可以查看 Java 支持的额外参数。
+注意一些参数的默认开启在 JDK6 和 JDK7 之间会有差异，甚至在 JDK7 的不同 update
+也会有差异，运行 &lt;code&gt;java -XX:+PrintFlagsFinal&lt;/code&gt; 查看默认的参数配置。&lt;/p&gt;
+&lt;p&gt;参考：
+&lt;a href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html"&gt;Java HotSpot VM Options&lt;/a&gt;
+&lt;a href="http://stas-blogspot.blogspot.com/2011/07/most-complete-list-of-xx-options-for.html"&gt;The most complete list of -XX options for Java JVM &lt;/a&gt;
+&lt;a href="http://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html"&gt; Tuning JVM Garbage Collection for Production Deployments &lt;/a&gt;
+&lt;a href="http://www.jvmer.com/jvm-xx-参数介绍/"&gt;JVM -XX: 参数介绍&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;p&gt;以下是一些经验调整：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;d64&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;运行在&lt;/span&gt; &lt;span class="m"&gt;64&lt;/span&gt; &lt;span class="s-Atom"&gt;位数据模式下&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;server&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;选择&lt;/span&gt; &lt;span class="s-Atom"&gt;server&lt;/span&gt; &lt;span class="nv"&gt;VM&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Xms1024m&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;初始堆大小，直接固定到&lt;/span&gt; &lt;span class="nv"&gt;Xmx&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Xmx1024m&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;最大堆大小，根据服务器性能和请求量调整，太大了会导致&lt;/span&gt; &lt;span class="nv"&gt;GC&lt;/span&gt; &lt;span class="s-Atom"&gt;时间太长&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;DoEscapeAnalysis&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;支持逃逸分析（将局部对象实例存储在栈上）&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;iteye&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;topic&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;473355&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseTLAB&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;thread&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;local&lt;/span&gt; &lt;span class="s-Atom"&gt;object&lt;/span&gt; &lt;span class="s-Atom"&gt;allocation&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;使用本地线程实例存储，可以减少堆共享锁的竞争&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="p"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;RelaxAccessControlCheck&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Relax&lt;/span&gt; &lt;span class="s-Atom"&gt;the&lt;/span&gt; &lt;span class="s-Atom"&gt;access&lt;/span&gt; &lt;span class="s-Atom"&gt;control&lt;/span&gt; &lt;span class="s-Atom"&gt;checks&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="s-Atom"&gt;the&lt;/span&gt; &lt;span class="s-Atom"&gt;verifier&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;JDK7&lt;/span&gt; &lt;span class="s-Atom"&gt;默认不开启&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;AggressiveOpts&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enable&lt;/span&gt; &lt;span class="s-Atom"&gt;aggressive&lt;/span&gt; &lt;span class="s-Atom"&gt;optimizations&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="s-Atom"&gt;see&lt;/span&gt; &lt;span class="s-Atom"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;cpp&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;启用最新&lt;/span&gt; &lt;span class="nv"&gt;JVM&lt;/span&gt; &lt;span class="s-Atom"&gt;调优成果&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseBiasedLocking&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enable&lt;/span&gt; &lt;span class="s-Atom"&gt;biased&lt;/span&gt; &lt;span class="s-Atom"&gt;locking&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;JVM&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;偏向锁（建议去了解一下轻量级锁和偏向锁）&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化单线程程序下面锁资源速度，不适合多线程（所以到底&lt;/span&gt; &lt;span class="s-Atom"&gt;+/-&lt;/span&gt; &lt;span class="s-Atom"&gt;我存疑）&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;iteye&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;topic&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;518066&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseFastAccessorMethods&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;fast&lt;/span&gt; &lt;span class="s-Atom"&gt;method&lt;/span&gt; &lt;span class="s-Atom"&gt;entry&lt;/span&gt; &lt;span class="s-Atom"&gt;code&lt;/span&gt; &lt;span class="s-Atom"&gt;for&lt;/span&gt; &lt;span class="s-Atom"&gt;accessor&lt;/span&gt; &lt;span class="s-Atom"&gt;methods&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化&lt;/span&gt; &lt;span class="s-Atom"&gt;get&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;set&lt;/span&gt; &lt;span class="s-Atom"&gt;方法&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;ThreadStackSize&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;Stack&lt;/span&gt; &lt;span class="nv"&gt;Size&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Kbytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;经验值&lt;/span&gt; &lt;span class="m"&gt;4096&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseLargePages&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;large&lt;/span&gt; &lt;span class="s-Atom"&gt;page&lt;/span&gt; &lt;span class="s-Atom"&gt;memory&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;大内存分页&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseStringCache&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enables&lt;/span&gt; &lt;span class="s-Atom"&gt;caching&lt;/span&gt; &lt;span class="s-Atom"&gt;of&lt;/span&gt; &lt;span class="s-Atom"&gt;commonly&lt;/span&gt; &lt;span class="s-Atom"&gt;allocated&lt;/span&gt; &lt;span class="s-Atom"&gt;strings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;启用缓存常用的字符串&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseCompressedStrings&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;a&lt;/span&gt; &lt;span class="s-Atom"&gt;byte&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="s-Atom"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;Strings&lt;/span&gt; &lt;span class="s-Atom"&gt;which&lt;/span&gt; &lt;span class="s-Atom"&gt;can&lt;/span&gt; &lt;span class="s-Atom"&gt;be&lt;/span&gt; &lt;span class="s-Atom"&gt;represented&lt;/span&gt; &lt;span class="s-Atom"&gt;as&lt;/span&gt; &lt;span class="s-Atom"&gt;pure&lt;/span&gt; &lt;span class="nv"&gt;ASCII&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Introduced&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Java&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="nv"&gt;Update&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt; &lt;span class="nv"&gt;Performance&lt;/span&gt; &lt;span class="nv"&gt;Release&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;降低内存消耗，浪费一点&lt;/span&gt; &lt;span class="nv"&gt;CPU&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;stackoverflow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;questions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;8833385&lt;/span&gt;&lt;span class="o"&gt;/is-&lt;/span&gt;&lt;span class="s-Atom"&gt;support&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;for&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;compressed&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;strings&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;being&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;dropped&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;OptimizeStringConcat&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;Optimize&lt;/span&gt; &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="s-Atom"&gt;concatenation&lt;/span&gt; &lt;span class="s-Atom"&gt;operations&lt;/span&gt; &lt;span class="s-Atom"&gt;where&lt;/span&gt; &lt;span class="s-Atom"&gt;possible&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Introduced&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Java&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="nv"&gt;Update&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化字符串连接，对模板渲染操作应该会很有意义&lt;/span&gt;
+
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;MaxPermSize&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Maximum&lt;/span&gt; &lt;span class="s-Atom"&gt;size&lt;/span&gt; &lt;span class="s-Atom"&gt;of&lt;/span&gt; &lt;span class="s-Atom"&gt;permanent&lt;/span&gt; &lt;span class="nf"&gt;generation&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="s-Atom"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;经验值&lt;/span&gt; &lt;span class="m"&gt;128&lt;/span&gt;&lt;span class="s-Atom"&gt;m&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="JVM"></category></entry><entry><title>Redis 到底有多快[译文]</title><link href="/2014/02/redis-benchmarks/" rel="alternate"></link><updated>2014-02-23T22:38:00+08:00</updated><author><name>alswl</name></author><id>tag:,2014-02-23:2014/02/redis-benchmarks/</id><summary type="html">&lt;p&gt;原文地址 &lt;a href="http://redis.io/topics/benchmarks"&gt;http://redis.io/topics/benchmarks&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;拖了一个半月的稿子~&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;Redis 自带了一个叫 &lt;code&gt;redis-benchmark&lt;/code&gt; 的工具来模拟 N 个客户端同时发出 M 个请求。
@@ -3084,100 +3157,4 @@ Arg: *.txt
 我就发出辞职信。8月8号，是台风「海葵」登录上海的这天，我洗去一身风尘，
 踏上了上海这片土地。我不知道这桩决定会对我来说是好是坏，但是我知道，
 如果我不来，我一定会抱憾终生。&lt;/p&gt;
-&lt;p&gt;2012年08月9日于上海嘉定&lt;/p&gt;</summary><category term="上海"></category></entry><entry><title>《少有人走的路》读后感</title><link href="/2012/08/the-road-less-traveled/" rel="alternate"></link><updated>2012-08-04T08:58:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-08-04:2012/08/the-road-less-traveled/</id><summary type="html">&lt;p&gt;关注这本书是在&lt;a href="http://program-think.blogspot.com/"&gt;编程随想&lt;/a&gt;那里看到的&lt;a href="http://program-think.blogspot.com/2012/06/book-review-road-less-traveled.html"&gt;一篇书评&lt;/a&gt;，
-其中引用了书中一句经典的话：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;人可以拒绝任何东西，但绝对不可以拒绝成熟。拒绝成熟，实际上就是在规避问题、
-逃避痛苦。规避问题和逃避痛苦的趋向，是人类心理疾病的根源，不及时处理，
-你就会为此付出沉重的代价，承受更大的痛苦。&lt;/p&gt;
-&lt;p&gt;所有逃避者，都在阻碍自己心智的成熟；
-一切心智成熟者，他们的人生之旅都是从直面问题开始。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;p&gt;我最近半年的时间中，经常和一位闺密朋友讨论成熟、感情、人生历程的问题，
-她的价值取向：喜欢自由无舒服的生活，压力尽量好。
-我直观的感觉这是有问题的，可是说不出哪里不对，人的确有追求美好生活的权利呀。
-看到《少有人走的路》中这几句话，我反应过来了。
-我们依然用童年的遗留思维评判生活质量，以自己为中心，缺少安全感，心智还没有成熟。&lt;/p&gt;
-&lt;p&gt;于是我翻开这本书，寻找答案。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="少有人走的路" src="http://img1.douban.com/lpic/s2144391.jpg" /&gt;&lt;/p&gt;
-&lt;h2&gt;心智成熟的标志-自律&lt;/h2&gt;
-&lt;p&gt;人生苦难重重，我们要解决它们，逃避不是办法，依赖别人也不可靠。
-自律可以让我们解决各种问题，自律有四种技巧：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;推迟满足感：喜欢先苦后甜的人往往缺乏安全感，和成长历程有关。
-推迟满足感需要控制自己欲望并相信自己的价值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;承担责任：相信自己的能力，完成自己的承诺。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;尊重事实：不要陷入固有知识的诅咒，而要不停探索新的世界。
-秘诀就是尊重事实，经常自省。避免固步自封，逃避挑战。
-保持开放的心态，敢于面对事实，同时真诚对待他人。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;保持平衡：自律是痛苦的，要学会在痛苦和快乐之间保持平衡。
-心智成熟需要在需要、目标、责任之间保持微妙的平衡，
-在放弃和新生之间达到平衡。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;就我而言，第四点「保持平衡」极难掌握，而且几乎是只可意会不可言传的，
-我相信这个平衡的掌握依赖于个人对价值观的认识，
-这也引出了本书的第二部分「爱」。&lt;/p&gt;
-&lt;p&gt;我在这里在将人生各个阶段会遇到的危机按出现顺序列出来，
-帮助我们「在合适的时候做合适的事情」（这是我从小给我被灌输的人生理念）。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;不需要过多考虑外界要求的婴儿时期&lt;/li&gt;
-&lt;li&gt;想象中无所不能的幻觉&lt;/li&gt;
-&lt;li&gt;完全占有（包括性方面）父亲或母亲（或者二者）的欲望&lt;/li&gt;
-&lt;li&gt;童年的依赖感&lt;/li&gt;
-&lt;li&gt;父母的扭曲形象&lt;/li&gt;
-&lt;li&gt;自以为拥有无穷潜力的青春期感觉&lt;/li&gt;
-&lt;li&gt;无拘无束的自由&lt;/li&gt;
-&lt;li&gt;青年时期的灵巧与活力&lt;/li&gt;
-&lt;li&gt;青春时代性的吸引力&lt;/li&gt;
-&lt;li&gt;长生不老的错觉&lt;/li&gt;
-&lt;li&gt;对子女的权威&lt;/li&gt;
-&lt;li&gt;各种各样暂时性的权力&lt;/li&gt;
-&lt;li&gt;身体健康的独立性&lt;/li&gt;
-&lt;li&gt;自我以及生命本身&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;心智成熟的原动力-爱&lt;/h2&gt;
-&lt;p&gt;推上有一位朋友 &lt;a href="https://twitter.com/HeseyWang"&gt;@HeseyWang&lt;/a&gt; 每天12点都有一条 Twitter 来自 ifttt，
-「所有的戰鬥力都來源於愛。」。第二章就是关于爱的，不是情爱，
-书中对「爱」的定义如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;爱，是为了促进自我和他人心智成熟，而具有的一种自我完善的意愿。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;书中关于爱的建议：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;恋爱能够突破「自我界限」，让人感到狂喜。这是残酷的假想，不是真正的相知和相爱。&lt;/li&gt;
-&lt;li&gt;坠入情网本质：内在性的需求和外在性的刺激，增加种族繁衍机会。（这里我存疑）&lt;/li&gt;
-&lt;li&gt;真正的爱：陶醉在爱的情感中，希望对方成长，想把激情和生命献给对方。&lt;/li&gt;
-&lt;li&gt;爱需要关注对方的心智成熟。爱的对象也可以是事物或活动，比如园艺和金钱。&lt;/li&gt;
-&lt;li&gt;坠入情网和爱往往存在关联，很有可能同时发生，很多人会将两者混淆在一起。&lt;/li&gt;
-&lt;li&gt;依赖不是爱，是心智的不成熟，严重的被成为「消极性依赖人格失调」&lt;/li&gt;
-&lt;li&gt;学会如何爱，学会关注，比如倾听和反馈&lt;/li&gt;
-&lt;li&gt;正视死亡&lt;/li&gt;
-&lt;li&gt;因为有爱，就有愿景，就会去努力，去改变。有爱就会愿意去改变命运。&lt;/li&gt;
-&lt;li&gt;借助心智的成熟、爱，从而自我完善，突破自我界限，将自我延伸到新的领域。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;成长与信仰&lt;/h2&gt;
-&lt;p&gt;原标题是「成长和宗教」，鉴于国内对对宗教的认识，
-我认为「成长与信仰」更能表达作者想法。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;及时更新自己的世界观，摈弃旧的自我，拥抱新的认识。&lt;/li&gt;
-&lt;li&gt;用「科学的宗教」替代「父母的宗教」，保持怀疑和挑战的勇气。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;作者继续使用几个故事告诉我们处理好成长与宗教信仰的关系。&lt;/p&gt;
-&lt;h2&gt;神奇的力量&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;有神秘的力量可以帮我们绝处逢生，甚至对厄运产生抵抗力。&lt;/li&gt;
-&lt;li&gt;潜意识的神奇力量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;作者在这里插入了一些有神论的认识，因为我是无神论，我对这章无感。&lt;/p&gt;
-&lt;p&gt;虽然最后一章我有些不赞同，但是就总体而言，这仍然是一本关于成熟、价值观的极好的书。
-更多书评可以看&lt;a href="http://book.douban.com/subject/1775691/"&gt;少有人走的路 (豆瓣)&lt;/a&gt;。&lt;/p&gt;</summary><category term="心理学"></category><category term="读书笔记"></category></entry></feed>
+&lt;p&gt;2012年08月9日于上海嘉定&lt;/p&gt;</summary><category term="上海"></category></entry></feed>

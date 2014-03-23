@@ -72,6 +72,34 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                <div class="summary"><p>继续昨天的编码问题 我一直全部采用UTF-8格式，而且在jUnit测试中并没有问题，说明是在Struts进行数据收集时候出错。</p>
+<p>Google之后，根据网上一些建议修改web.xml struts.xml 但都没有效果。</p>
+<p>网上建议在web.xml中添加 ：</p>
+<div class="highlight"><pre><span class="nt">&lt;filter&gt;</span>
+    <span class="nt">&lt;filter-name&gt;</span>struts-cleanup<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;filter-class&gt;</span>org.apache.struts2.dispatcher.ActionContextCleanUp
+    <span class="nt">&lt;/filter-class&gt;</span>
+<span class="nt">&lt;/filter&gt;</span>
+<span class="nt">&lt;filter-mapping&gt;</span>
+    <span class="nt">&lt;filter-name&gt;</span>struts-cleanup<span class="nt">&lt;/filter-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/filter-mapping&gt;</span>
+</pre></div>
+
+
+<p>来设定本地化和编码，然后在struts.xml中添加过滤器</p>
+<div class="highlight"><pre><span class="nt">&lt;constant</span> <span class="na">value=</span><span class="s">&quot;UTF-8&quot;</span> <span class="na">name=</span><span class="s">&quot;struts.i18n.encoding&quot;</span><span class="nt">&gt;&lt;/constant&gt;</span>
+<span class="nt">&lt;constant</span> <span class="na">value=</span><span class="s">&quot;UTF-8&quot;</span> <span class="na">name=</span><span class="s">&quot;struts.locale&quot;</span><span class="nt">&gt;&lt;/constant&gt;</span>
+</pre></div>
+
+
+<p>根据我测试 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/struts2-encoding-problem/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/learning-to-use-log4j/">学习使用log4j</a></h2>
                 <div class="summary"><p>今天用Log4j时候，感觉只显示message讯息太少了，直觉上这些流行的工具应该会提供更强大的定制功能，就去google了一下</p>
 <p>果不其然：相关配置参数如下</p>
@@ -203,22 +231,6 @@ SSL_CTX_set_cipher_list(SSL </em>ssl, const char *char)</p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/03/apabi-buy-archipelago/">Apabi买书奇遇记</a></h2>
-                <div class="summary"><p>最近为OpenSSL焦头烂额，资料实在太少</p>
-<p>在chinaunix中看到一篇《OpenSSL 编程入门》，从Eric Rescola文档中翻译过来的，突发奇想，搜索Eric Rescola
-，居然在China-pub发现了奇书《SSL and TSL》</p>
-<p><img alt="SSL" src="http://images.china-pub.com/ebook/7995/zcover.jpg" /></p>
-<p>这本书非常不错，前面讲了SSL协议和内部结构，后面提供了详实的代码例子，而且这本书是翻译版，哈哈，天不亡我啊。</p>
-<p>可惜China-pub缺货，不过Apabi那里有电子书卖。</p>
-<p>购买时，原价9.99的书分成三本，我以为是系统错误，就删掉两本，毕竟这三个书名一摸一样，也没有说明是三册分开传的。</p>
-<p>买完之后发现只有前5章，那个痛苦啊</p>
-<p>后来还是邮件客服才知道的，郁闷，重新买了后三册</p>
-<p>呵呵，这本书是02年的，正在翻看，老外的书就是好，比国内那本《OpenSSL与网络信息安全》好不知道多少</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/apabi-buy-archipelago/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/35/">&laquo;</a>
@@ -285,8 +297,8 @@ SSL_CTX_set_cipher_list(SSL </em>ssl, const char *char)</p>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
-                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        <a href="/category/java/">
+                            <i class="icon-folder-open icon-large"></i>Java
                         </a>
                     </li>
                     <li class="list-group-item">

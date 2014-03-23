@@ -72,6 +72,29 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2011/08/auto-clean-input/">简单输入提示框实现</a></h2>
+                <div class="summary"><p>早期的输入框提示是这样的（via <a href="http://tieba.baidu.com/index.html">baidu</a>）</p>
+<p><img alt="tieba" src="http://upload-log4d.qiniudn.com/2011/08/login1.png" /></p>
+<p>左边一个 label ，右边一个输入框。</p>
+<p>比较现代的方式是（via <a href="http://www.discuz.net/">Discuz!</a>）</p>
+<p><img alt="discuz!" src="http://upload-log4d.qiniudn.com/2011/08/login2.png" /></p>
+<p>更漂亮的方式是（via <a href="http://www.diandian.com/login">点点</a>）</p>
+<p><img alt="diandian" src="http://upload-log4d.qiniudn.com/2011/08/login_diandian.png" /></p>
+<p>登录提示信息是放在输入框里面，可以减少文字干扰，我也想在自己手头的小项目中实现这种效果。</p>
+<p>我需要达到几个要求：</p>
+<ol>
+<li>提示信息是可以暂存的，即用户的输入在清空之后，还能够显示原来的提示信息</li>
+<li>只需为 text / textarea 添加一个 class 即可实现效果</li>
+<li>不修改 DOM 节点，避免影响上下文选择器</li>
+</ol>
+<p>为了实现效果，我需要将提示信息暂存到某个地方。有3个地方可供选择： js 全局变量、输入框自定义属性、上下文 DOM 节点。</p>
+<p>js 全局变量比较难控制元素标识，并不是每个元素都可以精准的用 id 标记；输入框自定义属性会破坏语义；在上下文加入节点会破坏 DOM 树。</p>
+<p>权衡之后，我选择了使用 输入框自定义属性实现 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2011/08/auto-clean-input/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2011/08/get-json-failed-in-ie/">get json failed in IE</a></h2>
                 <div class="summary"><p>半夜在开工打补丁，某个 bug 是 Firefox 下面能接受到 Ajax 回调请求，而 IE 不行。</p>
 <p>解决方案在<a href="http://stackoverflow.com/questions/425854/jquery-ajax-request-failing-
@@ -231,21 +254,6 @@ log4d.qiniudn.com/2011/07/eventbug.png"><img alt="" src="http://upload-log4d.qin
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/06/mako-vim/">一个mako.vim</a></h2>
-                <div class="summary"><p>给Vim找了一个Mako的语法高亮，发现着色居然有问题。查看更新记录后发现作者<a href="http://lucumr.pocoo.or
-g/">Armin Ronacher</a>只更新到08年9月份。之后Mako更新了一些少许细节，我修改了一下mako.vim，放在这里供下载。</p>
-<p>其实我只改了57/58行，增加一个block语法。</p>
-<p>点击这里下载：[mako.vim</p>
-<p>](http://upload-log4d.qiniudn.com/2011/06/mako.vim)</p>
-<p>使用方法，放入vimfiles/syntax</p>
-<p>相关链接：</p>
-<p>原始mako.vim：<a href="http://www.v
-im.org/scripts/script.php?script_id=1858">http ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/06/mako-vim/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/7/">&laquo;</a>
@@ -312,8 +320,8 @@ im.org/scripts/script.php?script_id=1858">http ...</p>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
-                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        <a href="/category/java/">
+                            <i class="icon-folder-open icon-large"></i>Java
                         </a>
                     </li>
                     <li class="list-group-item">

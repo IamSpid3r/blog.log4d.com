@@ -72,6 +72,26 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2010/05/fms-80-port-used/">FMS的80端口占用</a></h2>
+                <div class="summary"><p>AzaAjaxChat 的语音聊天需要使用的Flex的流媒体传输，我在评估的方案有两套：1.使用原声Socket在客户端进行连接，2.使用FMS
+流媒体服务器进行数据传输。</p>
+<p>FMS （Flash Media Server）在安装时候，有一个选项是端口使用哪个，默认是1935 和
+80端口，安装之后发现在使用两个Apache在80端口发生冲突（FMS使用的也是Apache服务器），需要将这个端口修改。</p>
+<p>Google后，发现修改 Flash Media Server 3conffms.ini 删除80留下1935即可。</p>
+<div class="highlight"><pre><span class="cp"># IP address and port(s) Flash Media Server should listen on</span>
+<span class="cp"># For example:</span>
+<span class="cp">#    ADAPTOR.HOSTPORT = :1935,80</span>
+<span class="cp">#</span>
+<span class="n">ADAPTOR</span><span class="p">.</span><span class="n">HOSTPORT</span> <span class="o">=</span> <span class="o">:</span><span class="mi">1935</span>
+</pre></div>
+
+
+<p>唔～继续搞鼓Flex的流媒体传输了 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2010/05/fms-80-port-used/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
                 <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
 <p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
@@ -255,25 +275,6 @@ WordPress Basis Theme。</p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/began-of-financial-management/">理财开始</a></h2>
-                <div class="summary"><p><img alt="" src="http://www.newsobserver.com/content/media/2008/6/13/money.jpg" /></p>
-<p>人的一生对应着各种理财周期，青年单身期 -&gt; 家庭形成期 -&gt; 家庭成长期 -&gt; 子女教育期 -&gt; 家庭成熟期 -&gt; 退休养老期。我现在处在第一个阶段青年单
-身期，拥有了自己第一份工作，需要对自己的财富进行管理，掌握自己的经济状况（至少知道有没有欠一屁股债）。这几天也学习了一些理财的理念，下面简单总结一下理财的基
-本概念。</p>
-<h3>财富的意义</h3>
-<p>在现代社会，对一个人来说，成功的基础之一就是财富。不管是实在的金钱，还是名望或才能，都最终实现到财富的层面上。通俗的来说，财富就代表了一个人的价值，表现了一
-个人的社会地位。</p>
-<h3>家庭理财</h3>
-<p>家庭理财就是管理自己的财富，进而提高财富的效能的经济活动。理财也就是对资本金和负债资产的科学合理的运作。通俗的来说，理财就是赚钱、省钱、花钱之道。理财就是打
-理钱财。</p>
-<h3>家庭理财的目的</h3>
-<p>家庭投资理财的根本目的就是家庭财产保值增值，或者叫家庭财富最大化。更进一步说，追求财富，就是追求成功，追求人生目标的自我实现。所以我们提倡科学的理财，就是要
-善用钱财，使家庭财务状况处于最佳状态，满足各层次的需求，从而拥有一个丰富的人生 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/04/began-of-financial-management/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/13/">&laquo;</a>
@@ -340,8 +341,8 @@ WordPress Basis Theme。</p>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
-                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        <a href="/category/java/">
+                            <i class="icon-folder-open icon-large"></i>Java
                         </a>
                     </li>
                     <li class="list-group-item">

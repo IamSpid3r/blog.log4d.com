@@ -72,6 +72,32 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/09/python-to-read-and-write-files/">Python读写文件</a></h2>
+                <div class="summary"><p>本文来源：<a href="http://www.cnblogs.com/coderzh/archive/2008/05/10/1191410.html">Python天天美味(17) - open读写文件 - CoderZh的技术博客 -
+博客园</a></p>
+<p>「我本来想加上看到这篇文章的博客链接，结果粘贴时候发现了图片来源居然是cnblogs，这才反应过来这不是那个博客的原创。我不反对转载，看到的好文章我自己也会
+收藏下来，转载能帮助更多需要的人，可是，至少加上人家原作者的地址呀……」-alswl</p>
+<p>Python中文件操作可以通过open函数，这的确很像C语言中的fopen。通过open函数获取一个file
+object，然后调用read()，write()等方法对文件进行读写操作。</p>
+<h2>1.open</h2>
+<p>使用open打开文件后一定要记得调用文件对象的close()方法。比如可以用try/finally语句来确保最后能关闭文件。</p>
+<div class="highlight"><pre><span class="n">file_object</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">thefile</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="nl">try:</span>
+    <span class="n">all_the_text</span> <span class="o">=</span> <span class="n">file_object</span><span class="p">.</span><span class="n">read</span><span class="p">(</span> <span class="p">)</span>
+<span class="nl">finally:</span>
+    <span class="n">file_object</span><span class="p">.</span><span class="n">close</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>注：不能把open语句放在try块里，因为当打开文件出现异常时，文件对象file_object无法执行close()方法。</p>
+<h2>2.读文件</h2>
+<h3>读文本文件</h3>
+<div class="highlight"><pre><span class="n">input</span> <span class="o">=</span> <span class="n">open ...</span></pre></div>
+                    <a class="btn btn-default btn-xs" href="/2009/09/python-to-read-and-write-files/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/09/the-reform-of-the-enlightenment-from-the-modern-chinese-japanese-foreign-language-in-shock-reflection-reproduced/">改革启蒙：从现代汉语中日本外来语的震撼中反思[转载]</a></h2>
                 <div class="summary"><p>最近在学日文，所以偶然看到这篇文章惊奇无比，原来汉语和日语也有这么一种的反哺关系-alswl</p>
 <p>作者：李 文（竹叶连，民主自由）</p>
@@ -236,21 +262,6 @@ name="wmode" value="opaque" /&gt;&lt;param name ...</code></p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/08/ajaxcontroltoolkit-amendment-in-calendarextender-styles/">AjaxControlToolkit中CalendarExtender样式修正</a></h2>
-                <div class="summary"><p>在<a href="http://www.asp.net">The Official Microsoft ASP.NET Site</a>上有一个很强大的控件<a href="http://ajaxcontroltoolkit.codeplex.com/Release/ProjectRelease
-s.aspx?ReleaseId=27326">AJAX
-Control Toolkit</a>，其功能非常完整，几乎涵盖了表现层方面各种应用，使用也很方便，有中文详细支持，能给程序员很大帮助。</p>
-<p>我现在使用的其中一款控件叫做CalendarExtender，其实是一个DatePicker（日期选择器），这个控件可以直接在Input控件上添加「扩展程序
-」，就完成了所有工作。</p>
-<p><a href="http
-://upload-log4d.qiniudn.com/2009/09/0e9aa6590cdc.jpg"><img alt="偏移" src="http://upload-log4d.qiniudn.com/2009/09/0e9aa6590cdc.jpg" /></a></p>
-<p>让我意外的是，这个控件在我的页面上工作时候样式似乎有些不正常。</p>
-<p>页面漂移了！我仔细检查了FireBug，发现下面的样式中的padding影响了其td。(页面可不是我设计的 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/08/ajaxcontroltoolkit-amendment-in-calendarextender-styles/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/25/">&laquo;</a>
@@ -317,8 +328,8 @@ Control Toolkit</a>，其功能非常完整，几乎涵盖了表现层方面各�
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
-                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        <a href="/category/java/">
+                            <i class="icon-folder-open icon-large"></i>Java
                         </a>
                     </li>
                     <li class="list-group-item">
