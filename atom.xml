@@ -1,5 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-03-22T18:31:55+08:00</updated><entry><title>Java 运行参数调整</title><link href="/2014/03/java-options/" rel="alternate"></link><updated>2014-03-22T18:31:55+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-22:2014/03/java-options/</id><summary type="html">&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-03-30T15:41:43+08:00</updated><entry><title>hiredis 源码学习</title><link href="/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
+所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。&lt;/p&gt;
+&lt;p&gt;Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
+同时提供了同步和异步的两种 API。Hiredis 的代码位于
+&lt;a href="https://github.com/redis/hiredis"&gt;https://github.com/redis/hiredis&lt;/a&gt;。&lt;/p&gt;
+
+
+&lt;h2&gt;一分钟使用入门&lt;/h2&gt;
+&lt;p&gt;同步 API 的调用方法：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;redisContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redisConnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6379&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redisCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;SET foo %s&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;PING: %s&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;freeReplyObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;redisFree&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;context&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Redis ae 异步 API 的调用方法，使用 Redis 自己的 ae 事件库，
+至于为什么 Redis 没有使用 libevent 或者 libev，可以参考
+&lt;a href="http://groups.google.com/group/redis-db/browse_thread/thread/b52814e9ef15b8d0/"&gt;Reason&lt;/a&gt;，
+&lt;a href="http://blog.csdn.net/archimedes_zht/article/details/6909074"&gt;中文翻译&lt;/a&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;connectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Connected...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;disconnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Disconnected...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;getCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;privdata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;redisReply&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;argv[%s]: %s&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;privdata&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;redisAsyncDisconnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redisAsyncConnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6379&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;loop&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aeCreateEventLoop&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;redisAeAttach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loop&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisAsyncSetConnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;connectCallback&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisAsyncSetDisconnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;disconnectCallback&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;redisAsyncCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;getCallback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;end-1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;GET key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Libev 异步 API 调用，因为 &lt;code&gt;adapters/*.h&lt;/code&gt; 封装的好，所以几乎和 ae 调用一致：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;connectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Connected...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;disconnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Disconnected...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;getCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;privdata&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;redisReply&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;argv[%s]: %s&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;privdata&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="cm"&gt;/* Disconnect after receiving the reply to GET */&lt;/span&gt;
+    &lt;span class="n"&gt;redisAsyncDisconnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;redisAsyncContext&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redisAsyncConnect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6379&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisLibevAttach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;EV_DEFAULT_&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisAsyncSetConnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;connectCallback&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisAsyncSetDisconnectCallback&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;disconnectCallback&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;redisAsyncCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;getCallback&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;end-1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;GET key&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hiredis 还支持使用 libevent，我就不列出来了。&lt;/p&gt;
+&lt;p&gt;详细的使用 example 可以看
+&lt;a href="https://github.com/redis/hiredis/tree/master/examples"&gt;https://github.com/redis/hiredis/tree/master/examples&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;主要结构&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;redisReply&lt;/li&gt;
+&lt;li&gt;redisReader&lt;/li&gt;
+&lt;li&gt;redisContext&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;流程&lt;/h2&gt;
+&lt;h3&gt;同步连接&lt;/h3&gt;
+&lt;p&gt;同步连接的代码在 &lt;code&gt;hiredis.c&lt;/code&gt; 和 &lt;code&gt;net.c&lt;/code&gt; 中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;redisConnect&lt;/code&gt; / &lt;code&gt;redisConnectWithTimeout&lt;/code&gt; / &lt;code&gt;redisConnectNonBlock&lt;/code&gt; 都调用了
+&lt;code&gt;net.c&lt;/code&gt; 里面的 &lt;code&gt;redisContextConnectTcp&lt;/code&gt;。使用 &lt;code&gt;fcntl(fd, F_SETFL, flags)&lt;/code&gt;
+设置是否阻塞连接。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;O_NONBLOCK&lt;/code&gt; 即 Socket 非阻塞模式，但仍然是同步的哦。&lt;/p&gt;
+&lt;p&gt;事实上，无论阻塞还是非阻塞，hiredis 都会使用非阻塞（poll）来
+&lt;code&gt;connect&lt;/code&gt; 连接服务器，会返回 -1，并且 &lt;code&gt;errno&lt;/code&gt;
+为 &lt;code&gt;EINPROGRESS&lt;/code&gt;，这是非阻塞模式正常的表现。
+为什么阻塞模式也会强制使用非阻塞的 &lt;code&gt;poll&lt;/code&gt; 连接？其实是为了能够支持 timeout 功能。
+hiredis 在连接成功之后，按照之前需求重新设定为阻塞或者非阻塞模式。&lt;/p&gt;
+&lt;p&gt;关于如何设计超时功能，可以参考 &lt;a href="http://blog.csdn.net/ast_224/article/details/2957294"&gt;http://blog.csdn.net/ast_224/article/details/2957294&lt;/a&gt;。&lt;/p&gt;
+&lt;h3&gt;命令&lt;/h3&gt;
+&lt;p&gt;使用 va_list 解决变参问题（C 也支持变长参数，被惊呆了，我果然是 C 盲啊）。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="nf"&gt;redisFormatCommand&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;...)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;va_list&lt;/span&gt; &lt;span class="n"&gt;ap&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;len&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;va_start&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;redisvCommand&lt;/code&gt; 用来执行阻塞Redis 命令，它会调用 &lt;code&gt;__redisBlockForReply&lt;/code&gt;，
+内部调用 &lt;code&gt;redisBufferWrite&lt;/code&gt; 从 socket 写 buffer，然后同步等待，从
+&lt;code&gt;redisBufferRead&lt;/code&gt; 读数据，用 &lt;code&gt;redisGetReplyFromReader&lt;/code&gt; 解析返回数据。&lt;/p&gt;
+&lt;h3&gt;异步连接&lt;/h3&gt;
+&lt;p&gt;异步调用的代码在 &lt;code&gt;async.c&lt;/code&gt; 中，我先看 ae 库。&lt;/p&gt;
+&lt;p&gt;重要的结构是 &lt;code&gt;redisAsyncContext&lt;/code&gt; 和 &lt;code&gt;redisAeEvents&lt;/code&gt;，前者重要的方法是注册回调函数：
+&lt;code&gt;addRead&lt;/code&gt; / &lt;code&gt;delRead&lt;/code&gt; / &lt;code&gt;addWrite&lt;/code&gt; / &lt;code&gt;delWrite&lt;/code&gt;，后者是用来存放 loop / fd / event stream
+的。&lt;/p&gt;
+&lt;p&gt;异步连接时候，仍然使用 &lt;code&gt;redisContextConnectTcp&lt;/code&gt; 来发起到服务器的非阻塞连接。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;aeCreateEventLoop&lt;/code&gt; 创建一个事件循环，然后使用 &lt;code&gt;redisAeAttach&lt;/code&gt; 给
+&lt;code&gt;context&lt;/code&gt; 注册事件，比如说 &lt;code&gt;aeCreateFileEvent(loop,e-&amp;gt;fd,AE_READABLE,redisAeReadEvent,e)&lt;/code&gt;
+就注册了一个 &lt;code&gt;read&lt;/code&gt; 事件，并将 callback 调用设置到 &lt;code&gt;redisAeReadEvent&lt;/code&gt;，
+&lt;code&gt;redisAeReadEvent&lt;/code&gt; 再将这个事件托管给 &lt;code&gt;redisAsyncHandleRead&lt;/code&gt;（定义在 async.c 里面，
+被三个 event 库调用）。&lt;/p&gt;
+&lt;p&gt;所以，hiredis 通过 adapter 的封装，屏蔽了 ae / libevent / libev 的 API 差异，
+从而可以灵活的选择。据说 ae 是从两个 libevent 库重写过来的，可是我觉得 ae
+的风格和 libev 比较像，而 libevent 的风格比较好理解。&lt;/p&gt;
+&lt;p&gt;如果拿这段代码的复杂度和 Tornado 的 IOLoop 进行对比，真实感觉 Tornado 那段 API
+封装太人性化了，C 的代码写起来好复杂，系统 API、资源控制、错误控制都挺麻烦。&lt;/p&gt;
+&lt;p&gt;Redis ae 事件库的分析可以参考 &lt;a href="http://my.oschina.net/u/917596/blog/161077#OSC_h4_6"&gt;http://my.oschina.net/u/917596/blog/161077#OSC_h4_6&lt;/a&gt;。
+Libevent 的一个简单教程 &lt;a href="http://www.wangafu.net/~nickm/libevent-book/01_intro.html"&gt;http://www.wangafu.net/~nickm/libevent-book/01_intro.html&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;关于 C&lt;/h2&gt;
+&lt;p&gt;作为 C 渣的我，勉强读完 hiredis，感觉那点 C 基础完全不够用，
+稍微将学习过程中疑惑的地方罗列一下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;IFDEF&lt;/code&gt; 使用，可以防止重复导入同一个头文件定义，这里有一个详细的解释
+&lt;a href="http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html"&gt;http://faculty.cs.niu.edu/~mcmahon/CS241/c241man/node90.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__cplusplus&lt;/code&gt;: C++ 里面定义了这个变量，而 C 没有定义，所以当 C++ 编译器识别
+source 时候，通过这个加上 &lt;code&gt;ifdef&lt;/code&gt; 来使用 &lt;code&gt;extern&lt;/code&gt; 编译 C 代码。&lt;/li&gt;
+&lt;li&gt;long long: long 只能存放 32 位，long long 可以存放 64 位长度，即 0 - 2^64-1。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;c-&amp;gt;flags |= REDIS_BLOCK&lt;/code&gt; / &lt;code&gt;c-&amp;gt;flags &amp;amp;= ~REDIS_BLOCK;&lt;/code&gt; 简洁的位操作。&lt;/li&gt;
+&lt;li&gt;sds（simple dynamic string）是 Redis 自己实现的 C String 字符串结构。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;((void)fd)&lt;/code&gt; 好像是将 fd 指针转成无类型的指针，不知道有什么用处。&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Redis"></category><category term="hiredis"></category></entry><entry><title>Java 运行参数调整</title><link href="/2014/03/java-options/" rel="alternate"></link><updated>2014-03-22T18:31:55+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-22:2014/03/java-options/</id><summary type="html">&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
 &lt;p&gt;运行 &lt;code&gt;java -h&lt;/code&gt; 可以看到 Java 运行可调整的参数。
 运行 &lt;code&gt;java -X&lt;/code&gt; 可以查看 Java 支持的额外参数。
 注意一些参数的默认开启在 JDK6 和 JDK7 之间会有差异，甚至在 JDK7 的不同 update
@@ -3101,60 +3236,4 @@ Arg: *.txt
 个人只能给机会做「状态」准备，而无法改变这种如同命运丝线般的交叉。&lt;/p&gt;
 &lt;p&gt;谁都不知道下次有没有更好的机会出现。尝试抓住这种交叉，就是把握住时机了。
 然后就是全力以赴，做到最好。&lt;/p&gt;
-&lt;p&gt;暂时就想这么多啦，没更多干货了，小菜鸟的上海生活即将开始。&lt;/p&gt;</summary></entry><entry><title>我为什么来上海</title><link href="/2012/08/why-shanghai/" rel="alternate"></link><updated>2012-08-09T21:10:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-08-09:2012/08/why-shanghai/</id><summary type="html">&lt;p&gt;今天是我到上海的第二天，窗外的台风依然在肆虐，
-我用半天的时间来研究这几天要面试公司的产品。放下腿上的笔记本，
-抽了根烟，我开始整理一下思绪，准备回答这么一个问题：「&lt;strong&gt;我为什么要到上海来？&lt;/strong&gt;」&lt;/p&gt;
-&lt;p&gt;南京有相对悠闲的生活节奏，开车回家 1 小时不到，
-父母在毕业那年帮我购置并装修好了新房，工作也比较稳定。
-那我为什么还要抛弃这些去上海？&lt;/p&gt;
-&lt;p&gt;回答这个问题，我需要从我的经历讲起。&lt;/p&gt;
-
-
-&lt;p&gt;前天在和 &lt;a href="http://lightory.net/"&gt;@lightory&lt;/a&gt; 在雕刻时光聊天，我提到自己的成长经历：
-我从小就是一个 loser，成绩不好，长得不高不帅，没有突出的能力。
-尤其是在学生时代，学习是他们的本职工作，而我完成的很差劲，
-最后也是很勉强的上了大学。&lt;/p&gt;
-&lt;p&gt;按照正常的人生走向，同时也是父母规划的路线发展。我会勉强读完大学，
-可能还要挂几门功课导致拿不到学位证，然后回家找一份普通工作，差不多能养活自己，
-然后找个差不多的女人当老婆，生个孩子，凑活着过日子。生活即使不能一直开心，
-但至少小康没什么问题，一晃就能把一辈子晃过去。&lt;/p&gt;
-&lt;p&gt;我的大一也的确是这么过的。转折点是大二，那时候跟老师关系不错，
-自己对专业也比较感兴趣，开始能变的不那么 loser。
-真正「毁三观」的转折点是大三之后接触互联网，我开始探索世界，
-知道了自己的渺小，知道了那些优秀的人。破而后立，我开始寻找自己的方向，
-渴求自己价值的实现，渴望发现世界的精彩，渴望变得卓越。&lt;/p&gt;
-&lt;p&gt;几年后阅读心理学书籍才知道，当时一个重要的改变因素是 - &lt;strong&gt;好奇心&lt;/strong&gt;。
-即便是我从小成绩一直不如意，我依然保持了对事物的好奇心：自然科学、人文历史等等，
-好奇心并没有因为我日益增长的年龄和逐渐退步的成绩而减少。&lt;/p&gt;
-&lt;p&gt;那个阶段，我做了很多无用功，至少是做了不少不那么 Pragmatic 的事情。
-有渴望，却不知道怎么发力，从小的自律能力也没有培养起来，做事情效率低下，
-周围能认同自己的人也少。那时候前进的方向就是：
-&lt;strong&gt;我觉得以前生活方式有问题，我需要改变&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;大约大三时候，我建立了自己的独立博客，从而开始认识互联网上优秀的&lt;strong&gt;博友&lt;/strong&gt;，
-尤其是优秀的同龄人，我开始去了解别人的成长历程和学习经历，
-去看他们的心理路程。我真切的感觉到了自己的不足，发力狂奔。&lt;/p&gt;
-&lt;p&gt;毕业之后，我在南京待了两年。这两年中，我做这么几件事情：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;让自己不被工作所僵化，保持思考能力&lt;/li&gt;
-&lt;li&gt;持续学习&lt;/li&gt;
-&lt;li&gt;大约看了 80 本书，大部分是技术书，少部分是心理学和其他人文的&lt;/li&gt;
-&lt;li&gt;参加本地各类技术聚会，只要有时间，我一定参加&lt;/li&gt;
-&lt;li&gt;参加非技术聚会，保持自己社交能力&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我所做的这些都是为了补偿这二十多年来浪费的学习时间和培养自己能力的机会。
-在人生这条赛场上，我出发的比较迟，但是一旦自己确定方向，
-我还是想去追那些遥遥领先的选手。&lt;/p&gt;
-&lt;p&gt;曾经有人甚至用讽刺的语气问过我：「南京这么多公司，难道没有公司能配的上你？」
-南京提供的互联网机会很少，比较难找到能够发挥自己价值的单位。
-我不想做一枚螺丝钉，我需要寻找自己的价值。我要感谢互联网，
-它的存在将信息传播的更远更深，使它将我从碌碌无为的人生中拯救了出来，
-帮助我进行了更多的思考。也因为这个，我对「&lt;strong&gt;信息传播改变人类生活&lt;/strong&gt;」
-这桩事情充满了兴趣，我渴望打破信息的垄断，让正能量的福泽传播到每个人身边。&lt;/p&gt;
-&lt;p&gt;我的博客副标题「&lt;strong&gt;Computers can change your life for the better.&lt;/strong&gt;」是 Geek
-准则第三条，也是我信奉的原则。&lt;/p&gt;
-&lt;p&gt;The blue pill or the red pill？
-今年上半年，我就在考虑从南京出发到上海的事情，7月份拿到驾照的第二天，
-我就发出辞职信。8月8号，是台风「海葵」登录上海的这天，我洗去一身风尘，
-踏上了上海这片土地。我不知道这桩决定会对我来说是好是坏，但是我知道，
-如果我不来，我一定会抱憾终生。&lt;/p&gt;
-&lt;p&gt;2012年08月9日于上海嘉定&lt;/p&gt;</summary><category term="上海"></category></entry></feed>
+&lt;p&gt;暂时就想这么多啦，没更多干货了，小菜鸟的上海生活即将开始。&lt;/p&gt;</summary></entry></feed>

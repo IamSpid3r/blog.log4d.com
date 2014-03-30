@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Log4D - Java编程和Java企业应用</title>
+    <title>Log4D - hiredis</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -72,48 +72,19 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
-                <h2><a href="/2009/02/servlet-jsp-s-java-type-of-the-most-simple-mvc-model/">Servlet JSP 的 Java类的最简单MVC模型</a></h2>
-                <div class="summary"><p>来自Head First Servlet and JSP</p>
-<p><em>XML语言</em>: <a href="http://www.fayaa.com/code/view//">web.xml</a></p>
-<?xml version="1.0" encoding="UTF-8"?>
+                <h2><a href="/2014/03/hiredis/">hiredis 源码学习</a></h2>
+                <div class="summary"><p>前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
+所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。</p>
+<p>Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
+同时提供了同步和异步的两种 API。Hiredis 的代码位于
+<a href="https://github.com/redis/hiredis">https://github.com/redis/hiredis</a>。</p>
 
-<p>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"</p>
-<p>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</p>
-<p>xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</p>
-<p>version="2.4"&gt; --&gt;</p>
-<p><servlet></p>
-<p><servlet-name>Ch3 Beer</servlet-name></p>
-<p><servlet-class>com.example ...</servlet-class></p></?xml>
-                    <a class="btn btn-default btn-xs" href="/2009/02/servlet-jsp-s-java-type-of-the-most-simple-mvc-model/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/02/java-triggered-by-the-post/">Java中的POST引发的...</a></h2>
-                <div class="summary"><p>因为一直想写一个刷人气的工具，其中最基本的就是post方法了，然后再收集页面中的元素。今天我就开始着手写Java的POST方法。</p>
-<p>在Java.net.*;中用URL构造地址，然后用流写入，似乎应该是很简单的方案，我却一直没成功。我百度Google了很久，参考了很多别人代码，似乎很容易实
-现，可是我的一直问题，而我觉得和网上提供的一样。我的代码如下</p>
-<p>package netStudy01;</p>
-<p>import java.io.*;</p>
-<p>import java.net.*;</p>
-<p>public class PostBaidu</p>
-<p>{</p>
-<p>public static void main(String[] args)</p>
-<p>{</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; try</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; {</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;&amp;nbsp_place_holder; URL url = new URL("<a href="http://localhost ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/java-triggered-by-the-post/">more ...</a>
+                    <a class="btn btn-default btn-xs" href="/2014/03/hiredis/">more ...</a>
                 </div>
             </article>
             <hr/>
 
-	<ul class="pagination">
-			<li class="prev"><a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/page/3/">&laquo;</a>
-			</li>
-			<li class="next disabled"><a href="#">&laquo;</a></li>
-	</ul>
         </div>
         <div class="col-lg-3 well well-sm" id="sidebar">
 <aside>
@@ -173,8 +144,8 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</p>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/category/javabian-cheng-he-javaqi-ye-ying-yong/">
-                            <i class="icon-folder-open icon-large"></i>Java编程和Java企业应用
+                        <a href="/category/java/">
+                            <i class="icon-folder-open icon-large"></i>Java
                         </a>
                     </li>
                     <li class="list-group-item">

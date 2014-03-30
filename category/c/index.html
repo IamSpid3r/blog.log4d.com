@@ -72,6 +72,19 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2014/03/hiredis/">hiredis 源码学习</a></h2>
+                <div class="summary"><p>前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
+所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。</p>
+<p>Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
+同时提供了同步和异步的两种 API。Hiredis 的代码位于
+<a href="https://github.com/redis/hiredis">https://github.com/redis/hiredis</a>。</p>
+
+                    <a class="btn btn-default btn-xs" href="/2014/03/hiredis/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/03/safe-use-of-openssl-api-programming-part-2-security-handshake/">使用 OpenSSL API 进行安全编程，第 2 部分: 安全握手</a></h2>
                 <div class="summary"><p>原文链接：<a href="http://www.i
 bm.com/developerworks/cn/linux/l-openssl2.html">http://www.ibm.com/developerworks/cn/linux/l-openssl2.html</a></p>
@@ -220,19 +233,6 @@ rootkey.pem -out rootcert.pem</p>
 <p>X.509是常见通用的证书格式。所有的证书都符合为Public Key Infrastructure (PKI) 制定的 ITU-T X509 国际标准。</p>
 <p>PKCS#7 常用的后缀是： .P7B .P7C ...</p>
                     <a class="btn btn-default btn-xs" href="/2009/03/common-certificate-format-and-conversion/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/03/using-openssl-to-generate-certificates/">用OpenSSL生成证书</a></h2>
-                <div class="summary"><p>这些命令虽然是linux下面的，但是在windows下面也能用</p>
-<p>我遇到I am unable to access the ./demoCA/newcerts directory ./demoCA/newcerts: No
-such file or directory 然后找到这篇文章，只要用生成相应的目录就可以了。</p>
-<p>我遇到的第二个问题是TXT_DB error number 2 在redhat的网站[kbase.redhat.com/faq/docs/DOC-3624]
-(http://kbase.redhat.com/faq/docs/DOC-3624)这篇文章。</p>
-<p>我将原来index.txt里面的内容剪切出，然后重新签证，再把剪切出的内容粘贴到后来生成文件之前，就解决了那个问题。</p>
-<p>下面是网上的资料：OpenSSL相关命令<a href="http://hi.baidu.com/kobetec/blog/item/706fc0440ff3b44a510ffe0b.html">hi.baidu.com/kobetec ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/using-openssl-to-generate-certificates/">more ...</a>
                 </div>
             </article>
             <hr/>

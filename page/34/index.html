@@ -72,6 +72,20 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/natural-theory-of-software/">软件自然理论</a></h2>
+                <div class="summary"><p>所谓软件自然理论，就是说：一个优秀的软件，他的功能模块设计，应该与用户在完全没有接触过这个系统时候所想要的功能设计一致，用户觉得他想要的功能在什么地方，应该
+怎样实现，那么这个功能就是应该在那里，就是应该这样实现。</p>
+<p>这么说感觉上会很绕口，那么举个例子。Office就是一个比较优秀的软件，如果一个用户完全没有接触过Office（当然，必须具备基本的电脑使用水平），如果该用
+户想对字体进行设置，那么他就觉得字体设置属于格式，就应该在格式菜单里面，用户去点击这个菜单，就找到了自己需要的功能。</p>
+<p>其他的，比如WinRAR，IE浏览器，都是出色的软件，他们的模块设计也都是符合用户的想法的。</p>
+<p>如果一个软件功能过于复杂，或者说功能的安排有很多方案，那么用户往往会难于在短时间内找到自己想要的功能，就会产生对该软件的「惰性」，也就是不想用这个软件了。比
+如说AutoCAD,3DMax，如果想熟练使用，往往要经过一段时间的学习的。</p>
+<p>ps:这个理论你肯定找不到的，Google也不会有，因为....这是我編出来忽悠继烨、道哥的....很不幸，他们纷纷上当....</p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/natural-theory-of-software/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/the-education-network-ubuntu8-04-source/">Ubuntu8.04的教育网源</a></h2>
                 <div class="summary"><p>Google的话有很多源，北大的宣称5M，结果我都连不上，交大的宣称2M，我发现只有20kb/s，连更新语言包都超级慢。</p>
 <p>最后经过我的测试，是成都电子科技大学的最快，2M左右，推荐使用。</p>
@@ -214,34 +228,6 @@ find action or result</p>
 <p>这么一删，就发现乱码问题解决了。</p>
 <p>呵呵，只要人类还有很多语言，乱码仍然会存在，遇到了不要怕，慢慢调试就出来了</p>
                     <a class="btn btn-default btn-xs" href="/2009/05/battle-of-garbled/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
-                <div class="summary"><p>很多朋友用postviews这个插件，的确很适合国人的风格，但是如果单纯的添加到页面中，会显得很突兀，难看，我做了几个美化工作。</p>
-<p>首先，在用到postviews函数时候都定义span id，比如在single.php中修改，在下面代码</p>
-<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
-</pre></div>
-
-
-<p>后面跟上一段显示浏览次数的代码</p>
-<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
-</pre></div>
-
-
-<p>这样就可以显示浏览次数。</p>
-<p>然后修改style.css文件，我的是inove主题，在382行附近修改</p>
-<div class="highlight"><pre><span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">date</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">author</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">postviews</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editpost</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">comments</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addcomment</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addlink</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editlinks</span> <span class="p">{</span>
-<span class="nl">background:</span><span class="n">url</span><span class="p">(</span><span class="n">img</span><span class="o">/</span><span class="n">icons ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/05/landscaping-postviews/">more ...</a>
                 </div>
             </article>
             <hr/>
