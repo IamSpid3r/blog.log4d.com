@@ -72,6 +72,23 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
+用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
+<p>最后我索性用试所有的表达式</p>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;%{#categoryId}&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;#categoryId&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;%{categoryId}&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+
+
+<p>最后一个果然有效。。。</p>
+<p>貌似记得这是OPGL表达式？****</p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/to-submit-the-issue-of-an-action/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
                 <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
 <p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
@@ -219,16 +236,6 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
 <p>219.149.162.151 2009-4-4 9:39:08 -1 山西省大同市 电信</p>
 <p>219.149.162.151 2009-4-4 9:50:41 ...</p>
                     <a class="btn btn-default btn-xs" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/03/safe-use-of-openssl-api-programming-part-2-security-handshake/">使用 OpenSSL API 进行安全编程，第 2 部分: 安全握手</a></h2>
-                <div class="summary"><p>原文链接：<a href="http://www.i
-bm.com/developerworks/cn/linux/l-openssl2.html">http://www.ibm.com/developerworks/cn/linux/l-openssl2.html</a></p>
-<p>怎么都复制不过来，提示含有敏感字眼，我晕，这是IBM文档库里的啊，崩溃了</p>
-<p>我都不要言论自由，只想保存一些经典的文章而已，河蟹啊````</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/safe-use-of-openssl-api-programming-part-2-security-handshake/">more ...</a>
                 </div>
             </article>
             <hr/>

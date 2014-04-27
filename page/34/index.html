@@ -72,6 +72,20 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/06/gold-user-interface-design-principles/">用户界面设计黄金原则</a></h2>
+                <div class="summary"><p>在《用户界面设计要素》一书（1997）中，T.Mandel提出了3条「黄金」知道规则：</p>
+<ol>
+<li>让用户驾驭软件，而不是软件驾驭用户。那种在给用户的操作加上许多约束和限制的界面虽然设计容易，却往往难学难用。</li>
+<li>尽可能减少用户的记忆。为此可建立易记的快捷键（例如Ctrl+p启动「打印」）；采用演进形式显示「提示」信息，以免要用户一次记忆大量信息。</li>
+<li>保持界面的一致性。例如在同类产品中使用相同的设计规则；尽可能不改变用户已熟悉的操作功能键（例如用Ctrl+S保存文件）；设定界面的缺省状态。
+最近停下了贴吧的下一步开发，恶补软件工程，为下一步开发做理论基础。</li>
+</ol>
+<p>一边啃Rober C.大人写的《敏捷软件开发》。白天都浪迹在考研自习室（很是安静啊），更新变慢，勿怪。</p>
+                    <a class="btn btn-default btn-xs" href="/2009/06/gold-user-interface-design-principles/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/natural-theory-of-software/">软件自然理论</a></h2>
                 <div class="summary"><p>所谓软件自然理论，就是说：一个优秀的软件，他的功能模块设计，应该与用户在完全没有接触过这个系统时候所想要的功能设计一致，用户觉得他想要的功能在什么地方，应该
 怎样实现，那么这个功能就是应该在那里，就是应该这样实现。</p>
@@ -210,24 +224,6 @@ find action or result</p>
 <p>最后，终于在Google找到了一些资料：</p>
 <p><a href="http://huqilong.blog.51cto.com/53638/136802">struts2 json jquery ...</a></p>
                     <a class="btn btn-default btn-xs" href="/2009/05/struts2-in-the-use-of-ajax/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
-                <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
-<p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
-<p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
-<p>一回生两回熟，咱也不怕。</p>
-<p>在Action里面设置logger，输出相应的数据，发现那里就是乱码，说明在Severlet或者Interceptor那里就出了问题。</p>
-<p>仿照上次设置Tomcat字符集，详情见<a href="../2009/05/12238.html">Eclipse中开发的Jave EE项目在Tomcat的部署
-</a>，但是测试发现没有效果。</p>
-<p>接着查看web.xml，发现里面还有Spring的filter，贴吧现阶段还没有加入Spring，删除，有一个编码过滤器org.apache.struts2
-.dispatcher.FilterDispatcher，采用org.apache.struts2.dispatcher.FilterDispatcher可
-以不适用，删除。</p>
-<p>这么一删，就发现乱码问题解决了。</p>
-<p>呵呵，只要人类还有很多语言，乱码仍然会存在，遇到了不要怕，慢慢调试就出来了</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/battle-of-garbled/">more ...</a>
                 </div>
             </article>
             <hr/>

@@ -72,6 +72,36 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2010/03/subversion-multi-repository/">SubVersion建立多个版本库</a></h2>
+                <div class="summary"><p>由于刚接触SVN时间不长，当时建立版本库时候图方便，只建立了一个版本库。现在由于项目需要，需要建立多个版本库，这让我很头疼。经过一番摸索，终于知晓了如何在已
+有单个版本库情况下面建立多个版本库。</p>
+<h2>一、单个库还是多个库？</h2>
+<p><strong><em>*</em></strong><strong><em>*原文链接：<a href="http://www.subversion.org.cn/?action-viewnews-itemid-56">单个版本库还是多个？</a> 作者：rocksun</em></strong><strong><em>*</em></strong>***</p>
+<blockquote>
+<p>我前<a href="http://blogs.open.collab.net/svn/2007/04/subversion_repo.html">一个 blog</a>中讨
+论了版本库的布局，这个条目会尝试回答是选择单版本库单项目还是单版本库存放所有项目的问题，这里没有一个唯一的正确答案，但希望本
+文可以帮助你理解代价，你才可以做出正确的决定来满足你的需求，下面是单版本库方法的优点：</p>
+<ol>
+<li>
+<p>管理简单，只需要部署一组钩子，备份一个版本库等等。</p>
+</li>
+<li>
+<p>分支/标签灵活性，因为所有的代码在一个版本库，这样可以容易的 创建跨多个项目的分支或标签。</p>
+</li>
+<li>
+<p>移动代码更简单。你或许希望把代码从一个项目移动到另一个，或者将其作为多个项目的库，这样可以容易的将 代码在同一个版本库移动，并保持代码的历史。</p>
+</li>
+</ol>
+<p>下面是单版本库的缺点，以及多版本库的优点。</p>
+<ol>
+<li>
+<p>大小。对付多个小版本库会比对付一个大版本库容易，例如你结束了一个项目，你只需要归档版本库到媒介，然后从磁盘删除并释放空间。也许因 为某些原
+因你需要转储 ...</p></li></ol></blockquote>
+                    <a class="btn btn-default btn-xs" href="/2010/03/subversion-multi-repository/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
                 <div class="summary"><h2>注册WebLogic成 windows服务</h2>
 <p>1、执行Domain目录下的 <code>installService.cmd [USER_NAME]
@@ -234,22 +264,6 @@ Windows 资源管理器，新建一个名为 test的文件夹。</p>
 <p>新的一年开始了，祝大家新年快乐，虎年大吉！</p>
 <p>好水的文 :)</p>
                     <a class="btn btn-default btn-xs" href="/2010/02/start-the-new-year/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/">解决WordPress升级后出现Warning: Cannot modify header information - headers already sent by</a></h2>
-                <div class="summary"><p>WordPress 2.9.2升级之后出现一个问题，在一些操作，比如删除垃圾留言、发表新的文章时候会提醒一下的错误。</p>
-<blockquote></blockquote>
-<p>Warning: Cannot modify header information - headers already sent by (output
-started at /home/alswl/public_html/wp-settings.php:1) in
-/home/alswl/public_html/wp-includes/pluggable.php on line 868</p>
-<p>我简单查找了一下，这是一个简单的编码问题，1分钟可以搞定了。</p>
-<p>1.Ftp下载wp-settings.php这个文件，用记事本打开这个文档。</p>
-<p>2.另存为"ANSI"格式的文本。</p>
-<p>3.重新上传覆盖原文件。</p>
-<p>如果还有其他文件出现问题，继续修改编码有问题的文件 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/">more ...</a>
                 </div>
             </article>
             <hr/>

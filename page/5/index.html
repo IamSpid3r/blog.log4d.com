@@ -72,6 +72,31 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2012/03/python-debug/">在Python中调试代码</a></h2>
+                <div class="summary"><p>撰写程序时候，需要在调试上面花费不少时间，好的调试工具可以让这个过程如虎添翼， 靠打 log 调试会是一种很痛苦的过程，我总结一下 Pylons
+开发的调试技巧。</p>
+<p>吐槽：团队开发时候，每个成员需要学习、总结和分享各自的开发技巧， 这样才能自我提升并提高开发效率。这属于团队文化建设，开发是一种艺术创造过程，
+绝对不是简单的复制和粘帖。</p>
+<h2>在 Python 中调试</h2>
+<h3>pdb</h3>
+<p>在代码中加入下列语句即可启用交互式调试。</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">pdb</span><span class="p">;</span><span class="n">pdb</span><span class="p">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+
+
+<p>在 pdb 中，可以使用 <code>h / l / b / n / s / c / j / a / p / ! / q</code> 这些命令所代表的含义可以通过
+<code>h(elp)</code> 打印出来。</p>
+<p>参考链接：</p>
+<ul>
+<li><a href="http://magustest.com/blog/python/use-pdb-debug-python/comment-page-1">用PDB库调试Python程序</a></li>
+</ul>
+<h3>ipdb</h3>
+<p>比 pdb 更好用的是 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2012/03/python-debug/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2012/03/chrome-proxy/">Chrome 独立代理设置</a></h2>
                 <div class="summary"><p>Chrome 在2011年4月份时候，加入了两个新的实验性扩展分支，分别是 Web Navigation Extension API 以及 Proxy
 Extension API， 通过他们，可以让 Chrome 使用自己独立的代理。</p>
@@ -326,23 +351,6 @@ It can create a page action to save images from web to page's attachments.</p>
 <h2>Usage</h2>
 <p>Go into a ...</p>
                     <a class="btn btn-default btn-xs" href="/2011/12/moinmoin-plugin-image2attach/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/12/transfer-vps/">更换VPS</a></h2>
-                <div class="summary"><p>Log4D挂了整整一天，原因是因为VPS扩容导致系统无法启动。</p>
-<p>我使用的VPS是<a href="http://www.photonvps.com/billing/aff.php?aff=2188">PhotonVPS</a>的WARP.25
-套餐。买时候套餐里面硬盘空间是2个G，前几天朋友告诉我新套餐变成了10G。我就发了ticket给客服，他们很快答应帮我升级VPS。我就将数据备份出来，静候升
-级。</p>
-<p>等了半天没反应，又咨询过后才知道新加入的硬盘空间需要重装系统才能启用。好吧，正好我想将CentOS 6换成Arch（Arch用的太顺手了）。</p>
-<p>吭次吭次一阵捣鼓（其实重装系统就按一个按钮而已 ^_^），Arch装好了，然后发现系统无法启动了，悲剧鸟。</p>
-<p>继续咨询客服，恩，这里插播一下，PhotonVPS的客服回复都是英文，但是可以发送中文过去，貌似有翻译助阵（不过英文文档看多了，简单的也能来两句，hiahi
-a）。客服很快确认，Arch在目前VPS无法正常使用，坑爹阿。</p>
-<p>我继续捣鼓，尝试Ubunt/Cent OS，发现都无法启动vps（症状是启动一下下之后立马又变成离线状态）。</p>
-<p>继续找客服，最后客服给我重新分配了vps和ip，问题解决。</p>
-<p>然我我又开始吭次吭次的装软件，最近系统装多了 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/12/transfer-vps/">more ...</a>
                 </div>
             </article>
             <hr/>

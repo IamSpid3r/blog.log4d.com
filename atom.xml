@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-03-30T15:41:43+08:00</updated><entry><title>hiredis 源码学习</title><link href="/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/atom.xml" rel="self"></link><id>/</id><updated>2014-04-13T11:42:47+08:00</updated><entry><title>读《如何高效学习》</title><link href="/2014/04/lean-more-study-less/" rel="alternate"></link><updated>2014-04-13T11:42:47+08:00</updated><author><name>alswl</name></author><id>tag:,2014-04-13:2014/04/lean-more-study-less/</id><summary type="html">&lt;p&gt;&lt;a href="http://book.douban.com/subject/25783654/"&gt;Learn More Study Less（如何高效学习）&lt;/a&gt;
+讲的是作者斯科特·扬如何快速学习的方法和技巧。&lt;/p&gt;
+&lt;p&gt;我在 Kindle 上面阅读了这本书，并用书中的方法学习这本书，顺便做了一些笔记。&lt;/p&gt;
+
+
+&lt;h2&gt;A. 目的&lt;/h2&gt;
+&lt;p&gt;学习「整体性学习」方法，从而快速学习并且将学到的知识更高效合理的利用起来。&lt;/p&gt;
+&lt;p&gt;（所谓聪明，就是指学得更快，而且信息组织非常适合完成自己的目标）。&lt;/p&gt;
+&lt;h2&gt;B. 整体性学习的定义&lt;/h2&gt;
+&lt;p&gt;知识并非孤立，学习任何知识（概念、定义、公式、问题、观念、理论等）都需要联系。&lt;/p&gt;
+&lt;h2&gt;C. 整体性学习的策略&lt;/h2&gt;
+&lt;h3&gt;1. 关键元素&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;建立结构（某个领域内，紧密联系的知识），让其中的知识尽可能多的联系。&lt;/li&gt;
+&lt;li&gt;通用结构：感知结构（视觉、嗅觉、听觉、味觉、触觉）&lt;/li&gt;
+&lt;li&gt;关系结构（群体关系等）&lt;/li&gt;
+&lt;li&gt;基础数学结构&lt;/li&gt;
+&lt;li&gt;时间结构（@alswl 自己横向扩展想到的）&lt;/li&gt;
+&lt;li&gt;利用模型（类似于知识框架和体系以及其他存储方式）&lt;/li&gt;
+&lt;li&gt;高速公路（在不同的结构之间进行联系，激发创造力）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;2. 5 个学习的步骤&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;获取&lt;/li&gt;
+&lt;li&gt;关键：简化、容量、速度&lt;/li&gt;
+&lt;li&gt;理解&lt;/li&gt;
+&lt;li&gt;拓展&lt;/li&gt;
+&lt;li&gt;深度拓展：知识的深度，虽花费时间但有效&lt;/li&gt;
+&lt;li&gt;横向拓展：知识的周边，有相关性的拓展，需要借助模型&lt;/li&gt;
+&lt;li&gt;纵向拓展：跨结构的知识，比喻和内在化是一种手段&lt;/li&gt;
+&lt;li&gt;纠错&lt;/li&gt;
+&lt;li&gt;应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;（@alswl 可以想到软件开发中的需求获取、需求分析、需求挖掘、测试、
+开发这些对应的另外一个软件开发结构中的联系）&lt;/p&gt;
+&lt;h3&gt;3. 5 种信息的类型&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;随意信息：死记硬背，联想法、挂钩法、压缩法&lt;/li&gt;
+&lt;li&gt;观点信息：存在争议的信息，需要检索信息&lt;/li&gt;
+&lt;li&gt;过程信息：多操作就能掌握&lt;/li&gt;
+&lt;li&gt;具体信息：通过感官进行联系（医学）&lt;/li&gt;
+&lt;li&gt;抽象信息：对知识进行简化、抽象和纠错（化学、计算机）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;4. 快速学习的技术&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;获取知识&lt;/li&gt;
+&lt;li&gt;快速阅读：指读法，积极阅读（观点是什么？怎么记住？怎么拓展和运用），一次学会&lt;/li&gt;
+&lt;li&gt;笔记流&lt;/li&gt;
+&lt;li&gt;联系观点&lt;/li&gt;
+&lt;li&gt;比喻&lt;/li&gt;
+&lt;li&gt;内在化：赋予知识情感&lt;/li&gt;
+&lt;li&gt;图表法：流程图、概念图和图像&lt;/li&gt;
+&lt;li&gt;随意信息的处理&lt;/li&gt;
+&lt;li&gt;联想法&lt;/li&gt;
+&lt;li&gt;挂钩法：创造对应和夸张的记忆场景&lt;/li&gt;
+&lt;li&gt;信息压缩法：口诀，笔记压缩&lt;/li&gt;
+&lt;li&gt;知识拓展&lt;/li&gt;
+&lt;li&gt;实际应用&lt;/li&gt;
+&lt;li&gt;模型纠错&lt;/li&gt;
+&lt;li&gt;以项目为目的的学习&lt;/li&gt;
+&lt;li&gt;增加能量储备：运动、睡眠、饮食、饮水&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;D. @alswl 拓展&lt;/h2&gt;
+&lt;p&gt;哈，文中提到了《春风化雨》这部电影，我记得上次《七周七语言》也提到了它，
+决定找个时间去看看了。&lt;/p&gt;
+&lt;p&gt;更广泛的能力定义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发现问题的能力&lt;/li&gt;
+&lt;li&gt;学习的能力&lt;/li&gt;
+&lt;li&gt;时间管理的能力&lt;/li&gt;
+&lt;li&gt;沟通协作的能力&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以立刻开始做起来的方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;指读法&lt;/li&gt;
+&lt;li&gt;将这个学习方法用来学 &lt;a href="http://book.douban.com/subject/5977975/"&gt;数学那些事儿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;睡眠、饮食&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="读书笔记"></category></entry><entry><title>hiredis 源码学习</title><link href="/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
 我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
 所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。&lt;/p&gt;
 &lt;p&gt;Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
@@ -3191,49 +3268,4 @@ Arg: *.txt
 &lt;ul&gt;
 &lt;li&gt;进程间信号通信&lt;/li&gt;
 &lt;li&gt;后台执行程序&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="subprocess"></category><category term="bash"></category><category term="shell"></category><category term="译文"></category></entry><entry><title>面试小记</title><link href="/2012/08/interview/" rel="alternate"></link><updated>2012-08-16T05:46:00+08:00</updated><author><name>alswl</name></author><id>tag:,2012-08-16:2012/08/interview/</id><summary type="html">&lt;p&gt;最近在上海找工作面试，这两天就要出结果了。早晨5点多就醒过来，睡不着觉，
-那就写篇这段时间面试感觉的小记。&lt;/p&gt;
-&lt;h2&gt;选择&lt;/h2&gt;
-&lt;p&gt;我在台风「海葵」登录上海那天离开南京，已经约好了几个面试，
-这几个团队都是我慎重筛选的。招聘消息来源于各大社区：
-&lt;a href="http://python.cn/"&gt;Python-CN 邮件列表&lt;/a&gt; / &lt;a href="http://www.v2ex.com/"&gt;V2EX&lt;/a&gt; /
-&lt;a href="http://ruby-china.org/"&gt;Ruby-China&lt;/a&gt; / &lt;a href="http://www.douban.com/group/"&gt;豆瓣小组&lt;/a&gt;。
-来源于社区的招聘信息会更靠谱，在社区投递的很有可能是直接主管，而不是人事 HR。
-仅仅在 51job 上投放招聘，而不参到社区来的公司，很可能氛围不是那么有活力。&lt;/p&gt;
-
-
-&lt;p&gt;我尽量避免被分散注意力，只选择自己认可的公司，几乎是清一色创业团队。
-个人的精力是有限的，找到最适合自己的是我的核心原则。使用所有手段：「Google /
-社区 / 业内人士咨询 / 微博 / 新闻报道」的方法，
-来了解自己想去团队的产品和文化。来对比公司理念和自己理念的异同，
-自己是否认可一些团队文化，还有创始人和主管的性格和技术取向是否和自己偏差很大。
-有些人会觉得这有偷巧之嫌，但在我看来，这是对双方负责的表现。
-贸贸然的选择，会浪费双方的时间和精力。&lt;/p&gt;
-&lt;p&gt;一个技巧是，可以把自己觉得拿 Offer 可能性大的公司安排在面试前面，
-到时候如果拿一个现场 Offer，对自己的信心是一种极大的鼓励。&lt;/p&gt;
-&lt;h2&gt;准备&lt;/h2&gt;
-&lt;p&gt;面试需要详细的准备，但同时，最长的准备阶段其实是上一份乃至上上份工作历程。
-这个不是通过短短几天能够伪造的。优秀的面试官能通过三言两语来轻松判断出面试者
-平时的工作状态。简历上的文字，仅仅是让面试官找一些发问的方向，
-最大的简历我们一直在书写，也就是面试者本身。&lt;/p&gt;
-&lt;p&gt;在日常工作生活中，对周围的事物保持思考的习惯，热忱并负责对待工作职责，
-不被当下环境僵化，保持学习和创新的能力，这些才是「简历」中需要准备的东西。&lt;/p&gt;
-&lt;p&gt;我喜欢和面试官家常式的聊天，可以放松自己，将自己状态更原生的表现出来。
-我不喜欢笔试和智力测试，它们作用是减少面试成本，但也增加了交流的距离。&lt;/p&gt;
-&lt;h2&gt;天花板&lt;/h2&gt;
-&lt;p&gt;在面试过程中，可能被一些问题问得手足无措，甚至浑身冒冷汗。这其实是好事，
-说明自己在面试官的帮助下撞到天花板了。面试官有责任将面试者的能力上限测试出来，
-如果没测出来，会无法安排合适的岗位，甚至导致在以后工作中无法发挥面试者的全部能力。&lt;/p&gt;
-&lt;p&gt;在碰到天花板时候，我的经验是不要急，尽量老实诚恳地回答。有些面试官不喜欢打太极，
-很直接了当，有些面试官则会观察在这种情况下面的应急能力。依据不同的人，
-用不同的方式做出诚实的回答。&lt;/p&gt;
-&lt;p&gt;能发现自己的天花板或者短板，对成长也是非常有帮助的。
-所以面试过程不但是对个人的考验，也是向前辈学习的机会
-（好好使用「你有什么问题要问我么？」这个问题），还是对自身进行总结，
-对行业进行思考，寻找自己瓶颈的过程。&lt;/p&gt;
-&lt;h2&gt;机会&lt;/h2&gt;
-&lt;p&gt;在合适的时间，以合适的状态，加入合适的团队，这是我对机会的理解。
-个人只能给机会做「状态」准备，而无法改变这种如同命运丝线般的交叉。&lt;/p&gt;
-&lt;p&gt;谁都不知道下次有没有更好的机会出现。尝试抓住这种交叉，就是把握住时机了。
-然后就是全力以赴，做到最好。&lt;/p&gt;
-&lt;p&gt;暂时就想这么多啦，没更多干货了，小菜鸟的上海生活即将开始。&lt;/p&gt;</summary></entry></feed>
+&lt;/ul&gt;</summary><category term="subprocess"></category><category term="bash"></category><category term="shell"></category><category term="译文"></category></entry></feed>
