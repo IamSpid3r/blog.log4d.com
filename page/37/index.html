@@ -72,6 +72,19 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
+                <div class="summary"><p>寒假就发现自己的那个网站能被万能asp密码攻破，还留了一句"网站有漏洞，请加强防护"</p>
+<p>当时不知道什么造成漏洞，就写了一个ipTrace来跟踪ip</p>
+<p>前段时间打开ipTrace一看，有这么多用户非法登录</p>
+<p>61.51.177.16 2009-4-4 9:02:40 -1 北京市 网通(崇文区)</p>
+<p>58.251.77.207 2009-4-4 9:27:39 -1 广东省深圳市 网通</p>
+<p>219.149.162.151 2009-4-4 9:39:08 -1 山西省大同市 电信</p>
+<p>219.149.162.151 2009-4-4 9:50:41 ...</p>
+                    <a class="btn btn-default btn-xs" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/03/safe-use-of-openssl-api-programming-part-2-security-handshake/">使用 OpenSSL API 进行安全编程，第 2 部分: 安全握手</a></h2>
                 <div class="summary"><p>原文链接：<a href="http://www.i
 bm.com/developerworks/cn/linux/l-openssl2.html">http://www.ibm.com/developerworks/cn/linux/l-openssl2.html</a></p>
@@ -220,25 +233,6 @@ BIO 库来建立安全连接和非安全连接。与此同时，您还会学到�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/03/using-openssl-to-create-certificates-using-the-command/">用OpenSSL创建证书时用到的命令【原创】</a></h2>
-                <div class="summary"><p>这几天在弄OpenSSL需要使用的证书，翻了很多文档，找来一《本OpenSSL与网络信息安全-
-基础、结构和指令》，书上的密码学和OpenSSL的基础介绍的很详细，但是缺少一些实例。</p>
-<p>这证书死活做不出来，最后在《计算机网络高级软件编程技术》上第19章"利用OpenSSL实现安全的Web Server"中找到自己需要的内容，现在分享一下。</p>
-<p>1.生成CA中心的私钥</p>
-<blockquote>
-<p>openssl req -newkey rsa:1024 -sha1 -keyout rootkey.pem -out rootreq.pem</p>
-</blockquote>
-<p>2.生成CA中心的自签证书</p>
-<blockquote>
-<p>openssl x509 -req -in rootreq.pem -sha1 -extensions v3_ca -days 365 -signkey
-rootkey.pem -out rootcert.pem</p>
-</blockquote>
-<p>3 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/using-openssl-to-create-certificates-using-the-command/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/36/">&laquo;</a>
@@ -264,6 +258,11 @@ rootkey.pem -out rootcert.pem</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

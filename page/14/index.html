@@ -72,6 +72,26 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2010/06/ie-xml-cache-problem/">IE XML 缓存问题</a></h2>
+                <div class="summary"><p>明天开始上交毕业设计初稿，其中有一节是遇到的问题和解决办法。我把平时在BooguNote 中的琐碎片段整理出来，便有了此文。</p>
+<p>PS:之前已经有过3篇相关毕设的文章：</p>
+<p>[CakePHP的全局变量</p>
+<p>](http://log4d.com/2010/05/cakephp-global-variables)</p>
+<p>[FMS的80端口占用</p>
+<p>](http://log4d.com/2010/05/fms-80-port-used)</p>
+<p>[SWFObject 一款JavaScript的Flash检测与插入模块</p>
+<p>](http://log4d.com/2010/05/swfobject)</p>
+<p>---- 正文开始 ----</p>
+<h2>问题背景</h2>
+<p>系统要实现一个操作，即每次向同一个url 请求一个GET方法获取一个xml文件，这个xml文件记录着聊天数据并且是即时生成的。当用FireFox或者Chro
+me请求时候都能获得正确的数据，而IE则常常出现无法获取实时的XML数据。</p>
+<p>而如果在地址栏中填入 http://localhost/AzaAjaxChat/src/Chat/getXml?messageId=41
+这个原始的XML文件地址，就可以获取正确的XML文件。并且在下次IE ...</p>
+                    <a class="btn btn-default btn-xs" href="/2010/06/ie-xml-cache-problem/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2010/05/kick-ass-ring/">海扁王铃声</a></h2>
                 <div class="summary"><p>好几天没更新博客了，最近在论文和代码中挣扎，粗略估计，这个月来用的语言有PHP, Flex, C#(Socket 编程), ASP.net,
 Java，蛋疼啊～</p>
@@ -257,27 +277,6 @@ d。Hibernate和iBatis有各自的适合使用的领域，不能单纯的说谁�
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/recently-read-books/">最近在看的书</a></h2>
-                <div class="summary"><p>最近还没有清闲下来，虽然手头有一堆读书笔记，但是进度还不足以把那些琐碎的语句分享给大家。索性直接给大家推荐几本我现在在读的书。</p>
-<h3>改变千万人生的一堂课 <a href="http://www.douban.com/subject/1156891/">@douban</a></h3>
-<p><img alt="" src="http://t.douban.com/mpic/s1429078.jpg" /></p>
-<p>说来惭愧，这本书我从09年12月份开始看，至今才看了2/3。本书是典型的美国式励志书籍风格，鼓舞人心的话语夹杂着一些成功人士的实例。虽然这本书在知名度上可能
-不如卡耐基系列，可是书中的话语娓娓道来，平淡却耐听。当心情低落时候，默读几句，心中就会生出一股被鼓舞的勇气。</p>
-<h3>&amp;nbsp_place_holder;走出软件作坊</h3>
-<p><a href="http://book.douban.com/subject/3319935/">@douban</a></p>
-<p><img alt="" src="http://img2.douban.com/mpic/s4026944.jpg" /></p>
-<p>这本书是一本很适合国情的项目管理类书籍。所谓国情，就是开发不正规，作坊式工作，项目管理一塌糊涂，代码质量差，不适合持续性开发。</p>
-<p>以我现在的工作阅历，还不足以体会到书中所有精髓，有些地方没有亲身经历过，就不能清晰的把握到要点。不过读过之后，还是能模模糊糊地感觉到就现在自身所处的开发环境
-，有些东西是值得改进的，也找到一些改进的方法。</p>
-<h3>JavaEye+InfoQ月刊</h3>
-<p>JavaEye和InfoQ就不用多介绍了，这两个网站都会在每月出一份类似于精华帖的月刊。InfoQ面对的是架构师级别（本身月刊的名字就叫《架构师》），Jav
-aEye的月刊就几乎包含了整个IT领域的各个方面。</p>
-<p>在买不到CSDN的月刊的地方，每个月读一读这两本月刊，跟进一下主流技术，展望一下发展路线 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/04/recently-read-books/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/13/">&laquo;</a>
@@ -303,6 +302,11 @@ aEye的月刊就几乎包含了整个IT领域的各个方面。</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

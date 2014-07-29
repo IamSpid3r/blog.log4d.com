@@ -72,6 +72,22 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
+<p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
+<p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
+find action or result</p>
+<p>There is no Action mapped for namespace / and action name AjaxLogin. -
+[unknown location]</p>
+<p>我整整找了一个多小时，曾以为是action name的问题或者是package name, package namespace
+的问题，为此我特意重新学习了一下他们的使用方法，但是仍然没有效果。</p>
+<p>最后，终于在Google找到了一些资料：</p>
+<p><a href="http://huqilong.blog.51cto.com/53638/136802">struts2 json jquery ...</a></p>
+                    <a class="btn btn-default btn-xs" href="/2009/05/struts2-in-the-use-of-ajax/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
                 <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
 <p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
@@ -243,20 +259,6 @@ operty value="#request.loginNames" />使可以正常使用！</p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
-                <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
-<p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
-里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
-<p>本来想在result中加入param元素而不是在url后面加 ？categoryId=0来实现，但是尝试了好久，Google和官方文档都没有什么解决方案</p>
-<p>其中遇到的一个问题是「&amp;」这个符号不能直接使用，需要进行转义，用「&amp;」来替代。</p>
-<p>最后是categoryName的问题了，本来以为很简单，却遇到了编码问题，之前从Home.action转到Category.action能正确编码，像 ht
-tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F%B
-3%E4%B9%90 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/garbled-see-also-garbled/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/34/">&laquo;</a>
@@ -282,6 +284,11 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C
