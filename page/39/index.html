@@ -72,6 +72,51 @@
     <div class="row">
         <div class="col-lg-9">
             <article>
+                <h2><a href="/2009/02/ajax-started-use-dom-to-resolve-xml/">Ajax起步：使用DOM解析XML</a></h2>
+                <div class="summary"><p>只要代码没问题，基本上就没有问题，唯一值得注意的是虽然是html文档，但是如果想使用dom解析xml，还是必须使用服务器的，否则XMLHttpRequest
+返回的status就是0了。</p>
+<p><em>XML语言</em>: <a href="http://www.fayaa.com/code/view//">studentdata.xml</a></p>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<p><classmates></p>
+<p><student></p>
+<p><sid>0371</sid></p>
+<p><sname>张三</sname></p>
+<p><sage>17</sage></student><student></p>
+<p><sid>0372</sid></p>
+<p><sname>李四</sname></p>
+<p><sage>18</sage></student><student></p>
+<p><sid>0373</sid></p>
+<p><sname>王五</sname></p>
+<p><sage>18</sage></student></classmates></p>
+<p><em>HTML语言</em>: <a href="http://www.fayaa.com/code/view//">domxml.html</a></p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<p><html></p>
+<p><head></p>
+<p><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></p>
+<p><title>使用DOM解析XML</title></p>
+<script type="text/javascript" src="domxml.js"></script>
+
+<p></head></p>
+<p><body></p>
+<form>
+
+<input type="button" value="解析XML" color: rgb(170,85,0)>"sendRequest();"/>
+
+</form>
+
+<p></body></p>
+<p></html></p>
+<p><em>JavaScript语言</em>: <a href="http://www.fayaa.com/code/view//">domxml.js</a></p>
+<p>var XMLHttpReq;</p>
+<p>var url = "studentdata ...</p></?xml>
+                    <a class="btn btn-default btn-xs" href="/2009/02/ajax-started-use-dom-to-resolve-xml/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
                 <div class="summary"><p>在Eclipse中新建JSP页面时候，<strong>contentType="text/html; charset=utf-8"</strong>,
 <strong>pageEncoding="utf-8"</strong>, <strong>content="text/html; charset=utf-8"</strong>， 这样连中文字都无法保存
@@ -200,23 +245,6 @@ SP网站的建设和繁重的考试，把那本书放下了。</p>
 <p>好一个侯捷</p>
 <p>我不敢说和侯捷这种Program大家有相同层次的想法，可是，从《深入浅出MFC》到《Word排版艺术 ...</p>
                     <a class="btn btn-default btn-xs" href="/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2008/12/office-of-the-art-publishing-long-documents/">Office长文档排版的艺术</a></h2>
-                <div class="summary"><p>虽然最近考试不断，我仍然花了很多时间在Office上</p>
-<p>准确的说，实在Office的Word2003排版上</p>
-<p>图书馆的Office相关书籍都略微翻了一点，感觉都比较入门，没有从整篇文章排版的角度说，有一本Sybex翻译过来的《Office商务应用》，则是偏向于公司的
-日程组织和全局安排，而不是我想要的长文档排版问题。</p>
-<p>网上搜寻很久，找到一本《McGraw.Hill.How.to.Do.Everything.with.Microsoft.Office.2003.eBook-
-DDU》PDF格式的书籍，讲的很好，一上来就要从大纲视图来安排文章结构，很合我心意但，可惜是英文...</p>
-<p>功夫不负有心人，终于找到一篇来自微软客户帮助和支持中心的官方长文档排版说明，网址是</p>
-<p><a href="http://support.microsoft.com/kb/890700/zh-cn/">http://support.microsoft.com/kb/890700/zh-
-cn</a></p>
-<p><a href="http://support.microsoft.com/kb/890701/zh-cn">http://support.microsoft.com/kb/890701/zh-
-cn ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2008/12/office-of-the-art-publishing-long-documents/">more ...</a>
                 </div>
             </article>
             <hr/>

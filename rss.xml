@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 23 Jul 2014 23:19:50 +0800</lastBuildDate><item><title>在 Raspberry Pi 上使用 AirPlay</title><link>/2014/07/raspberrypi-airplay/</link><description>&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>/</link><description></description><atom:link href="/rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 11 Aug 2014 21:07:29 +0800</lastBuildDate><item><title>痛快活</title><link>/2014/08/life-with-pain/</link><description>&lt;p&gt;上个月回家，在亲戚家里和侄子聊天，他刚从大学毕业，在家人的帮助下面找了算是对口的工作，对工作之后的状态有一些茫然，看不到前途和未来，我问了一个问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;你平时是怎么面对困难和挑战的？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;犹豫了一会儿，他告诉我：「大部分时间都是逃避掉困难」。&lt;/p&gt;
+&lt;p&gt;这个问题反而让我自己开始思考：面对困难的时候，为什么更倾向于逃避，而不是挑战和面对？&lt;/p&gt;
+&lt;h2&gt;困难和逃避&lt;/h2&gt;
+&lt;p&gt;想要一点点对这个问题抽丝剥茧，要做的第一步就是，来定义「困难」和「挑战」。这两个词都意味着，面临的事情可能超出处理者当前的能力范畴。比如让一个游泳初学者去横渡长江，让一个厨师学徒工去做满汉全席，让一个幼儿去思索人生的意义，或者让一个工程师去管理一个技术团队。&lt;/p&gt;
+&lt;p&gt;逃避可以让当事人避免处理不擅长的事情，不会面临各种碰壁，不会带来灾难，不会给自己带来痛苦，不会在结果不优秀时候受到嘲笑和讥讽。
+另外，从技术和实施的角度看，面临不了解或不擅长的领域和事情，也会有无从下手的困苦。&lt;/p&gt;
+&lt;p&gt;「好人不长寿，王八活千年」这句谚语也标榜着这种逃避态度。枪打出头鸟，所以只要保持自己低调和保守，不接受挑战，即可以安安稳稳了么？&lt;/p&gt;
+&lt;h2&gt;野心和痛苦&lt;/h2&gt;
+&lt;p&gt;我发现，在井陉任务管理时候，给予的任务往往会高于执行者的当前能力一点点。原因有二。&lt;/p&gt;
+&lt;p&gt;第一，个人所在的组织在发展，面临的挑战一定高于当前的组织能力上限，而这个挑战就会分摊到每个人身上。&lt;/p&gt;
+&lt;p&gt;如果所在的团队在挑战更高的目标，那在里面的员工如何能置身事外？除非加入的团队是没有进取的意愿，或者是铁饭碗（垄断企业）。&lt;/p&gt;
+&lt;p&gt;第二，个人也需要发展，团队管理者需要考虑到每个成员自身的发展，而不能仅仅给予在当前能力范围的工作。从短期效率上来看，当然是熟悉和在能力范围内的工作可以更快速稳定完成，风险比较小。但是从长期来看，团队的新人能力无法得到提升。整个团队的发展受到限制。&lt;/p&gt;
+&lt;p&gt;所以，只要所处的组织是在发展的，每个人都会有比当前能力要求高的挑战。不接受的人就会被其他成长更快的人超越，甚至是取代。上学时候，我们就知道：「学习如逆水行舟，不进则退」。不是自己不进步，而是别人跑的太快。学校如此，社会更是如此。安于现状，不思考变化和成长的人，会被淘汰的越来越快。&lt;/p&gt;
+&lt;p&gt;除了外部的要求，从当事人内心自发产生的欲望是更有价值的。Nothing is impossible for a willing heart，这就是我们所说的驱动力，驱动力的强弱和方向，直接决定一个人事业生涯的发展高度和速度。&lt;/p&gt;
+&lt;p&gt;我个人是不喜欢「逃离北上广」这种论调的（自然环境的因素另当别论）。在压力和挑战下面，更应当激发自身的潜力、梦想和野心。即便是逃离到二线、三线城市，仅仅是将这种个体之前进步速率的差异值降低而已。如果思想是保守和逃避的，到哪里都是一样的。&lt;/p&gt;
+&lt;p&gt;活着就需要面对挑战，挑战是痛苦的，成长又是快乐的。所以，痛快活。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Mon, 11 Aug 2014 21:07:29 +0800</pubDate><guid>tag:,2014-08-11:2014/08/life-with-pain/</guid><category></category></item><item><title>在 Raspberry Pi 上使用 AirPlay</title><link>/2014/07/raspberrypi-airplay/</link><description>&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
 已经忘了是从那里得知这个东西。这个卡片大小的电路板是可以运行
 Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a href="http://geekon.geekstack.org/"&gt;南京极客行动&lt;/a&gt;
 时候，Michael 好像还拿了一个板子参加比赛。&lt;/p&gt;
@@ -2532,64 +2551,4 @@ pgfouine 来分析，这里可以看到 &lt;a href="https://gist.github.com/2307
 &lt;p&gt;KuKu 中比较有趣的地方是，用了 &lt;a href="http://foundation.zurb.com/"&gt;Foundation&lt;/a&gt; 这个流式 Web 前端框架，
 用了 &lt;a href="http://www.zurb.com/playground/foundation-icons"&gt;Foundation Icons Fonts&lt;/a&gt;，将 js 库全部托管在 &lt;a href="https://developers.google.com/speed/libraries/"&gt;Google Hosted Libaries&lt;/a&gt;
 和 &lt;a href="http://cdnjs.com"&gt;cdnjs&lt;/a&gt; 上。&lt;/p&gt;
-&lt;p&gt;这篇文章我看着都觉得水。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 18 Nov 2012 22:31:00 +0800</pubDate><guid>tag:,2012-11-18:2012/11/kuku/</guid><category>kuku</category><category>web.py</category><category>OpenSource</category><category>coffee-time-project</category><category>Foundation</category></item><item><title>PyCon 2012 见闻</title><link>/2012/10/pycon-2012/</link><description>&lt;p&gt;PyCon 是 Python 领域最著名的技术会议，从 2011 年开始，中国区开始举办自己的
-PyCon 大会。这次 PyCon 2012 分成两个场地同时进行，北京和上海，
-并且在网上提供同步转播，各地也有组织线下收看的。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="PyCon Logo" src="http://upload-log4d.qiniudn.com/2012/10/PyConChina2012.png" /&gt;&lt;/p&gt;
-&lt;p&gt;去年时候我很遗憾的不能跑到上海来参加，现在我人就在上海，
-怎能错过 Pythoner 的饕餮大餐呢？早就眼巴巴的买票准备参加了。&lt;/p&gt;
-
-
-&lt;p&gt;上海这边的主题如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;《Python 产品构建与发布指南》- 沈崴&lt;/li&gt;
-&lt;li&gt;《实战游戏客户端》 - 林伟&lt;/li&gt;
-&lt;li&gt;《让程序运行更快》- 李小红&lt;/li&gt;
-&lt;li&gt;《演进或革命 - 选型和架构的实践经验谈》 - 潘俊勇&lt;/li&gt;
-&lt;li&gt;《网游开发中的 Python 组件》- 赖勇浩&lt;/li&gt;
-&lt;li&gt;《自动化即时战斗游戏解决方案》 - 王健&lt;/li&gt;
-&lt;li&gt;《人人可以化半小时开发一个全功能OpenERP模块》 - Tony Gu&lt;/li&gt;
-&lt;li&gt;《元编程在redis orm中的应用》 - 许智翔&lt;/li&gt;
-&lt;li&gt;《OpenERP即将推出的第7版的功能和新的编程框架介绍》- Eric Caudal&lt;/li&gt;
-&lt;li&gt;《Python如何帮助「逆转三国」获得成功》- 车蕙怡&lt;/li&gt;
-&lt;li&gt;《Pyramid Web Framework for Advanced Web Applications》- 黄峥峼 （Mark Huang）&lt;/li&gt;
-&lt;li&gt;《用Tornado开发RESTful API应用》- 飞龙非龙&lt;/li&gt;
-&lt;li&gt;《NOSQL和MySQL在django上的混合使用》- 黄昶&lt;/li&gt;
-&lt;li&gt;《网页游戏的跨界开发》 - 董诣&lt;/li&gt;
-&lt;li&gt;《阿里云之移动开发者上云》 - 刘飞&lt;/li&gt;
-&lt;li&gt;《使用 Python 和 Django 建设维护学校门户》- 于夏桥 &lt;/li&gt;
-&lt;li&gt;《python在linux运维中的应用》 - 吴晗&lt;/li&gt;
-&lt;li&gt;《用Python替换C代码——A Python Successful Story》- Adieu（刁立知）&lt;/li&gt;
-&lt;li&gt;《 Python in Gentoo Linux》- Patrick Lauer&lt;/li&gt;
-&lt;li&gt;《基于nova的自动扩展和负载均衡》- 刘明华&lt;/li&gt;
-&lt;li&gt;《用myTestCase模块来做python的UT》- 陈钢&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我最喜欢的是 &lt;a href="http://shell909090.com/blog/"&gt;许智翔（shell）&lt;/a&gt; / 沈崴 / 林伟 / 黄峥峼 / 李小红 / 赖勇浩
-的 Topic。其中尤其是沈崴关于输入处理的准则，解开我一个很久的疑惑。
-沈崴这个 &lt;a href="http://www.slideshare.net/wilhelmshen/py-art"&gt;Python 编程艺术&lt;/a&gt; 是赖勇浩提到的幻灯片，强烈推荐观看。&lt;/p&gt;
-&lt;p&gt;shell 的博客我一直在关注，也列入了我的 GR 「tag-必读」中，
-这次听了他关于「元编程」的黑魔法，我也很有收获，而且他是个很有趣的人，
-把 Topic 讲的很生动。&lt;/p&gt;
-&lt;p&gt;我用 Pylons 一年多，所以对 Pyramid 有一种天然好感，可惜一直可机会去学习，
-黄峥峼的 Topic 讲了很多关于 Pyramid 的东西，也很值得一看，
-潘俊勇对 Pyramid 的来源补充也非常详细，果然是高手啊。&lt;/p&gt;
-&lt;p&gt;本来还想听王捷讲一讲 &lt;a href="http://www.shanbay.com/"&gt;扇贝网&lt;/a&gt; 的 Django，可惜他居然去北京做 Topic，
-我勒个去，要知道扇贝网可是在南京。王捷也是 NJLUG 成员，
-下月他们还将提供 NJLUG 会场，一直没有机会见到，蛮可惜的。
-而且他们也是用的 Django，现在遇到一些性能瓶颈，
-讲座内容应该有很多值得学习，只能一会去看视频了。&lt;/p&gt;
-&lt;p&gt;比较广告的就是「逆转三国」和「阿里云」的 Topic 啦，赞助商嘛，大家懂的。&lt;/p&gt;
-&lt;p&gt;上一些拍的照片：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="主持人开场" src="http://upload-log4d.qiniudn.com/2012/10/2012-10-20-09.16.05.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;主持人开场，这位主持应该是 Intridea 的 Ruby 程序员，哈哈。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="shell 在讲黑魔法" src="http://upload-log4d.qiniudn.com/2012/10/2012-10-20-14.06.18.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;shell 在讲黑魔法&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Day 1 的圆桌" src="http://upload-log4d.qiniudn.com/2012/10/2012-10-20-16.54.39.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;Day 1 的圆桌&lt;/p&gt;
-&lt;p&gt;&lt;img alt="赖勇浩和沈葳" src="http://upload-log4d.qiniudn.com/2012/10/2012-10-21-09.58.48.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;赖勇浩和沈葳&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Day 2 的圆桌" src="http://upload-log4d.qiniudn.com/2012/10/2012-10-21-17.48.42.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;Day 2 的圆桌&lt;/p&gt;
-&lt;p&gt;虽然 Python CN 邮件列表中有人反应今年不如去年质量高，我没有看过去年的 PyCon，
-但是觉得今年的还是很不错，学到了很多东西，也见到了很多牛人真身。
-一会准备把去年的 &lt;a href="2011"&gt;PyCon 2011&lt;/a&gt; 也学习一下。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 21 Oct 2012 21:15:00 +0800</pubDate><guid>tag:,2012-10-21:2012/10/pycon-2012/</guid><category>PyCon</category></item></channel></rss>
+&lt;p&gt;这篇文章我看着都觉得水。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 18 Nov 2012 22:31:00 +0800</pubDate><guid>tag:,2012-11-18:2012/11/kuku/</guid><category>kuku</category><category>web.py</category><category>OpenSource</category><category>coffee-time-project</category><category>Foundation</category></item></channel></rss>
