@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/01/oracle-pl-sql-coding-standards/">Oracle PL/SQL编程规范</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/01/oracle-pl-sql-coding-standards/">Oracle PL/SQL编程规范</a></h2>
                 <div class="summary"><p>学习PL/SQL不可避免遇到规范的问题，这里转载一篇比较精的文章。</p>
 <p>当然，各个公司和个人有自己的风格和规范，甚至Oracle官方的教程代码也没有完全遵守这些规则，这里只是一个推荐和介绍。</p>
 <p>来源：<a href="http://database.51cto.com/art/200907/138973.htm">Oracle PL/SQL编程规范指南 -
@@ -85,13 +85,17 @@ IT民工杂谈</a></p>
 <p>关键字(<code>BEGIN</code>, <code>EXCEPTION</code>, <code>END</code>, <code>IF THEN ELSE</code>,<code>LOOP</code>, <code>END
 LOOP</code>)、数据类型(<code>VARCHAR2</code>, <code>NUMBER</code>)、内部函数(<code>LEAST</code>,
 <code>SUBSTR</code>)和用户定义的子程序(<code>procedures</code>, <code>functions</code>,<code>packages</code>)，使用大写 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/01/oracle-pl-sql-coding-standards/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/01/oracle-pl-sql-coding-standards/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -108,6 +112,11 @@ LOOP</code>)、数据类型(<code>VARCHAR2</code>, <code>NUMBER</code>)、内部
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

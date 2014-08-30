@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,34 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/08/auto-clean-input/">简单输入提示框实现</a></h2>
+                <div class="summary"><p>早期的输入框提示是这样的（via <a href="http://tieba.baidu.com/index.html">baidu</a>）</p>
+<p><img alt="tieba" src="http://upload-log4d.qiniudn.com/2011/08/login1.png" /></p>
+<p>左边一个 label ，右边一个输入框。</p>
+<p>比较现代的方式是（via <a href="http://www.discuz.net/">Discuz!</a>）</p>
+<p><img alt="discuz!" src="http://upload-log4d.qiniudn.com/2011/08/login2.png" /></p>
+<p>更漂亮的方式是（via <a href="http://www.diandian.com/login">点点</a>）</p>
+<p><img alt="diandian" src="http://upload-log4d.qiniudn.com/2011/08/login_diandian.png" /></p>
+<p>登录提示信息是放在输入框里面，可以减少文字干扰，我也想在自己手头的小项目中实现这种效果。</p>
+<p>我需要达到几个要求：</p>
+<ol>
+<li>提示信息是可以暂存的，即用户的输入在清空之后，还能够显示原来的提示信息</li>
+<li>只需为 text / textarea 添加一个 class 即可实现效果</li>
+<li>不修改 DOM 节点，避免影响上下文选择器</li>
+</ol>
+<p>为了实现效果，我需要将提示信息暂存到某个地方。有3个地方可供选择： js 全局变量、输入框自定义属性、上下文 DOM 节点。</p>
+<p>js 全局变量比较难控制元素标识，并不是每个元素都可以精准的用 id 标记；输入框自定义属性会破坏语义；在上下文加入节点会破坏 DOM 树。</p>
+<p>权衡之后，我选择了使用 输入框自定义属性实现 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/08/auto-clean-input/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
                 <div class="summary"><p>在url中使用中文其实是一个坏习惯，会带来一系列的转码问题， 我更喜欢英文译名或者id来标识某个uri。但是现实往往是残酷的，
 特别是在我们调用别人服务时候，有时候被逼无奈使用中文URL。</p>
 <p>Python中unicode转码一向是让人头疼的问题。数次碰壁之后，我也摸出了一些门道，
@@ -83,12 +108,14 @@
   <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">126</span><span class="p">,</span> <span class="k">in</span> <span class="nx">urlopen</span>
     <span class="k">return</span> <span class="nx">_opener.open</span><span class="p">(</span><span class="nb">url</span><span class="p">,</span> <span class="kd">data</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
   <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/06/urllib2-urlopen-unicode/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/06/urllib2-urlopen-unicode/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/03/plrcmatch4d/">历史记录-歌词复制器</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/plrcmatch4d/">历史记录-歌词复制器</a></h2>
                 <div class="summary"><p>之前写过一个Java的小工具叫做Mp3Lrc歌词复制器，用来复制歌词到Mp3播放器中的对应目录下面。之前的文章参见<a href="http:/
 /log4d.com/2009/05/the-executable-file-
 mp3lrc">Mp3Lrc的可执行文件</a>和<a href="http://log4d.com/2009/05/lyrics-written-in-java-
@@ -100,12 +127,14 @@ replicator-mp3">Java写的Mp3歌词复制器</a>。</p>
 log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
 <p>界面比较实在，大致是这样：</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2011/03/plrcmatch4d.jpg" /></p>
-                    <a class="btn btn-default btn-xs" href="/2011/03/plrcmatch4d/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/plrcmatch4d/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/02/no-silver-bullet/">没有银弹</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/no-silver-bullet/">没有银弹</a></h2>
                 <div class="summary"><p>最近为工作中和学习中遇到一些问题而发愁，夜不能寐，做梦都在寻求方法。</p>
 <p>问题简单的来说，就是开发过程中遇到很多本觉得不该遇到的问题，比如数据关系在数据表的设计，比如说自动化测试无法接入，ORM接入设计，开发流程如何优化，Web标
 准性问题等等。我罗列了大约30条会导致开发效率降低的因素，也一直在思考怎么解决他们，如果让我来设计他们，会用什么方式来提高效率，让系统更优美。</p>
@@ -113,12 +142,14 @@ log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
 cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意识到自己太过于追求一步到位了。</p>
 <blockquote>
 <p>Brooks 认为，附加性的困难会随着工具的改善而逐渐淡化，反而是本质性的困难最难以解决 ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2011/02/no-silver-bullet/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/no-silver-bullet/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
                 <div class="summary"><p>从Louis Han那里看到一篇文章介绍了一个适合宅男的网站，想想我自己宅属性日益增加，就抄文推广一下。</p>
 <p>-Update 20110113</p>
 <p>收到男人袜客服的来信，说我文章"我们发现您的文章基本上是引用的网站内容，建议您用自己的文字来评价一下我们的网站或服务。"，我郁闷了一下，回了一封信说我还没体
@@ -131,12 +162,14 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 会定期收到寄送的新袜子，新袜子会根据您所在的季节和天气情况自动调整。</p>
 <p><img alt="" src="http://api.photoshop.com/v1.0/accounts/2ef56cf9f72d4754b1f9e2fe822f3cd4/as" title="sets/0d9ebac746f24207ab6c07fd9af3b955" /></p>
 <p>男人袜标准套装是<a href="http://nanrenwa.com/plans">每 3 个月寄送一次</a>。如果您希望更灵活的寄送方式，可以选择我们的自选套装，来自由的 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/01/nanrenwa-try/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/nanrenwa-try/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/12/half-year/">半年</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/12/half-year/">半年</a></h2>
                 <div class="summary"><p>去年10月份时候，进入了一家做信息化的上市公司，带着对未来的憧憬奔向了广州，半年中，历经数个小项目，发现其实是小作坊开发模式。虽说能学到一些编程之外的东西，
 但毕竟不是系统的开发模式，今年5月回了学校就辞职了。</p>
 <p>7月份时候，工作机会似乎已经趋向饱和，我急急忙忙拿了一份Offer，从事.net的企业信息化开发。虽然我志在Web
@@ -146,24 +179,28 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <p>从事.net开发之后，才感觉到Java开发的各种好处：各种开放的框架提供了自由选择发挥的平台，实现一种需求的方法有N+1种方式，并且能够跟进较新的技术，满足
 自己学习的渴望。.net虽然也很强大，但我总觉得微软提供的工具想让开发人员傻瓜化（在ASP.NET MVC出来之前，Web Form的开发模式让我很不爽）。</p>
 <p>公司的Web产品只能在IE6下运行 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/12/half-year/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/12/half-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/12/cook/">脑袋大，脖子粗~</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/12/cook/">脑袋大，脖子粗~</a></h2>
                 <div class="summary"><p>不是大款就伙夫~</p>
 <p>昨天几个同事过来玩，我就下厨做菜了，哈哈，上两张图。</p>
 <p><img alt="原料哈" src="http://upload-log4d.qiniudn.com/2010/12/cook1.jpg" /></p>
 <p><img alt="大功告成" src="http://upload-log4d.qiniudn.com/2010/12/cook2.jpg" /></p>
 <p>依次为：油面筋掐肉、番茄鸡蛋、韭黄鸡蛋、地三鲜、红烧鱼、番茄酱黄瓜，还有一个煨的排骨汤没端上来~累死我了~从来没烧过这么多菜~</p>
 <p>话说地三鲜原来这么麻烦，在文静童鞋指导下面，依次食材过油，费了将近半小时才弄好~</p>
-                    <a class="btn btn-default btn-xs" href="/2010/12/cook/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/12/cook/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/08/taishan/">泰山顶上挨过冻</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/taishan/">泰山顶上挨过冻</a></h2>
                 <div class="summary"><p>这是我在整理KMS时候翻出来的一篇箱底文章，2007年10月3日写的，印象中当时发在QQ空间了。</p>
 <p>记忆一下子被打开，想起那些熟悉的面容，原来我们都毕业了。</p>
 <p>你们还好吗？</p>
@@ -179,12 +216,14 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2010/08/taishan02.jpg" /></p>
 <p>孔子家是门口的招牌</p>
 <p>曲阜感觉是个比较小的城市，而且比较搞笑的是当地政府为了保持曲阜古香古色的味道，强制每家店铺必须要用深色褐色做招牌背景，而且不允许图片，于是 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/08/taishan/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/taishan/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/08/teachers/">一路走来，师恩难忘</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/teachers/">一路走来，师恩难忘</a></h2>
                 <div class="summary"><p>毕业答辩的最后一天，我以AzaAjaxChat聊天系统完成答辩。在走下答辩桌之后，得知自己成绩是3个优秀，我长嘘一口气，这个成绩终于给自己的大学生活划上了最
 后一个比较完美的句号。总算没有对不起自己喜爱的计算机专业。</p>
 <p>晚上是和灵动工作室的同学们、系主任杨老师和工作室负责人孙老师一起聚会的，回来的路上，我一直在想，哪些人在我前进的路上给了我帮助呢？</p>
@@ -199,12 +238,14 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 事情，我就汗颜了，原来都知道啊～</p>
 <p>祝福老张的孩子健康成长哈，到时候还要喊我哥的～</p>
 <h3>高中计算机老师-徐老师 ...</h3>
-                    <a class="btn btn-default btn-xs" href="/2010/08/teachers/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/teachers/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/07/difference-between-char-nchar-varchar-nvarchar/">char nchar varchar nvarchar 区别</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/07/difference-between-char-nchar-varchar-nvarchar/">char nchar varchar nvarchar 区别</a></h2>
                 <div class="summary"><p>在开发时候，发现数据库的一个字段用的是nchar(16)，让我感觉很奇怪，我知道nvarchar可以变长，nchar会用空格填充，这在存取时候需要Trim(
 )操作，所以我一直不用nchar。而现在在产品中发现nchar的使用，不由觉得很奇怪。</p>
 <p>私底下认为是效率的问题，一番Google之后发现一段文章详述了几种数据库文字类型存储的差异。</p>
@@ -219,23 +260,9 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <p>变长</p>
 <p>效率没char高 灵活</p>
 <p>n 必须是一个介于 1 和 8,000 之间的数值 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/07/difference-between-char-nchar-varchar-nvarchar/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2010/07/xi-mi-lu-with-milk/">牛奶西米露</a></h2>
-                <div class="summary"><p>在下厨房看到一篇做西米露的文章，就想起在广东时候吃煲仔饭时候赠送的一碗西米露。于是乎晚上跑去苏果采购了一袋西米，由于买的时候以为西米露是用牛奶做的，误买了一
-罐牛奶。</p>
-<p>西米露煮法说难也不难，就是用小火煮煮，然后闷上十几分钟，然后继续煮，继续闷，直到中间的白色芯消失的差不多，就可以起锅用清水洗了。煮的时候记得多放点水，西米会
-吸水的。</p>
-<p>如果用来做甜品吃，记得买小西米，我买的时候还不知道有大小西米之分。买了大西米然后一煮，就膨胀了～</p>
-<p>西米不能用冷水洗，因为使用土豆等制作的二次食品，冷水一洗就化掉了～</p>
-<p>这是最好的成果，大西米的爽滑口感不如小西米，而且比小西米难煮，我至少重复闷了4次，牛奶的口感也不如椰汁。</p>
-<p><a href="http://upload-
-log4d.qiniudn.com/2010/07/ximilu.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/07/ximilu.jpg" /></a></p>
-<p>下次继续努力咯～</p>
-                    <a class="btn btn-default btn-xs" href="/2010/07/xi-mi-lu-with-milk/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/07/difference-between-char-nchar-varchar-nvarchar/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -247,7 +274,9 @@ log4d.qiniudn.com/2010/07/ximilu.jpg"><img alt="" src="http://upload-log4d.qiniu
 					href="/tag/page/3/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -264,6 +293,11 @@ log4d.qiniudn.com/2010/07/ximilu.jpg"><img alt="" src="http://upload-log4d.qiniu
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

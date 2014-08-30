@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/03/a-bug-of-subclipse1-2-x/">Subclipse1.2.x的一个Bug</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/a-bug-of-subclipse1-2-x/">Subclipse1.2.x的一个Bug</a></h2>
                 <div class="summary"><h3>背景</h3>
 <p>在使用Eclipse开发项目，提交属性svn:ignore时候，SVN报出一个错误。</p>
 <blockquote>
@@ -83,12 +83,14 @@
 <p>整整花了3个小时的时间在这上面纠缠，终于在某个邮件论坛找到一点点线索。</p>
 <p>在<a href="http://marc.info/?l=subversion-
 users&amp;m=121478169326627&amp;w=2">Re: Failed to execute WebDAV PROPPATCH</a>上面，有人提到Subclipse无法执行，但是Tortuial SVN没有问题 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/a-bug-of-subclipse1-2-x/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/a-bug-of-subclipse1-2-x/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/use-subclipse-with-proxy/">使用subclipse代理</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/use-subclipse-with-proxy/">使用subclipse代理</a></h2>
                 <div class="summary"><p>&amp;nbsp_place_holder;公司网络必须使用代理，今天更新自己写的一个Utils到Google Project
 Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了那几个目录，都没有问题，猜到是代理连接的问题。</p>
 <p>Eclipse的代理设置在"<strong>General-Network Connections</strong>"中设置，很明显，Subclipse不在这里设定。</p>
@@ -103,13 +105,17 @@ Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了�
 SettingsAdministratorApplication DataSubversion)，注意此目录为隐藏目录。</p>
 <p>3、在servers文件中的最后[global]后增加</p>
 <div class="highlight"><pre><span class="n">http ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2010/03/use-subclipse-with-proxy/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/use-subclipse-with-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -126,6 +132,11 @@ SettingsAdministratorApplication DataSubversion)，注意此目录为隐藏目�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

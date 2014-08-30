@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
                 <div class="summary"><p>昨天我在<a href="http://sunng.info/blog/2011/10/clojalk-scm-visualization/">sunng</a>
 那里看到一个非常好玩的东西<a href="http://code.google.com/p/gource/">Gource</a>。</p>
 <p><img alt="gource" src="http://upload-log4d.qiniudn.com/2011/11/gource-logo.png" /></p>
@@ -83,12 +83,14 @@ be.com/watch?v=E5xPMW5fg48&amp;feature=player_embedded">Gource - Software Versio
 reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频。Ruby on Rails那一段特别帅有没有。</p>
 <p>使用下列命令可以将视频录制下来(via <a href="http://code.google.com/p/gource/wiki/Videos">wiki</a>)：</p>
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">x264</span> <span class="err">#在 ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/11/gource/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/gource/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/dbevent2gc-v0-1-released/">dbevent2gc v0.1发布</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/dbevent2gc-v0-1-released/">dbevent2gc v0.1发布</a></h2>
                 <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到
 <a href="http://log4d.com">http://log4d.com</a> 。</p>
 <p>订阅地址现在改为 <a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
@@ -102,13 +104,17 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 <p>dbevent2gc是一个GAE应用，它将豆瓣同城的活动同步到Google Calendar的日历， 允许用户订阅活动而知道最近几周周边将发生活动。</p>
 <p>dbevent2gc是基于Python/web.py/mako/iCalendar的，源代码地址在
 <a href="https://github.com/alswl/dbevent2gc">https://github ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/11/dbevent2gc-v0-1-released/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/dbevent2gc-v0-1-released/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -125,6 +131,11 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/10/win7-standalone-network-extender/">在Win7上面使用Standalone Network Extender</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/10/win7-standalone-network-extender/">在Win7上面使用Standalone Network Extender</a></h2>
                 <div class="summary"><p>用Win7大概1个月了，的确很不错，本来试用的心态变成了完全不想回到XP时代了。</p>
 <p>Win7的UAC比Vista已有很大的进步，至少不是那么烦心了，但是仍然很多场合都不能与以前旧版本的一些软件配合默契。</p>
 <p>比如公司用的这款VPN软件-Standalone Network Extender。</p>
@@ -82,13 +82,17 @@ BiGuard公司</a>的主页也没有找到适合Win7的新版本。</p>
 <p>我猜测VPN软件需要修改系统底层参数，可能需要管理员权限，就试用管理员权限打开IE，果然，顺利连接成功。</p>
 <p>嗯，以后使用古董遇到一些比较怪异的问题，如果它是安全可靠的，就可以试试管理员权限了。我是不推荐关闭UAC的，权限机制虽然烦，但是可以保证一些系统权限不被开放
 。</p>
-                    <a class="btn btn-default btn-xs" href="/2010/10/win7-standalone-network-extender/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/10/win7-standalone-network-extender/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -105,6 +109,11 @@ BiGuard公司</a>的主页也没有找到适合Win7的新版本。</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

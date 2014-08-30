@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/08/azaajaxchat-notes-frame/">AzaAjaxChat笔记-框架</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/azaajaxchat-notes-frame/">AzaAjaxChat笔记-框架</a></h2>
                 <div class="summary"><p>1个月没有动PHP了，新装的系统甚至还没有配置PHP环境，今天看到BooguNote上有一个boo是专门记录AzaAjaxChat开发时候遇到的问题和解决办
 法。于是把一些东西整理记录一下。</p>
 <h3>1. 从ThinkPHP开始</h3>
@@ -86,12 +86,14 @@
 <p>在开发过程中，我也遇到过框架本身的Bug，让我对这个框架失去信心。在这里我没有贬低ThinkPHP或者ThinkPHP开发者的意思，他们的"大道至简、开发由
 我"的理念很值得欣赏。只是作为初学者因为遇到的一些问题，带来了一定的开发难度，不得已放弃。</p>
 <h3>2. 选择CakePHP ...</h3>
-                    <a class="btn btn-default btn-xs" href="/2010/08/azaajaxchat-notes-frame/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/azaajaxchat-notes-frame/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/">Cakephp的国际化和poEdit的使用</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/">Cakephp的国际化和poEdit的使用</a></h2>
                 <div class="summary"><p>原文出处：<a href="http://newsn.net/20090525/472.html">在Cakephp中使用i18n本地化程序，并使用poedit编辑语言文件 |
 程序如此灵动！</a></p>
 <p>alswl:
@@ -104,12 +106,14 @@ LC_MESSAGES/default.po文件，并指定语言选项为"chi"实现。本文中�
 <p>这2个东东其实头一次我看到的时候也是一头雾水，但是经过百度的一通搜索，得出的结论就是，不管是几个n，最终的目的就是实现程序本地化就好了，说白了，就是由很多的
 语言配置文件，反正我是这么理解的。大家也可以去看看，<a href="http://baik
 e.baidu.com/view/372835.htm">http://baike ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
                 <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
 <p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
 和全局变量其实完全不是同一个概念）</p>
@@ -143,13 +147,17 @@ e.baidu.com/view/372835.htm">http://baike ...</p>
 <p>在其他文件中就可以调用这个全局变量了。</p>
 <h3>二、通过Configure 类</h3>
 <p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/cakephp-global-variables/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/cakephp-global-variables/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -166,6 +174,11 @@ e.baidu.com/view/372835.htm">http://baike ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,11 +70,11 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8 col-lg-offset-2">
     <section id="content">
-        <article>
+        <article class="article-detail">
             <header class="page-header">
-                <h1>
+                <h1 class="text-center">
                     <a href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/"
                        rel="bookmark"
                        title="Permalink to Java笔记 使用反射来改进BaseDao">
@@ -248,6 +248,17 @@ c进行设置为Topic.class，这样就比原来的拼字符串好的多。耦�
 Code链接</a>，v1.0.1的代码并没有上文的实现，本文中的修改还在trunk中。</p>
             </div>
             <!-- /.entry-content -->
+              
+<hr>
+<div class="panel">
+<div class="panel-body">
+   <p>
+       <small>原文链接: <a href="http://blog.log4d.com/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">http://blog.log4d.com/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/</a><small><br>
+       <small>3a1ff193cee606bd1e2ea554a16353ee<small>
+   </p>
+</div>
+</div>
+
     <hr />
     <section class="comments" id="comments">
         <h2>Comments</h2>
@@ -272,7 +283,9 @@ Code链接</a>，v1.0.1的代码并没有上文的实现，本文中的修改还
     </section>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -289,6 +302,11 @@ Code链接</a>，v1.0.1的代码并没有上文的实现，本文中的修改还
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/11/jquery-html-in-ie6/">jQuery.html()在IE下面错误解决办法</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/jquery-html-in-ie6/">jQuery.html()在IE下面错误解决办法</a></h2>
                 <div class="summary"><p>今天遇到一个jQuery的<code>.html()</code>设定错误问题，FF和Chrome下面都能够正常工作，而IE下面却失败。</p>
 <p>检查之后，我把问题定性到jQuery.html(html)设定在IE下有问题。当设定html文本中含有空行、空格、Tab时候，会出现异常中断，导致<code>html
 ()</code>设定失败，但是又不会引发js错误。</p>
@@ -86,12 +86,14 @@
     <span class="nt">&lt;li&gt;</span>easeInQuad<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>easeOutQuad<span class="nt">&lt;/li&gt;</span>
     <span class="nt">&lt;li&gt;</span>easeInOutQuad<span class="nt">&lt;/li ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/11/jquery-html-in-ie6/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/jquery-html-in-ie6/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/07/ie6-boycott/">抵制IE6</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/ie6-boycott/">抵制IE6</a></h2>
                 <div class="summary"><p>我之前并没有特别在意浏览器访问自己博客，直到换上了Fusion，才发现Fusion在IE6下面不支持，我不得不退回到iNove.</p>
 <p>我访问Fusion作者主页，发现作者就这种情况发表说明，说他不会修复这个问题，IE6会淡出市场。</p>
 <p>我搜索了关于IE6市场占有率的问题，国外的IE6似乎的确淡出人们的实现，甚至在JavaEye有这么一张夸张的趋势图</p>
@@ -106,13 +108,17 @@
 <p>第五代的网页技术HTML5支持视频、音频、二维绘画等现在的网页技术不具有的功能。然而，IE6并不支持HTML5，开发人员要么放弃对IE6的支持，要么放弃使用
 HTML5，也就是说，IE6在互联网标准的推行的过程中扮演者绊脚石的角色，阻碍技术的进步。</p>
 <p>可惜的是，国内用户似乎是用IE6的仍然很多，就我博客而言，MSIE6使用百分比占24%，这还要考虑到有些用户使用Maxthon或者TheWorld等第三方浏 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/07/ie6-boycott/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/ie6-boycott/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -129,6 +135,11 @@ HTML5，也就是说，IE6在互联网标准的推行的过程中扮演者绊脚
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

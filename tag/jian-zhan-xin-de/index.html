@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/12/use-ssh-to-the-wordpress-directory-package/">使用SSH对WordPress目录进行打包</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/12/use-ssh-to-the-wordpress-directory-package/">使用SSH对WordPress目录进行打包</a></h2>
                 <div class="summary"><p>最近用上了小张的10号主机，cPanel界面，支持SSH连接，<strong>DDD的一亩三分地</strong>也换了log4d.com域名。我想趁着这个机会对整个系统进行改版，迎
 接2010年的到来。</p>
 <p>我用<strong>Apache+PHP+MySQL</strong>在本地假设了服务器，然后取10号主机服务器上的<code>wp-
@@ -80,13 +80,17 @@ content</code>界面。当准备把整个目录打包时候，居然发现没有
 <p>我连接SSH使用的是<strong>Putty</strong>，点击<a href="http://www.xdowns.com/soft/6/65/2006/Soft_28585.htm
 l">这里</a>下载(via 绿软)，这个是<strong>绿色中文Final</strong>版本，比较好使唤。</p>
 <p>用到几个简单的Linux命令如下（好在我学过几周Linux啊 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/12/use-ssh-to-the-wordpress-directory-package/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/12/use-ssh-to-the-wordpress-directory-package/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -103,6 +107,11 @@ l">这里</a>下载(via 绿软)，这个是<strong>绿色中文Final</strong>版
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/09/script-mm2html/">小脚本mm->html</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/09/script-mm2html/">小脚本mm->html</a></h2>
                 <div class="summary"><p>我同时在使用两套信息记录工具，知识收集记录工具BooguNote + KMS Wiz，关于这两套系统具体介绍请见<a href="http://log4d.com/2010/04/desktop-recording-tool-boogunote">桌面记录神器-
 BooguNote</a> &amp;
 <a href="http://log4d.com/2010/09/my-kms">我所使用的知识管理系统</a>。</p>
@@ -92,12 +92,14 @@ ml的转换脚本。</p>
 <p>'转换MM-&gt;Html类'</p>
 <p>def <strong>init</strong>(self):</p>
 <p>self.html = '''&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/09/script-mm2html/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/09/script-mm2html/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/08/mind-map/">思维导图入门介绍</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/mind-map/">思维导图入门介绍</a></h2>
                 <div class="summary"><p>思维导图这个概念大家都应该有所了解，有些朋友在工作学习中使用的频率也很高。这篇文章的碎片放在BooguNote中至少有半年了，一直没机会发出来，这次趁着整理
 KMS发出来，再为思维导图做一次小小的推广。</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2010/08/mind-map.jpg" /></p>
@@ -110,12 +112,14 @@ KMS发出来，再为思维导图做一次小小的推广。</p>
 甚至是html中的h1/h2/h3和ol/ul/li。他们本质上面是对信息进行树状排列，对知识进行序列化和建立索引。</p>
 <p><a href="http://upload-
 log4d.qiniudn.com/2010 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/08/mind-map/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/mind-map/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/desktop-recording-tool-boogunote/">桌面记录神器-BooguNote</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/04/desktop-recording-tool-boogunote/">桌面记录神器-BooguNote</a></h2>
                 <div class="summary"><p>之前做GTD一直基于Google Canledar，记录主要是Google NoteBook和Google Docs。尽管Google
 Docs支持Gears离线查看，但是并不支持离线创建文件（Docs的编辑能力还不如CKEditor）。</p>
 <p><a href="http://upload-
@@ -127,13 +131,17 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="" src="http://upload-log4d.q
 <p>之前我还特意问过XDash，他如何做读书笔记，他回答划线和Google Doc。现在，如果有人问我这个问题，我会回答BooguNote。</p>
 <h3>相关链接</h3>
 <p>官网：<a href="http://boogu.me/">BooguStudio - Collecting, Organizing and Sharing ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2010/04/desktop-recording-tool-boogunote/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/04/desktop-recording-tool-boogunote/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -150,6 +158,11 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="" src="http://upload-log4d.q
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

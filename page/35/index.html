@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,84 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/05/soft-test-in-mind/">软考记</a></h2>
-                <div class="summary"><p>今天参加软件设计师的考试，早上7点就起床了，可怜的我昨天调Ajax到一点啊，困的不行了。</p>
-<p>坐了半小时车到考场，最郁闷的事情终于发现了，忘了带准考证？！，怎么可能？！浑身上下找遍只有一张校园卡和一张学习委员用的信息员证。。。</p>
-<p>无奈，监考老师说这个不能证明身份，跑到考试办公室开了一张证明，托词我身份证丢了，呵呵，当然了，它会在一个星期内被好心人捡到的。。。</p>
-<p>过几天还要去信息产业办公室证明一下，真麻烦。</p>
-<p>顺便给个网址：江苏省软考成绩查询：<a href="http://www.jsit.gov.cn/xxcycx/query.action">猛击这里打开</a>。今天考试还可以，
-60%过吧，听天由命。</p>
-<p>（网址居然是.action，哈哈，Struts2写的啊）</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/soft-test-in-mind/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
-                <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
-<p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
-<p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
-find action or result</p>
-<p>There is no Action mapped for namespace / and action name AjaxLogin. -
-[unknown location]</p>
-<p>我整整找了一个多小时，曾以为是action name的问题或者是package name, package namespace
-的问题，为此我特意重新学习了一下他们的使用方法，但是仍然没有效果。</p>
-<p>最后，终于在Google找到了一些资料：</p>
-<p><a href="http://huqilong.blog.51cto.com/53638/136802">struts2 json jquery ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/struts2-in-the-use-of-ajax/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
-                <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
-<p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
-<p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
-<p>一回生两回熟，咱也不怕。</p>
-<p>在Action里面设置logger，输出相应的数据，发现那里就是乱码，说明在Severlet或者Interceptor那里就出了问题。</p>
-<p>仿照上次设置Tomcat字符集，详情见<a href="../2009/05/12238.html">Eclipse中开发的Jave EE项目在Tomcat的部署
-</a>，但是测试发现没有效果。</p>
-<p>接着查看web.xml，发现里面还有Spring的filter，贴吧现阶段还没有加入Spring，删除，有一个编码过滤器org.apache.struts2
-.dispatcher.FilterDispatcher，采用org.apache.struts2.dispatcher.FilterDispatcher可
-以不适用，删除。</p>
-<p>这么一删，就发现乱码问题解决了。</p>
-<p>呵呵，只要人类还有很多语言，乱码仍然会存在，遇到了不要怕，慢慢调试就出来了</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/battle-of-garbled/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
-                <div class="summary"><p>很多朋友用postviews这个插件，的确很适合国人的风格，但是如果单纯的添加到页面中，会显得很突兀，难看，我做了几个美化工作。</p>
-<p>首先，在用到postviews函数时候都定义span id，比如在single.php中修改，在下面代码</p>
-<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
-</pre></div>
-
-
-<p>后面跟上一段显示浏览次数的代码</p>
-<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
-</pre></div>
-
-
-<p>这样就可以显示浏览次数。</p>
-<p>然后修改style.css文件，我的是inove主题，在382行附近修改</p>
-<div class="highlight"><pre><span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">date</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">author</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">postviews</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editpost</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">comments</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addcomment</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addlink</span><span class="p">,</span>
-<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editlinks</span> <span class="p">{</span>
-<span class="nl">background:</span><span class="n">url</span><span class="p">(</span><span class="n">img</span><span class="o">/</span><span class="n">icons ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/05/landscaping-postviews/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
                 <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
 <p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
 <div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
@@ -164,12 +89,14 @@ find action or result</p>
 <span class="nt">&lt;/s:elseif&gt;</span>
 <span class="nt">&lt;s:else&gt;</span>
 <span class="nt">&lt;div&gt;</span>Will Not ...</pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
                 <div class="summary"><p>贴吧最基本的功能写完了，正好可以应付数据库设计课的实验。于是我准备把贴吧的项目从Eclipse的开发环境中移植出来，在Tomcat中进行部署。</p>
 <p>也许是习惯了Eclipse提供的便利，这个小小的移植，居然难倒了我，直接把Eclipse里的PostBar考出，根本不能运行，直接报404错误。Google
 上也没有提供详细的步骤，也许大家都觉得这个问题很简单吧，呵呵。</p>
@@ -186,12 +113,14 @@ find action or result</p>
 
 
 <p>这一段的作用是在原先webapps的目录下添加虚拟目录/postbar ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
                 <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
 重建博客。</p>
 <p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
@@ -204,12 +133,14 @@ find action or result</p>
 'dddspace_wp'，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。</p>
 <p>如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作</p>
 <p>3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/station-restoration-of-mind/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/station-restoration-of-mind/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/rainy-day/">下雨天</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/rainy-day/">下雨天</a></h2>
                 <div class="summary"><p>很不喜欢下雨天啊，每每这个时候，心情总是比较低潮`</p>
 <p>尤其记得小时候在电视屏幕前，红木沙发，黑洞洞的屋子里，我一个人在看着动画片，大凡这个时候作业是没做的，承受着心理的压力享受着片刻的欢娱`</p>
 <p>博客搬过来两天了，还不太习惯使用个人博客，在hostshar.cn和wordpress.org.cn混迹着，今晚上还写了一篇帖子<a href="http://hostshare.cn/thread-549-1-1.html">我的博客---
@@ -219,12 +150,14 @@ DDD的一亩三分地</a></p>
 ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a>看，自己还没有养成自己发布信息的
 良好习惯。</p>
 <p>看了其他网友们的文字，感觉自己文学素养真是负数了，嗯，以后要适当加强了````</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/rainy-day/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/rainy-day/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
                 <div class="summary"><p>明天应该有会计考试，要清空主楼自习的教室，所以自习室里考研的同学都把书搬到工作室来了</p>
 <p>来就来了，都是同学，放放也无所谓，还把老乡带来放书。。。</p>
 <p>我承认，我小气了```</p>
@@ -234,12 +167,14 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 <p>记忆里当时大一刚加入工作室的时候，是多么兴奋，还挺崇拜里面的元老，现在工作室都成这样了</p>
 <p>我把自己手头这个贴吧完成之后，到了11月份估计也得去找工作了，那时候就感觉真没人了</p>
 <p>真无奈```</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/alas-the-studio/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/alas-the-studio/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
                 <div class="summary"><p>这个想法一直就有，不过没有付之于实践，这次Yo2服务器崩溃，终于促使我创建自己的DDDSpace.cn</p>
 <p>在这里要感谢<a href="http://hengtian.org/">小张</a>，呵呵，让我赶上了新手空间合租，享受了性价比很高的服务，还要感谢<a href="http://wordpress.org.cn">wordpress.org
 .cn</a>,里面很多会员的帖子给我很多帮助，让我能够快速的创建这个博客</p>
@@ -253,7 +188,79 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 <p>import postbar.bean.Topic;</p>
 <p>import postbar.dao.CategoryDAO;</p>
 <p>public ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/finally-created-a-blog-of-their-own/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/finally-created-a-blog-of-their-own/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                <div class="summary"><p><s:textfield name="loginName" value="%{#request.loginNames}"/></p>
+<p>使用此表达式，会生成一个文本框，并且，如果request.attribute中有loginNames属性，将会做为些文本框的默认值。</p>
+<p>如果只使用#request.loginNames在struts2的标签内部，是不会显示任何值的，注意外面加上的%{}附号，才会被正常的使用。</p>
+<p>如果希望如EL语言一样直接输出文件，如在一个<a></a>之间的innerHTML文本为#request.loginNames的值，我们只要使用：<s:pr
+operty value="#request.loginNames" />使可以正常使用！</p>
+<p>注：</p>
+<p>1.${}是EL语言的 %{}这样的形式是ognl表过式语言的，在struts2的标签内部，使用%{}这样的形式，在标签外部可以使用${}EL语言的方式。如
+果在struts2的标签内部使用${}这样的方式，会出现以下的错误提示：</p>
+<p>According to TLD or attribute directive in tag file, attribute value ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/ognl-operators-in/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
+<p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
+里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
+<p>本来想在result中加入param元素而不是在url后面加 ？categoryId=0来实现，但是尝试了好久，Google和官方文档都没有什么解决方案</p>
+<p>其中遇到的一个问题是「&amp;」这个符号不能直接使用，需要进行转义，用「&amp;」来替代。</p>
+<p>最后是categoryName的问题了，本来以为很简单，却遇到了编码问题，之前从Home.action转到Category.action能正确编码，像 ht
+tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F%B
+3%E4%B9%90 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/garbled-see-also-garbled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
+用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
+<p>最后我索性用试所有的表达式</p>
+<div class="highlight"><pre><span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;%{#categoryId}&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;#categoryId&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">s</span><span class="o">:</span><span class="n">hidden</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;topicCategoryId&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s">&quot;%{categoryId}&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+
+
+<p>最后一个果然有效。。。</p>
+<p>貌似记得这是OPGL表达式？****</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/to-submit-the-issue-of-an-action/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
+<p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
+Category时会产生错误</p>
+<p>在jUnit单元测试中就通不过，错误为 org.hibernate.PropertyAccessException: Null value was
+assigned to a property</p>
+<p>Google后，发现Category中定义categoryFather为int类型，是不支持null的，需要改为Wrapper类Interger</p>
+<p>有人说只需要设定setXXX和getXXX的Integer的类型和.hbm.xml文件中个Type="java.lang.Integer"就可以了</p>
+<p>但是经过我测试发现，categoryFather 这个成员也要定义成Interger，否则会报错
+org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</p>
+<p>晚上写完分类，感慨到：框架先行，功能其后 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/solve-the-null-value-was-assigned-to-a-property/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -265,7 +272,9 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 					href="/page/36/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -282,6 +291,11 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

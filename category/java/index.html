@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2014/03/java-options/">Java 运行参数调整</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2014/03/java-options/">Java 运行参数调整</a></h2>
                 <div class="summary"><p>JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：</p>
 <p>运行 <code>java -h</code> 可以看到 Java 运行可调整的参数。
 运行 <code>java -X</code> 可以查看 Java 支持的额外参数。
@@ -84,12 +84,14 @@
 <a href="http://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html"> Tuning JVM Garbage Collection for Production Deployments </a>
 <a href="http://www.jvmer.com/jvm-xx-参数介绍/">JVM -XX: 参数介绍</a></p>
 
-                    <a class="btn btn-default btn-xs" href="/2014/03/java-options/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2014/03/java-options/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
                 <div class="summary"><p>部门最近开发的产品使用的开发服务器是Jetty（挂载在GWT中），启动方法是通过Eclipse的External
 Tool执行。我对此表示很好奇，特意在自己电脑下面组建了一个Jetty开发环境，发现Maven和Jetty合作起来非常愉快，现在小记之。</p>
 <h2>一、准备Maven配置文件</h2>
@@ -103,12 +105,14 @@ Directory Layout</a></p>
 <p>src/main/filters</p>
 <p>Resource filter files</p>
 <p>src ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/run-jetty-in-maven/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/run-jetty-in-maven/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
                 <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
 pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
 <h2>3分钟Maven</h2>
@@ -118,12 +122,14 @@ started/index.html">Getting Started in 30
 Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。</p>
 <div class="highlight"><pre><span class="cp">#建立一个空项目，包含一个HelloWorld，可以通过</span>
 <span class="cp">#-DarchetypeGroupId=&lt;archetype-groupId ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/03/maven-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/maven-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/recent-study-technologys/">最近在学的技术</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/04/recent-study-technologys/">最近在学的技术</a></h2>
                 <div class="summary"><p>根据这篇日志的题目，必然是一篇水文，我思量再三，还是把它放出来，这些技术的接触把我带入了另一个广阔的天堂。这是我学Java以来的第二个里程碑。</p>
 <p>使用Java1年半，1年前开始JSP编程，一直是我和周围的朋友自己摸索，学校没有开Java课，也没有参加什么培训课程，面对庞大的Java开源分支，我一直摸索
 ，不能登堂入室。</p>
@@ -139,12 +145,14 @@ d。Hibernate和iBatis有各自的适合使用的领域，不能单纯的说谁�
 菜单 控制体系。细化到原子级的权限控制带来了莫大的好处，这个很大程度归功于Jaas。</p>
 <blockquote>
 <p>Java Authentication ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2010/04/recent-study-technologys/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/04/recent-study-technologys/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
                 <div class="summary"><h2>注册WebLogic成 windows服务</h2>
 <p>1、执行Domain目录下的 <code>installService.cmd [USER_NAME]
 [PASSWORD]</code>命令，就会在windows服务中生成一个<code>beasvc
@@ -153,12 +161,14 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 <h2>删除WebLogic服务</h2>
 <p>1.执行Domain目录下的 <code>stopWebLogic.cmd</code>命令就可以删除服务</p>
 <p>2.删除服务之后，可以直接删除Domain下的所有文件～</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/manage-weblogic-service/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/manage-weblogic-service/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/dwr2-0-jdk1-4-configuration/">DWR2.0在JDK1.4下的配置</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/dwr2-0-jdk1-4-configuration/">DWR2.0在JDK1.4下的配置</a></h2>
                 <div class="summary"><p>服务器的WebLogic版本是8.1，使用自带的JDK1.4</p>
 <p>MyEclipse版本是6.6，项目文件的<strong>Compiler compliance level</strong>设置为1.4</p>
 <p>MyEclipse自带Tomcat使用MyEclipse6.6自带的JDK5</p>
@@ -172,12 +182,14 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 <li>
 <ul>
 <li>Servlet Engine: WebLogic XMLX Module 8.1 SP1 Fri Jun 20 23:06:40 PDT ...</li></ul></li></ul>
-                    <a class="btn btn-default btn-xs" href="/2010/03/dwr2-0-jdk1-4-configuration/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/dwr2-0-jdk1-4-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">Java笔记 使用反射来改进BaseDao</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">Java笔记 使用反射来改进BaseDao</a></h2>
                 <div class="summary"><h2>关于反射</h2>
 <p>反射的定义（via <a href="http://zh.wikipedia.org/zh-cn/%E5%8F%8D%E5%B0%84_%28%E8%AE%A1
 %E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29">Wiki</a>）：在计算机科学中，反射是<strong>指一种特定类型的计算机程序能够在运行时以一种依
@@ -188,12 +200,14 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 
 
 <p>public class ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/getting-started-with-java-books-java-jdk6-study-notes/">Java入门好书《Java JDK6学习笔记》</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/getting-started-with-java-books-java-jdk6-study-notes/">Java入门好书《Java JDK6学习笔记》</a></h2>
                 <div class="summary"><p><a href="http://t.douban.com/
 lpic/s2518833.jpg"><img alt="Java JDK6学习笔记" src="http://t.douban.com/lpic/s2518833.jpg" /></a></p>
 <p>《Java JDK6学习笔记》(via <a href="http://www.douban.com/subject/2057790/">豆瓣</a>，via
@@ -204,12 +218,14 @@ length-parameter-generic-type-
 wildcard">"Java笔记
 split/不定长度参数/泛型类型通配符"</a>中示例代码就是改编自本书)。我现在正在阅读线程、反射和Annotation这三块内容，看得我酣畅淋漓啊。</p>
 <p>我算是概念模糊的开发者，现在准备笔试/面试所以恶补一下平时接触比较少的概念。我虽然也有《<strong>Think in ...</strong></p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/getting-started-with-java-books-java-jdk6-study-notes/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/getting-started-with-java-books-java-jdk6-study-notes/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/java-notes-_split-variable-length-parameter-generic-type-wildcard/">Java笔记 split/不定长度参数/泛型类型通配符</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/java-notes-_split-variable-length-parameter-generic-type-wildcard/">Java笔记 split/不定长度参数/泛型类型通配符</a></h2>
                 <div class="summary"><p>今天看了一下午《<a href="http://www.douban.com/subject/2057790/">Java学习笔记</a>》，作者林信良，花名良葛格。从书中所获颇
 多，正所谓温故而知新，我就把今天的"新"总结一下，加深记忆。良葛格也提倡"在网上写文章是我记录所学的一种方式"。</p>
 <h2>split的正则式和其中的正则式</h2>
@@ -223,12 +239,14 @@ split/不定长度参数/泛型类型通配符"</a>中示例代码就是改编�
 <p>result = strtok( str, delims );</p>
 <p>while( result != NULL ) {</p>
 <p>printf( "result is ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/java-notes-_split-variable-length-parameter-generic-type-wildcard/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/java-notes-_split-variable-length-parameter-generic-type-wildcard/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/">DAO的设计-使用泛型来避免重复DAO</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/">DAO的设计-使用泛型来避免重复DAO</a></h2>
                 <div class="summary"><p>DAO的全称是Data Access Object数据访问接口。数据访问：顾名思义就是与数据库打交道。夹在业务逻辑与数据库资源中间。</p>
 <p>我大二时候写的一个小型管理系统，那时候老师开始强调分层和MVC的思想，当时我将DAO层分了开来，把所有与数据库的交互操作封装成对应的DAO类，这样最大的好处
 是实现了封装和隔离，方便系统的迁移和重构。</p>
@@ -238,7 +256,9 @@ split/不定长度参数/泛型类型通配符"</a>中示例代码就是改编�
 <p>在Java1.5出来之前，用Object来操作对象，实现方法复用，就可以达到上面的目的，但是，存在类型安全的问题。Java1.5提出了泛型的概念，类似与C+
 +中的Template，Java运行环境帮助会检查类型的安全。</p>
 <p>这里有一篇IBM资料库的文章，详细阐述了泛型在DAO设计的使用「不要重复DAO」&lt;<a href="http://www.ibm ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -249,7 +269,9 @@ split/不定长度参数/泛型类型通配符"</a>中示例代码就是改编�
 					href="/category/java/page/2/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -266,6 +288,11 @@ split/不定长度参数/泛型类型通配符"</a>中示例代码就是改编�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

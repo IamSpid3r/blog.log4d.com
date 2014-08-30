@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
                 <div class="summary"><h2>1. 背景</h2>
 <p>我目前有两台电脑，一台是家里使用的Linux笔记本（Dell 6400，4年）， 一台是公司使用的Windows笔记本（IBM X201，1个月）。
 我有时候需要在办公室连入家庭电脑，进行一些操作，比如同步，比如使用linux特定服务。</p>
@@ -85,13 +85,17 @@
 <p>现在花生壳为千万的域名提供动态域名解析服务，并广泛应用于网站建设、视频监控、 遥感测绘、FTP、VPN、企业OA、ERP等应用领域。</p>
 </blockquote>
 <p>ps：除了花生壳，还有很多DDNS服务可以供选择。由于TP-Link和D-Link都默认内置花生壳， 我这里用花生壳做范例。而我使用的<a href="http://www.dd-wrt.com/">DD- ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/06/ddns-ssh/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/06/ddns-ssh/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -108,6 +112,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

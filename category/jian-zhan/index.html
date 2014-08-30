@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
                 <div class="summary"><p>上周，我将 Log4D 由 Wordpress 转换为 Octopress，略加打理，颇为顺手。
 自动分类 / 评论转移 / 代码高亮 / 图床 的问题一一解决之后，
 就只剩下 tag 的问题没有搞定了。</p>
@@ -84,12 +84,14 @@ tag</strong>。这是我不能容忍的：category 和 tag 分别代表 有序 /
 <strong>一篇文章只能属于一个 category，但可以同时属于多个 tag</strong>。
 Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，我开始吭次吭次寻找插件。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/05/tag-cloud/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/05/tag-cloud/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2012/05/image-host/">使用独立图床子域名</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/05/image-host/">使用独立图床子域名</a></h2>
                 <div class="summary"><p>最近在将 Wordpres 切换到 OctoPress，顺便将图片统一放到<a href="http://upload-log4d.qiniudn.com">Upload4D</a>管理。</p>
 <p>我挑选图床管理程序有下面几个需求，需求由强到弱排列：</p>
 <ul>
@@ -107,13 +109,17 @@ Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，�
 <p>于是我踏上了「考古之旅」，先后试用了 MiniGal Nano / MG2 /
 CF Image Host Script / minishowcase 等等图床软件，评测记录如下。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/05/image-host/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/05/image-host/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -130,6 +136,11 @@ CF Image Host Script / minishowcase 等等图床软件，评测记录如下。</
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

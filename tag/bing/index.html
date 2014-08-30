@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/07/get-daily-bing-picture/">获取每日Bing图片</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/07/get-daily-bing-picture/">获取每日Bing图片</a></h2>
                 <div class="summary"><p>在使用公司一个Redirect开发工具页面时候，想个性化一下，就想添加一个背景，最好每天能自动变化，我第一个想到的就是Bing。</p>
 <p>放狗搜索，发现一篇文章 <a href="http://blog.csdn.net/huangc
 t/archive/2009/10/27/4734844.aspx">抓取每天必应bing背景图片 - huangct的专栏 - CSDN博客</a>，文中提供了抓取程式的Python代码，我摘录如下。</p>
@@ -84,13 +84,17 @@ t/archive/2009/10/27/4734844.aspx">抓取每天必应bing背景图片 - huangct�
     <span class="n">html</span> <span class="o">=</span> <span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()</span>
     <span class="n">f</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">html</span><span class="p">[</span><span class="n">html</span><span class="p">.</span><span class="n">index ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2010/07/get-daily-bing-picture/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/07/get-daily-bing-picture/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -107,6 +111,11 @@ t/archive/2009/10/27/4734844.aspx">抓取每天必应bing背景图片 - huangct�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

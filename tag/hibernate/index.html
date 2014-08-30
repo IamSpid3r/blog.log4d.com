@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -81,12 +81,14 @@
 <p>最后是categoryName的问题了，本来以为很简单，却遇到了编码问题，之前从Home.action转到Category.action能正确编码，像 ht
 tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F%B
 3%E4%B9%90 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/garbled-see-also-garbled/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/garbled-see-also-garbled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
                 <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
 <p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
 Category时会产生错误</p>
@@ -97,13 +99,17 @@ assigned to a property</p>
 <p>但是经过我测试发现，categoryFather 这个成员也要定义成Interger，否则会报错
 org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</p>
 <p>晚上写完分类，感慨到：框架先行，功能其后 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/solve-the-null-value-was-assigned-to-a-property/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -120,6 +126,11 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

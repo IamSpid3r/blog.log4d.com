@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/09/pptpclient/">使用pptpclient连接vpn网络[译文]</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/09/pptpclient/">使用pptpclient连接vpn网络[译文]</a></h2>
                 <div class="summary"><p>最近在ddwrt配置vpn，参考了arch的pptpclient配置文档<a href="https://wiki.archlinux.org/index.php/Microsoft_VPN_client_setup_with_pptpcl
 ient">Microsoft VPN client setup with pptpclien
 t</a>，同时顺便花了一点时间翻译成中文，正文如下（使用<a href="https://github.com/tanin47/wiky.js">wiky.js</a>转换pe
@@ -92,13 +92,17 @@ diawiki到html，原文会有更多的wiki模板样式便于查看，有问题�
 </ul>
 <h2>编辑配置文件</h2>
 <p>用你称手的编辑器打开/etc ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/09/pptpclient/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/09/pptpclient/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -115,6 +119,11 @@ diawiki到html，原文会有更多的wiki模板样式便于查看，有问题�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

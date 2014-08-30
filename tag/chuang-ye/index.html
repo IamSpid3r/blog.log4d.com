@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2013/04/peopleware/">读《人件》</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2013/04/peopleware/">读《人件》</a></h2>
                 <div class="summary"><p>事情起源于动态语言和静态语言之争，最后争论焦点转移到：「相信人本身的能力重要，
 还是通过语言/工具来约束人重要」。
 我认为项目开发中最重要的是个人能力和团队协作能力，工具只是加分项。
@@ -88,23 +88,29 @@
 <p>人件已经绝版，只能在找线上版，我花了两个星期把它读完。
 书中给了我一部分答案，另外还有一些意外的收获。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2013/04/peopleware/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2013/04/peopleware/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2013/02/facebook/">读《打造 Facebook》</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2013/02/facebook/">读《打造 Facebook》</a></h2>
                 <div class="summary"><p>感谢好基友 <a href="http://weibo.com/idao">@daodao</a> 送了我这本《<a href="http://book.douban.com/subject/20471120/">打造 Facebook</a>》，
 年前一直忙，最近腾出两个晚上，把这本很火的书看完了。</p>
 <p><img alt="cover" src="http://img3.douban.com/lpic/s24581301.jpg" /></p>
 
-                    <a class="btn btn-default btn-xs" href="/2013/02/facebook/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2013/02/facebook/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -121,6 +127,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

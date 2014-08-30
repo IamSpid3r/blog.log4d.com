@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/05/image-host/">使用独立图床子域名</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/05/image-host/">使用独立图床子域名</a></h2>
                 <div class="summary"><p>最近在将 Wordpres 切换到 OctoPress，顺便将图片统一放到<a href="http://upload-log4d.qiniudn.com">Upload4D</a>管理。</p>
 <p>我挑选图床管理程序有下面几个需求，需求由强到弱排列：</p>
 <ul>
@@ -90,13 +90,17 @@
 <p>于是我踏上了「考古之旅」，先后试用了 MiniGal Nano / MG2 /
 CF Image Host Script / minishowcase 等等图床软件，评测记录如下。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/05/image-host/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/05/image-host/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -113,6 +117,11 @@ CF Image Host Script / minishowcase 等等图床软件，评测记录如下。</
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
                 <div class="summary"><p>前几天使用chmod时候，多打了一个/，导致根目录下面所有文件权限设定出了问题，额~重装系统吧，正好把装系统之后的配置过程记录下来。</p>
 <p>这些都是我操作过的命令，确切可靠，适用于Ubuntu 10.10 Desktop Edtion。</p>
 <div class="highlight"><pre><span class="o">=</span> <span class="n">init</span> <span class="n">Linux</span> <span class="n">programs</span> <span class="n">and</span> <span class="n">setting</span> <span class="o">=</span>
@@ -92,12 +92,14 @@
 <p>.reset permission(谨慎使用，设定文件为644,设定文件夹为755)</p>
 <hr />
 <p>find /home ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/ubuntu-setup/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/ubuntu-setup/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/ubuntu-crebs/">Ubuntu桌面自动换背景</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/ubuntu-crebs/">Ubuntu桌面自动换背景</a></h2>
                 <div class="summary"><p>GNOME桌面系统可以使用一系列的图片作为背景，每过一段时间能够自动更换。这个功能核Win7下面自动换背景效果一致。不过很可惜，系统自带的可自动更换图片集只
 有几张，也找不到什么按钮可以直接设定。</p>
 <p>下图就是系统自带的两个图片集（第二行第一组和第二组）。</p>
@@ -110,12 +112,14 @@
 <p>A background slideshow creator for the GNOME desktop wallpaper.</p>
 </blockquote>
 <p>The GNOME desktop is able to use a sequence of images for its background ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/ubuntu-crebs/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/ubuntu-crebs/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/the-education-network-ubuntu8-04-source/">Ubuntu8.04的教育网源</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/the-education-network-ubuntu8-04-source/">Ubuntu8.04的教育网源</a></h2>
                 <div class="summary"><p>Google的话有很多源，北大的宣称5M，结果我都连不上，交大的宣称2M，我发现只有20kb/s，连更新语言包都超级慢。</p>
 <p>最后经过我的测试，是成都电子科技大学的最快，2M左右，推荐使用。</p>
 <p>特别注意，这是8.04的源，虽然8.10大部分能用，但会出现某些软件包找不到，请大家使用前做好备份。</p>
@@ -123,12 +127,14 @@
 <p>` #北京市清华大学更新服务器（教育网，推荐校园网和网通用户使用）：</p>
 <p>deb http://mirror9.net9.org/ubuntu/ hardy main multiverse restricted universe</p>
 <p>deb http://mirror9.net9.org/ubuntu/ hardy-backports main multiverse restricted ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/the-education-network-ubuntu8-04-source/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/the-education-network-ubuntu8-04-source/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/ubuntu8-10-under-the-mysql-installation/">Ubuntu8.10下MySQL的安装</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/ubuntu8-10-under-the-mysql-installation/">Ubuntu8.10下MySQL的安装</a></h2>
                 <div class="summary"><p>Ubuntu下的MySQL安装本应该很简单，但是如果因为修改了软件源的话，反而变得麻烦起来。</p>
 <p>为了加快更新一些组件的速度，我加入了清华的、交大等大学的源，是8.04下Ubuntu版本的，这个直接导致了之后安装MySQL的问题。</p>
 <p>当选择Mysql-server之后，需要一堆组建，要手动安装，基本上出现这种提示，就没戏了，硬着头皮查找软件包，最后到一个perl-
@@ -137,13 +143,17 @@ api的软件包这里就再也进行不下去了。</p>
 <p>下面就是原始的源，使用这个找到MySQL之后就一次成功了 ` # deb cdrom:[Ubuntu 8.10 <em>Intrepid Ibex</em> -
 Release i386 (20081029.5)]/ intrepid main restricted</p>
 <h1>See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade ...</h1>
-                    <a class="btn btn-default btn-xs" href="/2009/05/ubuntu8-10-under-the-mysql-installation/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/ubuntu8-10-under-the-mysql-installation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -160,6 +170,11 @@ Release i386 (20081029.5)]/ intrepid main restricted</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/11/delphi-study-notes-02/">Delphi学习笔记02</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/delphi-study-notes-02/">Delphi学习笔记02</a></h2>
                 <div class="summary"><p>今天算是学习Delphi的第二天，昨天熟悉了一下基本概念和开发环境，写了一个简单的Hello world!（传送门-<a href="http://log4d.com/2009/11/delphi-study-notes-01">Hello
 world!</a>）。</p>
 <p>说是学Delphi，其实今天我一下午都在学习Pascal语法，这里有一个要点我需要强调"Delphi与其说一门语言，不如说是一个开发环境和开发框架，使用的是
@@ -81,7 +81,9 @@ Object Pascal语言"。我今天还停留在Delphi基本语法、变量、数组
 （C/Java使用{}，Python使用缩进）。不过正是这个原因，所以代码特别直观，在教学使用和信息学比赛就很适合了。</p>
 <p>今天使用的教材是《Pascal基础教程》（传送门-<a href="http://log4d.com/2009/11/delphi-study-
 notes-01">更多教程 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/delphi-study-notes-02/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/delphi-study-notes-02/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -92,7 +94,9 @@ notes-01">更多教程 ...</p>
 			<li class="next disabled"><a href="#">&laquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -109,6 +113,11 @@ notes-01">更多教程 ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,11 +70,11 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8 col-lg-offset-2">
     <section id="content">
-        <article>
+        <article class="article-detail">
             <header class="page-header">
-                <h1>
+                <h1 class="text-center">
                     <a href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/"
                        rel="bookmark"
                        title="Permalink to Eclipse中JSP文件的编码设置">
@@ -104,6 +104,17 @@
 <p>自己琢磨了很久，终于在Web - JSP Files 里面找到了正确的设置，把其中的<strong>Encoding</strong>由ISO改为UTF-8就一切完美解决。</p>
             </div>
             <!-- /.entry-content -->
+              
+<hr>
+<div class="panel">
+<div class="panel-body">
+   <p>
+       <small>原文链接: <a href="http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/</a><small><br>
+       <small>3a1ff193cee606bd1e2ea554a16353ee<small>
+   </p>
+</div>
+</div>
+
     <hr />
     <section class="comments" id="comments">
         <h2>Comments</h2>
@@ -128,7 +139,9 @@
     </section>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -145,6 +158,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

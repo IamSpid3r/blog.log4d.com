@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,76 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/04/ubuntu-crebs/">Ubuntu桌面自动换背景</a></h2>
-                <div class="summary"><p>GNOME桌面系统可以使用一系列的图片作为背景，每过一段时间能够自动更换。这个功能核Win7下面自动换背景效果一致。不过很可惜，系统自带的可自动更换图片集只
-有几张，也找不到什么按钮可以直接设定。</p>
-<p>下图就是系统自带的两个图片集（第二行第一组和第二组）。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/04/appearance_preferences.png" /></p>
-<p>我们可以通过撰写xml自己制作图片集，xml格式模板在<code>/usr/share/gnome-background-properties/cosmos.xml</code>
-，实际的xml存放在类似于<code>/usr/share/backgrounds/cosmos/background-1.xml</code>的配置文档里面。</p>
-<p>除了手工撰写xml，我们还可以通过crebs小软件来自动生成xml文件。</p>
-<p>官方介绍如下：</p>
-<blockquote>
-<p>A background slideshow creator for the GNOME desktop wallpaper.</p>
-</blockquote>
-<p>The GNOME desktop is able to use a sequence of images for its background ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/ubuntu-crebs/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/03/plrcmatch4d/">历史记录-歌词复制器</a></h2>
-                <div class="summary"><p>之前写过一个Java的小工具叫做Mp3Lrc歌词复制器，用来复制歌词到Mp3播放器中的对应目录下面。之前的文章参见<a href="http:/
-/log4d.com/2009/05/the-executable-file-
-mp3lrc">Mp3Lrc的可执行文件</a>和<a href="http://log4d.com/2009/05/lyrics-written-in-java-
-replicator-mp3">Java写的Mp3歌词复制器</a>。</p>
-<p>这几天整理硬盘时候发现大四时候还用Delphi写了一个完整的GUI界面的Mp3歌词复制工具叫做PLrcMatch4D。</p>
-<p>源码已经丢失，只剩下可执行文件，T_T。</p>
-<p>如果非要定义以下这个工具的作用，就是从某个固定文件夹（歌词文件夹）复制对应Mp3播放器中歌曲的lrc文件到目标文件夹，从而让Mp3播放器可以正常显示歌词。</p>
-<p>下载点击这里，<a href="http://upload-
-log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
-<p>界面比较实在，大致是这样：</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/03/plrcmatch4d.jpg" /></p>
-                    <a class="btn btn-default btn-xs" href="/2011/03/plrcmatch4d/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/03/nanjing-library/">南京图书馆检索系统升级</a></h2>
-                <div class="summary"><p>我经常去南京图书馆借书，南图的书虽然馆藏很多，在架的却往往不多。我习惯在去南图之前将在豆瓣上标记为"想读"的书搜索一下，检查书是否在架，以前南图的检索系统挺
-难用。我甚至一度想写一个查询小脚本。</p>
-<p>好消息是，前几天南图将ALEPH500业务系统升级到20版，官方的消息如下：</p>
-<blockquote>
-<p>南京图书馆于2011年3月15-17日顺利完成了ALEPH500业务管理系统升级工作，顺利实现从16版到20版的切换，3月18日起ALRPH500 V2
-0正式开始运行。20版是ALEPH500的最新版本，从16版到20版的升级，因为越过了中间的18版，所以难度更大，过程更加复杂，南京图书馆是第一家完成此项工
-作的省级图书馆。</p>
-<p>新版业务管理系统具有检索界面更简洁、检索提示更友好、信息显示更全面、检索结果更准确、沟通交流更直接等优点，从而更加方便读者使用。新版系统的的最大亮点是在
-OPAC（联机公共查询目录）中引入了社区的理念，通过新增的标签、评论、评级功能，建立了图书馆和读者互动与交流的虚拟社区。</p>
-<p>ALEPH500业务系统升级项目是南京图书馆2010年确定的重点工作，为此，南图不仅召开了项目专家论证会，还赴国家图书馆进行专题调研，并成立了专门的项目
-工作小组，制定了升级工作方案和应急预案。在项目实施过程中，南图始终贯彻时间服从质量的原则，召开项目汇报会和项目工作会10余次，集中培训人员2次 ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2011/03/nanjing-library/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
-                <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
-pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
-<h2>3分钟Maven</h2>
-<p>Maven官方提供了<a href="http://maven.apache.org/guides
-/getting-started/maven-in-five-minutes.html">Getting Started in 5 Minutes</a>和<a href="http://maven.apache.org/guides/getting-
-started/index.html">Getting Started in 30
-Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。</p>
-<div class="highlight"><pre><span class="cp">#建立一个空项目，包含一个HelloWorld，可以通过</span>
-<span class="cp">#-DarchetypeGroupId=&lt;archetype-groupId ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/03/maven-eclipse/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/02/codesmith/">CodeSmith使用心得</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/codesmith/">CodeSmith使用心得</a></h2>
                 <div class="summary"><p>CodeSmith是一款著名的代码生成器，可以帮助开发者完成一些重复性的劳动，并且能够保证更高的代码质量。CodeSmith使用Template（*.cst
 ）模板进行基础代码片段的定义，支持语言包括C#, Java, VB, PHP, ASP.NET, SQL等等。</p>
 <p><img alt="CodeSmith" src="http://www.codesmithtools.com/lib/images/product/generator-h2.png" /></p>
@@ -147,12 +80,14 @@ Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。
 <p>CodeSmith使用的模板使用方式类似于aspx/jsp页面，也就是基础代码+脚本的方式，大致代码如下（官方的sample2）。</p>
 <div class="highlight"><pre><span class="cp">&lt;%</span><span class="err">@</span> <span class="no">CodeTemplate</span> <span class="no">Language</span><span class="o">=</span><span class="s2">&quot;C#&quot;</span> <span class="no">TargetLanguage</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This template demonstrates using properties in your template.&quot;</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="cp">&lt;%</span><span class="err">@</span> <span class="no">Property</span> <span class="no">Name</span><span class="o">=</span><span class="s2">&quot;Person&quot;</span> <span class="no">Type</span><span class="o">=</span><span class="s2">&quot;System.String&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This will show up at the bottom of the ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/02/codesmith/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/codesmith/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/02/no-silver-bullet/">没有银弹</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/no-silver-bullet/">没有银弹</a></h2>
                 <div class="summary"><p>最近为工作中和学习中遇到一些问题而发愁，夜不能寐，做梦都在寻求方法。</p>
 <p>问题简单的来说，就是开发过程中遇到很多本觉得不该遇到的问题，比如数据关系在数据表的设计，比如说自动化测试无法接入，ORM接入设计，开发流程如何优化，Web标
 准性问题等等。我罗列了大约30条会导致开发效率降低的因素，也一直在思考怎么解决他们，如果让我来设计他们，会用什么方式来提高效率，让系统更优美。</p>
@@ -160,12 +95,14 @@ Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。
 cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意识到自己太过于追求一步到位了。</p>
 <blockquote>
 <p>Brooks 认为，附加性的困难会随着工具的改善而逐渐淡化，反而是本质性的困难最难以解决 ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2011/02/no-silver-bullet/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/no-silver-bullet/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
                 <div class="summary"><p>在系统开发中，数据库连接字符串经常被保存到.config/.ini等配置文件中，以提高系统的灵活性。上大学时候，为了实现灵活配置数据库的效果，用拼字符串的方
 法来动态生成连接字符串，这种方法充满了Bad Smell。</p>
 <p>昨天用CodeSmith时候，看到它的数据连接配置界面，如此的眼熟，如下图。</p>
@@ -178,12 +115,14 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <div class="highlight"><pre><span class="n">DataConnectionDialog</span> <span class="n">dataConnectionDialog</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DataConnectionDialog</span><span class="p">();</span>
 <span class="n">DataSource</span><span class="p">.</span><span class="n">AddStandardDataSources</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/02/dataconnectiondialog/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/01/gac/">在.net中使用GAC</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/gac/">在.net中使用GAC</a></h2>
                 <div class="summary"><h2>GAC</h2>
 <p>GAC是什么？是用来干嘛的？GAC的全称叫做全局程序集缓存，通俗的理解就是存放各种.net平台下面需要使用的dll的地方。GAC的具体目录在windows/
 assembly。</p>
@@ -195,12 +134,14 @@ assembly。</p>
 <h2>获取强名称（签名）</h2>
 <p>并不是随便一个DLL都可以放到GAC中，如果这样的话，和之前的DLL Hell也没什么区别了。GAC使用一个强名称（签名）的方式来区分不同的DLL。每个签名
 都是独一无二的公钥私钥对。现在我们使用SDK的sn工具为我的DUtil库生成一个snk签名 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/01/gac/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/gac/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
                 <div class="summary"><h2>问题情境</h2>
 <p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
 ,"total", Parameters!Language.Value)函数修改为GetCommentForComment(
@@ -211,12 +152,14 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 <h3>Vim实现</h3>
 <p>%s/GetComment(((s<em>w+!w+.w+s</em>,){2}s<em>"w+"s</em>,s<em>w+!w+.w+s</em>))/GetCommentForReport(1
 , "ReportConnection0107")/gc&amp;nbsp_place_holder ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/01/regex-group-catch/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/regex-group-catch/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
                 <div class="summary"><p>从Louis Han那里看到一篇文章介绍了一个适合宅男的网站，想想我自己宅属性日益增加，就抄文推广一下。</p>
 <p>-Update 20110113</p>
 <p>收到男人袜客服的来信，说我文章"我们发现您的文章基本上是引用的网站内容，建议您用自己的文字来评价一下我们的网站或服务。"，我郁闷了一下，回了一封信说我还没体
@@ -229,7 +172,82 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 会定期收到寄送的新袜子，新袜子会根据您所在的季节和天气情况自动调整。</p>
 <p><img alt="" src="http://api.photoshop.com/v1.0/accounts/2ef56cf9f72d4754b1f9e2fe822f3cd4/as" title="sets/0d9ebac746f24207ab6c07fd9af3b955" /></p>
 <p>男人袜标准套装是<a href="http://nanrenwa.com/plans">每 3 个月寄送一次</a>。如果您希望更灵活的寄送方式，可以选择我们的自选套装，来自由的 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/01/nanrenwa-try/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/nanrenwa-try/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/a-simple-gae-proxy/">最简陋的GAE代理</a></h2>
+                <div class="summary"><p>年前换了一次服务器，之后发现<a href="http://log4d.com/stream">Lifestream</a>的Errors飙升到1000+错误，检查一下，发现是获
+取不了豆瓣的rss链接。正好这台主机支持SSH，连入之后CURL了一下豆瓣服务器，发现Time out。</p>
+<p>紧接着发现中国内的所有域名都无法使用CURL获取，联系小张之后，得知该主机曾经被入侵过，于是屏蔽了中国大陆的ip段（囧~入侵和中国ip有毛关系）</p>
+<p>遂想用GAE做个代理服务器，反正获取RSS也只要Get一下，代码没几句。把这项任务放入Toodledo之后，就一直没去弄，今天发现GAE
+Laucher升级了，就部署到自己GAE上了。</p>
+<p>地址格式如&amp;nbsp_place_holder;<a href="http://jasontiproxy.appspot.com/proxy?url=www
+.douban.com/feed/people/alswl/interests">http://jasontiproxy.appspot.com/proxy?url=www ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/a-simple-gae-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/12/lavavpn/">LavaVPN推广链接</a></h2>
+                <div class="summary"><p>以前一直使用SSH进行翻墙，后来在人人看到一位朋友推荐<a href="http://lavavpn.com">LavaVPN</a>，就过去试用一下，效果的确不错。</p>
+<p><img alt="LavaVPN" src="http://lavavpn.com/lavaweb/images/banner.jpg" /></p>
+<p>LavaVPN支持各种系统，在Windows下面有专用的客户端接入程序，通过这个客户端可以实现选择性加速，而不需要全局加速。在Android和Linux上面
+测试都可以。</p>
+<p>官方的介绍如下：</p>
+<blockquote>
+<p>LAVAVPN网络加速器是专为各类网游玩家、软件发烧友、网络办公、影音冲浪网虫等个人用户提供网络加速服务的新型产品，能有效减少网络延时，使网络互访再无拥
+挤的感觉，让您在任何情况下都能体验上网加速的快乐！多地服务器节点可以选择，一个账号即可使用全部节点，随时任意切换，软件自带服务器测速工具，自动选择最快的节点
+。</p>
+</blockquote>
+<p>服务器目前有大陆、台湾、香港和美国，我个人比较喜欢香港的服务器，速度快，畅游无限。根据我的实际使用，速度都不错，几乎都可无延迟的看Youtube。国内的服务
+器则是我在上班时候听音乐用的。</p>
+<p>由于VPN的全局性，导致连接上VPN后无法连接上内网数据库等服务器，我的解决方案是在虚拟机上跑VPN，采用Bridge桥接接入网络。</p>
+<p>目前LavaVPN在推广阶段，包月是16元，包3月是44元，半年80元，还是很超值的。</p>
+<p>最后分享3个推广链接，使用邀请码注册可以获得额外1天的免费使用时间。首次充值（30天及以上）可获额外3天时间赠送 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/12/lavavpn/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/12/half-year/">半年</a></h2>
+                <div class="summary"><p>去年10月份时候，进入了一家做信息化的上市公司，带着对未来的憧憬奔向了广州，半年中，历经数个小项目，发现其实是小作坊开发模式。虽说能学到一些编程之外的东西，
+但毕竟不是系统的开发模式，今年5月回了学校就辞职了。</p>
+<p>7月份时候，工作机会似乎已经趋向饱和，我急急忙忙拿了一份Offer，从事.net的企业信息化开发。虽然我志在Web
+2.0方面的开发，但是权衡再三，还是到南京的研发中心。</p>
+<p>新岗位是.net Web开发，我由Java开发人员转为.net开发人员。我对语言的选择本身不是很在意，甚至那时候认为语言其实是工具，思想和设计才是核心。我所
+就职的部门负责产品之外的特殊需求专案开发，基于.net平台开发ERPII产品，包括工作流、CRM等等。</p>
+<p>从事.net开发之后，才感觉到Java开发的各种好处：各种开放的框架提供了自由选择发挥的平台，实现一种需求的方法有N+1种方式，并且能够跟进较新的技术，满足
+自己学习的渴望。.net虽然也很强大，但我总觉得微软提供的工具想让开发人员傻瓜化（在ASP.NET MVC出来之前，Web Form的开发模式让我很不爽）。</p>
+<p>公司的Web产品只能在IE6下运行 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/12/half-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/12/csharp-vba-excel/">C#+VBA操作Excel总结</a></h2>
+                <div class="summary"><p>Excel在日常办公中应用非常广泛，这次我接到一个案子，需要往Excel中写入数据并能够打印出固定格式，前前后后大概花了将近2星期才搞定，现在做一些分享。</p>
+<h2>一、关于操作Excel的几种方式</h2>
+<p>我们导出Excel，大抵是有两种方法，一种是在服务器端用一些类库或者COM组件直接生成Excel成品，其二是在后台只写入数据，而不写入具体格式，等用户下载完
+Excel之后再在客户端上利用vba生成Excel成品。</p>
+<h3>1.1使用"自动化"功能-后台生成成品</h3>
+<p>微软把后台使用COM组件称之为"自动化"，其实它本身是不建议这种用法，在<a href="http://support.microsoft.com/kb/257757">257757 号文章（服务器端 Office
+自动化注意事项）</a>也明文标出"Microsoft
+目前建议不要从任何无人参与的、非交互式客户端应用程序或组件（包括 ASP、DCOM 和 NT Service）中进行 Microsoft Office
+应用程序的"自动化"，也不为此提供支持，因为 Office 在这种环境中运行时可能会出现不稳定的现象并且/或者会死锁。"</p>
+<p>这种方法的优点是给用户更简洁的展现，毕竟原生的Excel成品比半成品来更容易接受，而且可以避免宏安全问题 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/12/csharp-vba-excel/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -241,7 +259,9 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 					href="/page/11/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -258,6 +278,11 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

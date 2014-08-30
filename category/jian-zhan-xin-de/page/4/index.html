@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
                 <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
 重建博客。</p>
 <p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
@@ -85,12 +85,14 @@
 'dddspace_wp'，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。</p>
 <p>如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作</p>
 <p>3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/station-restoration-of-mind/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/station-restoration-of-mind/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
                 <div class="summary"><p>这个想法一直就有，不过没有付之于实践，这次Yo2服务器崩溃，终于促使我创建自己的DDDSpace.cn</p>
 <p>在这里要感谢<a href="http://hengtian.org/">小张</a>，呵呵，让我赶上了新手空间合租，享受了性价比很高的服务，还要感谢<a href="http://wordpress.org.cn">wordpress.org
 .cn</a>,里面很多会员的帖子给我很多帮助，让我能够快速的创建这个博客</p>
@@ -104,12 +106,14 @@
 <p>import postbar.bean.Topic;</p>
 <p>import postbar.dao.CategoryDAO;</p>
 <p>public ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/finally-created-a-blog-of-their-own/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/finally-created-a-blog-of-their-own/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
                 <div class="summary"><p>寒假就发现自己的那个网站能被万能asp密码攻破，还留了一句"网站有漏洞，请加强防护"</p>
 <p>当时不知道什么造成漏洞，就写了一个ipTrace来跟踪ip</p>
 <p>前段时间打开ipTrace一看，有这么多用户非法登录</p>
@@ -117,7 +121,9 @@
 <p>58.251.77.207 2009-4-4 9:27:39 -1 广东省深圳市 网通</p>
 <p>219.149.162.151 2009-4-4 9:39:08 -1 山西省大同市 电信</p>
 <p>219.149.162.151 2009-4-4 9:50:41 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -128,7 +134,9 @@
 			<li class="next disabled"><a href="#">&laquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -145,6 +153,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/07/vimperator-pass-through/">Vimperator的Pass through</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/07/vimperator-pass-through/">Vimperator的Pass through</a></h2>
                 <div class="summary"><p>作为 vim 的拥护者，我同时也喜欢使用 Vimperator 这款 Firefox 下面的插件，这款插件可以帮助实现 Firefox 的纯键盘操作。</p>
 <p>我同时也是 GMail / Google Reader 的深度用户，他们在网页端也支持纯键盘操作，这样就和 Vimperator 产生了冲突。键盘按键事件被
 Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p>
@@ -80,13 +80,17 @@ Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p
 将不响应键盘操作，全部放行到 Web 页面。</p>
 <p>在某一次版本更新之后， Pass through 的快捷键 <code>CTRL+Z</code> 似乎不起作用了，我翻遍了用户手册也没有找到解决办法。</p>
 <p>就在昨天，我无意中不知道按了什么键 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/07/vimperator-pass-through/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/07/vimperator-pass-through/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -103,6 +107,11 @@ Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/03/speaking-of-flower-shop/">flower shop 汉化</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/speaking-of-flower-shop/">flower shop 汉化</a></h2>
                 <div class="summary"><p>死党的女朋友的一门网页设计课需要作品，向我求援。我看了一下他们的课件，没有什么动态语言，静态的Html页面即可。</p>
 <p>在<a href="http://blog.bingo929.com/99-high-
 quality-free-xhtml-css-div-templates.html">99款高质量免费(X)HTML/CSS模板-DIV+CSS模版下载 | 彬Go</a>看到很多款极佳的网页设计，反复删选后，决定选用一款Flower
@@ -81,12 +81,14 @@ Shop的作品。</p>
 log4d.qiniudn.com/2010/03/Flower Shop.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/03/Flower" title="Shop.jpg" /></a></p>
 <p>原始预览： <a href="http://csscreme.com/fre
 etemplates/flower_shop/">http://csscreme.com/freetemplates ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/speaking-of-flower-shop/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/speaking-of-flower-shop/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/08/tested-in-google-reader-using-flash/">测试在Google Reader下使用Flash</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/08/tested-in-google-reader-using-flash/">测试在Google Reader下使用Flash</a></h2>
                 <div class="summary"><p>发现我贴的Flash都不能在Google
 Reader中显示，而<a href="http://jandan.net">煎蛋</a>的可以，我FireBug了一下，发现它的Flash代码和我的略有区别。</p>
 <p>我之前的Flash代码~ <code>&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -94,13 +96,17 @@ width="420" height="363" codebase="http://download.macromedia.com/pub/shockwav
 e/cabs/flash/swflash.cab#version=6,0,40,0"&gt;&lt;param name="allowFullScreen"
 value="true" /&gt;&lt;param name="allowscriptaccess" value="always" /&gt;&lt;param
 name="wmode" value="opaque" /&gt;&lt;param name ...</code></p>
-                    <a class="btn btn-default btn-xs" href="/2009/08/tested-in-google-reader-using-flash/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/08/tested-in-google-reader-using-flash/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -117,6 +123,11 @@ name="wmode" value="opaque" /&gt;&lt;param name ...</code></p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

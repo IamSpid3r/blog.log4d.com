@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2014/03/hiredis/">hiredis 源码学习</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2014/03/hiredis/">hiredis 源码学习</a></h2>
                 <div class="summary"><p>前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
 我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
 所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。</p>
@@ -80,25 +80,31 @@
 同时提供了同步和异步的两种 API。Hiredis 的代码位于
 <a href="https://github.com/redis/hiredis">https://github.com/redis/hiredis</a>。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2014/03/hiredis/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2014/03/hiredis/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2014/02/redis-benchmarks/">Redis 到底有多快[译文]</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2014/02/redis-benchmarks/">Redis 到底有多快[译文]</a></h2>
                 <div class="summary"><p>原文地址 <a href="http://redis.io/topics/benchmarks">http://redis.io/topics/benchmarks</a>。</p>
 <p>拖了一个半月的稿子~</p>
 <hr />
 <p>Redis 自带了一个叫 <code>redis-benchmark</code> 的工具来模拟 N 个客户端同时发出 M 个请求。
 （类似于 Apache <code>ab</code> 程序）。你可以使用 <code>redis-benchmark -h</code> 来查看基准参数。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2014/02/redis-benchmarks/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2014/02/redis-benchmarks/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -115,6 +121,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

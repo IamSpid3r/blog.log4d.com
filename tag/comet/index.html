@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/05/comet/">服务器 Push 技术</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/05/comet/">服务器 Push 技术</a></h2>
                 <div class="summary"><p>服务器 Push 技术表示服务器可以主动推送消息给客户端浏览器。</p>
 <h2>实现方式</h2>
 <ul>
@@ -92,12 +92,14 @@
 <li><a href="http://socket.io/#browser-support">Socket.IO Supported transports</a></li>
 </ul>
 
-                    <a class="btn btn-default btn-xs" href="/2012/05/comet/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/05/comet/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
                 <div class="summary"><p>唔，继续整理笔记，这些是在代码编写中遇到的问题和解决办法的总结，不是Turtial，问题有针对性，内容枯燥，路人可以直接忽略~</p>
 <h3>一、Comet服务器推技术</h3>
 <p>Comet推技术，一句话概括，就是形成一个不断开的连接，使得服务器能主动向客户端发送信息。这种技术在交互性强的Web产品中应用的非常多，比如GMail。Co
@@ -106,13 +108,17 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 长连接的"服务器推"技术</a>。</p>
 <p>我计划把这个技术引入，成为一个亮点，第二种Comet实现方式过于复杂（GMail使用的就是这种），我就尝试第一种。我在测试环境测试了基于 AJAX 的长轮询
 （long-polling）方式。这种方式说白了就是在Ajax获取返回数据时候，在状态吗为4（数据传输完成）情况随后进行下次查询。进行循环的查询 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/08/azaajaxchat-notes-implementation/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/azaajaxchat-notes-implementation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -129,6 +135,11 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

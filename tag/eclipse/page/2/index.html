@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
                 <div class="summary"><p>使用自动生成代码，如构造一个类时候，会出现 // TODO Auto-generated method stub 任务标记，很是碍眼。</p>
 <p>特别是在使用Windows - Prefererences - Show views - Tasks管理任务时，经常会和代码中的TODO一起使用，混淆视线</p>
 <p>我弄了好久，才晓得自动建立的Task才有Complete的复选框，而在代码中的TODO FIXME XXX 是没有复选框的。</p>
@@ -80,7 +80,9 @@
 <p>昨天晚上诈金花输了200，交了学费，今天看不进书，就看看Java代码，看到这个Eclipse的功能，感兴趣，花了好一会看资料，很少，然后参考了<a href="http://www.mooreds.com/wordpress/a
 rchives/000446">http:/
 /www.mooreds.com/wordpress ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/eclipse-of-the-todo-tasks/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/eclipse-of-the-todo-tasks/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -91,7 +93,9 @@ rchives/000446">http:/
 			<li class="next disabled"><a href="#">&laquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -108,6 +112,11 @@ rchives/000446">http:/
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

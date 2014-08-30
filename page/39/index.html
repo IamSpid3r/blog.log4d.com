@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,95 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/02/ajax-started-use-dom-to-resolve-xml/">Ajax起步：使用DOM解析XML</a></h2>
-                <div class="summary"><p>只要代码没问题，基本上就没有问题，唯一值得注意的是虽然是html文档，但是如果想使用dom解析xml，还是必须使用服务器的，否则XMLHttpRequest
-返回的status就是0了。</p>
-<p><em>XML语言</em>: <a href="http://www.fayaa.com/code/view//">studentdata.xml</a></p>
-<?xml version="1.0" encoding="UTF-8"?>
-
-<p><classmates></p>
-<p><student></p>
-<p><sid>0371</sid></p>
-<p><sname>张三</sname></p>
-<p><sage>17</sage></student><student></p>
-<p><sid>0372</sid></p>
-<p><sname>李四</sname></p>
-<p><sage>18</sage></student><student></p>
-<p><sid>0373</sid></p>
-<p><sname>王五</sname></p>
-<p><sage>18</sage></student></classmates></p>
-<p><em>HTML语言</em>: <a href="http://www.fayaa.com/code/view//">domxml.html</a></p>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-
-<p><html></p>
-<p><head></p>
-<p><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></p>
-<p><title>使用DOM解析XML</title></p>
-<script type="text/javascript" src="domxml.js"></script>
-
-<p></head></p>
-<p><body></p>
-<form>
-
-<input type="button" value="解析XML" color: rgb(170,85,0)>"sendRequest();"/>
-
-</form>
-
-<p></body></p>
-<p></html></p>
-<p><em>JavaScript语言</em>: <a href="http://www.fayaa.com/code/view//">domxml.js</a></p>
-<p>var XMLHttpReq;</p>
-<p>var url = "studentdata ...</p></?xml>
-                    <a class="btn btn-default btn-xs" href="/2009/02/ajax-started-use-dom-to-resolve-xml/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
-                <div class="summary"><p>在Eclipse中新建JSP页面时候，<strong>contentType="text/html; charset=utf-8"</strong>,
-<strong>pageEncoding="utf-8"</strong>, <strong>content="text/html; charset=utf-8"</strong>， 这样连中文字都无法保存
-，必须修改成UTF-8才能显示。</p>
-<p>在网上找了很久都没有合适的方案，都是给出在General下面的Content Types修改编码，而且下面人留言还说有效，我自己试了去发现根本没有作用。。。</p>
-<p>自己琢磨了很久，终于在Web - JSP Files 里面找到了正确的设置，把其中的<strong>Encoding</strong>由ISO改为UTF-8就一切完美解决。</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/02/servlet-jsp-s-java-type-of-the-most-simple-mvc-model/">Servlet JSP 的 Java类的最简单MVC模型</a></h2>
-                <div class="summary"><p>来自Head First Servlet and JSP</p>
-<p><em>XML语言</em>: <a href="http://www.fayaa.com/code/view//">web.xml</a></p>
-<?xml version="1.0" encoding="UTF-8"?>
-
-<p>&lt;web-app xmlns="http://java.sun.com/xml/ns/j2ee"</p>
-<p>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</p>
-<p>xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</p>
-<p>version="2.4"&gt; --&gt;</p>
-<p><servlet></p>
-<p><servlet-name>Ch3 Beer</servlet-name></p>
-<p><servlet-class>com.example ...</servlet-class></p></?xml>
-                    <a class="btn btn-default btn-xs" href="/2009/02/servlet-jsp-s-java-type-of-the-most-simple-mvc-model/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/02/was-defeated/">被击败了</a></h2>
-                <div class="summary"><p>为了那个踩校内的工具，搞了半天，java失败，最基本的POST都写不出来，惭愧的```</p>
-<p>捻转C#，用HtmlWebRequest写Post，再次被击败。。。POST又失败...</p>
-<p>其实我很惭愧</p>
-<p>真不知道错在哪里，如果post百度则直接流接受失败，更惨...</p>
-<p>老老实实的用WebBrowser模拟操作过程吧```</p>
-<p>13号晚上8点的火车回去</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/was-defeated/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/02/java-triggered-by-the-post/">Java中的POST引发的...</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/02/java-triggered-by-the-post/">Java中的POST引发的...</a></h2>
                 <div class="summary"><p>因为一直想写一个刷人气的工具，其中最基本的就是post方法了，然后再收集页面中的元素。今天我就开始着手写Java的POST方法。</p>
 <p>在Java.net.*;中用URL构造地址，然后用流写入，似乎应该是很简单的方案，我却一直没成功。我百度Google了很久，参考了很多别人代码，似乎很容易实
 现，可是我的一直问题，而我觉得和网上提供的一样。我的代码如下</p>
@@ -172,12 +86,14 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"</p>
 <p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; try</p>
 <p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; {</p>
 <p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;&amp;nbsp_place_holder; URL url = new URL("<a href="http://localhost ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/java-triggered-by-the-post/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/02/java-triggered-by-the-post/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/01/eclipse-of-the-odd/">Eclipse的奇淫巧计【转】</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/eclipse-of-the-odd/">Eclipse的奇淫巧计【转】</a></h2>
                 <div class="summary"><p>代码篇：</p>
 <p>1.在源代码中快速跳转:</p>
 <p>eclipse中的跳转甚至比VS.Net还方便，方法是按住Ctrl键，然后鼠标指向变量名，方法名，类名，就会出现链接，点击就可跳到定义处。</p>
@@ -191,12 +107,14 @@ Getters and</p>
 <p>Setters"。</p>
 <p>4.更改类名/变量名:</p>
 <p>如果涉及到多处修改，不要直接在源码中更改，在Package Explore中找到要改名的类或变量，右键点击 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/eclipse-of-the-odd/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/eclipse-of-the-odd/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
                 <div class="summary"><p>使用自动生成代码，如构造一个类时候，会出现 // TODO Auto-generated method stub 任务标记，很是碍眼。</p>
 <p>特别是在使用Windows - Prefererences - Show views - Tasks管理任务时，经常会和代码中的TODO一起使用，混淆视线</p>
 <p>我弄了好久，才晓得自动建立的Task才有Complete的复选框，而在代码中的TODO FIXME XXX 是没有复选框的。</p>
@@ -204,23 +122,27 @@ Getters and</p>
 <p>昨天晚上诈金花输了200，交了学费，今天看不进书，就看看Java代码，看到这个Eclipse的功能，感兴趣，花了好一会看资料，很少，然后参考了<a href="http://www.mooreds.com/wordpress/a
 rchives/000446">http:/
 /www.mooreds.com/wordpress ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/eclipse-of-the-todo-tasks/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/eclipse-of-the-todo-tasks/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
                 <div class="summary"><p>今天看到一个高中同学的qq签名，人活着是为什么。</p>
 <p>她当时读的很潇洒，艺术生，现在已经工作了，男朋友换了无数</p>
 <p>我看了这个签名，觉得有点悲哀，现在已经不是应该考虑这个问题的时候了</p>
 <p>这个问题应该由小学生、初中生、最多高中生提出来。到了大学如果还搞不清楚自己活着的目的，自己人生的目标是什么，我觉得这是很悲哀的</p>
 <p>如果现在对自己提出这个问题，就已经问的太晚了</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/too-late-to-ask-a-question/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/too-late-to-ask-a-question/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/01/i-look-at-design-patterns/">我在看设计模式</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/i-look-at-design-patterns/">我在看设计模式</a></h2>
                 <div class="summary"><p>花了6天时间把创建型5种模式看完了，很有感触，但是感触不意味着我理解，我甚至私下里觉得OOD的设计模式不适合我现在做的那些程序，那些都是一次成型，根本谈不上
 需求的改变。没有改变，就不需要OO思想。因为我这样的想法，我看起来很累。
 我知道这些思想对我以后的发展很有帮助，会从思想上把我解救出来，我被这些新的设计想法激动着（虽然出来很多年，可是对于我来说完全是新的，呵呵```）。</p>
@@ -228,12 +150,14 @@ rchives/000446">http:/
 <p>这几天我也在想以后走IT哪一条路。想了好久，现在的想法是：计算机本质上是一种工具，软件的存在是为了计算机更好的服务。既然是一个工具，就要有工具的觉悟，就必须
 不断适应生产力的发展，需要完善自身功能，也就是需求的变化。正是因为需求的变化，使得敏捷软件开发成为现在的主流。</p>
 <p>呃<code>我才看了几天设计模式，就说的这么狂</code>激动了，激动了```</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/i-look-at-design-patterns/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/i-look-at-design-patterns/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">爱上艺术，爱上侯捷</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">爱上艺术，爱上侯捷</a></h2>
                 <div class="summary"><p>初识侯捷是因为那本在Windows编程环境下面的巨作《深入浅出MFC》，尽管是96年前后写的书，依然给我在思想和技术上带来了很大的震撼和飞跃。可惜最近忙于A
 SP网站的建设和繁重的考试，把那本书放下了。</p>
 <p>为了硬件设计的论文，我花了很多心思在Word排版上，图书馆的书翻了好多，都没有针对长文档排版的书，Sybex的《Office商务排版》也不合我心意，尽管最后
@@ -244,7 +168,79 @@ SP网站的建设和繁重的考试，把那本书放下了。</p>
 一遭！"</p>
 <p>好一个侯捷</p>
 <p>我不敢说和侯捷这种Program大家有相同层次的想法，可是，从《深入浅出MFC》到《Word排版艺术 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/12/office-of-the-art-publishing-long-documents/">Office长文档排版的艺术</a></h2>
+                <div class="summary"><p>虽然最近考试不断，我仍然花了很多时间在Office上</p>
+<p>准确的说，实在Office的Word2003排版上</p>
+<p>图书馆的Office相关书籍都略微翻了一点，感觉都比较入门，没有从整篇文章排版的角度说，有一本Sybex翻译过来的《Office商务应用》，则是偏向于公司的
+日程组织和全局安排，而不是我想要的长文档排版问题。</p>
+<p>网上搜寻很久，找到一本《McGraw.Hill.How.to.Do.Everything.with.Microsoft.Office.2003.eBook-
+DDU》PDF格式的书籍，讲的很好，一上来就要从大纲视图来安排文章结构，很合我心意但，可惜是英文...</p>
+<p>功夫不负有心人，终于找到一篇来自微软客户帮助和支持中心的官方长文档排版说明，网址是</p>
+<p><a href="http://support.microsoft.com/kb/890700/zh-cn/">http://support.microsoft.com/kb/890700/zh-
+cn</a></p>
+<p><a href="http://support.microsoft.com/kb/890701/zh-cn">http://support.microsoft.com/kb/890701/zh-
+cn ...</a></p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/12/office-of-the-art-publishing-long-documents/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/12/annoying-clip/">恼人的美工</a></h2>
+                <div class="summary"><p>一边在考试中挣扎着，操作系统，系统安全，系统结构都一股脑的狠狠的向我砸来，一方面还得为那个ASP项目烦恼</p>
+<p>程序永远不是问题，VB Script虽然没用过，不过感觉还是在的，写起来也算是有条理，可到了界面重新设计这一块，就烦了</p>
+<p>客户要求重新换一个风格界面，加上 我对原来的table控制界面很不喜欢，索性用div+css全部重写，不过在风格定位上遇到了很大的困难，毕竟我是程序员，不是
+专业美工，而且css本来就不熟，我就看着一大堆的css书，学着什么盒子理论啊，IE6,FF,IE7的css值不同拉做着各种设计，疯了，混到这个份上了。
+变成纯体力活了。。。</p>
+<p>我一边还自个儿安慰自己，嗯，哥哥是位艺术家了....</p>
+<p>借鉴着大量的美工做的非常好的网站，佩服着其他一些美术设计师，行行出状元啊...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/12/annoying-clip/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/">MFC将退出历史舞台，微软的下一代用户界面技术WPF</a></h2>
+                <div class="summary"><p>转来的，最近对MFC很关注...</p>
+<p>WPF简介</p>
+<p>WPF的全称是WindowsPresentationFoundation，是微软新发布的Vista操作系统的三大核心开发库之一，其主要负责的是图形显示，
+所以叫Presentation（呈现）。</p>
+<p>作为新的图形引擎，WPF是基于DirectX的，当然增加了很多新的功能。其2D和3D引擎的强大看看Vista的界面就明白了，再加上其对Aero图形引擎的
+支持，更加让你刚到神奇。顺便提一下，Aero是专门为3D桌面开发的引擎，可以让桌面实现神奇的3D翻转，这绝对是操作系统有史以来的一次神奇尝试，虽然对硬件配置
+的要求也是惊人的，此前已有相关报道称，Vista对显卡十分挑剔就是出于运行Aero的考虑。</p>
+<p>微软公司早在2003年洛杉矶的PDC上就公布了Avalon，他们将其视为下一代用户界面技术，并且得到了开发者和用户的一致赞同。</p>
+<p>在2005年的PDC上，微软公司展示了比2003年更加完整的Avalon版本，并给它取了一个官方新名称：WindowsPresentationFound
+ation(WPF)。在此之前，它已经完成了从演示软件到开始阶段alpha版本的API的转变。到了几个月之后的今天，它又成长成为更加先进的beta版本--
+你可以使用它来开发你的下一代用户界面程序了。</p>
+<p>那么，WPF是什么，为什么它那么重要呢？</p>
+<p>首先，它清晰而又有效的将用户界面和程序实现分开。它使得设计可视化的用户界面的设计者和编写内部核心代码的开发人员可以并行工作。这是非常重要的：</p>
+<p>•将两者分开，软件开发公司可以使得设计者们集中精力将设计工作做得更好，同时让开发者支持他们。</p>
+<p>•随着软件外包和订购的逐渐风行，WPF使得一些商业的设计者们能够更好的从事界面设计工作，并集成一些简单的功能 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/10/mfc/">MFC</a></h2>
+                <div class="summary"><p>刚开始似乎不太对MFC敏感，觉得现在导出讨论Java和.Net，很少看到MFC的身影，唔，当然了，是在我这只菜鸟看来</p>
+<p>后来慢慢写在WinAPI上的程序，都是在命令提示符里面完成代码，界面很不友好，这才翻出MFC的书看。觉得写起来不太容易，逻辑和实现有点差距，就放下了几天。</p>
+<p>这几天网络编程想写人性化一点的VC界面，还是得使用MFC。</p>
+<p>我到今天才稍微弄清楚MFC和WinAPI窗体之间的关系，一方面开始感慨微软的MFC类库的强大...</p>
+<p>嗯，继续fighting...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/10/mfc/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -256,7 +252,9 @@ SP网站的建设和繁重的考试，把那本书放下了。</p>
 					href="/page/40/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -273,6 +271,11 @@ SP网站的建设和繁重的考试，把那本书放下了。</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

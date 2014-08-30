@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
                 <div class="summary"><p>唔，继续整理笔记，这些是在代码编写中遇到的问题和解决办法的总结，不是Turtial，问题有针对性，内容枯燥，路人可以直接忽略~</p>
 <h3>一、Comet服务器推技术</h3>
 <p>Comet推技术，一句话概括，就是形成一个不断开的连接，使得服务器能主动向客户端发送信息。这种技术在交互性强的Web产品中应用的非常多，比如GMail。Co
@@ -81,12 +81,14 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 长连接的"服务器推"技术</a>。</p>
 <p>我计划把这个技术引入，成为一个亮点，第二种Comet实现方式过于复杂（GMail使用的就是这种），我就尝试第一种。我在测试环境测试了基于 AJAX 的长轮询
 （long-polling）方式。这种方式说白了就是在Ajax获取返回数据时候，在状态吗为4（数据传输完成）情况随后进行下次查询。进行循环的查询 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/08/azaajaxchat-notes-implementation/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/azaajaxchat-notes-implementation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/08/azaajaxchat-notes-frame/">AzaAjaxChat笔记-框架</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/08/azaajaxchat-notes-frame/">AzaAjaxChat笔记-框架</a></h2>
                 <div class="summary"><p>1个月没有动PHP了，新装的系统甚至还没有配置PHP环境，今天看到BooguNote上有一个boo是专门记录AzaAjaxChat开发时候遇到的问题和解决办
 法。于是把一些东西整理记录一下。</p>
 <h3>1. 从ThinkPHP开始</h3>
@@ -100,12 +102,14 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 <p>在开发过程中，我也遇到过框架本身的Bug，让我对这个框架失去信心。在这里我没有贬低ThinkPHP或者ThinkPHP开发者的意思，他们的"大道至简、开发由
 我"的理念很值得欣赏。只是作为初学者因为遇到的一些问题，带来了一定的开发难度，不得已放弃。</p>
 <h3>2. 选择CakePHP ...</h3>
-                    <a class="btn btn-default btn-xs" href="/2010/08/azaajaxchat-notes-frame/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/08/azaajaxchat-notes-frame/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/06/ie-xml-cache-problem/">IE XML 缓存问题</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/06/ie-xml-cache-problem/">IE XML 缓存问题</a></h2>
                 <div class="summary"><p>明天开始上交毕业设计初稿，其中有一节是遇到的问题和解决办法。我把平时在BooguNote 中的琐碎片段整理出来，便有了此文。</p>
 <p>PS:之前已经有过3篇相关毕设的文章：</p>
 <p>[CakePHP的全局变量</p>
@@ -120,12 +124,14 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 me请求时候都能获得正确的数据，而IE则常常出现无法获取实时的XML数据。</p>
 <p>而如果在地址栏中填入 http://localhost/AzaAjaxChat/src/Chat/getXml?messageId=41
 这个原始的XML文件地址，就可以获取正确的XML文件。并且在下次IE ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/06/ie-xml-cache-problem/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/06/ie-xml-cache-problem/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/05/swfobject/">SWFObject 一款JavaScript的Flash检测与插入模块</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/swfobject/">SWFObject 一款JavaScript的Flash检测与插入模块</a></h2>
                 <div class="summary"><p>今天开始AzaAjaxChat的视频聊天模块，拖FMS的福，实现起来很轻松，不过后来在JavaScript和Flash的交互上遇到了问题。</p>
 <p>Flash在各个浏览器中的实现始终是个麻烦的事情，什么Object Embed~，似乎没有什么标准的格式，一般都要做一些浏览器Hack，我对这些深痛恶绝，在
 泡了一下午前端相关的论坛后，偶然发现一款JavaScript交互的神器。</p>
@@ -138,12 +144,14 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 <p>官方在Google Project Host中，下载的代码包中有一个简单的Example，也包含了SWFObject的源码，感兴趣的同学可以研究一下。</p>
 <p>相关链接：</p>
 <p>[swfobject - Project Hosting on ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/swfobject/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/swfobject/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
                 <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
 <p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
 和全局变量其实完全不是同一个概念）</p>
@@ -177,13 +185,17 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 <p>在其他文件中就可以调用这个全局变量了。</p>
 <h3>二、通过Configure 类</h3>
 <p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/cakephp-global-variables/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/cakephp-global-variables/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -200,6 +212,11 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

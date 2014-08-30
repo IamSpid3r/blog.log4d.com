@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,11 +70,13 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8 col-lg-offset-2">
     <section id="content">
         <h1>Archives for Log4D</h1>
 
         <dl>
+                <dt>2014-08-30</dt>
+                <dd><a href='/2014/08/work overtime/'>加班那点事儿</a></dd>
                 <dt>2014-08-11</dt>
                 <dd><a href='/2014/08/life-with-pain/'>痛快活</a></dd>
                 <dt>2014-07-23</dt>
@@ -89,8 +91,6 @@
                 <dd><a href='/2014/02/redis-benchmarks/'>Redis 到底有多快[译文]</a></dd>
                 <dt>2014-01-21</dt>
                 <dd><a href='/2014/01/renamed-svn-to-git/'>从 SVN 到 Git，找回丢失的历史</a></dd>
-                <dt>2013-12-31</dt>
-                <dd><a href='/2013/12/2013/'>Goodbye 2013, Hello 2014</a></dd>
                 <dt>2013-12-08</dt>
                 <dd><a href='/2013/12/mac/'>Linux 程序员的 Mac 安装记录</a></dd>
                 <dt>2013-11-09</dt>
@@ -109,8 +109,6 @@
                 <dd><a href='/2013/02/facebook/'>读《打造 Facebook》</a></dd>
                 <dt>2013-01-12</dt>
                 <dd><a href='/2013/01/python-epoll/'>在 Python 中使用 epoll[译文]</a></dd>
-                <dt>2013-01-01</dt>
-                <dd><a href='/2013/01/my_2012/'>My 2012</a></dd>
                 <dt>2012-11-19</dt>
                 <dd><a href='/2012/11/keeping-instagram-up-with-over-a-million-new-users-in-twelve-hours/'>如何让 Instagram 在一百多万用户爆炸后稳定运行</a></dd>
                 <dt>2012-11-18</dt>
@@ -119,20 +117,14 @@
                 <dd><a href='/2012/10/pycon-2012/'>PyCon 2012 见闻</a></dd>
                 <dt>2012-10-16</dt>
                 <dd><a href='/2012/10/working-with-python-subprocess/'>Working with Python subprocess[译文]</a></dd>
-                <dt>2012-08-16</dt>
-                <dd><a href='/2012/08/interview/'>面试小记</a></dd>
                 <dt>2012-08-09</dt>
                 <dd><a href='/2012/08/why-shanghai/'>我为什么来上海</a></dd>
                 <dt>2012-08-04</dt>
                 <dd><a href='/2012/08/the-road-less-traveled/'>《少有人走的路》读后感</a></dd>
                 <dt>2012-07-27</dt>
                 <dd><a href='/2012/07/moin2txt/'>MoinMoin Wiki 转换 Text 脚本</a></dd>
-                <dt>2012-07-26</dt>
-                <dd><a href='/2012/07/learning-driving/'>学车记</a></dd>
                 <dt>2012-06-19</dt>
                 <dd><a href='/2012/06/flotr2/'>Flotr2 - 我最喜欢的 Javascript 图形库[译文]</a></dd>
-                <dt>2012-06-15</dt>
-                <dd><a href='/2012/06/do-and-think/'>想和做</a></dd>
                 <dt>2012-06-11</dt>
                 <dd><a href='/2012/06/vundle-submodule/'>Vundle 和 Submodule</a></dd>
                 <dt>2012-05-30</dt>
@@ -886,7 +878,9 @@
         </dl>
     </section>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -903,6 +897,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

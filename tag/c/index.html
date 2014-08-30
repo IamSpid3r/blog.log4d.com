@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
                 <div class="summary"><p>在系统开发中，数据库连接字符串经常被保存到.config/.ini等配置文件中，以提高系统的灵活性。上大学时候，为了实现灵活配置数据库的效果，用拼字符串的方
 法来动态生成连接字符串，这种方法充满了Bad Smell。</p>
 <p>昨天用CodeSmith时候，看到它的数据连接配置界面，如此的眼熟，如下图。</p>
@@ -85,12 +85,14 @@
 <div class="highlight"><pre><span class="n">DataConnectionDialog</span> <span class="n">dataConnectionDialog</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DataConnectionDialog</span><span class="p">();</span>
 <span class="n">DataSource</span><span class="p">.</span><span class="n">AddStandardDataSources</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/02/dataconnectiondialog/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2008/07/course-design-works-great-debut/">课程设计作品大登场</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/07/course-design-works-great-debut/">课程设计作品大登场</a></h2>
                 <div class="summary"><p>本文乃08-09校内日志存档，我一起给发布了，如果给大家阅读造成困难，我深感抱歉</p>
 <p>这个系统我还是很得意的，是我大二时候学C#时候巅峰之作，那时候刚学完网络，
 还没开任何网络编程，那时候第一次接触SourceForge，参考了好多英文资料。</p>
@@ -107,13 +109,17 @@
 <p>这个系统是我这个学期课程设计，花了我将近一个多月的时间(期末考试阶段，很忙 - -#)，在写之前，我完全不懂数据库和网络传输，C#和面向对象思想也是这学期刚开的。虽然Bug还很多，但我仍然写出来了，很是开心。</p>
 <p>上传到CSDN，希望对大家有帮助。 
 Aza的来源是因为一个笑话，一个女人是500只鸭子 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2008/07/course-design-works-great-debut/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2008/07/course-design-works-great-debut/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -130,6 +136,11 @@ Aza的来源是因为一个笑话，一个女人是500只鸭子 ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

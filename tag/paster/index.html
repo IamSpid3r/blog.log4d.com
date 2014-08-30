@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/03/python-debug/">在Python中调试代码</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/03/python-debug/">在Python中调试代码</a></h2>
                 <div class="summary"><p>撰写程序时候，需要在调试上面花费不少时间，好的调试工具可以让这个过程如虎添翼， 靠打 log 调试会是一种很痛苦的过程，我总结一下 Pylons
 开发的调试技巧。</p>
 <p>吐槽：团队开发时候，每个成员需要学习、总结和分享各自的开发技巧， 这样才能自我提升并提高开发效率。这属于团队文化建设，开发是一种艺术创造过程，
@@ -92,12 +92,14 @@
 </ul>
 <h3>ipdb</h3>
 <p>比 pdb 更好用的是 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2012/03/python-debug/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/03/python-debug/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/05/pylons/">Pylons使用小记</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/05/pylons/">Pylons使用小记</a></h2>
                 <div class="summary"><p>活着就是折腾，最近事情多的一塌糊涂，烦躁的很，导致log4d也荒废一个月了。今天趁着周五晚上，梳理一下最近学习的pylons知识。</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2011/05/pylons.png" /></p>
 <h2>关于Pylons</h2>
@@ -109,13 +111,17 @@ web框架的纷杂。我这里选择Pylons（其实是被选择），并不是�
 web框架对比建议看这篇<a href="http://feilong.me/2011/01/talk-about-python-web-
 framework">浅谈Python web框架</a>，另外，这个<a href="http://www.bestwebframeworks.com/python/">Best Web-
 Framework ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/05/pylons/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/05/pylons/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -132,6 +138,11 @@ Framework ...</a></p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

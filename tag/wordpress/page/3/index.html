@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/">FireFox下WordPress上传频繁崩溃解决方法</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/">FireFox下WordPress上传频繁崩溃解决方法</a></h2>
                 <div class="summary"><p>今天修改了数据库option中上传的路径，终于可以使用上传了，很开心，可是又遇到在FireFox下WordPress上传导致FireFox崩溃的问题。</p>
 <p>情况是这样，在后台点上传图片，出现上传面板的Loding界面，结果FireFox就崩溃了，查看崩溃信息，并没有什么特殊的显示。在IE下则完全没有这个问题。</p>
 <p>Google后几篇文章说是FireFox中Firebug的问题，<a href="http://www.tvwz.com.cn/html
@@ -83,12 +83,14 @@ Gears，才发现崩溃终于停止了。</p>
 <p>那么问题就应该是在Google Gears上，这个Google Gears是FireFox的一个插件，用来对本地文件进行暂存的，我的系统也装了Google
 Gears，这两个Google Gears不是同一个，系统下的Google
 Gears可以对IE进行缓存加速 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
                 <div class="summary"><p>很多朋友用postviews这个插件，的确很适合国人的风格，但是如果单纯的添加到页面中，会显得很突兀，难看，我做了几个美化工作。</p>
 <p>首先，在用到postviews函数时候都定义span id，比如在single.php中修改，在下面代码</p>
 <div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
@@ -111,12 +113,14 @@ Gears可以对IE进行缓存加速 ...</p>
 <span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addlink</span><span class="p">,</span>
 <span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editlinks</span> <span class="p">{</span>
 <span class="nl">background:</span><span class="n">url</span><span class="p">(</span><span class="n">img</span><span class="o">/</span><span class="n">icons ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/05/landscaping-postviews/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/landscaping-postviews/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
                 <div class="summary"><p>这个想法一直就有，不过没有付之于实践，这次Yo2服务器崩溃，终于促使我创建自己的DDDSpace.cn</p>
 <p>在这里要感谢<a href="http://hengtian.org/">小张</a>，呵呵，让我赶上了新手空间合租，享受了性价比很高的服务，还要感谢<a href="http://wordpress.org.cn">wordpress.org
 .cn</a>,里面很多会员的帖子给我很多帮助，让我能够快速的创建这个博客</p>
@@ -130,7 +134,9 @@ Gears可以对IE进行缓存加速 ...</p>
 <p>import postbar.bean.Topic;</p>
 <p>import postbar.dao.CategoryDAO;</p>
 <p>public ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/finally-created-a-blog-of-their-own/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/finally-created-a-blog-of-their-own/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -141,7 +147,9 @@ Gears可以对IE进行缓存加速 ...</p>
 			<li class="next disabled"><a href="#">&laquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -158,6 +166,11 @@ Gears可以对IE进行缓存加速 ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

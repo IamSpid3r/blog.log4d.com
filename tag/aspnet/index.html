@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/11/membership-the-use-of-experience/">MemberShip使用心得</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/membership-the-use-of-experience/">MemberShip使用心得</a></h2>
                 <div class="summary"><p>花了很大一段时间在学习MemberShip，总是要留下一些纪念文章的。
 我之前的日志提到过一个简单的用户权限设计：User+Role+UserInRole(<a href="http://log4d.com/2009/06/design-of-user-
 rights">http://log4d.com/2009/06/design-of-
@@ -81,12 +81,14 @@ user-rights</a>)，但是这样还是不够灵活，最好需要能够对每一�
 <h2>MemberShip对系统进行管理大致分为两个办法</h2>
 <p>1.可以通过"登录"系列用户控件的任务窗口中的"管理网站"打开"ASP.Net Web 应用程序管理"。 可以控制用户、角色、权限三个主要属性，另外还能选择
 "提供程序"（这个provider分为MemberShip和RoleManager两种，如果同名的话，可以选择同一提供程序 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/membership-the-use-of-experience/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/membership-the-use-of-experience/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/thishouse-housing-sales-system/">ThisHouse房屋销售系统</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/thishouse-housing-sales-system/">ThisHouse房屋销售系统</a></h2>
                 <div class="summary"><p>呃，这是我在一个星期内搞鼓的一个Asp.NET课程设计，没有什么太多的内容，把它发布到了Csdn了，开了5分，嗯，对得起我一个星期拼命码代码。（哦，我很无耻
 的使用了<a href="http://www.neoease.com/">MG12</a>的iNove主题……）</p>
 <p><img alt="thisHouse" src="http://upload-log4d.qiniudn.com/2009/11/thisHouse.jpg" /></p>
@@ -97,12 +99,14 @@ uml简单设计图，数据库文档，需求分析和论文。</p>
 <p>系统关键词是： <strong>Asp.NET</strong>;&amp;nbsp_place_holder; <strong>MemberShip</strong>;&amp;nbsp_place_holder;
 <strong>iBatisNet</strong>;&amp;nbsp_place_holder; <strong>AjaxControlToolkit</strong>; <strong>房屋销售系统 </strong>
 数据库使用的是一个完整的MemberShip 权限管理系统，而不是我自己写的简单User in Role ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/thishouse-housing-sales-system/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/thishouse-housing-sales-system/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/08/no-photo-caused-by-the/">由No photo引起</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/08/no-photo-caused-by-the/">由No photo引起</a></h2>
                 <div class="summary"><p><a href="http://www.chinaqiu
 gou.com/images/detail_no_pic.gif"><img alt="" src="http://www.chinaqiugou.com/images/detail_no_pic.gif" /></a></p>
 <p>某个系统，检查用户照片，如果发现用户并没有设定照片就返回一张No Photo的图片。</p>
@@ -114,13 +118,17 @@ gou.com/images/detail_no_pic.gif"><img alt="" src="http://www.chinaqiugou.com/im
 <span class="n">student</span> <span class="o">=</span> <span class="n">bll</span><span class="p">.</span><span class="n">GetModel</span><span class="p">(</span><span class="n">Id</span><span class="p">);</span>
 <span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="o">=</span> <span class="s">&quot;image/jpeg&quot;</span><span class="p">;</span>
 <span class="n">Response ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/08/no-photo-caused-by-the/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/08/no-photo-caused-by-the/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -137,6 +145,11 @@ gou.com/images/detail_no_pic.gif"><img alt="" src="http://www.chinaqiugou.com/im
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

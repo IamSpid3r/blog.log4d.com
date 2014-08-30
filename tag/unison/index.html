@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/09/unison/">使用unison同步文件</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/09/unison/">使用unison同步文件</a></h2>
                 <div class="summary"><h2>1. 同步控</h2>
 <p>我是一个同步控，会妄想自己的文件遭遇不可修复性的毁灭， 因此经常丧心病狂的做备份。 比如每每备份到移动硬盘中，
 比如每年一次的刻盘备份，又比如我现在要介绍的同步软件unison。</p>
@@ -85,13 +85,17 @@
 这个功能满足我当时简单粗糙的需求。只要把需要同步的文件夹分列TotalCmd两侧， 然后就可以通过命令自动查找相异的文件。</p>
 <p>当时在我看来，尤其神奇的是文件过滤功能和按照 <code>日期</code> 、 <code>文件内容</code> 比较功能。 着实帮了我很大忙。</p>
 <p>再过了几年，TotalCmd不能满足我了，我不想每次都选择需要同步的文件， 再用肉眼比对，同步功能也偏少。我搜寻到一款老牌的同步工具 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/09/unison/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/09/unison/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -108,6 +112,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

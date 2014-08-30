@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/05/networkmanager-policykit-consolekit/">关于 NetworkManager / PolicyKit / ConsoleKit 的那些屌事</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/05/networkmanager-policykit-consolekit/">关于 NetworkManager / PolicyKit / ConsoleKit 的那些屌事</a></h2>
                 <div class="summary"><p>在使用 Awesome 的过程中，我又遇到了一个老问题「NetworkManager 在非 Gnome
 环境启动后，会无法 添加 / 删除 / 编辑 无线连接」。明眼人一看就知道，
 这是权限的问题。</p>
@@ -83,13 +83,17 @@
 通过 GDM 启动 xmonad / awesome，启动 xsession 是 <code>/usr/share/xsessions/awesome.desktop</code>，
 内容如下</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/05/networkmanager-policykit-consolekit/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/05/networkmanager-policykit-consolekit/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -106,6 +110,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

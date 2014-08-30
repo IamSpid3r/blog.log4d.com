@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
                 <div class="summary"><h2>问题情境</h2>
 <p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
 ,"total", Parameters!Language.Value)函数修改为GetCommentForComment(
@@ -83,12 +83,14 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 <h3>Vim实现</h3>
 <p>%s/GetComment(((s<em>w+!w+.w+s</em>,){2}s<em>"w+"s</em>,s<em>w+!w+.w+s</em>))/GetCommentForReport(1
 , "ReportConnection0107")/gc&amp;nbsp_place_holder ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/01/regex-group-catch/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/01/regex-group-catch/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
                 <div class="summary"><p>这文是上个月开始写的，本来想深入的分析一下零宽断言，可惜工作一直忙，现在又要去转战<strong>DWR</strong>...OMG~~</p>
 <h2>起因</h2>
 <p>将要上线的系统中有一个字符规则："13位的字符串，其中有8位连续数字"，需要用这则表达式对这个字符串进行判断。而我之前对正则的认识仅仅停留在匹配固定的字符上
@@ -107,13 +109,17 @@ img/#comment-5968">问题</a></p>
 <p>小邪是这个样子解答的，首先两边的斜杠是 Perl 正则式的要求。</p>
 </blockquote>
 <p>然后两边的 ^ 和 ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2010/01/regular-expressions-in-the-zero-width-assertion/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/01/regular-expressions-in-the-zero-width-assertion/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -130,6 +136,11 @@ img/#comment-5968">问题</a></p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

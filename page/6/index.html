@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,93 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/12/moinmoin-kms/">使用MoinMoin作为个人KMS</a></h2>
-                <div class="summary"><p>去年9月份时候，我写过一篇《<a href="http://log4d.com/2010/09/my-kms">我所使用的知识管理系统</a>》
-来介绍我使用的KMS系统。当时经过我层层筛选之后，我选用了Wiz作为我的KMS。</p>
-<p>一年多过去了，Wiz在Windows下面工作的非常不错，Wiz团队里陆续推出了iOS / Android /
-<a href="http://service.wiz.cn/web/">Web</a>版本。我的Wiz收藏的内容也增加到近1000篇。</p>
-<p>此时我遇到了KMS再选型的问题，原因很简单：我全线转换到Linux平台， Wiz不符合我的要求了。</p>
-<p>我重新整理一下我要求KMS的特性：</p>
-<ul>
-<li>跨平台：Linux / Web / iOS / Android / Windows</li>
-<li>数据保存格式：移植方便，将图片保存到本地</li>
-<li>数据采集方式：支持网络直接拷贝复制</li>
-<li>数据索引：支持分类 + tag</li>
-<li>协同工作：方便的分享机制</li>
-<li>免费</li>
-</ul>
-<p>经过我历时N月的搜寻筛选，MoinMoin Wiki中标了！</p>
-<h2>1. 关于MoinMoin</h2>
-<p>MoinMoin是使用Python编写的Wiki实现，MoinMoin当前版本1.9。</p>
-<p>MoinMoin的优点是：</p>
-<ul>
-<li>安装简单;</li>
-<li>支持中文全文检索；</li>
-<li>汉化较好；</li>
-<li>不依赖外界的数据库, 使用纯文本保存, 备份非常容易 ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="/2011/12/moinmoin-kms/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/12/moinmoin-plugin-image2attach/">MoinMoin plugin: image2attach</a></h2>
-                <div class="summary"><p><img alt="MoinMoin" src="http://upload-log4d.qiniudn.com/2011/12/moinmoin.png" /></p>
-<h2>What's this</h2>
-<p>Image2Attach is a extension for <a href="http://moinmo.in">MoinMoin</a>.
-It can create a page action to save images from web to page's attachments.</p>
-<h2>Requirment</h2>
-<ul>
-<li>MoinMoin 1.9 (I only test in this version.)</li>
-</ul>
-<h2>Install</h2>
-<ul>
-<li>copy action/Image2Attach.py to data/plugin/action/</li>
-<li>restart python server</li>
-</ul>
-<h2>Usage</h2>
-<p>Go into a ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/12/moinmoin-plugin-image2attach/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/12/transfer-vps/">更换VPS</a></h2>
-                <div class="summary"><p>Log4D挂了整整一天，原因是因为VPS扩容导致系统无法启动。</p>
-<p>我使用的VPS是<a href="http://www.photonvps.com/billing/aff.php?aff=2188">PhotonVPS</a>的WARP.25
-套餐。买时候套餐里面硬盘空间是2个G，前几天朋友告诉我新套餐变成了10G。我就发了ticket给客服，他们很快答应帮我升级VPS。我就将数据备份出来，静候升
-级。</p>
-<p>等了半天没反应，又咨询过后才知道新加入的硬盘空间需要重装系统才能启用。好吧，正好我想将CentOS 6换成Arch（Arch用的太顺手了）。</p>
-<p>吭次吭次一阵捣鼓（其实重装系统就按一个按钮而已 ^_^），Arch装好了，然后发现系统无法启动了，悲剧鸟。</p>
-<p>继续咨询客服，恩，这里插播一下，PhotonVPS的客服回复都是英文，但是可以发送中文过去，貌似有翻译助阵（不过英文文档看多了，简单的也能来两句，hiahi
-a）。客服很快确认，Arch在目前VPS无法正常使用，坑爹阿。</p>
-<p>我继续捣鼓，尝试Ubunt/Cent OS，发现都无法启动vps（症状是启动一下下之后立马又变成离线状态）。</p>
-<p>继续找客服，最后客服给我重新分配了vps和ip，问题解决。</p>
-<p>然我我又开始吭次吭次的装软件，最近系统装多了 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/12/transfer-vps/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/12/linux-application/">Arch Linux装机软件</a></h2>
-                <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com/">http://dddspace.com</a> 迁移到
-<a href="../">http://log4d.com</a> 。</p>
-<p>订阅地址现在改为 <a href="../feed">http://log4d.com/feed</a> 和
-<a href="http://feeds.feedburner.com/dddspace">http://feeds.feedburner.com/dddspace</a>
-。（FeedBurner的地址未发生变化）</p>
-<p><strike>http://feed.dddspace.com</strike> 弃用</p>
-<p>请订阅我博客的朋友更新一下订阅地址。</p>
-<p>前天将arch32位换成64位的系统，想充分利用4G内存。 在mountpoint时候，我mount了 <code>/root</code> 和<code>/home</code>
-盘，然后arch问需要 <code>(re)create</code> 分区么。 选项有 <code>Yes</code> 和 <code>No</code> ，看上去不选 <code>No</code> 就进行不下去，我就点了一下。</p>
-<p>结果就悲剧了有没有！！！！！！！！！</p>
-<p><code>home</code> 盘有150G左右有木有 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/12/linux-application/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/11/the-productive-programmer/">《卓有成效的程序员》读后感</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/the-productive-programmer/">《卓有成效的程序员》读后感</a></h2>
                 <div class="summary"><p><img alt="卓有成效的程序员" src="http://img3.douban.com/mpic/s3668809.jpg" /></p>
 <p>《卓有成效的程序员》，上次在京东半价买了这本书，一直没来得及看， 前几周在地铁上把这本书看完了。</p>
 <p>说实话，书里面的观点我很赞同，但是没有觉得惊艳， 因为我本身已经在尝试实践这些观点。</p>
@@ -169,12 +85,14 @@ a）。客服很快确认，Arch在目前VPS无法正常使用，坑爹阿。</p
 <li>书中第二部分是撰写代码时候的一些意识，这些我就不复述了， 是比较常见的软件工程思想。这些思想由ThoughWorks的咨询师娓娓道来也是值得一看的。</li>
 </ul>
 <p>我觉得这本书在学完第一门语言/数据结构/操作系统之后就可以开始阅读。 也就是学生在大三-大四阶段阅读，会对代码撰写规范和风格形成大有帮助。</p>
-                    <a class="btn btn-default btn-xs" href="/2011/11/the-productive-programmer/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/the-productive-programmer/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
                 <div class="summary"><p>昨天我在<a href="http://sunng.info/blog/2011/10/clojalk-scm-visualization/">sunng</a>
 那里看到一个非常好玩的东西<a href="http://code.google.com/p/gource/">Gource</a>。</p>
 <p><img alt="gource" src="http://upload-log4d.qiniudn.com/2011/11/gource-logo.png" /></p>
@@ -185,12 +103,14 @@ be.com/watch?v=E5xPMW5fg48&amp;feature=player_embedded">Gource - Software Versio
 reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频。Ruby on Rails那一段特别帅有没有。</p>
 <p>使用下列命令可以将视频录制下来(via <a href="http://code.google.com/p/gource/wiki/Videos">wiki</a>)：</p>
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">x264</span> <span class="err">#在 ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/11/gource/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/gource/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/dbevent2gc-v0-1-released/">dbevent2gc v0.1发布</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/dbevent2gc-v0-1-released/">dbevent2gc v0.1发布</a></h2>
                 <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到
 <a href="http://log4d.com">http://log4d.com</a> 。</p>
 <p>订阅地址现在改为 <a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
@@ -204,12 +124,14 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 <p>dbevent2gc是一个GAE应用，它将豆瓣同城的活动同步到Google Calendar的日历， 允许用户订阅活动而知道最近几周周边将发生活动。</p>
 <p>dbevent2gc是基于Python/web.py/mako/iCalendar的，源代码地址在
 <a href="https://github.com/alswl/dbevent2gc">https://github ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/11/dbevent2gc-v0-1-released/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/dbevent2gc-v0-1-released/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/2011-11-21/">2011-11-21</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/2011-11-21/">2011-11-21</a></h2>
                 <div class="summary"><p>在我博客里面有个分类列表，叫做青春的彩虹。</p>
 <p>这里面记录着我一些琐碎的心情。</p>
 <p>上一次更新还是2010年6月28号。</p>
@@ -219,12 +141,14 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 <p>只是偶尔一个人在阳台边上抽烟，也会倍感落寞。</p>
 <p>好在，我现在终于遇到了我喜欢的女孩，我的心思，又重新活络起来了。</p>
 <p>我虽然很笨拙，但我会努力的。</p>
-                    <a class="btn btn-default btn-xs" href="/2011/11/2011-11-21/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/2011-11-21/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/archlinux-thinkpad-trackpoint/">Arch Linux下小红点中键</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/archlinux-thinkpad-trackpoint/">Arch Linux下小红点中键</a></h2>
                 <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到
 <a href="http://log4d.com">http://log4d.com</a> 。 订阅地址现在改为
 <a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
@@ -242,12 +166,14 @@ Thinkpad爱好者也组建了一个专门的
 <p>罗嗦完了，进入正题，我的环境是</p>
 <ul>
 <li>arch(Linux version ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="/2011/11/archlinux-thinkpad-trackpoint/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/archlinux-thinkpad-trackpoint/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/about-me/">关于我</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/about-me/">关于我</a></h2>
                 <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到
 <a href="http://log4d.com">http://log4d.com</a> 。 订阅地址现在改为
 <a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
@@ -262,7 +188,90 @@ Thinkpad爱好者也组建了一个专门的
 <h2>工作技术</h2>
 <ul>
 <li>Python程序员 ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="/2011/11/about-me/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/about-me/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/a-jiao/">阿娇</a></h2>
+                <div class="summary"><p>入夜，做梦，梦见阿娇结婚了。然后梦醒了，心想，幸好是做梦，然后想起， 阿娇真的要结婚了。</p>
+<p>关于"阿娇"的名字，某次X照时间后，那时候跟她很熟了，我问她： "你用这个昵称不会觉得不舒服么？"阿娇回答说她一直用这个昵称，
+为什么要因为别人的事情来改自己的昵称呢。我宛然。</p>
+<p>阿娇是我大学时候的隔壁班同学。第一次对她有印象是在物理课上，坐在我附近， 玩诺基亚N72，我搭了个讪，感觉这姑娘冷冰冰的。</p>
+<p>再之后很久一段时间到大二，我们专业每每在一次上课， 发现这姑娘说话大大咧咧不经过脑子。两人没有太多交叉点，直到阿娇失恋。</p>
+<p>这段故事我就不细说了，怕阿娇会宰了，反正我在经历了知心哥哥的角色之后， 我们成了很要好的朋友。恩，真的很要好。</p>
+<p>我一向是不相信所谓真正的异性朋友， 我认为异性朋友只是因为两人互相之间有各自的约束，才没有发展的可能性。 很幸运，我和阿娇就是属于这种关系。</p>
+<p>我那时候死心塌地的喜欢另外一个姑娘，阿娇也在恢复期。</p>
+<p>然后，我就有了这个很2的朋友。大三大四时候，我已经把时间全部花在学习上面了， 每天都是在工作室度过，阿娇则有时候自习，有时候到图书馆看书，
+有时候到工作室陪我写程序 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/a-jiao/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/jquery-html-in-ie6/">jQuery.html()在IE下面错误解决办法</a></h2>
+                <div class="summary"><p>今天遇到一个jQuery的<code>.html()</code>设定错误问题，FF和Chrome下面都能够正常工作，而IE下面却失败。</p>
+<p>检查之后，我把问题定性到jQuery.html(html)设定在IE下有问题。当设定html文本中含有空行、空格、Tab时候，会出现异常中断，导致<code>html
+()</code>设定失败，但是又不会引发js错误。</p>
+<p>狗日的IE！</p>
+<p>下文是Google来的参考文章：<a href="http://sixpoint.me/808/jquery-html-function-ie-error/">使用 jQuery .html() 得到的string时,
+在IE中出现错误的解决方法</a></p>
+<hr />
+<p>使用 jQuery 的 .html() 函数( 使用 .text() 也类似 )得到元素内的值使用时，在IE6中出错，FireFox 中正常。</p>
+<p>基本代码如下:</p>
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeInQuad<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeOutQuad<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeInOutQuad<span class="nt">&lt;/li ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/jquery-html-in-ie6/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/vps-lnmp-setup-config/">128M内存VPS LNMP安装优化小记</a></h2>
+                <div class="summary"><blockquote>
+<p>重要通知：Log4D 的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到 <a href="http://log4d.com">http://log4d.com</a> 。
+订阅地址现在改为 <a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
+<a href="http://feeds.feedburner.com/dddspace">http://feeds.feedburner.com/dddspace</a> 。（FeedBurner 的地址未发生变化）</p>
+</blockquote>
+<p>这一次域名迁移的同时，我更换了服务器，由原先的虚拟空间迁移到独立 VPS。
+现在使用的 VPS 是 <a href="http://www.photonvps.com/billing/aff.php?aff=2188">PhotonVPS</a> 。</p>
+<p>月付5.95美元，使用优惠码 <code>TENOFF</code> 或 <code>PHOTONLEB</code> 可以打7折，
+换算汇率之后是26人民币每月。</p>
+<p>这款VPS的内存只有128,我们就要精打细算考虑如何省内存。经过我几天琢磨，
+我终于配置的可用率比较高，使用 <code>siege -c 100 -t 100</code> 时候可以保持 100% 可用率。
+（其实做不到这么高的并发，大概10个并发每秒）下面就是我记录的安装配置过程。</p>
+
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/vps-lnmp-setup-config/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/jemotion/">jEmotion</a></h2>
+                <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到
+<a href="http://log4d.com">http://log4d.com</a> 。 订阅地址现在改为
+<a href="http://log4d.com/feed">http://log4d.com/feed</a> 和
+<a href="http://feeds.feedburner.com/dddspace">http://feeds.feedburner.com/dddspace</a>
+。（FeedBurner的地址未发生变化）</p>
+<hr />
+<p>白天工作时候需要一个功能，我搜了一下Google，没有找到合适的，就花了半天时间写了一个jQuery插件jEmotion。</p>
+<p>jEmotion的主要功能是用来给输入框加入转义之后的表情代码，然后在页面显示时候可以重新将表情代码转回表情图片。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/11/jemotion.png" /></p>
+<p>jEmotion的代码托管在GitHub上，地址是
+<a href="https://github.com/alswl/jEmotion">https://github.com/alswl/jEmotion</a> 。</p>
+<p>demo地址是 <a href="http://lab.log4d.
+com/javascript/jEmotion/demo.html">http://lab.log4d.com/javascript ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/jemotion/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -274,7 +283,9 @@ Thinkpad爱好者也组建了一个专门的
 					href="/page/7/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -291,6 +302,11 @@ Thinkpad爱好者也组建了一个专门的
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

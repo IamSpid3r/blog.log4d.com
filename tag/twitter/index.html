@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/05/three-invitations-of-tencent-micro-blog/">腾讯微博邀请3枚</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/three-invitations-of-tencent-micro-blog/">腾讯微博邀请3枚</a></h2>
                 <div class="summary"><p>很久之前通过<a href="http://baiduer.net/">laiwei_linjuly</a> 获取腾讯微博的资格，之后一直没怎么用。</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2010/05/t_qq_logo.jpg" /></p>
 <p>"alswl"这个用户名也没能抢到，倒霉孩子要我6个字母的用户名，只能alswlx顶上（恶感啊，被逼着换掉常用用户名）</p>
@@ -84,12 +84,14 @@
 <p>[http://t.qq.com/invite/359f89ba78883f45d241</p>
 <p>](http://t.qq.com/invite/359f89ba78883f45d241)</p>
 <p>需要的同学们拿去吧，我的腾讯微博是 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/three-invitations-of-tencent-micro-blog/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/three-invitations-of-tencent-micro-blog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/the-idea-on-twitter/">关于Twitter的idea</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/the-idea-on-twitter/">关于Twitter的idea</a></h2>
                 <div class="summary"><h2>起因-同步是个麻烦事</h2>
 <p>这几天写了几篇博文，想自动同步博文url到各类SNS以及微博，但是发现一下子同步是很麻烦的事情。就我手头维护的话，需要更新Twitter、人人、新浪微博，如
 果能同步一个内容就发布到所有网站，这该多好啊。</p>
@@ -101,12 +103,14 @@ o.com/">同步控</a>，还是挺不错的。</p>
 <p><a href="http://hellotxt.com/">HelloTxt</a>: 同时更新你的Twitter、饭否和Plurk…</p>
 <p>嘀神的问题在于他是基于<a href="http://digu.com">嘀咕</a>的，在微博这一块，digu并不是最强，虽然推出了<strong>OpenCloud</strong>这个概念，但是似乎
 开放API的程度成为诟病，可以看出，所谓<strong>火兔</strong>、<strong>打嘀 ...</strong></p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/the-idea-on-twitter/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/the-idea-on-twitter/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/10/google-app-engine-to-build-twitter-api-proxy-tutorial/">Google App Engine搭建Twitter API Proxy教程</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/10/google-app-engine-to-build-twitter-api-proxy-tutorial/">Google App Engine搭建Twitter API Proxy教程</a></h2>
                 <div class="summary"><p>来源：<a href="http://www.williamlong.info/archives/1956.html">Google App Engine搭建Twitter API
 Proxy教程</a></p>
 <p>alswl:今天我本来想使用<a href="http://gappproxy.googlecode.com/">GAppProxy</a>搭建自己的<a href="http://j
@@ -118,13 +122,17 @@ asontiproxy.appspot.com/fetch">服务器</a>，不过失败了，似乎客户端
 <p>先要<a href="http://www.williamlong.info/archives/1357.html">注册Google App Engine</a>，注册地址
 <a href="http://appengine.google.com/">http://appengine.google.com/</a> ，然后建立一个applicatio
 n ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/10/google-app-engine-to-build-twitter-api-proxy-tutorial/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/10/google-app-engine-to-build-twitter-api-proxy-tutorial/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -141,6 +149,11 @@ n ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

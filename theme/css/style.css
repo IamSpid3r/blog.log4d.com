@@ -1,5 +1,23 @@
 body {
-    padding-top: 70px;
+    /*padding-top: 70px;*/
+}
+
+.article-list h2 {
+	font-size: 36px;
+	margin-bottom: 40px;
+}
+
+article p, article li, article pre, article, form {
+	font-size: 18px;
+}
+
+article p {
+	line-height: 200%;
+	margin: 0px 0px 30px;
+}
+
+.article-detail .panel-body {
+	padding-left: 0px;
 }
 
 #sidebar .list-group, #sidebar .list-group-item {

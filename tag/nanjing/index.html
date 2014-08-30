@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/03/nanjing-library/">南京图书馆检索系统升级</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/nanjing-library/">南京图书馆检索系统升级</a></h2>
                 <div class="summary"><p>我经常去南京图书馆借书，南图的书虽然馆藏很多，在架的却往往不多。我习惯在去南图之前将在豆瓣上标记为"想读"的书搜索一下，检查书是否在架，以前南图的检索系统挺
 难用。我甚至一度想写一个查询小脚本。</p>
 <p>好消息是，前几天南图将ALEPH500业务系统升级到20版，官方的消息如下：</p>
@@ -84,13 +84,17 @@
 OPAC（联机公共查询目录）中引入了社区的理念，通过新增的标签、评论、评级功能，建立了图书馆和读者互动与交流的虚拟社区。</p>
 <p>ALEPH500业务系统升级项目是南京图书馆2010年确定的重点工作，为此，南图不仅召开了项目专家论证会，还赴国家图书馆进行专题调研，并成立了专门的项目
 工作小组，制定了升级工作方案和应急预案。在项目实施过程中，南图始终贯彻时间服从质量的原则，召开项目汇报会和项目工作会10余次，集中培训人员2次 ...</p></blockquote>
-                    <a class="btn btn-default btn-xs" href="/2011/03/nanjing-library/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/nanjing-library/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -107,6 +111,11 @@ OPAC（联机公共查询目录）中引入了社区的理念，通过新增的�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

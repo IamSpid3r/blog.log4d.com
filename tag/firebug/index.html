@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
                 <div class="summary"><p>Chrome的开发者工具里面有一个小功能：查看当前元素的Event，比如onclick/onblur等事件。</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2011/07/chrome_event.png" /></p>
 <p>一直想在Firefox里面也找到类似的插件，今天正好看到这么一个好东西，叫做EventBug。</p>
@@ -104,12 +104,14 @@ log4d.qiniudn.com/2011/07/eventbug.png"><img alt="" src="http://upload-log4d.qin
 <li><a href="http://www.softwareishard.com/blog/firebug/eventbug-alpha-released/">Eventbug介绍博文（En）</a></li>
 <li><a href="http://getfirebug.com/releases/eventbug/">Eventbug下载链接</a></li>
 </ul>
-                    <a class="btn btn-default btn-xs" href="/2011/07/eventbug/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/07/eventbug/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/use-firebug-and-firephp-debugging-php/">使用Firebug和FirePHP调试PHP[译文]</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/use-firebug-and-firephp-debugging-php/">使用Firebug和FirePHP调试PHP[译文]</a></h2>
                 <div class="summary"><p>这是我第一篇译文，在写WordPress 主题时候偶尔看到的FirePHP插件，看都这篇文章，不知道为什么，动了翻译的念头。</p>
 <p>原文链接：<a href="http://www.sitepoint.com/blogs/2010/02/09/debug-php-firebug-firephp/">Debug PHP with Firebug and
 FirePHP</a></p>
@@ -128,13 +130,17 @@ bug的控制台获得PHP脚本警告和错误，就感觉像直接调试JavaScri
 <p><img alt="FirePHP Menu" src="http://www.sitepoint.com/blogs/wp-content/uploads/2010/02" title="/Screen-shot-2010-02-09-at-1.59.56-PM.png" /></p>
 <p>&amp;nbsp_place_holder;</p>
 <p>当然 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/use-firebug-and-firephp-debugging-php/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/use-firebug-and-firephp-debugging-php/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -151,6 +157,11 @@ bug的控制台获得PHP脚本警告和错误，就感觉像直接调试JavaScri
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

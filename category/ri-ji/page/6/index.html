@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,20 +70,22 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
                 <div class="summary"><p>今天看到一个高中同学的qq签名，人活着是为什么。</p>
 <p>她当时读的很潇洒，艺术生，现在已经工作了，男朋友换了无数</p>
 <p>我看了这个签名，觉得有点悲哀，现在已经不是应该考虑这个问题的时候了</p>
 <p>这个问题应该由小学生、初中生、最多高中生提出来。到了大学如果还搞不清楚自己活着的目的，自己人生的目标是什么，我觉得这是很悲哀的</p>
 <p>如果现在对自己提出这个问题，就已经问的太晚了</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/too-late-to-ask-a-question/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg pull-right" href="/2009/01/too-late-to-ask-a-question/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2008/12/annoying-clip/">恼人的美工</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2008/12/annoying-clip/">恼人的美工</a></h2>
                 <div class="summary"><p>一边在考试中挣扎着，操作系统，系统安全，系统结构都一股脑的狠狠的向我砸来，一方面还得为那个ASP项目烦恼</p>
 <p>程序永远不是问题，VB Script虽然没用过，不过感觉还是在的，写起来也算是有条理，可到了界面重新设计这一块，就烦了</p>
 <p>客户要求重新换一个风格界面，加上 我对原来的table控制界面很不喜欢，索性用div+css全部重写，不过在风格定位上遇到了很大的困难，毕竟我是程序员，不是
@@ -91,7 +93,9 @@
 变成纯体力活了。。。</p>
 <p>我一边还自个儿安慰自己，嗯，哥哥是位艺术家了....</p>
 <p>借鉴着大量的美工做的非常好的网站，佩服着其他一些美术设计师，行行出状元啊...</p>
-                    <a class="btn btn-default btn-xs" href="/2008/12/annoying-clip/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg pull-right" href="/2008/12/annoying-clip/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -102,7 +106,9 @@
 			<li class="next disabled"><a href="#">&laquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -119,6 +125,11 @@
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

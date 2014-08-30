@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/06/flotr2/">Flotr2 - 我最喜欢的 Javascript 图形库[译文]</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/06/flotr2/">Flotr2 - 我最喜欢的 Javascript 图形库[译文]</a></h2>
                 <div class="summary"><p>原文地址：<a href="http://swizec.com/blog/flotr2-my-favorite-javascript-graph-library">Flotr2 - my favorite javascript graph library</a></p>
 <p>译者：<a href="http://log4d.com/2012/06/flotr2/">alswl</a></p>
 <hr />
@@ -88,12 +88,14 @@
 <p>最流行的可能就是 <a href="http://d3js.org/">d3.js</a> 和 <a href="http://raphaeljs.com/">Raphael</a> 了。
 他们用起来<em>相当</em>麻烦，但却能实现绚丽到超越你想象的可视化效果。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/06/flotr2/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/06/flotr2/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2012/06/vundle-submodule/">Vundle 和 Submodule</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/06/vundle-submodule/">Vundle 和 Submodule</a></h2>
                 <div class="summary"><h2>问题背景</h2>
 <p>Vundle 是个好东西，可以用来管理 vim 配置和 vim 插件。Vundle
 会将所有插件管理在 <code>.vim/bundle/</code> 中，详情可看
@@ -111,12 +113,14 @@ git 版本是 <code>git version 1.7.10.2</code> 。
 submodule 比如 <code>.vim/bundle/The-NERD-Commenter (untracked content)</code>
 ，要么变成一个普通的文件夹 <code>.vim/bundle/vim-markdown</code>。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/06/vundle-submodule/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/06/vundle-submodule/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2012/04/vim-emacs-key-binding/">Vim 下模拟 Emacs 键绑定</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/04/vim-emacs-key-binding/">Vim 下模拟 Emacs 键绑定</a></h2>
                 <div class="summary"><p>Vimer 需要 Emacs 键绑定？看上去很蛋疼的需求吧。其实不然，大部分的 Shell / Readline 默认绑定的是 Emacs 键位绑定（处于输入状态下，Emacs 的键位很好用）。Vim 的模式切换很牛逼，但是 Insert 模式下面，只有寥寥几个快捷键，我修改了配置文件，绑定需要的 Emcas 按键到 Vim 中来。</p>
 <p>Github 中搜索关键字 Vim Emcas key bind，出来一些结果，不是很完美，我又慢慢调教了几个星期，放出我的 .vimrc。</p>
 <div class="highlight"><pre><span class="s2">&quot; 模拟 Emacs 键绑定</span>
@@ -124,12 +128,14 @@ submodule 比如 <code>.vim/bundle/The-NERD-Commenter (untracked content)</code>
 inoremap &lt;C-a&gt; &lt;Home&gt;
 inoremap &lt;C-e&gt; &lt;End&gt;
 <span class="s2">&quot;inoremap &lt;C-p ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2012/04/vim-emacs-key-binding/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/04/vim-emacs-key-binding/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a></h2>
                 <div class="summary"><p>早在这个月初，我就在 Vim 的邮件列表看到了一封关于 Vim 插件管理的
 <a href="https://groups.google.com/d/topic/vim-cn/mPES0sNT87Q/discussion">邮件</a>。
 才惊呼原来有这么强大的插件可以用来管理我那一坨插件，
@@ -150,12 +156,14 @@ inoremap &lt;C-e&gt; &lt;End&gt;
 我其实不太喜欢子目录，觉得目录太多看着烦，但是考虑到在没有一个良好的 PKG
 包描述文件的前提下，分子目录是一种简单有效的方法。</p>
 
-                    <a class="btn btn-default btn-xs" href="/2012/04/vundle/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/04/vundle/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/12/moinmoin-kms/">使用MoinMoin作为个人KMS</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/12/moinmoin-kms/">使用MoinMoin作为个人KMS</a></h2>
                 <div class="summary"><p>去年9月份时候，我写过一篇《<a href="http://log4d.com/2010/09/my-kms">我所使用的知识管理系统</a>》
 来介绍我使用的KMS系统。当时经过我层层筛选之后，我选用了Wiz作为我的KMS。</p>
 <p>一年多过去了，Wiz在Windows下面工作的非常不错，Wiz团队里陆续推出了iOS / Android /
@@ -179,12 +187,14 @@ inoremap &lt;C-e&gt; &lt;End&gt;
 <li>支持中文全文检索；</li>
 <li>汉化较好；</li>
 <li>不依赖外界的数据库, 使用纯文本保存, 备份非常容易 ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="/2011/12/moinmoin-kms/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/12/moinmoin-kms/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
                 <div class="summary"><p>昨天我在<a href="http://sunng.info/blog/2011/10/clojalk-scm-visualization/">sunng</a>
 那里看到一个非常好玩的东西<a href="http://code.google.com/p/gource/">Gource</a>。</p>
 <p><img alt="gource" src="http://upload-log4d.qiniudn.com/2011/11/gource-logo.png" /></p>
@@ -195,12 +205,14 @@ be.com/watch?v=E5xPMW5fg48&amp;feature=player_embedded">Gource - Software Versio
 reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频。Ruby on Rails那一段特别帅有没有。</p>
 <p>使用下列命令可以将视频录制下来(via <a href="http://code.google.com/p/gource/wiki/Videos">wiki</a>)：</p>
 <div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">x264</span> <span class="err">#在 ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/11/gource/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/11/gource/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/02/codesmith/">CodeSmith使用心得</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/02/codesmith/">CodeSmith使用心得</a></h2>
                 <div class="summary"><p>CodeSmith是一款著名的代码生成器，可以帮助开发者完成一些重复性的劳动，并且能够保证更高的代码质量。CodeSmith使用Template（*.cst
 ）模板进行基础代码片段的定义，支持语言包括C#, Java, VB, PHP, ASP.NET, SQL等等。</p>
 <p><img alt="CodeSmith" src="http://www.codesmithtools.com/lib/images/product/generator-h2.png" /></p>
@@ -208,12 +220,14 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 <p>CodeSmith使用的模板使用方式类似于aspx/jsp页面，也就是基础代码+脚本的方式，大致代码如下（官方的sample2）。</p>
 <div class="highlight"><pre><span class="cp">&lt;%</span><span class="err">@</span> <span class="no">CodeTemplate</span> <span class="no">Language</span><span class="o">=</span><span class="s2">&quot;C#&quot;</span> <span class="no">TargetLanguage</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This template demonstrates using properties in your template.&quot;</span> <span class="cp">%&gt;</span><span class="x"></span>
 <span class="cp">&lt;%</span><span class="err">@</span> <span class="no">Property</span> <span class="no">Name</span><span class="o">=</span><span class="s2">&quot;Person&quot;</span> <span class="no">Type</span><span class="o">=</span><span class="s2">&quot;System.String&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This will show up at the bottom of the ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/02/codesmith/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/02/codesmith/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/09/vs-vim/">将VisualStudio打造成Vim</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/09/vs-vim/">将VisualStudio打造成Vim</a></h2>
                 <div class="summary"><p><img alt="" src="http://upload-log4d.qiniudn.com/2010/09/ViEmu.jpg" /></p>
 <h3>背景：Vim in VisualStudio?</h3>
 <p>最近痴迷于Vim，尝试着在.net环境中（70%C#+20%ASPX+10%JS）使用Vim进行开发。但是似乎现成的Vim插件不太适应.net开发平台，在进
@@ -223,12 +237,14 @@ reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频�
 <h3>ViEmu</h3>
 <p>让我们来见识一下ViEmu的厉害吧。ViEmu支持模式切换、移动、宏、高亮搜索，键盘映射、增强命令、正则表达、可视模式等等。反正常用的Vim功能都具备。它自
 己也敢宣称支持Vim大部分功能（Vim太强大，不敢说完全模拟~）。下面是一张ViEmu的官方示意图 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/09/vs-vim/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/09/vs-vim/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/07/sql-format-tool-sql-pretty-printer/">SQL格式化工具-SQL Pretty Printer</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/07/sql-format-tool-sql-pretty-printer/">SQL格式化工具-SQL Pretty Printer</a></h2>
                 <div class="summary"><h3>背景</h3>
 <p>最近写了一些SQL，数据库用的是MS-SQL，而SQL Server Management
 Studio是不自带代码格式化功能的，这让我用起来很郁闷，PL/SQL Developer格式起来多爽啊。</p>
@@ -244,12 +260,14 @@ log4d.qiniudn.com/2010/07/spp_app.jpg"><img alt="" src="http://upload-log4d.qini
 <p>格式化好之后的代码</p>
 <h3>功能</h3>
 <p>SQL Pretty ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/07/sql-format-tool-sql-pretty-printer/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/07/sql-format-tool-sql-pretty-printer/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/desktop-recording-tool-boogunote/">桌面记录神器-BooguNote</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/04/desktop-recording-tool-boogunote/">桌面记录神器-BooguNote</a></h2>
                 <div class="summary"><p>之前做GTD一直基于Google Canledar，记录主要是Google NoteBook和Google Docs。尽管Google
 Docs支持Gears离线查看，但是并不支持离线创建文件（Docs的编辑能力还不如CKEditor）。</p>
 <p><a href="http://upload-
@@ -261,7 +279,9 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="" src="http://upload-log4d.q
 <p>之前我还特意问过XDash，他如何做读书笔记，他回答划线和Google Doc。现在，如果有人问我这个问题，我会回答BooguNote。</p>
 <h3>相关链接</h3>
 <p>官网：<a href="http://boogu.me/">BooguStudio - Collecting, Organizing and Sharing ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2010/04/desktop-recording-tool-boogunote/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/04/desktop-recording-tool-boogunote/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -272,7 +292,9 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="" src="http://upload-log4d.q
 					href="/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/page/2/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -289,6 +311,11 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="" src="http://upload-log4d.q
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

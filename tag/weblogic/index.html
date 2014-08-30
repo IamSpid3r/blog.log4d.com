@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
                 <div class="summary"><h2>注册WebLogic成 windows服务</h2>
 <p>1、执行Domain目录下的 <code>installService.cmd [USER_NAME]
 [PASSWORD]</code>命令，就会在windows服务中生成一个<code>beasvc
@@ -81,12 +81,14 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 <h2>删除WebLogic服务</h2>
 <p>1.执行Domain目录下的 <code>stopWebLogic.cmd</code>命令就可以删除服务</p>
 <p>2.删除服务之后，可以直接删除Domain下的所有文件～</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/manage-weblogic-service/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/manage-weblogic-service/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/dwr2-0-jdk1-4-configuration/">DWR2.0在JDK1.4下的配置</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/dwr2-0-jdk1-4-configuration/">DWR2.0在JDK1.4下的配置</a></h2>
                 <div class="summary"><p>服务器的WebLogic版本是8.1，使用自带的JDK1.4</p>
 <p>MyEclipse版本是6.6，项目文件的<strong>Compiler compliance level</strong>设置为1.4</p>
 <p>MyEclipse自带Tomcat使用MyEclipse6.6自带的JDK5</p>
@@ -100,13 +102,17 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 <li>
 <ul>
 <li>Servlet Engine: WebLogic XMLX Module 8.1 SP1 Fri Jun 20 23:06:40 PDT ...</li></ul></li></ul>
-                    <a class="btn btn-default btn-xs" href="/2010/03/dwr2-0-jdk1-4-configuration/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/dwr2-0-jdk1-4-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -123,6 +129,11 @@ domainname_adminservername</code>的服务启动类型为"自动"，手动将它
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

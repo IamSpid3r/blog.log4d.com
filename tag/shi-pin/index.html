@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/05/kick-ass-ring/">海扁王铃声</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/kick-ass-ring/">海扁王铃声</a></h2>
                 <div class="summary"><p>好几天没更新博客了，最近在论文和代码中挣扎，粗略估计，这个月来用的语言有PHP, Flex, C#(Socket 编程), ASP.net,
 Java，蛋疼啊～</p>
 <p>好了回正题，关于海扁王。</p>
@@ -87,12 +87,14 @@ Java，蛋疼啊～</p>
 <p>啦啦啦 啦啦啦啦！ 啦啦啦 啦啦啦啦！</p>
 <p>（播比啦啦比吧啦啦吧啦啦啦吧！吧啦啦啦比啦吧吧被累啵！</p>
 <p>哦大拉拉比啦啦啦播里吧累得！ 得把拉拉被比拉大拉力得切 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/kick-ass-ring/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/kick-ass-ring/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/10/lonely-root-of-3/">孤独的根号三</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/10/lonely-root-of-3/">孤独的根号三</a></h2>
                 <div class="summary"><p>今天刚看完《爱情公寓》，是一部难得的情景喜剧，是近来一部很不错的作品。</p>
 <h2>简介</h2>
 <p>一幢并不奢华的公寓，两间普普通通的套房，住着七个不同背景，不同身份，不同理想的青年男女。</p>
@@ -106,13 +108,17 @@ Java，蛋疼啊～</p>
 <p>《爱情公寓》为你带来七个亲密的邻家伙伴，展开连场爆笑无敌的青春画卷。</p>
 <p>「成长」是《爱情公寓》中永恒不变的主题，所有青年男女为之上下求索。本剧正是用一串串幽默诙谐的故事谱写着成长的历程，诠释者声声欢笑与点滴感悟。</p>
 <p>「成长」，不仅仅是年龄 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/10/lonely-root-of-3/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/10/lonely-root-of-3/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -129,6 +135,11 @@ Java，蛋疼啊～</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/05/swfobject/">SWFObject 一款JavaScript的Flash检测与插入模块</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/05/swfobject/">SWFObject 一款JavaScript的Flash检测与插入模块</a></h2>
                 <div class="summary"><p>今天开始AzaAjaxChat的视频聊天模块，拖FMS的福，实现起来很轻松，不过后来在JavaScript和Flash的交互上遇到了问题。</p>
 <p>Flash在各个浏览器中的实现始终是个麻烦的事情，什么Object Embed~，似乎没有什么标准的格式，一般都要做一些浏览器Hack，我对这些深痛恶绝，在
 泡了一下午前端相关的论坛后，偶然发现一款JavaScript交互的神器。</p>
@@ -85,13 +85,17 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 <p>官方在Google Project Host中，下载的代码包中有一个简单的Example，也包含了SWFObject的源码，感兴趣的同学可以研究一下。</p>
 <p>相关链接：</p>
 <p>[swfobject - Project Hosting on ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/05/swfobject/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/05/swfobject/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -108,6 +112,11 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,29 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2009/05/rainy-day/">下雨天</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+                <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
+重建博客。</p>
+<p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
+<p>1.重新创建原始的WordPress，并把原来的一些插件和主题重新安装好。重新创建的数据库名称可能与原来的数据库名称有出入，就需要修改导出的sql文件。</p>
+<p>2.比如我原始的数据库名称是alswl_wp，现在创建的数据库是dddspace_wp（记住哦，是全称，不是自己填的部分）。找到sql文件 ` --</p>
+<h2>-- 数据库: <code>alswl_wp</code></h2>
+<p>CREATE DATABASE <code>alswl_wp</code> DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</p>
+<p>USE <code>alswl_wp</code>;`</p>
+<p>只保留 USE 'alswl_wp'，并且修改为USE
+'dddspace_wp'，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。</p>
+<p>如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作</p>
+<p>3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/station-restoration-of-mind/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/rainy-day/">下雨天</a></h2>
                 <div class="summary"><p>很不喜欢下雨天啊，每每这个时候，心情总是比较低潮`</p>
 <p>尤其记得小时候在电视屏幕前，红木沙发，黑洞洞的屋子里，我一个人在看着动画片，大凡这个时候作业是没做的，承受着心理的压力享受着片刻的欢娱`</p>
 <p>博客搬过来两天了，还不太习惯使用个人博客，在hostshar.cn和wordpress.org.cn混迹着，今晚上还写了一篇帖子<a href="http://hostshare.cn/thread-549-1-1.html">我的博客---
@@ -82,12 +102,14 @@ DDD的一亩三分地</a></p>
 ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a>看，自己还没有养成自己发布信息的
 良好习惯。</p>
 <p>看了其他网友们的文字，感觉自己文学素养真是负数了，嗯，以后要适当加强了````</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/rainy-day/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/rainy-day/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
                 <div class="summary"><p>明天应该有会计考试，要清空主楼自习的教室，所以自习室里考研的同学都把书搬到工作室来了</p>
 <p>来就来了，都是同学，放放也无所谓，还把老乡带来放书。。。</p>
 <p>我承认，我小气了```</p>
@@ -97,12 +119,14 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 <p>记忆里当时大一刚加入工作室的时候，是多么兴奋，还挺崇拜里面的元老，现在工作室都成这样了</p>
 <p>我把自己手头这个贴吧完成之后，到了11月份估计也得去找工作了，那时候就感觉真没人了</p>
 <p>真无奈```</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/alas-the-studio/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/alas-the-studio/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/moving-to-the-yo2/">搬家到Yo2了</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/moving-to-the-yo2/">搬家到Yo2了</a></h2>
                 <div class="summary"><p>今天终于下定决心，把百度里面所有内容转移阵地到yo2了。</p>
 <p>以前百度空间清理过一次，大约删了将近2年的日志，现在也不知道怎么恢复，以后用空再弄吧。</p>
 <p>感觉yo2这里做的挺好的，WordPress的功能太强了。</p>
@@ -111,12 +135,14 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
 <p>但是在Chrome下很多IE下显示方形的按钮编程了椭圆形的空白，这点比较郁闷，感觉是在一些CSS上还有问题</p>
 <p>不过相比较baidu的editor问题，已经不算什么了</p>
 <p>考虑到WordPress的强大功能，还有数据库的容易迁移，以后应该会在这儿很长一段时间了。</p>
-                    <a class="btn btn-default btn-xs" href="/2009/05/moving-to-the-yo2/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/moving-to-the-yo2/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/04/4_13/">4_13</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/04/4_13/">4_13</a></h2>
                 <div class="summary"><p>每天上着课。。。</p>
 <p>慢吞吞的看着jQuery基础教程（FireBug真TMD好用，太喜欢了）</p>
 <p>慢吞吞的学着Struts2，孙鑫的那本书图书馆就剩一本，还被人藏了，借了李刚的那本，虽然China-
@@ -130,12 +156,14 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
 <p>最近和M联系挺多</p>
 <p>最近状态很恍惚</p>
 <p>下了好多励志的umd```</p>
-                    <a class="btn btn-default btn-xs" href="/2009/04/4_13/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/04/4_13/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
                 <div class="summary"><p>寒假就发现自己的那个网站能被万能asp密码攻破，还留了一句"网站有漏洞，请加强防护"</p>
 <p>当时不知道什么造成漏洞，就写了一个ipTrace来跟踪ip</p>
 <p>前段时间打开ipTrace一看，有这么多用户非法登录</p>
@@ -143,12 +171,14 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
 <p>58.251.77.207 2009-4-4 9:27:39 -1 广东省深圳市 网通</p>
 <p>219.149.162.151 2009-4-4 9:39:08 -1 山西省大同市 电信</p>
 <p>219.149.162.151 2009-4-4 9:50:41 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/04/web-site-has-been-linked-to-a-trojan-horse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/03/apabi-buy-archipelago/">Apabi买书奇遇记</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/03/apabi-buy-archipelago/">Apabi买书奇遇记</a></h2>
                 <div class="summary"><p>最近为OpenSSL焦头烂额，资料实在太少</p>
 <p>在chinaunix中看到一篇《OpenSSL 编程入门》，从Eric Rescola文档中翻译过来的，突发奇想，搜索Eric Rescola
 ，居然在China-pub发现了奇书《SSL and TSL》</p>
@@ -159,12 +189,14 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
 <p>买完之后发现只有前5章，那个痛苦啊</p>
 <p>后来还是邮件客服才知道的，郁闷，重新买了后三册</p>
 <p>呵呵，这本书是02年的，正在翻看，老外的书就是好，比国内那本《OpenSSL与网络信息安全》好不知道多少</p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/apabi-buy-archipelago/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/03/apabi-buy-archipelago/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/03/to-be-ad-ntalker-station-chat-system/">做个广告：Ntalker 站内聊天系统</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/03/to-be-ad-ntalker-station-chat-system/">做个广告：Ntalker 站内聊天系统</a></h2>
                 <div class="summary"><p>今天登录CSDN时候发现右下角有个聊天工具，试了试，用户UI做的还不错，最近在做Ajax，就连接到这个公司看看，产品名称叫做Ntalker</p>
 <p>校内很久之前就做了类似的东西，不过那个功能相对于这个产品略微显得弱小，特别是与网站整合能力上。</p>
 <p>一看Ntalker，还略感惊讶，这个公司的产品是2008年8月推出1.0，而到了9月，就与天涯社区合作，推出2.0，我登录了一下我久已不上的天涯帐号，发现天
@@ -175,41 +207,36 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
 <p><img alt="" src="http://www.ntalker.com/images/img_213.jpg" /></p>
 <p><img alt="" src="http://www.ntalker.com/images/img_4.jpg" /></p>
 <p><img alt="" src="http://www.ntalker.com/images/p_10.jpg" /></p>
-                    <a class="btn btn-default btn-xs" href="/2009/03/to-be-ad-ntalker-station-chat-system/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/03/to-be-ad-ntalker-station-chat-system/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/02/e9-ab-98-e7-ab-af-e8-a7-86-e7-82-b9/">高端视点</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/02/e9-ab-98-e7-ab-af-e8-a7-86-e7-82-b9/">高端视点</a></h2>
                 <div class="summary"><p>大一时候就接触了《程序员》这本杂志，不过当时眼界很浅，浮光掠影的看了一点，觉得都是业界信息，对自己没什么用处。 今年开学后，忙忙碌碌的过了一学期，忙着jav
 a和j2ee的网络学习，ssl的开发，还得边带着学linux，很是吃力，但想到9个月后就要找工作了，不得不逼着自己去做。以至于宿舍的同学都看不到我，电脑也一
 个星期没回宿舍，都扔在工作室了。 忙碌的生活让我很不适应，不知道自己投资的方向是不是正确的。正在我烦恼的时刻，《程序员》中一篇文章《最具挑战的经济形势，最具
 机遇的时代》，出自微软亚洲研究院院长洪小文之手，彻底坚定了我的信心。 《双城记》中说it was the worst of times， it was
 also the best of times。 ps：高端视点是指大大们的视点，不是我的…</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/e9-ab-98-e7-ab-af-e8-a7-86-e7-82-b9/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/02/e9-ab-98-e7-ab-af-e8-a7-86-e7-82-b9/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/02/was-defeated/">被击败了</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/02/was-defeated/">被击败了</a></h2>
                 <div class="summary"><p>为了那个踩校内的工具，搞了半天，java失败，最基本的POST都写不出来，惭愧的```</p>
 <p>捻转C#，用HtmlWebRequest写Post，再次被击败。。。POST又失败...</p>
 <p>其实我很惭愧</p>
 <p>真不知道错在哪里，如果post百度则直接流接受失败，更惨...</p>
 <p>老老实实的用WebBrowser模拟操作过程吧```</p>
 <p>13号晚上8点的火车回去</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/was-defeated/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
-                <div class="summary"><p>今天看到一个高中同学的qq签名，人活着是为什么。</p>
-<p>她当时读的很潇洒，艺术生，现在已经工作了，男朋友换了无数</p>
-<p>我看了这个签名，觉得有点悲哀，现在已经不是应该考虑这个问题的时候了</p>
-<p>这个问题应该由小学生、初中生、最多高中生提出来。到了大学如果还搞不清楚自己活着的目的，自己人生的目标是什么，我觉得这是很悲哀的</p>
-<p>如果现在对自己提出这个问题，就已经问的太晚了</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/too-late-to-ask-a-question/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/02/was-defeated/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -221,7 +248,9 @@ also the best of times。 ps：高端视点是指大大们的视点，不是我�
 					href="/tag/page/12/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -238,6 +267,11 @@ also the best of times。 ps：高端视点是指大大们的视点，不是我�
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

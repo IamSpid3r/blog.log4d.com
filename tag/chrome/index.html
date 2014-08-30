@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2012/03/chrome-proxy/">Chrome 独立代理设置</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/03/chrome-proxy/">Chrome 独立代理设置</a></h2>
                 <div class="summary"><p>Chrome 在2011年4月份时候，加入了两个新的实验性扩展分支，分别是 Web Navigation Extension API 以及 Proxy
 Extension API， 通过他们，可以让 Chrome 使用自己独立的代理。</p>
 <p>借助这个新功能，我们可以通过 SwitchySharp 使用某个 list 完成部分网址代理。</p>
@@ -82,13 +82,17 @@ Extension API， 通过他们，可以让 Chrome 使用自己独立的代理。<
 SwitchySharp</a>。</p>
 <p>Proxy SwitchySharp 介绍如下：</p>
 <div class="highlight"><pre><span class="err">轻松快捷地管理和切换多个代理设置。基于</span> <span class="s">&quot;Proxy ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2012/03/chrome-proxy/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/03/chrome-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -105,6 +109,11 @@ SwitchySharp</a>。</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

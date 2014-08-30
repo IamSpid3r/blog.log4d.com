@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
                 <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
 pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
 <h2>3分钟Maven</h2>
@@ -82,13 +82,17 @@ started/index.html">Getting Started in 30
 Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。</p>
 <div class="highlight"><pre><span class="cp">#建立一个空项目，包含一个HelloWorld，可以通过</span>
 <span class="cp">#-DarchetypeGroupId=&lt;archetype-groupId ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/03/maven-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/maven-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -105,6 +109,11 @@ Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

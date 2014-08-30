@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,90 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/07/microlog/">微日记</a></h2>
-                <div class="summary"><p>每天用一个词形容自己当天的生活，就是微日记。</p>
-<p>从 <a href="Matrix67.com: Keywords in My Life">http://www.matrix67.com/keywords.html</a> 偷师。</p>
-<p>Matrix67用的是html，我用的是纯文本，直接通过SSH在服务器进行修改。utf-8编码，有些浏览器（比如FF）可能需要使用正确的编码才能显示。</p>
-<p>我的微日记地址是 <strike><a href="http://log4d.com/microlog.txt">http://log4d.com/microlog.txt</a></strike> <a href="http://log4d.com/microlog/">http://log4d.com/microlog/</a>，欢迎模仿。</p>
-                    <a class="btn btn-default btn-xs" href="/2011/07/microlog/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
-                <div class="summary"><p>Chrome的开发者工具里面有一个小功能：查看当前元素的Event，比如onclick/onblur等事件。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/07/chrome_event.png" /></p>
-<p>一直想在Firefox里面也找到类似的插件，今天正好看到这么一个好东西，叫做EventBug。</p>
-<p>官方的介绍如下</p>
-<blockquote>
-<p>Eventbug是一款能够列出所有绑定事件的Firebug扩展，它将这些事件按事件类型排列。</p>
-<ul>
-<li>
-<p>需要Firebug1.5</p>
-</li>
-<li>
-<p>源码沿用Firebug的BSD风格协议</p>
-</li>
-<li>
-<p>请使用Firebug的Bug报告列表来提交问题</p>
-</li>
-<li>
-<p>请使用Firebug的新闻列表来提出问题</p>
-</li>
-</ul>
-<p>作者：John J. Barton, Jan Odvarko</p>
-</blockquote>
-<p>测试发现在Firefox5下面没有问题。</p>
-<p><a href="http://upload-
-log4d.qiniudn.com/2011/07/eventbug.png"><img alt="" src="http://upload-log4d.qiniudn.com/2011/07/eventbug.png" /></a></p>
-<p>这么一款插件在调试js或者对别人的页面做一些js hack特别有用，强烈推荐之。</p>
-<ul>
-<li><a href="http://getfirebug.com/wiki/index.php/Firebug_Extensions#Eventbug">Eventbug官方地址</a></li>
-<li><a href="http://www.softwareishard.com/blog/firebug/eventbug-alpha-released/">Eventbug介绍博文（En）</a></li>
-<li><a href="http://getfirebug.com/releases/eventbug/">Eventbug下载链接</a></li>
-</ul>
-                    <a class="btn btn-default btn-xs" href="/2011/07/eventbug/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
-                <div class="summary"><p>在url中使用中文其实是一个坏习惯，会带来一系列的转码问题， 我更喜欢英文译名或者id来标识某个uri。但是现实往往是残酷的，
-特别是在我们调用别人服务时候，有时候被逼无奈使用中文URL。</p>
-<p>Python中unicode转码一向是让人头疼的问题。数次碰壁之后，我也摸出了一些门道，
-研读完<a href="http://ipie.blogbus.com/logs/19379694.html">Python字符串的encode与decode</a>
-之后，就自认为找到了万金油，谁知道这次又碰上这个老冤家。</p>
-<div class="highlight"><pre><span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
-  <span class="nb">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
-  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">126</span><span class="p">,</span> <span class="k">in</span> <span class="nx">urlopen</span>
-    <span class="k">return</span> <span class="nx">_opener.open</span><span class="p">(</span><span class="nb">url</span><span class="p">,</span> <span class="kd">data</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
-  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/06/urllib2-urlopen-unicode/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
-                <div class="summary"><h2>1. 背景</h2>
-<p>我目前有两台电脑，一台是家里使用的Linux笔记本（Dell 6400，4年）， 一台是公司使用的Windows笔记本（IBM X201，1个月）。
-我有时候需要在办公室连入家庭电脑，进行一些操作，比如同步，比如使用linux特定服务。</p>
-<p>完成这项工作需要两个条件，ip互通+对应通讯协议。被连接的服务器需要一个公网地址，
-而非局域网的192.x.x.x。可供选择的协议比较多，http/ftp/ssh等常规协议都可以使用。</p>
-<blockquote>
-<p><strong>什么是<a href="http://www.oray.com/peanuthull/">花生壳</a></strong></p>
-<p>花生壳动态域名是全球用户量最大的完全免费的动态域名解析软件。当您使用花生壳服务，
-无论您在任何地点、任何时间、任何线路，均可通过固定的花生壳域名访问您的远程主机服务。</p>
-<p>现在花生壳为千万的域名提供动态域名解析服务，并广泛应用于网站建设、视频监控、 遥感测绘、FTP、VPN、企业OA、ERP等应用领域。</p>
-</blockquote>
-<p>ps：除了花生壳，还有很多DDNS服务可以供选择。由于TP-Link和D-Link都默认内置花生壳， 我这里用花生壳做范例。而我使用的<a href="http://www.dd-wrt.com/">DD- ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/06/ddns-ssh/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/2011/06/mako-vim/">一个mako.vim</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/06/mako-vim/">一个mako.vim</a></h2>
                 <div class="summary"><p>给Vim找了一个Mako的语法高亮，发现着色居然有问题。查看更新记录后发现作者<a href="http://lucumr.pocoo.or
 g/">Armin Ronacher</a>只更新到08年9月份。之后Mako更新了一些少许细节，我修改了一下mako.vim，放在这里供下载。</p>
 <p>其实我只改了57/58行，增加一个block语法。</p>
@@ -163,12 +82,14 @@ g/">Armin Ronacher</a>只更新到08年9月份。之后Mako更新了一些少许
 <p>相关链接：</p>
 <p>原始mako.vim：<a href="http://www.v
 im.org/scripts/script.php?script_id=1858">http ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/06/mako-vim/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/06/mako-vim/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/05/pylons/">Pylons使用小记</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/05/pylons/">Pylons使用小记</a></h2>
                 <div class="summary"><p>活着就是折腾，最近事情多的一塌糊涂，烦躁的很，导致log4d也荒废一个月了。今天趁着周五晚上，梳理一下最近学习的pylons知识。</p>
 <p><img alt="" src="http://upload-log4d.qiniudn.com/2011/05/pylons.png" /></p>
 <h2>关于Pylons</h2>
@@ -180,12 +101,14 @@ web框架的纷杂。我这里选择Pylons（其实是被选择），并不是�
 web框架对比建议看这篇<a href="http://feilong.me/2011/01/talk-about-python-web-
 framework">浅谈Python web框架</a>，另外，这个<a href="http://www.bestwebframeworks.com/python/">Best Web-
 Framework ...</a></p>
-                    <a class="btn btn-default btn-xs" href="/2011/05/pylons/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/05/pylons/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
                 <div class="summary"><p>官方中pylons都是通过在shell中运行paster serve --reload
 development.ini来运行应用实例。而整天在任务栏跑着一个黑乎乎的shell很碍眼，通过一下步骤可以在Eclipse中运行pylons。</p>
 <p>配置Run Configuration - Python Run如下。</p>
@@ -200,12 +123,14 @@ development.ini来运行应用实例。而整天在任务栏跑着一个黑乎�
 <p>很可惜的是，这样做还是不能对应用进行Debug，pylons的debug依然依赖于pylons的"交互调试页面"。</p>
 <p>参考<a href="http://stackoverflow.com/questions/147650/debug-pylons-application-
 through-eclipse">http://stackoverflow.com ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/05/run-pylons-in-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/05/run-pylons-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/erp-defectors/">ERP叛逃者</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/erp-defectors/">ERP叛逃者</a></h2>
                 <div class="summary"><p>大四实习时候，跑去驻厂开发，当时主管跟我说"我们做的是企业信息化软件"。毕业之后找工作，进入一家国内还算有名的ERP公司，做ERPII产品（CRM/工作流/
 电子商务平台等ERP软件附属产品）的开发和二次开发。</p>
 <p>在这一年半的时间里，我学习了一些行业知识，熟悉了公司自己的开发模式、框架和工具。浑浑噩噩的直到某一天，我发现我写代码没有键盘飞扬的感觉。我惶恐，我感觉我遇到
@@ -214,12 +139,14 @@ through-eclipse">http://stackoverflow.com ...</p>
 年，ERP公司给用户提供解决方案可以是在纸上提出，根本不需要电脑。所以ERP的本质是对业务的梳理，规范化的引导，让企业高效整合资源充分发挥产能的公司。这与我
 想象的IT公司完全不一样，我所希望的IT公司能够追求极致，创造用户喜欢的，快速响应用户需求，扩展性强的产品。如果具备这些元素，会很快被同类公司超越。</p>
 <p>可是公司立足于市场近30年，绝对不是这么不堪，她有自己的核心竞争力 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/erp-defectors/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/erp-defectors/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
                 <div class="summary"><p>前几天使用chmod时候，多打了一个/，导致根目录下面所有文件权限设定出了问题，额~重装系统吧，正好把装系统之后的配置过程记录下来。</p>
 <p>这些都是我操作过的命令，确切可靠，适用于Ubuntu 10.10 Desktop Edtion。</p>
 <div class="highlight"><pre><span class="o">=</span> <span class="n">init</span> <span class="n">Linux</span> <span class="n">programs</span> <span class="n">and</span> <span class="n">setting</span> <span class="o">=</span>
@@ -239,12 +166,14 @@ through-eclipse">http://stackoverflow.com ...</p>
 <p>.reset permission(谨慎使用，设定文件为644,设定文件夹为755)</p>
 <hr />
 <p>find /home ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/ubuntu-setup/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/ubuntu-setup/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
                 <div class="summary"><p>部门最近开发的产品使用的开发服务器是Jetty（挂载在GWT中），启动方法是通过Eclipse的External
 Tool执行。我对此表示很好奇，特意在自己电脑下面组建了一个Jetty开发环境，发现Maven和Jetty合作起来非常愉快，现在小记之。</p>
 <h2>一、准备Maven配置文件</h2>
@@ -258,7 +187,84 @@ Directory Layout</a></p>
 <p>src/main/filters</p>
 <p>Resource filter files</p>
 <p>src ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/run-jetty-in-maven/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/run-jetty-in-maven/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/ubuntu-crebs/">Ubuntu桌面自动换背景</a></h2>
+                <div class="summary"><p>GNOME桌面系统可以使用一系列的图片作为背景，每过一段时间能够自动更换。这个功能核Win7下面自动换背景效果一致。不过很可惜，系统自带的可自动更换图片集只
+有几张，也找不到什么按钮可以直接设定。</p>
+<p>下图就是系统自带的两个图片集（第二行第一组和第二组）。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/04/appearance_preferences.png" /></p>
+<p>我们可以通过撰写xml自己制作图片集，xml格式模板在<code>/usr/share/gnome-background-properties/cosmos.xml</code>
+，实际的xml存放在类似于<code>/usr/share/backgrounds/cosmos/background-1.xml</code>的配置文档里面。</p>
+<p>除了手工撰写xml，我们还可以通过crebs小软件来自动生成xml文件。</p>
+<p>官方介绍如下：</p>
+<blockquote>
+<p>A background slideshow creator for the GNOME desktop wallpaper.</p>
+</blockquote>
+<p>The GNOME desktop is able to use a sequence of images for its background ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/ubuntu-crebs/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/plrcmatch4d/">历史记录-歌词复制器</a></h2>
+                <div class="summary"><p>之前写过一个Java的小工具叫做Mp3Lrc歌词复制器，用来复制歌词到Mp3播放器中的对应目录下面。之前的文章参见<a href="http:/
+/log4d.com/2009/05/the-executable-file-
+mp3lrc">Mp3Lrc的可执行文件</a>和<a href="http://log4d.com/2009/05/lyrics-written-in-java-
+replicator-mp3">Java写的Mp3歌词复制器</a>。</p>
+<p>这几天整理硬盘时候发现大四时候还用Delphi写了一个完整的GUI界面的Mp3歌词复制工具叫做PLrcMatch4D。</p>
+<p>源码已经丢失，只剩下可执行文件，T_T。</p>
+<p>如果非要定义以下这个工具的作用，就是从某个固定文件夹（歌词文件夹）复制对应Mp3播放器中歌曲的lrc文件到目标文件夹，从而让Mp3播放器可以正常显示歌词。</p>
+<p>下载点击这里，<a href="http://upload-
+log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
+<p>界面比较实在，大致是这样：</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/03/plrcmatch4d.jpg" /></p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/plrcmatch4d/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/nanjing-library/">南京图书馆检索系统升级</a></h2>
+                <div class="summary"><p>我经常去南京图书馆借书，南图的书虽然馆藏很多，在架的却往往不多。我习惯在去南图之前将在豆瓣上标记为"想读"的书搜索一下，检查书是否在架，以前南图的检索系统挺
+难用。我甚至一度想写一个查询小脚本。</p>
+<p>好消息是，前几天南图将ALEPH500业务系统升级到20版，官方的消息如下：</p>
+<blockquote>
+<p>南京图书馆于2011年3月15-17日顺利完成了ALEPH500业务管理系统升级工作，顺利实现从16版到20版的切换，3月18日起ALRPH500 V2
+0正式开始运行。20版是ALEPH500的最新版本，从16版到20版的升级，因为越过了中间的18版，所以难度更大，过程更加复杂，南京图书馆是第一家完成此项工
+作的省级图书馆。</p>
+<p>新版业务管理系统具有检索界面更简洁、检索提示更友好、信息显示更全面、检索结果更准确、沟通交流更直接等优点，从而更加方便读者使用。新版系统的的最大亮点是在
+OPAC（联机公共查询目录）中引入了社区的理念，通过新增的标签、评论、评级功能，建立了图书馆和读者互动与交流的虚拟社区。</p>
+<p>ALEPH500业务系统升级项目是南京图书馆2010年确定的重点工作，为此，南图不仅召开了项目专家论证会，还赴国家图书馆进行专题调研，并成立了专门的项目
+工作小组，制定了升级工作方案和应急预案。在项目实施过程中，南图始终贯彻时间服从质量的原则，召开项目汇报会和项目工作会10余次，集中培训人员2次 ...</p></blockquote>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/nanjing-library/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
+                <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
+pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
+<h2>3分钟Maven</h2>
+<p>Maven官方提供了<a href="http://maven.apache.org/guides
+/getting-started/maven-in-five-minutes.html">Getting Started in 5 Minutes</a>和<a href="http://maven.apache.org/guides/getting-
+started/index.html">Getting Started in 30
+Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。</p>
+<div class="highlight"><pre><span class="cp">#建立一个空项目，包含一个HelloWorld，可以通过</span>
+<span class="cp">#-DarchetypeGroupId=&lt;archetype-groupId ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/maven-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -270,7 +276,9 @@ Directory Layout</a></p>
 					href="/page/10/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -287,6 +295,11 @@ Directory Layout</a></p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

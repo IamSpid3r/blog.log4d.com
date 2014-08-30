@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,9 +70,9 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
                 <div class="summary"><p>官方中pylons都是通过在shell中运行paster serve --reload
 development.ini来运行应用实例。而整天在任务栏跑着一个黑乎乎的shell很碍眼，通过一下步骤可以在Eclipse中运行pylons。</p>
 <p>配置Run Configuration - Python Run如下。</p>
@@ -87,12 +87,14 @@ development.ini来运行应用实例。而整天在任务栏跑着一个黑乎�
 <p>很可惜的是，这样做还是不能对应用进行Debug，pylons的debug依然依赖于pylons的"交互调试页面"。</p>
 <p>参考<a href="http://stackoverflow.com/questions/147650/debug-pylons-application-
 through-eclipse">http://stackoverflow.com ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/05/run-pylons-in-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/05/run-pylons-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
                 <div class="summary"><p>部门最近开发的产品使用的开发服务器是Jetty（挂载在GWT中），启动方法是通过Eclipse的External
 Tool执行。我对此表示很好奇，特意在自己电脑下面组建了一个Jetty开发环境，发现Maven和Jetty合作起来非常愉快，现在小记之。</p>
 <h2>一、准备Maven配置文件</h2>
@@ -106,12 +108,14 @@ Directory Layout</a></p>
 <p>src/main/filters</p>
 <p>Resource filter files</p>
 <p>src ...</p>
-                    <a class="btn btn-default btn-xs" href="/2011/04/run-jetty-in-maven/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/run-jetty-in-maven/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
                 <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
 pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
 <h2>3分钟Maven</h2>
@@ -121,12 +125,14 @@ started/index.html">Getting Started in 30
 Minutes</a>两种教程，我这里再简化一下，记录一下常用命令。</p>
 <div class="highlight"><pre><span class="cp">#建立一个空项目，包含一个HelloWorld，可以通过</span>
 <span class="cp">#-DarchetypeGroupId=&lt;archetype-groupId ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2011/03/maven-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/03/maven-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/04/web-development-tool-aptana/">Web开发利器-Aptana</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/04/web-development-tool-aptana/">Web开发利器-Aptana</a></h2>
                 <div class="summary"><p>闲逛时候意外发现了一款开发利器Aptana，介绍说是JavaScript编辑利器，我冲着试一试的心理去官网溜达了一圈，发现那篇介绍问完完全全错了，Aptan
 a哪里只是JavaScript编辑器啊，完全是Web开发18般武艺样样精通啊。</p>
 <p><img alt="" src="http://www.aptana.org/images/top.jpg" /></p>
@@ -143,12 +149,14 @@ a哪里只是JavaScript编辑器啊，完全是Web开发18般武艺样样精通�
 </em> 支持FTP/SFTP<br />
 <em>调试JavaScript<br />
 </em>支持流行AJAX框架的Code Assist 功能：AFLAX, Dojo, JQuery, MochiKit, Prototype, Rico, script.aculo.us, Yahoo UI ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/04/web-development-tool-aptana/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/04/web-development-tool-aptana/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/03/use-subclipse-with-proxy/">使用subclipse代理</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/use-subclipse-with-proxy/">使用subclipse代理</a></h2>
                 <div class="summary"><p>&amp;nbsp_place_holder;公司网络必须使用代理，今天更新自己写的一个Utils到Google Project
 Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了那几个目录，都没有问题，猜到是代理连接的问题。</p>
 <p>Eclipse的代理设置在"<strong>General-Network Connections</strong>"中设置，很明显，Subclipse不在这里设定。</p>
@@ -163,12 +171,14 @@ Host时候，出现无法打开SVN服务器的现象，我在浏览器测试了�
 SettingsAdministratorApplication DataSubversion)，注意此目录为隐藏目录。</p>
 <p>3、在servers文件中的最后[global]后增加</p>
 <div class="highlight"><pre><span class="n">http ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2010/03/use-subclipse-with-proxy/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/use-subclipse-with-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2010/02/the-use-of-vss-in-eclipse/">在Eclipse中使用VSS</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/02/the-use-of-vss-in-eclipse/">在Eclipse中使用VSS</a></h2>
                 <div class="summary"><p>原文链接：<a href="http://developer.51cto.com/art/200906/127171.htm">Eclipse中安装配置VSS -
 51CTO.COM</a></p>
 <p>alswl友情提示：<strong>VSS Plugin for Eclipse
@@ -183,24 +193,28 @@ StudioCommonVSS下有个NETSETUP.EXE文件，共享这个目录，客户机就�
 Windows 资源管理器，新建一个名为 test的文件夹。</p>
 <p>2-2. 右击"test"，然后单击"属性"。</p>
 <p>2-3. 在"test ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/02/the-use-of-vss-in-eclipse/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/02/the-use-of-vss-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/11/the-eclipse3-5-using-flex-builder-3/">在Eclipse3.5下使用Flex Builder 3</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/11/the-eclipse3-5-using-flex-builder-3/">在Eclipse3.5下使用Flex Builder 3</a></h2>
                 <div class="summary"><p>这次课程设计是我大学最后一次了，毕业设计会需要谨慎，所以这次课程设计我决定做一个新潮的系统。</p>
 <p>我将系统命名为PylexChat，是一个基于<strong>Python</strong>+<strong>Flex</strong>的聊天系统，架构在<strong>GAE</strong>+<strong>AIR</strong>环境，支持多平台（<strong>Wi
 ndows+Linux+Web+手机</strong>）客户端登录。开发IDE为<strong>Eclipse</strong>+<strong>Flex Builder3</strong>插件，我的<strong>Eclipse
 Gelileo</strong>(v3.5)。在安装Flex Builder 3过程中就弹出需要3.4一下环境，我没在意，继续安装了。</p>
 <p>安装之后出现了问题，Eclipse插件根本没有加载，我在<a href="http://greylurk.com/index.php/2009/06/getting-flex-builder-3
 -plugin-to-survive-a-new-eclipse-version/">Getting ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/11/the-eclipse3-5-using-flex-builder-3/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/11/the-eclipse3-5-using-flex-builder-3/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/06/statistics-eclipse-plug-in-code-to/">Eclipse代码统计插件</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/06/statistics-eclipse-plug-in-code-to/">Eclipse代码统计插件</a></h2>
                 <div class="summary"><p>贴吧快完成主要功能了，想统计一下代码量，找到这么一个插件</p>
 <p>我 自己试用了一下，发现需要注意两个地方：1.必须在JAVA透视图下使用才能有效；2.必须为项目的选项下的Metrics选择启动Metrics才能统
 计；3.这个插件原意是分析代码质量、复杂性的，在分析结果中包含了代码量统计。4.只统计java代码，不统计jsp文件。</p>
@@ -211,23 +225,27 @@ jian.html/comment-page-1#comment-292569">猛击这里打开</a>&gt;，谢谢作�
 <p>Metrics插件可以从多个角度对Eclipse中的代码进行统计：</p>
 <p><a href="http://image-001.yo2cdn.com/wp-
 content/uploads/0 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/06/statistics-eclipse-plug-in-code-to/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/06/statistics-eclipse-plug-in-code-to/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
                 <div class="summary"><p>在Eclipse中新建JSP页面时候，<strong>contentType="text/html; charset=utf-8"</strong>,
 <strong>pageEncoding="utf-8"</strong>, <strong>content="text/html; charset=utf-8"</strong>， 这样连中文字都无法保存
 ，必须修改成UTF-8才能显示。</p>
 <p>在网上找了很久都没有合适的方案，都是给出在General下面的Content Types修改编码，而且下面人留言还说有效，我自己试了去发现根本没有作用。。。</p>
 <p>自己琢磨了很久，终于在Web - JSP Files 里面找到了正确的设置，把其中的<strong>Encoding</strong>由ISO改为UTF-8就一切完美解决。</p>
-                    <a class="btn btn-default btn-xs" href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/01/eclipse-of-the-odd/">Eclipse的奇淫巧计【转】</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/01/eclipse-of-the-odd/">Eclipse的奇淫巧计【转】</a></h2>
                 <div class="summary"><p>代码篇：</p>
 <p>1.在源代码中快速跳转:</p>
 <p>eclipse中的跳转甚至比VS.Net还方便，方法是按住Ctrl键，然后鼠标指向变量名，方法名，类名，就会出现链接，点击就可跳到定义处。</p>
@@ -241,7 +259,9 @@ Getters and</p>
 <p>Setters"。</p>
 <p>4.更改类名/变量名:</p>
 <p>如果涉及到多处修改，不要直接在源码中更改，在Package Explore中找到要改名的类或变量，右键点击 ...</p>
-                    <a class="btn btn-default btn-xs" href="/2009/01/eclipse-of-the-odd/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/01/eclipse-of-the-odd/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
@@ -252,7 +272,9 @@ Getters and</p>
 					href="/tag/eclipse/page/2/">&raquo;</a></li>
 	</ul>
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -269,6 +291,11 @@ Getters and</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C

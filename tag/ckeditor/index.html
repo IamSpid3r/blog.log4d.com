@@ -43,8 +43,8 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -70,21 +70,23 @@
 <!-- /.navbar -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
-            <article>
-                <h2><a href="/2010/03/dean-s-fckeditor-upload-directory-modify/">Dean's FCKEditor上传目录修改</a></h2>
+        <div class="col-lg-8 col-lg-offset-2">
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/dean-s-fckeditor-upload-directory-modify/">Dean's FCKEditor上传目录修改</a></h2>
                 <div class="summary"><p>一直喜欢WorePress默认的上传文件方法，通过<code>WP-content/uploads/年/月</code>分组。</p>
 <p>网站改版时候果断的把<a href="http://wordpress.org/extend/plugins/deans-fckeditor-with-pwwangs-
 code-plugin-for-wordpress/">Dean's FCKEditor With pwwang's Code Plugin For
 Wordpress</a>换成了<a href="http://wordpress.org/extend/plugins/deans-fckeditor-for-wordpress-
 plugin/">Dean's FCKEditor For
 Wordpress</a>，Dean's FCKEditor With pwwang's Code Plugin ...</p>
-                    <a class="btn btn-default btn-xs" href="/2010/03/dean-s-fckeditor-upload-directory-modify/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/dean-s-fckeditor-upload-directory-modify/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="/2009/05/fckeditor-browse-server-function-is-disabled/">禁用FCKeditor浏览服务器功能</a></h2>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/05/fckeditor-browse-server-function-is-disabled/">禁用FCKeditor浏览服务器功能</a></h2>
                 <div class="summary"><p>FCKeditor应该是功能最强大的网页编辑器了，提供js版本和java版本，而且功能特别丰富。</p>
 <p><img alt="" src="http://www.fckeditor.net/themes/fckeditor_site/../../images/logotop.gif" /></p>
 <p><a href="http://www.fckeditor.net/">猛击这里打开</a>FCKeditor的主页</p>
@@ -100,13 +102,17 @@ Wordpress</a>，Dean's FCKEditor With pwwang's Code Plugin ...</p>
 <p>继续修改tckconfig.js 284左右，去除一些浏览功能，修改为false</p>
 <div class="highlight"><pre><span class="n">FCKConfig</span><span class="p">.</span><span class="n">LinkBrowser</span> <span class="o">=</span> <span class="nb">false</span> <span class="p">;</span><span class="c1">//关闭增加连接中浏览服务器功能</span>
 <span class="n">FCKConfig</span><span class="p">.</span><span class="n">LinkBrowserURL</span> <span class="o">=</span> <span class="n">FCKConfig</span><span class="p">.</span><span class="n">BasePath</span> <span class="o">+</span> <span class="err">&#39;</span><span class="n">filemanager</span><span class="o">/</span><span class="n">browser</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">browser</span><span class="p">.</span><span class="n">html</span><span class="o">?</span><span class="n">Connector</span><span class="o">=</span><span class="err">&#39;</span> <span class="o">+</span> <span class="n">encodeURIComponent</span><span class="p">(</span> <span class="n">FCKConfig</span><span class="p">.</span><span class="n">BasePath ...</span></pre></div>
-                    <a class="btn btn-default btn-xs" href="/2009/05/fckeditor-browse-server-function-is-disabled/">more ...</a>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/fckeditor-browse-server-function-is-disabled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
                 </div>
             </article>
             <hr/>
 
         </div>
-        <div class="col-lg-3 well well-sm" id="sidebar">
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-lg-offset-2 well well-sm" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
@@ -123,6 +129,11 @@ Wordpress</a>，Dean's FCKEditor With pwwang's Code Plugin ...</p>
 
 
                 <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
+                    <li class="list-group-item">
+                        <a href="/category//">
+                            <i class="icon-folder-open icon-large"></i>
+                        </a>
+                    </li>
                     <li class="list-group-item">
                         <a href="/category/c/">
                             <i class="icon-folder-open icon-large"></i>C
