@@ -7,7 +7,7 @@ body {
 	margin-bottom: 40px;
 }
 
-article p, article li, article form input {
+article p, article li, article dd, article dt, article form input {
 	font-size: 18px;
 }
 
