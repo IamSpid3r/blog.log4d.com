@@ -72,6 +72,120 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
+                <h2 class="text-center"><a href="/2011/09/nose/">使用nose做测试</a></h2>
+                <div class="summary"><p>不做单元测试的程序员不是好程序员。最近我在Pylons下面做开发， 使用
+<a href="http://readthedocs.org/docs/nose/en/latest">nose</a> 做单元测试，颇有心得， 在这里分享一下。</p>
+<h2>1. Pylons中依赖包</h2>
+<p>先简单介绍一下Pylons, Pylons与其说是一个框架，不如说是一堆框架的组合， Pylons在其中做到一个胶水的作用。Pylons依赖的包如下。</p>
+<ul>
+<li><a href="https://github.com/danielfm/pybreaker">breaker，缓存和Session</a></li>
+<li><a href="http://formencode.org/">FormEncode，用户输入检查</a></li>
+<li><a href="http://www.makotemplates.org/">Mako，模板渲染</a></li>
+<li><a href="http://readthedocs.org/docs/nose/en/latest/">nose，自动化测试</a></li>
+<li><a href="http://pythonpaste.org/script/">Paste，服务器</a></li>
+<li><a href="http://routes.groovie.org/">Routes, 路由</a></li>
+<li><a href="http://pythonpaste.org/tempita/">Tempita，Paste的模板</a></li>
+<li><a href="http://packages.python.org/WebCore/modules/thirdparty/weberror.html">Weberror</a></li>
+<li><a href="http://docs.webob.org/en/latest/index.html">WebOb，提供WSGI请求响应等对象</a></li>
+<li><a href="http://pythonpaste.org/webtest/">WebTest，Paste自带的测试小框架， 提供TestResponse和TestRequest两个有用的小东西</a></li>
+</ul>
+<p>Pylons的测试主要使用的其中的 Paste / nose / WebOb / WebTest。 遇到问题的时候，可以去翻一翻上面的文档。</p>
+<h2>2. Pylons中测试目录结构</h2>
+<p>目录结构如下</p>
+<div class="highlight"><pre><span class="err">├─</span><span class="nx">config</span>
+<span class="err">├─</span><span class="nx">controllers</span>
+<span class="err">├─</span><span class="nx">lib</span>
+<span class="err">├─</span><span class="nx">model</span>
+<span class="err">├─</span><span class="kr">public</span>
+<span class="err">├─</span><span class="nx">templates ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/09/nose/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/09/jwj/">倾诉</a></h2>
+                <div class="summary"><p>很少转载别人的文字，这篇是老同学的一篇博文，很美的文字。</p>
+<p>原文地址&amp;nbsp_place_holder;<a href="http://blog.sina.com.cn/s/blog_49c54b980100vmq7.html">http://blog.sina.com.cn/s/blog_49c54b980100vmq7.html</a></p>
+<hr />
+<p>我想。</p>
+<p>每个人都有这样一个成长的过程。我现在看别人经历的十七八岁，写的文字，想表达的内容，仿佛就是在回望几年前的自己。尽管经历不同，却几乎写着同样的文字，表达着几乎
+同样的情感。这是一种很奇妙的，感同身受的感觉。</p>
+<p>现在当我静下来，真正可以回望过往，看到自己曾经的确年少轻狂，为赋新词强说愁。不管是对待生活对待人生或者是对待感情的态度，或许都要经历那样一个过往，才能变得更
+加成熟。先贤有说人生的3重境界，看山是山看水是水，到看山不是山看山不是水，最后又回归于看山是山看水是水。现在想来，这的确是对于人生一个最精妙的表达也是概括。
+尽管在不同的时期我们对于山水的理解各有不同。</p>
+<p>我惊讶于在回想十七八岁的时候的自己，竟需要用到五六年前这样的一个时间段来形容。我甚至觉得不可思议，仿佛这中间的时间不曾存在过，而我还是当时那时候一个什么都不
+懂的小女儿家。尽管现在也未必懂得多少，但这时间却是真真实实存在了的，真的是，白驹过隙 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/09/jwj/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/09/pptpclient/">使用pptpclient连接vpn网络[译文]</a></h2>
+                <div class="summary"><p>最近在ddwrt配置vpn，参考了arch的pptpclient配置文档<a href="https://wiki.archlinux.org/index.php/Microsoft_VPN_client_setup_with_pptpcl
+ient">Microsoft VPN client setup with pptpclien
+t</a>，同时顺便花了一点时间翻译成中文，正文如下（使用<a href="https://github.com/tanin47/wiky.js">wiky.js</a>转换pe
+diawiki到html，原文会有更多的wiki模板样式便于查看，有问题请参照原文）。</p>
+<p>pptpclient是一个实现Microsoft PPTP协议的程序。因此它能够被用来接入另一个Microsoft VPN网络，比如学校和单位。</p>
+<h3>安装PPTPClient</h3>
+<p>pptpclient由安装包pptpclient提供，运行下列命令可以安装：</p>
+<h1>pacman -S pptpclient</h1>
+<h3>配置</h3>
+<p>你需要从网络管理员获取以下信息来配置pptpclient:</p>
+<ul>
+<li>VPN服务器的ip或者域名</li>
+<li>VPN隧道名称</li>
+<li>Windows域（不是所有网络都需要）</li>
+<li>VPN用户名</li>
+<li>VPN密码</li>
+</ul>
+<h2>编辑配置文件</h2>
+<p>用你称手的编辑器打开/etc ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/09/pptpclient/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/08/nxserver/">使用NX替代VNC</a></h2>
+                <div class="summary"><p><a href="http://www.nomachine.com">NX</a> 是 NoMachine 公司推出的下一代远程桌面技术，可以说是用来替换 VNC
+的一个较好方案。</p>
+<blockquote>
+<p><a href="http://www.realvnc.com">VNC</a> is remote control software which allows you to
+view and fully interact with one computer desktop (the "VNC server") using a
+simple program (the "VNC viewer") on another computer desktop anywhere on the
+Internet.</p>
+<p>VNC 是一个允许你从一台电脑（VNC 查看器）查看并且操作另外一台电脑（VNC 服务器）小程序 ...</p></blockquote>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/08/nxserver/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2011/08/mako-typeerror/">TypeError: sequence item 22: expected string or Unicode, long found</a></h2>
+                <div class="summary"><p>Mako 下面开发时候，遇到这个问题</p>
+<blockquote>
+<p>TypeError: sequence item : expected string or Unicode, long found</p>
+</blockquote>
+<p>Trace 的情况大概这样（我的错误信息无法再现，这是某位外国友人的错误信息）</p>
+<blockquote>
+<p>File '/Users/amaslov/Projects/dou-pylons/doupy/doupy/controllers/ root.py',
+line 239 in staticpage</p>
+<p>&amp;nbsp_place_holder;return render('/pages/%s.html' % name)</p>
+<p>File '/Users/amaslov/Projects/dou-pylons/py/lib/python2.5/site-
+packages/Pylons-0.9 ...</p></blockquote>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/08/mako-typeerror/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="text-center"><a href="/2011/08/auto-clean-input/">简单输入提示框实现</a></h2>
                 <div class="summary"><p>早期的输入框提示是这样的（via <a href="http://tieba.baidu.com/index.html">baidu</a>）</p>
 <p><img alt="tieba" src="http://upload-log4d.qiniudn.com/2011/08/login1.png" /></p>
@@ -162,114 +276,6 @@ Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p
 <p>就在昨天，我无意中不知道按了什么键 ...</p>
                     <p class="text-right">
                       <a class="btn btn-default btn-lg" href="/2011/07/vimperator-pass-through/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/07/lrzsz/">安装lrzsz</a></h2>
-                <div class="summary"><p>lrzsz 是一款 Linux 下面的文件传输工具。实现原理是通过 Xmodem / Ymodem / Zmodem 协议传输文件。lrzsz
-可以在支持这三种协议的Shell界面的工具下工作，比如XShell。</p>
-<blockquote>
-<p>lrzsz是一个古老的软件，最新版本0.12.20是在1998年更新的。</p>
-</blockquote>
-<p>大部分linux发行版的安装工具都可以直接安装 lrzsz，比如apt-get /
-pacman，当然我们也可以下载安装包手动安装。这次由于我所在的服务器没有管理员权限，我就使用源码包安装。</p>
-<div class="highlight"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">alswl</span><span class="o">/</span><span class="n">app</span>
-<span class="err">$</span> <span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz</span>
-<span class="err">$</span> <span class="n">tar</span> <span class="n">xzvf</span> <span class="n">lrzsz</span><span class="o">-</span><span class="mf">0.12.20</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">lrzsz</span><span class="o">-</span><span class="mf">0.12 ...</span></pre></div>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/07/lrzsz/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/07/microlog/">微日记</a></h2>
-                <div class="summary"><p>每天用一个词形容自己当天的生活，就是微日记。</p>
-<p>从 <a href="Matrix67.com: Keywords in My Life">http://www.matrix67.com/keywords.html</a> 偷师。</p>
-<p>Matrix67用的是html，我用的是纯文本，直接通过SSH在服务器进行修改。utf-8编码，有些浏览器（比如FF）可能需要使用正确的编码才能显示。</p>
-<p>我的微日记地址是 <strike><a href="http://log4d.com/microlog.txt">http://log4d.com/microlog.txt</a></strike> <a href="http://log4d.com/microlog/">http://log4d.com/microlog/</a>，欢迎模仿。</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/07/microlog/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
-                <div class="summary"><p>Chrome的开发者工具里面有一个小功能：查看当前元素的Event，比如onclick/onblur等事件。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/07/chrome_event.png" /></p>
-<p>一直想在Firefox里面也找到类似的插件，今天正好看到这么一个好东西，叫做EventBug。</p>
-<p>官方的介绍如下</p>
-<blockquote>
-<p>Eventbug是一款能够列出所有绑定事件的Firebug扩展，它将这些事件按事件类型排列。</p>
-<ul>
-<li>
-<p>需要Firebug1.5</p>
-</li>
-<li>
-<p>源码沿用Firebug的BSD风格协议</p>
-</li>
-<li>
-<p>请使用Firebug的Bug报告列表来提交问题</p>
-</li>
-<li>
-<p>请使用Firebug的新闻列表来提出问题</p>
-</li>
-</ul>
-<p>作者：John J. Barton, Jan Odvarko</p>
-</blockquote>
-<p>测试发现在Firefox5下面没有问题。</p>
-<p><a href="http://upload-
-log4d.qiniudn.com/2011/07/eventbug.png"><img alt="" src="http://upload-log4d.qiniudn.com/2011/07/eventbug.png" /></a></p>
-<p>这么一款插件在调试js或者对别人的页面做一些js hack特别有用，强烈推荐之。</p>
-<ul>
-<li><a href="http://getfirebug.com/wiki/index.php/Firebug_Extensions#Eventbug">Eventbug官方地址</a></li>
-<li><a href="http://www.softwareishard.com/blog/firebug/eventbug-alpha-released/">Eventbug介绍博文（En）</a></li>
-<li><a href="http://getfirebug.com/releases/eventbug/">Eventbug下载链接</a></li>
-</ul>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/07/eventbug/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
-                <div class="summary"><p>在url中使用中文其实是一个坏习惯，会带来一系列的转码问题， 我更喜欢英文译名或者id来标识某个uri。但是现实往往是残酷的，
-特别是在我们调用别人服务时候，有时候被逼无奈使用中文URL。</p>
-<p>Python中unicode转码一向是让人头疼的问题。数次碰壁之后，我也摸出了一些门道，
-研读完<a href="http://ipie.blogbus.com/logs/19379694.html">Python字符串的encode与decode</a>
-之后，就自认为找到了万金油，谁知道这次又碰上这个老冤家。</p>
-<div class="highlight"><pre><span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
-  <span class="nb">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
-  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">126</span><span class="p">,</span> <span class="k">in</span> <span class="nx">urlopen</span>
-    <span class="k">return</span> <span class="nx">_opener.open</span><span class="p">(</span><span class="nb">url</span><span class="p">,</span> <span class="kd">data</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
-  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line ...</span></pre></div>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/06/urllib2-urlopen-unicode/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
-                <div class="summary"><h2>1. 背景</h2>
-<p>我目前有两台电脑，一台是家里使用的Linux笔记本（Dell 6400，4年）， 一台是公司使用的Windows笔记本（IBM X201，1个月）。
-我有时候需要在办公室连入家庭电脑，进行一些操作，比如同步，比如使用linux特定服务。</p>
-<p>完成这项工作需要两个条件，ip互通+对应通讯协议。被连接的服务器需要一个公网地址，
-而非局域网的192.x.x.x。可供选择的协议比较多，http/ftp/ssh等常规协议都可以使用。</p>
-<blockquote>
-<p><strong>什么是<a href="http://www.oray.com/peanuthull/">花生壳</a></strong></p>
-<p>花生壳动态域名是全球用户量最大的完全免费的动态域名解析软件。当您使用花生壳服务，
-无论您在任何地点、任何时间、任何线路，均可通过固定的花生壳域名访问您的远程主机服务。</p>
-<p>现在花生壳为千万的域名提供动态域名解析服务，并广泛应用于网站建设、视频监控、 遥感测绘、FTP、VPN、企业OA、ERP等应用领域。</p>
-</blockquote>
-<p>ps：除了花生壳，还有很多DDNS服务可以供选择。由于TP-Link和D-Link都默认内置花生壳， 我这里用花生壳做范例。而我使用的<a href="http://www.dd-wrt.com/">DD- ...</a></p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/06/ddns-ssh/"><i class="icon-circle-arrow-right"></i>more ...</a>
                     </p>
                 </div>
             </article>

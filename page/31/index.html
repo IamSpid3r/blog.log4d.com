@@ -72,6 +72,93 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/">DAO的设计-使用泛型来避免重复DAO</a></h2>
+                <div class="summary"><p>DAO的全称是Data Access Object数据访问接口。数据访问：顾名思义就是与数据库打交道。夹在业务逻辑与数据库资源中间。</p>
+<p>我大二时候写的一个小型管理系统，那时候老师开始强调分层和MVC的思想，当时我将DAO层分了开来，把所有与数据库的交互操作封装成对应的DAO类，这样最大的好处
+是实现了封装和隔离，方便系统的迁移和重构。</p>
+<p>分层、封装、接口化是一种基本的解决思路，无论是TCP/IP协议族，还是软件工程，都是很值得使用的方案。</p>
+<p>那么接下来的问题就是DAO类的设计，我当时遇到的问题就是DAO类之间存在大量的冗余代码，用敏捷的角度来思考，这绝对是不允许存在的。</p>
+<p>讲相同的方法抽象出来，这也是最常见的解决方案，最简单的例子就是函数的产生，其实也是对程序的一种抽象和提炼，避免冗余，达到复用效果。</p>
+<p>在Java1.5出来之前，用Object来操作对象，实现方法复用，就可以达到上面的目的，但是，存在类型安全的问题。Java1.5提出了泛型的概念，类似与C+
++中的Template，Java运行环境帮助会检查类型的安全。</p>
+<p>这里有一篇IBM资料库的文章，详细阐述了泛型在DAO设计的使用「不要重复DAO」&lt;<a href="http://www.ibm ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/prohibition-of-wordpress-automatically-to-replace-the-half-angle-punctuation/">禁止WordPress自动替换半角标点符号【转】</a></h2>
+                <div class="summary"><p>转载自「禁止WordPress自动替换半角标点符号 - 布语博客」&lt;<a href="http://buyu.name/074.html">点击这里打开</a>&gt;</p>
+<p>Wordpress虽好，可毛病也不少，今天发现WordPress会将半角标点符号自动转换成全角的，但并没有替换数据库里的信息，真搞不明白开发团队是怎么想的，
+现将解决方法记录如下。</p>
+<p>1、 编辑 wp-includes/formatting.php 文件，找到以下代码：</p>
+<div class="highlight"><pre><span class="c1">// static strings</span>
+<span class="err">$</span><span class="n">curl</span> <span class="o">=</span> <span class="n">str_replace</span><span class="p">(</span><span class="err">$</span><span class="n">static_characters</span><span class="p">,</span> <span class="err">$</span><span class="n">static_replacements</span><span class="p">,</span> <span class="err">$</span><span class="n">curl</span><span class="p">);</span>
+<span class="c1">// regular expressions</span>
+<span class="err">$</span><span class="n">curl</span> <span class="o">=</span> <span class="n">preg_replace</span><span class="p">(</span><span class="err">$</span><span class="n">dynamic_characters</span><span class="p">,</span> <span class="err">$</span><span class="n">dynamic_replacements</span><span class="p">,</span> <span class="err">$</span><span class="n">curl</span><span class="p">);</span>
+</pre></div>
+
+
+<p>正是 str_replace() 和 preg_replace() 两个函数在作怪。</p>
+<p>2、 将相应语句注释，禁用自动替换功能：</p>
+<div class="highlight"><pre><span class="c1">// static strings</span>
+<span class="c1">//$curl = str_replace($static_characters, $static_replacements, $curl);</span>
+<span class="c1">// regular expressions</span>
+<span class="c1">//$curl = preg_replace ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/prohibition-of-wordpress-automatically-to-replace-the-half-angle-punctuation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/wp-small-speed-optimization/">WP速度小优化</a></h2>
+                <div class="summary"><p>今天实在无法忍受WP的速度，打开速度在10s-15s左右，好几个朋友反映，我咨询了一下小张，发现同一台服务器的网站速度都不错，那就是我的设置问题了。</p>
+<p>参考了一下几篇速度优化博文，也对自己的博进行了简单的优化。</p>
+<p>我没木木和万戈那样的本事，能几乎不用插件自己修改代码，我仅仅能稍微禁用一些插件，界面用的iNove，也不想做太多的改变。</p>
+<p>我用FireBug查看了一下同服务器的其他网站，人家的连接数甚至高达80+，速度还比我快，我仔细检查，发现一些cnzz图片读取比较耗时。我在iNove的界面
+下修改了end.php的代码，换上了文字代码，而不用去cnzz获取图片。</p>
+<p>这样一来，似乎速度快了点。</p>
+<p>我又删除了饭否的图片，这几天饭否也访问不了，留了也显示不出来。</p>
+<p>我留下12个插件，分别是：Akismet, CodeColorer, Dagon Design Sitemap Generator, Google XML
+Sitemaps, Mail To Commenter, Shutter Reloaded, Super Switch, WordPress Related
+Posts, WP-PageNavi ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/wp-small-speed-optimization/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/employees-in-the-insurance-intermediary-qualifying-examinations-review-outline/">保险中介从业人员资格考试复习大纲</a></h2>
+                <div class="summary"><p>由于一个不可阻挡的原因，我需要参见这次的<a href="http://log4d.com/tag/insurance">保险</a>中介从业人员资格考试，我7月25号回学校，1
+8号考试，这段时间都不放过我，崩溃了。</p>
+<p>想想我也挺惨的，我记性一向不好，本身又是计算机专业，让我背那么一大本书。。。</p>
+<p>我认为树形结构的体系记忆起来比较容易，就想去找考试复习大纲，果然Google到一个</p>
+<p><strike>保险代理从业人员基本资格考试大纲.doc&lt;<a href="http://upload-log4d.qiniudn.com/2009/07/
+%E4%BF%9D%E9%99%A9%E4%BB%A3%E7%90%86%E4%BB%8E%E4%B8%9A%E4%BA%BA%E5%91%98 ...</strike></p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/employees-in-the-insurance-intermediary-qualifying-examinations-review-outline/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2009/07/the-definition-of-success/">成功的定义</a></h2>
+                <div class="summary"><p>最近在看《我的青春谁做主》，其中有一集是老太太和青楚讲成功的定义，我听了挺有感触，摘录如下：</p>
+<p>现在社会上给人灌输的成功观念太单一，你们年轻人追求的无外乎就是赚钱、成名，给自己贴上成功的标签。千篇一律，千人一面。这是典型的唯结果论。</p>
+<p>其实不是所有得到的结果都成功，也不是没有结果就失败。从我自己的体验来说，成功藏在过程里，将来回头看，乐趣肯定不在最后撞线的那一下。结果就像是买东西的赠品，有
+了算白赚，没有也没什么</p>
+<p>我觉得这几句话很淳朴，但的确很有道理，和大家分享了。</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/07/the-definition-of-success/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="text-center"><a href="/2009/07/mysql-command-line-client-garbled-problems-and-solutions/">MySQL Command Line Client乱码问题及解决方案</a></h2>
                 <div class="summary"><p>以前用MySQL时候都是可视化界面，如MySQL Admin使用，现在学着使用MySQL Command Line client，初次接触，就遇到乱码问题。</p>
 <p>乱码是中文字符串的，Google后，找到一些解决方案。摘录如下：</p>
@@ -159,93 +246,6 @@ jian.html/comment-page-1#comment-292569">猛击这里打开</a>&gt;，谢谢作�
 content/uploads/0 ...</p>
                     <p class="text-right">
                       <a class="btn btn-default btn-lg" href="/2009/06/statistics-eclipse-plug-in-code-to/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/return-s-if-the-use-of/">再谈s:if的使用</a></h2>
-                <div class="summary"><p>上次遇到过<s:if>的问题，费了好久才弄好，这次又遇到，有了一点新的体验。</p>
-<p><s:if test="">中的判断，如果是数字判断一般都没有问题，问题会在字符串时候凸显出来。</p>
-<p>尤其是中文字符串，几乎没有能够通过的，上一次是曲线救国，用了true和false着两个英文，如果非得用中文怎么办？</p>
-<p>其实使用<s:if test='str=="中文"'>，就可以了，请注意，是单引号-双引号-中文-双引号-
-单引号的顺序，这样才能够正确的解析中文字符串是否相等。</p>
-<p>唔。。。终于可以做下一个部分了</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/06/return-s-if-the-use-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/affixed-to-it-the-progress-report-on-the-medium-term/">贴吧中期进度汇报</a></h2>
-                <div class="summary"><p>查看sql更新版本，我才发现这个项目已经做了将近2个月了。</p>
-<p>之前一个多月都是我有空就做做，一边要写OpenSSL的模型，还要应付平时学习和考试，最近的1个星期，才开始全身心投入的，使这个项目变成了一个课程设计，但决不
-止于课程设计。</p>
-<p>由于鸡鸡的加入，而且对原先设计的一些不满意，我用UP的方式重新对系统进行了设计，从用例到实际类图，都重新设计并加以重构。</p>
-<p>这是一个很有意义的过程，我花了很多时间在UML的使用上，用的是StarUML（开始使用Rose，发现太难入门了），继烨负责用例，我是在设计完第一个迭代过程之
-后进行编写代码的。</p>
-<p>原计划是尽量设计之后再编码，但是由于时间关系被迫提前编码，这样，整个过程相对的倾向于敏捷，这其实也是我最开始想要的效果。</p>
-<p>写着写着，越发的理解设计的重要性，往往一个小错误会影响很多改变，很多东西没有一定经验真的很难做优秀。</p>
-<p>今天的代码提交到Google
-Code之后，基本接近我之前自己完成的程度，但我觉得这次的重构，使我学到了很多平时没接触到的东西。两个人的协作也使我完全体会到SVN的好处。</p>
-<p>以上是贴吧中期报告。</p>
-<h4>相关链接：</h4>
-<p>PostBar in Google Project Host&lt;<a href="http://code.google.com/p/postbar/">猛击这里打开</a>&gt;</p>
-<p>PostBar svn-readonly&lt;<a href ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/06/affixed-to-it-the-progress-report-on-the-medium-term/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/it-summer-camp-students-csdn/">CSDN大学生IT夏令营</a></h2>
-                <div class="summary"><p>之前就收到CSDN的信息，一个人跑到北京显得太远。前几日刘老师说他去，并且想组个小团一起去，大妈已经报名了，说的我很动心，咨询老妈意见后，就报名参加了。</p>
-<h4>活动简介</h4>
-<p>CSDN是一家拥有10年历史的IT名网，十年来秉承「开放、交流、分享、协作」的经营理念，执着于「专注、坚持」的工作态度，与微软、IBM、 Intel、Ado
-be等多家知名厂商建立了长期的互利合作关系。CSDN旨在为使在校生与社会接轨成为可能，助力在校生在严峻就业形势下立于不败之地，特筹划了「走进IT名企，感受名
-师魅力」——2009高校学生夏令营活动。</p>
-<p>本次活动以助力在校生提前与社会接轨为主旨，精心为学员安排了在名企上机实战环节，由技术名师亲临指导教学，随时为学员答疑解惑，同时也安排了精彩的旅游日程，带领学
-员畅游北京名胜古迹，陶冶情操，愉悦心情。同时为在校生提供亲临微软、Google、Intel、网易等IT巨头企业的机会，感受其丰富的企业文化，学习其工作态度、
-方法，并有业界名师为学生讲解职业生涯规划、IT产业现状及发展趋势 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/06/it-summer-camp-students-csdn/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/design-of-user-rights/">用户权限设计的问题</a></h2>
-                <div class="summary"><h3>问题</h3>
-<p>用户权限设计这一块，一直是一个我觉得比较难解决的问题。</p>
-<p>以前我用了「伪继承」，虽然管理员继承了普通用户，但是数据库却是分开设计的。又或者压根没有继承关系，是两个不同的实体。</p>
-<h3>解决方案</h3>
-<p>这次在贴吧系统，有三个用户角色：普通用户、吧主、管理员，想设计的符合OO，但又要利于数据库的实现。就有几个问题需要解决：1.需要继承么；2.数据库怎么设计；
-3.Hibernate怎么映射。最后参考几篇文章，设计成如下。</p>
-<p>使用User类，Roll类，User具有一般用户属性，Roll负责角色，他们是1对1关系，最好在数据库有一张User-
-Roll的对应关系表。来标明这个User具有哪个Roll。</p>
-<p>在我这个系统，Roll类有三种，分别对应三种角色：普通用户，吧主和管理员。</p>
-<p>这种独立出Roll角色类的方法被称为基于角色的用户权限设计方法。</p>
-<p>[caption id="attachment_12439" align="alignnone" width="300" caption="User
-Roll ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/06/design-of-user-rights/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/google-doors/">Google门</a></h2>
-                <div class="summary"><p>Google最近混的比较惨，谷歌中国连词汇联想都去掉了。</p>
-<p>最可怕的是昨天晚上Google无法访问了，doc, gmail, reader都出现了无法访问，通过网友的观察，大概晚上1点多左右才恢复。</p>
-<p>我的作息时间是10：30下网，早晨8点开工，所有正好错开这段时间了，早晨来时候已经能够正常访问了。</p>
-<p>在月光博客和CB的一些帖子里，网民似乎真的有点愤怒，有人说是GFW升级，还有人说是试探网友反映。</p>
-<p>我个人觉得如果Google不能访问会大大的影响我的生活，毕竟作为IT从业者，Google已经由一个搜索引擎变成了一个工作平台，这个Baidu和Google完
-全不是一个层次的，「内事问百度，外事问Google」这句话在我看来，还不如「内事问老婆，外事问Google」。</p>
-<p>但愿以后这种情况不会再出现。</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/06/google-doors/"><i class="icon-circle-arrow-right"></i>more ...</a>
                     </p>
                 </div>
             </article>

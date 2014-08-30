@@ -72,6 +72,122 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
+                <h2 class="text-center"><a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a></h2>
+                <div class="summary"><p>早在这个月初，我就在 Vim 的邮件列表看到了一封关于 Vim 插件管理的
+<a href="https://groups.google.com/d/topic/vim-cn/mPES0sNT87Q/discussion">邮件</a>。
+才惊呼原来有这么强大的插件可以用来管理我那一坨插件，
+今天细细阅读并查了一些资料，变开始配置自己的 Vim。</p>
+<h2>几种管理插件</h2>
+<p>Vim 的插件管理工具有蛮多，比如：</p>
+<ul>
+<li><a href="https://github.com/gmarik/vundle">Vundle</a></li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=2905">vim-addon-manager</a></li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=2332">vpathogen.vim</a></li>
+<li><a href="http://www.vim.org/scripts/script.php?script_id=3458">vvundle</a></li>
+<li><a href="https://github.com/c9s/Vimana">vvimana</a></li>
+<li><a href="http://www.douban.com/note/173144456/">一位同学自己写的</a></li>
+</ul>
+<p>Vim-addon-manager 和 vimana 的对比，参见
+<a href="http://yixf.name/2011/10/26/vim的插件管理工具/">Vim的插件管理工具</a></p>
+<p>我最会选择了 Vundle，通过子目录管理插件，支持 Git 更新。
+我其实不太喜欢子目录，觉得目录太多看着烦，但是考虑到在没有一个良好的 PKG
+包描述文件的前提下，分子目录是一种简单有效的方法。</p>
+
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/04/vundle/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/04/fcitx-config/">Fcitx 配置</a></h2>
+                <div class="summary"><h2>Fcitx</h2>
+<p><img alt="Fcitx" src="http://upload-log4d.qiniudn.com/2012/04/fcitx.png" /></p>
+<p>Fcitx 简介：</p>
+<div class="highlight"><pre><span class="err">小企鹅中文输入法（</span><span class="n">Free</span> <span class="n">Chinese</span> <span class="n">Input</span> <span class="n">Toy</span> <span class="k">for</span> <span class="n">X</span><span class="err">，</span><span class="n">fcitx</span><span class="err">）</span>
+<span class="err">是一个以</span> <span class="n">GPL</span> <span class="err">方式发布的输入法框架，</span> <span class="err">编写它的目是为桌面环境提供一个灵活的输入方案。</span>
+</pre></div>
+
+
+<p>本程序目前可以支持XIM和GTK2，GTK3，QT4的IM Module，可为支持</p>
+<p>XIM 的 X 应用程序提供输入服务。 fcitx 的源码包内提供了区位和全/简/双拼，</p>
+<p>并支持基于码表的输入法（自带五笔、二笔和仓颉等输入码表）。</p>
+<p>您可以从 http://fcitx.googlecode.com 下载最新的发布版本。</p>
+<p>当年刚开始使用 Linux 时候，使用的是 iBus，随后发现 Fcitx 这个输入法， 试用了一下就发现自己所需要的 双拼 / 模糊音 / 自定义输入
+功能都有提供 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/04/fcitx-config/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/03/gae/">GAE 编程指南读书笔记</a></h2>
+                <div class="summary"><p>GAE 和我蛮有缘分，我初学 Python 的其中一个原因就是当时 GAE 刚推出， 当时想法是免费的应用要用起来，要不然就浪费了。随后也假模假样的看文档，
+就是没有什么产出。</p>
+<p>去年写了一个小应用 <a href="https://github.com/alswl/dbevent2gc">dbevent2gc</a> ， 期间发现 GAE
+和普通程序开发的诸多不同，又遭遇 GAE 配额大幅缩水， 写出来的应用运转的不太稳定。在南京图书馆的架上看见这本《GAE 编程指南读书笔记》，
+立即借回家仔细阅读。</p>
+<ul>
+<li>
+<p>GAE 的简介  </p>
+<ul>
+<li>运行时环境 Python / Java</li>
+<li>数据存储 Datastore（实体 / 查询 / 索引 / 事务）</li>
+<li>服务（Memcache / GAccount / 任务队列 / 计划任务）</li>
+<li>工具（SDK / appcfg / dev_appserver / 控制台）</li>
+<li>入门（安装 / GAccount / webapp / app ...</li></ul></li></ul>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/03/gae/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/03/python-debug/">在Python中调试代码</a></h2>
+                <div class="summary"><p>撰写程序时候，需要在调试上面花费不少时间，好的调试工具可以让这个过程如虎添翼， 靠打 log 调试会是一种很痛苦的过程，我总结一下 Pylons
+开发的调试技巧。</p>
+<p>吐槽：团队开发时候，每个成员需要学习、总结和分享各自的开发技巧， 这样才能自我提升并提高开发效率。这属于团队文化建设，开发是一种艺术创造过程，
+绝对不是简单的复制和粘帖。</p>
+<h2>在 Python 中调试</h2>
+<h3>pdb</h3>
+<p>在代码中加入下列语句即可启用交互式调试。</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">pdb</span><span class="p">;</span><span class="n">pdb</span><span class="p">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+
+
+<p>在 pdb 中，可以使用 <code>h / l / b / n / s / c / j / a / p / ! / q</code> 这些命令所代表的含义可以通过
+<code>h(elp)</code> 打印出来。</p>
+<p>参考链接：</p>
+<ul>
+<li><a href="http://magustest.com/blog/python/use-pdb-debug-python/comment-page-1">用PDB库调试Python程序</a></li>
+</ul>
+<h3>ipdb</h3>
+<p>比 pdb 更好用的是 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/03/python-debug/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2012/03/chrome-proxy/">Chrome 独立代理设置</a></h2>
+                <div class="summary"><p>Chrome 在2011年4月份时候，加入了两个新的实验性扩展分支，分别是 Web Navigation Extension API 以及 Proxy
+Extension API， 通过他们，可以让 Chrome 使用自己独立的代理。</p>
+<p>借助这个新功能，我们可以通过 SwitchySharp 使用某个 list 完成部分网址代理。</p>
+<p>我的环境： Arch Linux / Chromiun(17.0.963.78) / Proxy SwitchySharp 1.9.38。</p>
+<h2>安装 Proxy SwitchySharp</h2>
+<p>由于 <a href="http://code.google.com/p/switchyplus/">SwitchyPlus</a> 停止维护， 因此这里我使用 <a href="http://code.google.com/p/switchysharp/">Proxy
+SwitchySharp</a>。</p>
+<p>Proxy SwitchySharp 介绍如下：</p>
+<div class="highlight"><pre><span class="err">轻松快捷地管理和切换多个代理设置。基于</span> <span class="s">&quot;Proxy ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2012/03/chrome-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="text-center"><a href="/2012/03/influence/">影响力读书笔记</a></h2>
                 <div class="summary"><ul>
 <li>本书研究 - 社会心理学 - 顺从心理学。</li>
@@ -244,126 +360,6 @@ eview/5012104/">一篇很赞的评论</a>，介绍了三头牛，其中有笑来
 <p>在Shell ...</p>
                     <p class="text-right">
                       <a class="btn btn-default btn-lg" href="/2012/01/tingdownload/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/12/my-2011/">My 2011</a></h2>
-                <div class="summary"><p>这个时间点，办公室里都是同事，想必晚上回家之后，那个零点肯定寂寞空虚冷， 手里夹根烟了。所以趁现在心情还不落寞，把年终小结写了。</p>
-<p>每当目光从走过的脚步上扫过，总感觉之前的成绩不够漂亮，可以做的更好。 回顾过去是为了收获更卓越的明天。</p>
-<p>2011，从不喜爱的ERP行业抽身，奔赴互联网，作出自己的选择。</p>
-<p>我成为了一名Python程序员，并完全转换到Linux环境。</p>
-<p>花了两个多月时间独自一个人装修，算是在这个城市扎根下来了。</p>
-<p>依然是一个光棍，执着于自己的执念。</p>
-<p>要么身体在路上，要么精神在路上，我来细数一下2011年精神的转折点。</p>
-<ul>
-<li>走出软件作坊 # 反思DW的工作</li>
-<li>人月神话 # 寻找DW的问题，并尝试解决方案</li>
-<li>黑客与画家</li>
-<li>暗时间</li>
-<li>构建高性能Web站点</li>
-<li>重构</li>
-</ul>
-<p>新年的愿望有两个：</p>
-<ul>
-<li>离梦想更近一步</li>
-<li>找一个靠谱的姑娘，我感觉她需要我，我也需要她了</li>
-</ul>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/12/my-2011/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/12/moinmoin-kms/">使用MoinMoin作为个人KMS</a></h2>
-                <div class="summary"><p>去年9月份时候，我写过一篇《<a href="http://log4d.com/2010/09/my-kms">我所使用的知识管理系统</a>》
-来介绍我使用的KMS系统。当时经过我层层筛选之后，我选用了Wiz作为我的KMS。</p>
-<p>一年多过去了，Wiz在Windows下面工作的非常不错，Wiz团队里陆续推出了iOS / Android /
-<a href="http://service.wiz.cn/web/">Web</a>版本。我的Wiz收藏的内容也增加到近1000篇。</p>
-<p>此时我遇到了KMS再选型的问题，原因很简单：我全线转换到Linux平台， Wiz不符合我的要求了。</p>
-<p>我重新整理一下我要求KMS的特性：</p>
-<ul>
-<li>跨平台：Linux / Web / iOS / Android / Windows</li>
-<li>数据保存格式：移植方便，将图片保存到本地</li>
-<li>数据采集方式：支持网络直接拷贝复制</li>
-<li>数据索引：支持分类 + tag</li>
-<li>协同工作：方便的分享机制</li>
-<li>免费</li>
-</ul>
-<p>经过我历时N月的搜寻筛选，MoinMoin Wiki中标了！</p>
-<h2>1. 关于MoinMoin</h2>
-<p>MoinMoin是使用Python编写的Wiki实现，MoinMoin当前版本1.9。</p>
-<p>MoinMoin的优点是：</p>
-<ul>
-<li>安装简单;</li>
-<li>支持中文全文检索；</li>
-<li>汉化较好；</li>
-<li>不依赖外界的数据库, 使用纯文本保存, 备份非常容易 ...</li></ul>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/12/moinmoin-kms/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/12/moinmoin-plugin-image2attach/">MoinMoin plugin: image2attach</a></h2>
-                <div class="summary"><p><img alt="MoinMoin" src="http://upload-log4d.qiniudn.com/2011/12/moinmoin.png" /></p>
-<h2>What's this</h2>
-<p>Image2Attach is a extension for <a href="http://moinmo.in">MoinMoin</a>.
-It can create a page action to save images from web to page's attachments.</p>
-<h2>Requirment</h2>
-<ul>
-<li>MoinMoin 1.9 (I only test in this version.)</li>
-</ul>
-<h2>Install</h2>
-<ul>
-<li>copy action/Image2Attach.py to data/plugin/action/</li>
-<li>restart python server</li>
-</ul>
-<h2>Usage</h2>
-<p>Go into a ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/12/moinmoin-plugin-image2attach/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/12/transfer-vps/">更换VPS</a></h2>
-                <div class="summary"><p>Log4D挂了整整一天，原因是因为VPS扩容导致系统无法启动。</p>
-<p>我使用的VPS是<a href="http://www.photonvps.com/billing/aff.php?aff=2188">PhotonVPS</a>的WARP.25
-套餐。买时候套餐里面硬盘空间是2个G，前几天朋友告诉我新套餐变成了10G。我就发了ticket给客服，他们很快答应帮我升级VPS。我就将数据备份出来，静候升
-级。</p>
-<p>等了半天没反应，又咨询过后才知道新加入的硬盘空间需要重装系统才能启用。好吧，正好我想将CentOS 6换成Arch（Arch用的太顺手了）。</p>
-<p>吭次吭次一阵捣鼓（其实重装系统就按一个按钮而已 ^_^），Arch装好了，然后发现系统无法启动了，悲剧鸟。</p>
-<p>继续咨询客服，恩，这里插播一下，PhotonVPS的客服回复都是英文，但是可以发送中文过去，貌似有翻译助阵（不过英文文档看多了，简单的也能来两句，hiahi
-a）。客服很快确认，Arch在目前VPS无法正常使用，坑爹阿。</p>
-<p>我继续捣鼓，尝试Ubunt/Cent OS，发现都无法启动vps（症状是启动一下下之后立马又变成离线状态）。</p>
-<p>继续找客服，最后客服给我重新分配了vps和ip，问题解决。</p>
-<p>然我我又开始吭次吭次的装软件，最近系统装多了 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/12/transfer-vps/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2011/12/linux-application/">Arch Linux装机软件</a></h2>
-                <div class="summary"><p>重要通知：Log4D的域名由 <a href="http://dddspace.com/">http://dddspace.com</a> 迁移到
-<a href="../">http://log4d.com</a> 。</p>
-<p>订阅地址现在改为 <a href="../feed">http://log4d.com/feed</a> 和
-<a href="http://feeds.feedburner.com/dddspace">http://feeds.feedburner.com/dddspace</a>
-。（FeedBurner的地址未发生变化）</p>
-<p><strike>http://feed.dddspace.com</strike> 弃用</p>
-<p>请订阅我博客的朋友更新一下订阅地址。</p>
-<p>前天将arch32位换成64位的系统，想充分利用4G内存。 在mountpoint时候，我mount了 <code>/root</code> 和<code>/home</code>
-盘，然后arch问需要 <code>(re)create</code> 分区么。 选项有 <code>Yes</code> 和 <code>No</code> ，看上去不选 <code>No</code> 就进行不下去，我就点了一下。</p>
-<p>结果就悲剧了有没有！！！！！！！！！</p>
-<p><code>home</code> 盘有150G左右有木有 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/12/linux-application/"><i class="icon-circle-arrow-right"></i>more ...</a>
                     </p>
                 </div>
             </article>

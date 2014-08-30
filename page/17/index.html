@@ -72,6 +72,120 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/use-firebug-and-firephp-debugging-php/">使用Firebug和FirePHP调试PHP[译文]</a></h2>
+                <div class="summary"><p>这是我第一篇译文，在写WordPress 主题时候偶尔看到的FirePHP插件，看都这篇文章，不知道为什么，动了翻译的念头。</p>
+<p>原文链接：<a href="http://www.sitepoint.com/blogs/2010/02/09/debug-php-firebug-firephp/">Debug PHP with Firebug and
+FirePHP</a></p>
+<p>译言的链接：<a href="http://article.yeeyan.org/view/119553/94520">译言网 |
+使用Firebug和FirePHP调试PHP</a></p>
+<p>×××××以下译文××××××</p>
+<p><img alt="" src="http://www.sitepoint.com/blogs/wp-content/uploads/2010/02/firephp.png" /></p>
+<p>如果你和我一样，你会在开发网页项目时候完全无法离开<a href="http://getfirebug.com/">FireBug</a>。这个小巧的"臭虫"是一个神奇而有用的H
+TML/CSS/JavaScript/Ajax调试器。但是你也许不知道这个还可以用来调试PHP，没错，它可以，感谢一款名为FirePHP的FireFox插件
+。</p>
+<p>通过一个小小的服务端库，和这款在Firebug上的插件，你的PHP脚本能够发送调试信息到浏览器，轻易的通过HTTP相应头编码。一旦你设置，你可以在Fiire
+bug的控制台获得PHP脚本警告和错误，就感觉像直接调试JavaScript一样</p>
+<p>使用这个工具，首先你需要安装<a href="https://addons.mozilla.org/en-US/firefox/addon/6149">FirePHP插件</a>
+。这个插件需要你已经安装FireBug。装好FirePHP之后，重新打开Firebug面板时候，你会看到新加了一个蓝色的臭虫图标。点击这个图标会出现一个开启
+或者关闭FirePHP的菜单。</p>
+<p><img alt="FirePHP Menu" src="http://www.sitepoint.com/blogs/wp-content/uploads/2010/02" title="/Screen-shot-2010-02-09-at-1.59.56-PM.png" /></p>
+<p>&amp;nbsp_place_holder;</p>
+<p>当然 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/use-firebug-and-firephp-debugging-php/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/my-htc-g3/">HTC G3到手</a></h2>
+                <div class="summary"><p>本来准备4月底买的，结果还是没能忍住，昨天下单，今天下午到手。</p>
+<p>直接上图吧～</p>
+<p>&amp;nbsp_place_holder;<a href="http://upload-
+log4d.qiniudn.com/2010/03/20100311(001).jpg"><img alt="" src="http://upload-" title="log4d.qiniudn.com/2010/03/20100311(001" />.jpg)</a></p>
+<p><a href="http://upload-
+log4d.qiniudn.com/2010/03/11032010236.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/03/11032010236.jpg" /></a></p>
+<p>功臣6120C和当红小生</p>
+<p><a href="http://upload-
+log4d.qiniudn.com/2010/03/20100311.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/03/20100311.jpg" /></a></p>
+<p>你猜这是哪款软件～哇咔咔～</p>
+<p>G3刚入手，也没什么使用感受，反正不是很适应的说，我是WCDMA的号码，看优酷倒是很快很清晰的～</p>
+<p>推荐几个Android的网站吧 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/my-htc-g3/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/vim-indentation-and-space-config/">Vim中缩进和空格的使用</a></h2>
+                <div class="summary"><p>原文链接：<a href="http://windwithstorm.blogspot.com/">WindStorm的技术空间: vim中缩进与空格的设置介绍</a>（Blog
+Spot）</p>
+<p>对于使用vim的程序员来说，<code>shiftwidth</code>，<code>tabstop</code>，<code>softtabstop</code>绝对是经常接触的三个缩进因素。能否有方便美观的，整体化的
+缩进，主要是由他们相互间的配合决定。在经过一段时间试用后，总结一下我的设置经验。</p>
+<h2>1 shiftwidth</h2>
+<p>这个是用于程序中自动缩进所使用的空白长度指示的。一般来说为了保持程序的美观，和下面的参数最好一致。同时它也是符号移位长度的制定者。</p>
+<h2>2 tabstop</h2>
+<p>定义tab所等同的空格长度，一般来说最好设置成8，因为如果是其它值的话，可能引起文件在打印之类的场合中看起来很别扭。除非你设置了
+<code>expandtab</code>模式，也就是把tabs转换成空格，这样的话就不会一起混淆，不过毕竟制表符为8是最常用最普遍的设置，所以一般还是不要改。</p>
+<h2>3 softtabstop</h2>
+<p>如果我们希望改变程序中的缩进怎么办？<code>shiftwidth</code>和<code>tabstop</code>不一样的话，你会发现程序比较难看的。这时候，<code>softtabstop</code>就起作
+用了。可以从vim的说明中看到，一旦设置了<code>softtabstop ...</code></p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/vim-indentation-and-space-config/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/subversion-multi-repository/">SubVersion建立多个版本库</a></h2>
+                <div class="summary"><p>由于刚接触SVN时间不长，当时建立版本库时候图方便，只建立了一个版本库。现在由于项目需要，需要建立多个版本库，这让我很头疼。经过一番摸索，终于知晓了如何在已
+有单个版本库情况下面建立多个版本库。</p>
+<h2>一、单个库还是多个库？</h2>
+<p><strong><em>*</em></strong><strong><em>*原文链接：<a href="http://www.subversion.org.cn/?action-viewnews-itemid-56">单个版本库还是多个？</a> 作者：rocksun</em></strong><strong><em>*</em></strong>***</p>
+<blockquote>
+<p>我前<a href="http://blogs.open.collab.net/svn/2007/04/subversion_repo.html">一个 blog</a>中讨
+论了版本库的布局，这个条目会尝试回答是选择单版本库单项目还是单版本库存放所有项目的问题，这里没有一个唯一的正确答案，但希望本
+文可以帮助你理解代价，你才可以做出正确的决定来满足你的需求，下面是单版本库方法的优点：</p>
+<ol>
+<li>
+<p>管理简单，只需要部署一组钩子，备份一个版本库等等。</p>
+</li>
+<li>
+<p>分支/标签灵活性，因为所有的代码在一个版本库，这样可以容易的 创建跨多个项目的分支或标签。</p>
+</li>
+<li>
+<p>移动代码更简单。你或许希望把代码从一个项目移动到另一个，或者将其作为多个项目的库，这样可以容易的将 代码在同一个版本库移动，并保持代码的历史。</p>
+</li>
+</ol>
+<p>下面是单版本库的缺点，以及多版本库的优点。</p>
+<ol>
+<li>
+<p>大小。对付多个小版本库会比对付一个大版本库容易，例如你结束了一个项目，你只需要归档版本库到媒介，然后从磁盘删除并释放空间。也许因 为某些原
+因你需要转储 ...</p></li></ol></blockquote>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/subversion-multi-repository/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="text-center"><a href="/2010/03/manage-weblogic-service/">管理WebLogic服务</a></h2>
+                <div class="summary"><h2>注册WebLogic成 windows服务</h2>
+<p>1、执行Domain目录下的 <code>installService.cmd [USER_NAME]
+[PASSWORD]</code>命令，就会在windows服务中生成一个<code>beasvc
+domainname_adminservername</code>的服务启动类型为"自动"，手动将它设置为启动就可以每次开机自动启动了。</p>
+<p>2、在创建新的域的时候有这个选项的，服务名字为beasvc domainname-servername。</p>
+<h2>删除WebLogic服务</h2>
+<p>1.执行Domain目录下的 <code>stopWebLogic.cmd</code>命令就可以删除服务</p>
+<p>2.删除服务之后，可以直接删除Domain下的所有文件～</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/03/manage-weblogic-service/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="text-center"><a href="/2010/03/tortoisesvn-installation-chinese-pacakge/">TortoiseSVN中文版安装</a></h2>
                 <div class="summary"><p>虽然大部分情况下我都是用Subclipse连接SVN服务器，但是为了让整个团队在Delphi下使用上SVN，就需要使用SVN的客户端了，TortoiseSV
 N是目前比较流行的SVN客户端，目前最新版是1.6.7。</p>
@@ -177,98 +291,6 @@ scm.berlios.de/comparison/comparison.html">Better SCM Initiative : Comparison</a
 <li>最多可以设置 4 ...</li></ul>
                     <p class="text-right">
                       <a class="btn btn-default btn-lg" href="/2010/02/firefox-3-6-with-easy-dragtogo/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/log4d/">Log4D</a></h2>
-                <div class="summary"><p>鉴于我老妈觉得我的博客名字太土的原因，我决定把自己的博客名称改为"Log4D"。</p>
-<p>意义很明显，Log for
-D，记录我的生活和工作。现在的博客更新频率太低了，我理想中的博客更应该是能够充当内容记录的功能。唔～以后，会花更多的时间整理收藏资料。</p>
-<p>恩，我收藏肯定是有原则的：</p>
-<p>1.不侵犯原来作品的版权。</p>
-<p>2.附上原始出处和链接。</p>
-<p>3.只收藏有价值的内容。</p>
-<p>4.经过整理的排版。</p>
-<p>&amp;nbsp_place_holder;另外，在这次改名字时候，我也趁机放上我经过修改的网站favicon，感谢各位网友提出的宝贵意见。下面是大图。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/02/d2.png" /></p>
-<p>想看到实际效果的话，Ctrl+F5强制刷新缓存即可。</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/log4d/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/the-use-of-vss-in-eclipse/">在Eclipse中使用VSS</a></h2>
-                <div class="summary"><p>原文链接：<a href="http://developer.51cto.com/art/200906/127171.htm">Eclipse中安装配置VSS -
-51CTO.COM</a></p>
-<p>alswl友情提示：<strong>VSS Plugin for Eclipse
-</strong>已经更新至1.6.2，链接在<a href="http://sourceforge.net/projects/vssplugin/">这里</a></p>
-<p><strong><em>-BOF-</em></strong></p>
-<h2>vss安装</h2>
-<h3>1. 安装Vss服务器</h3>
-<p>在服务器上安装vss6.0d，安装好后，在服务器目录C:Program FilesMicrosoft Visual
-StudioCommonVSS下有个NETSETUP.EXE文件，共享这个目录，客户机就执行这个NETSETUP.EXE文件进行安装。</p>
-<h3>2. 创建源代码管理数据库</h3>
-<p>2-1. 在服务端要先创建一个源代码管理数据库，以存储您的开发团队的共享文件的服务器版本。为源代码管理数据库创建共享网络文件夹。在源代码管理服务器中，打开
-Windows 资源管理器，新建一个名为 test的文件夹。</p>
-<p>2-2. 右击"test"，然后单击"属性"。</p>
-<p>2-3. 在"test ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/the-use-of-vss-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/start-the-new-year/">新的一年开始了</a></h2>
-                <div class="summary"><p>博客已经两周没有更新了，这段时间是在太忙，和同学聚会，和朋友唱歌，和哥们打牌，在原有的"搓鸡"（诈金花）和牛牛基础上，我又学会的新玩法"比鸡"和"摸豁档"，
-为此，付出了几百块钱的学费。据董老板刚刚的最新消息，毛爷爷昨天晚上把其他人杀得片甲不留，独赢一千。</p>
-<p>似乎过年这几天就吃饭打牌，娱乐，硬着头皮啃完了杜拉拉第一本，在SandBox主题上写了一个SimpleDDD的WordPress主题，极难看，我果然没有什么
-美工功底……</p>
-<p>今天初八，起大早赶到公司，上午时候公司还派了一个红包，Happy~</p>
-<p>初十的飞机去广东，又得开始奋斗了。</p>
-<p>新的一年开始了，祝大家新年快乐，虎年大吉！</p>
-<p>好水的文 :)</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/start-the-new-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/">解决WordPress升级后出现Warning: Cannot modify header information - headers already sent by</a></h2>
-                <div class="summary"><p>WordPress 2.9.2升级之后出现一个问题，在一些操作，比如删除垃圾留言、发表新的文章时候会提醒一下的错误。</p>
-<blockquote></blockquote>
-<p>Warning: Cannot modify header information - headers already sent by (output
-started at /home/alswl/public_html/wp-settings.php:1) in
-/home/alswl/public_html/wp-includes/pluggable.php on line 868</p>
-<p>我简单查找了一下，这是一个简单的编码问题，1分钟可以搞定了。</p>
-<p>1.Ftp下载wp-settings.php这个文件，用记事本打开这个文档。</p>
-<p>2.另存为"ANSI"格式的文本。</p>
-<p>3.重新上传覆盖原文件。</p>
-<p>如果还有其他文件出现问题，继续修改编码有问题的文件 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/go-home/">收拾东西，回家</a></h2>
-                <div class="summary"><p>终于收拾东西回家了。</p>
-<p>来广东也已经2个月了，从佛山跑到中山，两个月的锻炼，让我成长不少。</p>
-<p>项目从编码到上线，从培训到维护，都一一过手。接触了N多之前没有实践过甚至没有接触到的东西，Oracle / PL/SQL / Delphi /
-JavaScript / WebLogic / 数据连接池 等等等等～</p>
-<p>从来没有离开家里这么远的我也学会了彻底的独立，习惯与各式各样的人打交道。在于其他人的交往中，也潜移默化的改变着我自己。</p>
-<p>收拾东西的之后，我坐在床头抽了根烟，感慨到2个月前，我哪里想过会到这里来，人生果然是变化无常啊，这也许也是人生的一种乐趣所在了。</p>
-<p>Anyway，终于到了回家的时候了，亲爱的家人，可爱的朋友们，让你们久等了</p>
-<p>呵呵，最后提前祝大家新年愉快。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/02/jet-airliner.jpg" /></p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/go-home/"><i class="icon-circle-arrow-right"></i>more ...</a>
                     </p>
                 </div>
             </article>
