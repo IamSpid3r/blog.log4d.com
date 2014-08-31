@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                </div>
                 <div class="summary"><p><s:textfield name="loginName" value="%{#request.loginNames}"/></p>
 <p>使用此表达式，会生成一个文本框，并且，如果request.attribute中有loginNames属性，将会做为些文本框的默认值。</p>
 <p>如果只使用#request.loginNames在struts2的标签内部，是不会显示任何值的，注意外面加上的%{}附号，才会被正常的使用。</p>

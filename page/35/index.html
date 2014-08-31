@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/discussion-on-javascript-disabled/">关于禁用Javascript的讨论</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/discussion-on-javascript-disabled/">关于禁用Javascript的讨论</a></h2>
+                </div>
                 <div class="summary"><p>做用户验证时候，在为客户端和服务器端各自的验证发愁，这时候我想到一个问题，现在这么多网站依赖javascript来表现页面，那么如果禁用了会怎么样呢。</p>
 <p>Google了一下，找到一篇06年的帖子。当客户端把Javascript禁用后，<a href="http://bbs.blueidea.com/archi
 ver/tid-2694115.html">猛击这里打开</a></p>
@@ -91,7 +93,9 @@ ver/tid-2694115.html">猛击这里打开</a></p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/soft-test-in-mind/">软考记</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/soft-test-in-mind/">软考记</a></h2>
+                </div>
                 <div class="summary"><p>今天参加软件设计师的考试，早上7点就起床了，可怜的我昨天调Ajax到一点啊，困的不行了。</p>
 <p>坐了半小时车到考场，最郁闷的事情终于发现了，忘了带准考证？！，怎么可能？！浑身上下找遍只有一张校园卡和一张学习委员用的信息员证。。。</p>
 <p>无奈，监考老师说这个不能证明身份，跑到考试办公室开了一张证明，托词我身份证丢了，呵呵，当然了，它会在一个星期内被好心人捡到的。。。</p>
@@ -106,7 +110,9 @@ ver/tid-2694115.html">猛击这里打开</a></p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
 <p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
 <p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
@@ -124,7 +130,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                </div>
                 <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
 <p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
 <p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
@@ -144,7 +152,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/landscaping-postviews/">美化postviews</a></h2>
+                </div>
                 <div class="summary"><p>很多朋友用postviews这个插件，的确很适合国人的风格，但是如果单纯的添加到页面中，会显得很突兀，难看，我做了几个美化工作。</p>
 <p>首先，在用到postviews函数时候都定义span id，比如在single.php中修改，在下面代码</p>
 <div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
@@ -174,7 +184,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
 <p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
 <div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
@@ -198,7 +210,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
+                </div>
                 <div class="summary"><p>贴吧最基本的功能写完了，正好可以应付数据库设计课的实验。于是我准备把贴吧的项目从Eclipse的开发环境中移植出来，在Tomcat中进行部署。</p>
 <p>也许是习惯了Eclipse提供的便利，这个小小的移植，居然难倒了我，直接把Eclipse里的PostBar考出，根本不能运行，直接报404错误。Google
 上也没有提供详细的步骤，也许大家都觉得这个问题很简单吧，呵呵。</p>
@@ -222,7 +236,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+                </div>
                 <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
 重建博客。</p>
 <p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
@@ -242,7 +258,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/rainy-day/">下雨天</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/rainy-day/">下雨天</a></h2>
+                </div>
                 <div class="summary"><p>很不喜欢下雨天啊，每每这个时候，心情总是比较低潮`</p>
 <p>尤其记得小时候在电视屏幕前，红木沙发，黑洞洞的屋子里，我一个人在看着动画片，大凡这个时候作业是没做的，承受着心理的压力享受着片刻的欢娱`</p>
 <p>博客搬过来两天了，还不太习惯使用个人博客，在hostshar.cn和wordpress.org.cn混迹着，今晚上还写了一篇帖子<a href="http://hostshare.cn/thread-549-1-1.html">我的博客---
@@ -259,7 +277,9 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
+                </div>
                 <div class="summary"><p>明天应该有会计考试，要清空主楼自习的教室，所以自习室里考研的同学都把书搬到工作室来了</p>
 <p>来就来了，都是同学，放放也无所谓，还把老乡带来放书。。。</p>
 <p>我承认，我小气了```</p>

@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                </div>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -88,7 +90,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                </div>
                 <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
 <p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
 Category时会产生错误</p>

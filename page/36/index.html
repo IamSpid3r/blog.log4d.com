@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/finally-created-a-blog-of-their-own/">终于创建了自己的博客了</a></h2>
+                </div>
                 <div class="summary"><p>这个想法一直就有，不过没有付之于实践，这次Yo2服务器崩溃，终于促使我创建自己的DDDSpace.cn</p>
 <p>在这里要感谢<a href="http://hengtian.org/">小张</a>，呵呵，让我赶上了新手空间合租，享受了性价比很高的服务，还要感谢<a href="http://wordpress.org.cn">wordpress.org
 .cn</a>,里面很多会员的帖子给我很多帮助，让我能够快速的创建这个博客</p>
@@ -93,7 +95,9 @@
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                </div>
                 <div class="summary"><p><s:textfield name="loginName" value="%{#request.loginNames}"/></p>
 <p>使用此表达式，会生成一个文本框，并且，如果request.attribute中有loginNames属性，将会做为些文本框的默认值。</p>
 <p>如果只使用#request.loginNames在struts2的标签内部，是不会显示任何值的，注意外面加上的%{}附号，才会被正常的使用。</p>
@@ -110,7 +114,9 @@ operty value="#request.loginNames" />使可以正常使用！</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                </div>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -126,7 +132,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                </div>
                 <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
 用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
 <p>最后我索性用试所有的表达式</p>
@@ -145,7 +153,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                </div>
                 <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
 <p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
 Category时会产生错误</p>
@@ -163,7 +173,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                </div>
                 <div class="summary"><p>继续昨天的编码问题 我一直全部采用UTF-8格式，而且在jUnit测试中并没有问题，说明是在Struts进行数据收集时候出错。</p>
 <p>Google之后，根据网上一些建议修改web.xml struts.xml 但都没有效果。</p>
 <p>网上建议在web.xml中添加 ：</p>
@@ -193,7 +205,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/learning-to-use-log4j/">学习使用log4j</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/learning-to-use-log4j/">学习使用log4j</a></h2>
+                </div>
                 <div class="summary"><p>今天用Log4j时候，感觉只显示message讯息太少了，直觉上这些流行的工具应该会提供更强大的定制功能，就去google了一下</p>
 <p>果不其然：相关配置参数如下</p>
 <h1>Pattern to output the caller's file name and line number.</h1>
@@ -212,7 +226,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                </div>
                 <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
 <p>找了好几个方法都没有奏效。</p>
 <p>游客登录情况下的Session还存在一点问题，原因是session类型转换上的问题，今天还没有好好的研究一下。</p>
@@ -227,7 +243,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/moving-to-the-yo2/">搬家到Yo2了</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/moving-to-the-yo2/">搬家到Yo2了</a></h2>
+                </div>
                 <div class="summary"><p>今天终于下定决心，把百度里面所有内容转移阵地到yo2了。</p>
 <p>以前百度空间清理过一次，大约删了将近2年的日志，现在也不知道怎么恢复，以后用空再弄吧。</p>
 <p>感觉yo2这里做的挺好的，WordPress的功能太强了。</p>
@@ -243,7 +261,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/log4j-problems/">Log4j 遇到的问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/log4j-problems/">Log4j 遇到的问题</a></h2>
+                </div>
                 <div class="summary"><p>今天使用 Log4j 遇到问题是只能打印ERROR级别</p>
 <p>最简单的 Log4j.properties 设置</p>
 <h1>Set root logger level to DEBUG and its only appender to A1.</h1>

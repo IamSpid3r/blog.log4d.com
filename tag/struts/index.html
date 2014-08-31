@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/return-s-if-the-use-of/">再谈s:if的使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/06/return-s-if-the-use-of/">再谈s:if的使用</a></h2>
+                </div>
                 <div class="summary"><p>上次遇到过<s:if>的问题，费了好久才弄好，这次又遇到，有了一点新的体验。</p>
 <p><s:if test="">中的判断，如果是数字判断一般都没有问题，问题会在字符串时候凸显出来。</p>
 <p>尤其是中文字符串，几乎没有能够通过的，上一次是曲线救国，用了true和false着两个英文，如果非得用中文怎么办？</p>
@@ -86,7 +88,9 @@
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
 <p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
 <p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
@@ -104,7 +108,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                </div>
                 <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
 <p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
 <p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
@@ -124,7 +130,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
 <p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
 <div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
@@ -148,7 +156,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                </div>
                 <div class="summary"><p><s:textfield name="loginName" value="%{#request.loginNames}"/></p>
 <p>使用此表达式，会生成一个文本框，并且，如果request.attribute中有loginNames属性，将会做为些文本框的默认值。</p>
 <p>如果只使用#request.loginNames在struts2的标签内部，是不会显示任何值的，注意外面加上的%{}附号，才会被正常的使用。</p>
@@ -165,7 +175,9 @@ operty value="#request.loginNames" />使可以正常使用！</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                </div>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -181,7 +193,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                </div>
                 <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
 用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
 <p>最后我索性用试所有的表达式</p>
@@ -200,7 +214,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                </div>
                 <div class="summary"><p>继续昨天的编码问题 我一直全部采用UTF-8格式，而且在jUnit测试中并没有问题，说明是在Struts进行数据收集时候出错。</p>
 <p>Google之后，根据网上一些建议修改web.xml struts.xml 但都没有效果。</p>
 <p>网上建议在web.xml中添加 ：</p>
@@ -230,7 +246,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                </div>
                 <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
 <p>找了好几个方法都没有奏效。</p>
 <p>游客登录情况下的Session还存在一点问题，原因是session类型转换上的问题，今天还没有好好的研究一下。</p>
@@ -245,7 +263,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/no-configuration-found-for-the-specified-action/">No configuration found for the specified action</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/no-configuration-found-for-the-specified-action/">No configuration found for the specified action</a></h2>
+                </div>
                 <div class="summary"><p>Tomcat 控制台打出如下警告：</p>
 <p>WARN - No configuration found for the specified action: ‘xxxxx’in namespace:
 ‘/’. Form action defaulting to ‘action’ attribute’s literal value.</p>

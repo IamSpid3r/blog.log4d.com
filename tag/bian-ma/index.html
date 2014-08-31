@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/">解决WordPress升级后出现Warning: Cannot modify header information - headers already sent by</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2010/02/wordpress-upgrade-to-resolve-after-warning-cannot-modify-header-information-headers-already-sent-by/">解决WordPress升级后出现Warning: Cannot modify header information - headers already sent by</a></h2>
+                </div>
                 <div class="summary"><p>WordPress 2.9.2升级之后出现一个问题，在一些操作，比如删除垃圾留言、发表新的文章时候会提醒一下的错误。</p>
 <blockquote></blockquote>
 <p>Warning: Cannot modify header information - headers already sent by (output
@@ -90,7 +92,9 @@ started at /home/alswl/public_html/wp-settings.php:1) in
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/">编码: ASCII(ANSI), GB-2312, UNICODE, UTF-8，UTF-16</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/">编码: ASCII(ANSI), GB-2312, UNICODE, UTF-8，UTF-16</a></h2>
+                </div>
                 <div class="summary"><h2>ASCII字符集</h2>
 <p>7位的编码方案，总共表示128个字符，其中包括了大小写英文字母、数字、标点符号等常用字符。英语世界已经足够应付。</p>
 <h2>ISO-8859-1字符集</h2>
@@ -109,7 +113,9 @@ leading byte，它总是大于127，这个字节的含义是说明它和后面�
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/07/mysql-command-line-client-garbled-problems-and-solutions/">MySQL Command Line Client乱码问题及解决方案</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/07/mysql-command-line-client-garbled-problems-and-solutions/">MySQL Command Line Client乱码问题及解决方案</a></h2>
+                </div>
                 <div class="summary"><p>以前用MySQL时候都是可视化界面，如MySQL Admin使用，现在学着使用MySQL Command Line client，初次接触，就遇到乱码问题。</p>
 <p>乱码是中文字符串的，Google后，找到一些解决方案。摘录如下：</p>
 <p>引用自今天去祸害哪家的闺女呢？&lt;<a href="http://leonel.javaeye.com/blog/315090">猛击这里打开</a>&gt;</p>
@@ -128,7 +134,9 @@ leading byte，它总是大于127，这个字节的含义是说明它和后面�
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                </div>
                 <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
 <p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
 <p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
@@ -148,7 +156,9 @@ leading byte，它总是大于127，这个字节的含义是说明它和后面�
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/eclipse-in-the-development-of-jave-ee-projects-in-the-deployment-of-tomcat/">Eclipse中开发的Jave EE项目在Tomcat的部署</a></h2>
+                </div>
                 <div class="summary"><p>贴吧最基本的功能写完了，正好可以应付数据库设计课的实验。于是我准备把贴吧的项目从Eclipse的开发环境中移植出来，在Tomcat中进行部署。</p>
 <p>也许是习惯了Eclipse提供的便利，这个小小的移植，居然难倒了我，直接把Eclipse里的PostBar考出，根本不能运行，直接报404错误。Google
 上也没有提供详细的步骤，也许大家都觉得这个问题很简单吧，呵呵。</p>
@@ -172,7 +182,9 @@ leading byte，它总是大于127，这个字节的含义是说明它和后面�
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                </div>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -188,7 +200,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
+                </div>
                 <div class="summary"><p>继续昨天的编码问题 我一直全部采用UTF-8格式，而且在jUnit测试中并没有问题，说明是在Struts进行数据收集时候出错。</p>
 <p>Google之后，根据网上一些建议修改web.xml struts.xml 但都没有效果。</p>
 <p>网上建议在web.xml中添加 ：</p>

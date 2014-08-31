@@ -72,7 +72,9 @@
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">Java笔记 使用反射来改进BaseDao</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">Java笔记 使用反射来改进BaseDao</a></h2>
+                </div>
                 <div class="summary"><h2>关于反射</h2>
 <p>反射的定义（via <a href="http://zh.wikipedia.org/zh-cn/%E5%8F%8D%E5%B0%84_%28%E8%AE%A1
 %E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%29">Wiki</a>）：在计算机科学中，反射是<strong>指一种特定类型的计算机程序能够在运行时以一种依
@@ -90,7 +92,9 @@
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/07/summary-report-of-post-bar/">贴吧小结报告</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/07/summary-report-of-post-bar/">贴吧小结报告</a></h2>
+                </div>
                 <div class="summary"><p>终于完成了这个贴吧系统，虽然还有很多地方不完善，但是却包含了我很多心血和精力，也实践了我的很多想法。</p>
 <p>具体的不说了，稍微说一下开发使用的技术：Java、Struts2、Hibernate、OGNL、Eclipse、Tomcat、MySQL、AJAX、jQue
 ry、SVN、UP开发模式、UML。</p>
@@ -110,7 +114,9 @@ out，不知道游客有没有权限，需要可以Mail我）</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/06/affixed-to-it-the-progress-report-on-the-medium-term/">贴吧中期进度汇报</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/06/affixed-to-it-the-progress-report-on-the-medium-term/">贴吧中期进度汇报</a></h2>
+                </div>
                 <div class="summary"><p>查看sql更新版本，我才发现这个项目已经做了将近2个月了。</p>
 <p>之前一个多月都是我有空就做做，一边要写OpenSSL的模型，还要应付平时学习和考试，最近的1个星期，才开始全身心投入的，使这个项目变成了一个课程设计，但决不
 止于课程设计。</p>
@@ -132,7 +138,9 @@ Code之后，基本接近我之前自己完成的程度，但我觉得这次的�
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
 <p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
 <p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
@@ -150,7 +158,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                </div>
                 <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
 <p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
 <p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
@@ -170,7 +180,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                </div>
                 <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
 <p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
 <div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
@@ -194,7 +206,9 @@ find action or result</p>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                </div>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
 里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
@@ -210,7 +224,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
+                </div>
                 <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
 用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
 <p>最后我索性用试所有的表达式</p>
@@ -229,7 +245,9 @@ tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                </div>
                 <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
 <p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
 Category时会产生错误</p>
@@ -247,7 +265,9 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                </div>
                 <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
 <p>找了好几个方法都没有奏效。</p>
 <p>游客登录情况下的Session还存在一点问题，原因是session类型转换上的问题，今天还没有好好的研究一下。</p>
