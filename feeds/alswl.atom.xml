@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="/" rel="alternate"></link><link href="/feeds/alswl.atom.xml" rel="self"></link><id>/</id><updated>2014-08-31T20:12:06+08:00</updated><entry><title>《项目管理修炼之道》笔记</title><link href="/2014/08/manage-it/" rel="alternate"></link><updated>2014-08-31T20:12:06+08:00</updated><author><name>alswl</name></author><id>tag:,2014-08-31:2014/08/manage-it/</id><summary type="html">&lt;p&gt;&lt;img alt="项目管理修炼之道" src="http://img3.douban.com/lpic/s6089513.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;随着团队规模的变大，成员之间合作的模式逐渐由单打独斗变成协作开发。
+这时候会遇到很多意想不到的问题，项目管理的重要性也就显现出来了。
+&lt;a href="http://book.douban.com/subject/4058336/"&gt;项目管理修炼之道&lt;/a&gt;
+是一本讲技术类项目管理方法和实践的书。
+从业者可以从这本书获得了有益的指导。
+我在 Kindle 上面翻了好几遍，感觉受益匪浅，就把读书笔记拿出来供大家参考。&lt;/p&gt;
 &lt;h2&gt;1、内容&lt;/h2&gt;
 &lt;p&gt;核心内容是项目管理的生命周期和每个阶段的交付物：&lt;/p&gt;
 &lt;ul&gt;
