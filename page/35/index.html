@@ -73,6 +73,31 @@
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
                 <div class="title">
+                  <h2 class="text-center"><a href="/2009/05/fckeditor-browse-server-function-is-disabled/">禁用FCKeditor浏览服务器功能</a></h2>
+                </div>
+                <div class="summary"><p>FCKeditor应该是功能最强大的网页编辑器了，提供js版本和java版本，而且功能特别丰富。</p>
+<p><img alt="" src="http://www.fckeditor.net/themes/fckeditor_site/../../images/logotop.gif" /></p>
+<p><a href="http://www.fckeditor.net/">猛击这里打开</a>FCKeditor的主页</p>
+<p>正是因为功能太丰富，所以往往带来安全原因，用这个可以随意上传图片和文件，还能浏览服务器？！</p>
+<p>不行不行，这一定得禁用，否则就是给脚本小子提供工具了嘛。</p>
+<p>配置fckconfig.js 118行左右，修改Basic模板，加入图片和表情功能</p>
+<div class="highlight"><pre><span class="nt">FCKConfig</span><span class="nc">.ToolbarSets</span><span class="cp">[</span><span class="s2">&quot;Basic&quot;</span><span class="cp">]</span> <span class="o">=</span> <span class="cp">[</span>
+<span class="err">[</span><span class="s1">&#39;Bold&#39;</span><span class="p">,</span><span class="s1">&#39;Italic&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;OrderedList&#39;</span><span class="p">,</span><span class="s1">&#39;UnorderedList&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;Link&#39;</span><span class="p">,</span><span class="s1">&#39;Unlink&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="s1">&#39;Image&#39;</span><span class="p">,</span><span class="s1">&#39;Smiley&#39;</span><span class="cp">]</span>
+<span class="o">]</span> <span class="o">;</span>
+</pre></div>
+
+
+<p>继续修改tckconfig.js 284左右，去除一些浏览功能，修改为false</p>
+<div class="highlight"><pre><span class="n">FCKConfig</span><span class="p">.</span><span class="n">LinkBrowser</span> <span class="o">=</span> <span class="nb">false</span> <span class="p">;</span><span class="c1">//关闭增加连接中浏览服务器功能</span>
+<span class="n">FCKConfig</span><span class="p">.</span><span class="n">LinkBrowserURL</span> <span class="o">=</span> <span class="n">FCKConfig</span><span class="p">.</span><span class="n">BasePath</span> <span class="o">+</span> <span class="err">&#39;</span><span class="n">filemanager</span><span class="o">/</span><span class="n">browser</span><span class="o">/</span><span class="k">default</span><span class="o">/</span><span class="n">browser</span><span class="p">.</span><span class="n">html</span><span class="o">?</span><span class="n">Connector</span><span class="o">=</span><span class="err">&#39;</span> <span class="o">+</span> <span class="n">encodeURIComponent</span><span class="p">(</span> <span class="n">FCKConfig</span><span class="p">.</span><span class="n">BasePath ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/05/fckeditor-browse-server-function-is-disabled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <div class="title">
                   <h2 class="text-center"><a href="/2009/05/discussion-on-javascript-disabled/">关于禁用Javascript的讨论</a></h2>
                 </div>
                 <div class="summary"><p>做用户验证时候，在为客户端和服务器端各自的验证发愁，这时候我想到一个问题，现在这么多网站依赖javascript来表现页面，那么如果禁用了会怎么样呢。</p>
@@ -276,25 +301,6 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
                 </div>
             </article>
             <hr/>
-            <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="/2009/05/alas-the-studio/">唉，工作室</a></h2>
-                </div>
-                <div class="summary"><p>明天应该有会计考试，要清空主楼自习的教室，所以自习室里考研的同学都把书搬到工作室来了</p>
-<p>来就来了，都是同学，放放也无所谓，还把老乡带来放书。。。</p>
-<p>我承认，我小气了```</p>
-<p>小张的博客里看到他所在的工作室，衡天工作室，里面介绍说在当地业界小有名气，承接各种网站制作项目，真挺羡慕他们的</p>
-<p>我不由想到我们自己的<a href="http://219.219.54.201">灵动工作室</a>，今天晚上又只有我一个在工作室，上课的上课，自习的自习</p>
-<p>工作室一直人员稀少，大多又考研去了，想招人，一看周围同学，好多还沉迷在游戏里，都大三的人了，大一又好多知识没学，进度这么慢，大二也没多有有学习、做项目的心。</p>
-<p>记忆里当时大一刚加入工作室的时候，是多么兴奋，还挺崇拜里面的元老，现在工作室都成这样了</p>
-<p>我把自己手头这个贴吧完成之后，到了11月份估计也得去找工作了，那时候就感觉真没人了</p>
-<p>真无奈```</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/05/alas-the-studio/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/34/">&laquo;</a>
@@ -461,6 +467,11 @@ ta</a>看，社会新闻、八卦新闻去<a href="http://www.163.com">网易</a
                     <li class="list-group-item">
                         <a href="/category/wu-hua-ba-men/">
                             <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>项目管理
                         </a>
                     </li>
                     <li class="list-group-item">

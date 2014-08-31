@@ -73,6 +73,30 @@
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
                 <div class="title">
+                  <h2 class="text-center"><a href="/2010/07/difference-between-char-nchar-varchar-nvarchar/">char nchar varchar nvarchar 区别</a></h2>
+                </div>
+                <div class="summary"><p>在开发时候，发现数据库的一个字段用的是nchar(16)，让我感觉很奇怪，我知道nvarchar可以变长，nchar会用空格填充，这在存取时候需要Trim(
+)操作，所以我一直不用nchar。而现在在产品中发现nchar的使用，不由觉得很奇怪。</p>
+<p>私底下认为是效率的问题，一番Google之后发现一段文章详述了几种数据库文字类型存储的差异。</p>
+<p>原文出处：<a href="http://www.cnblogs.com/yoyozhou/archive/2008/11/21/1338452.html">char nchar varchar nvarchar 区别 - Rainbow -
+博客园</a></p>
+<p>联机帮助上的：</p>
+<p>char(n)&amp;nbsp_place_holder;</p>
+<p>定长</p>
+<p>索引效率高 程序里面使用trim去除多余的空白</p>
+<p>n 必须是一个介于 1 和 8,000 之间的数值,存储大小为 n 个字节</p>
+<p>varchar(n)</p>
+<p>变长</p>
+<p>效率没char高 灵活</p>
+<p>n 必须是一个介于 1 和 8,000 之间的数值 ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2010/07/difference-between-char-nchar-varchar-nvarchar/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <div class="title">
                   <h2 class="text-center"><a href="/2010/07/xi-mi-lu-with-milk/">牛奶西米露</a></h2>
                 </div>
                 <div class="summary"><p>在下厨房看到一篇做西米露的文章，就想起在广东时候吃煲仔饭时候赠送的一碗西米露。于是乎晚上跑去苏果采购了一袋西米，由于买的时候以为西米露是用牛奶做的，误买了一
@@ -265,24 +289,6 @@ D，记录我的生活和工作。现在的博客更新频率太低了，我理�
                 </div>
             </article>
             <hr/>
-            <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="/2010/02/start-the-new-year/">新的一年开始了</a></h2>
-                </div>
-                <div class="summary"><p>博客已经两周没有更新了，这段时间是在太忙，和同学聚会，和朋友唱歌，和哥们打牌，在原有的"搓鸡"（诈金花）和牛牛基础上，我又学会的新玩法"比鸡"和"摸豁档"，
-为此，付出了几百块钱的学费。据董老板刚刚的最新消息，毛爷爷昨天晚上把其他人杀得片甲不留，独赢一千。</p>
-<p>似乎过年这几天就吃饭打牌，娱乐，硬着头皮啃完了杜拉拉第一本，在SandBox主题上写了一个SimpleDDD的WordPress主题，极难看，我果然没有什么
-美工功底……</p>
-<p>今天初八，起大早赶到公司，上午时候公司还派了一个红包，Happy~</p>
-<p>初十的飞机去广东，又得开始奋斗了。</p>
-<p>新的一年开始了，祝大家新年快乐，虎年大吉！</p>
-<p>好水的文 :)</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2010/02/start-the-new-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/tag/page/2/">&laquo;</a>
@@ -449,6 +455,11 @@ D，记录我的生活和工作。现在的博客更新频率太低了，我理�
                     <li class="list-group-item">
                         <a href="/category/wu-hua-ba-men/">
                             <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>项目管理
                         </a>
                     </li>
                     <li class="list-group-item">

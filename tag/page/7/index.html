@@ -73,6 +73,24 @@
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
                 <div class="title">
+                  <h2 class="text-center"><a href="/2009/10/python-enter-the-16-hex-save-to-file/">Python输入16进制保存到文件</a></h2>
+                </div>
+                <div class="summary"><p>（题目有点勉强，不过问题真的很难描述，希望Google/Baidu到这里的童鞋不要失望） 前几天给<a href="http://zww.me/">zwwooooo</a>写一个
+小工具，其中遇到一个输入的问题。具体描述就是："输入4个16进制的数字，如'00a0'，输入之后必须能够把这个输入给保存到文件中存为2进制格式，必须是原始的
+16进制，而不是字符串类型。如'x00xa0'"。（其实这是用在处理文本上的） 不知道各位大大有没有明白我的意思，我花了很长时间没有一个好的解决方案。
+第一种方案，先用int()转换，然后转换hex()，直接失败，hex()转换后格式为'0x00a0'，是字符串格式，根本不是我需要的内容。
+我苦思冥想三天，终于找到一个最傻，也最好用的方法，用list进行匹配。 下面是生成匹配list的脚本：</p>
+<div class="highlight"><pre><span class="n">lst</span> <span class="o">=</span> <span class="sc">&#39;{&#39;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="n">range</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="err">&#39;</span><span class="mh">0x00</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="err">&#39;</span><span class="mh">0xff</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">:</span>
+    <span class="n">hv ...</span></pre></div>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2009/10/python-enter-the-16-hex-save-to-file/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <div class="title">
                   <h2 class="text-center"><a href="/2009/09/summer-internship-report-on-the-community/">暑假社会实习报告</a></h2>
                 </div>
                 <div class="summary"><p><strong>注意：本文是我申请学校社会实践优秀奖学金的附文，阿懂？</strong></p>
@@ -265,31 +283,6 @@ log4d.qiniudn.com/2009/09/Snap2.jpg"><img alt="Snap2" src="http://upload-" title
                 </div>
             </article>
             <hr/>
-            <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="/2009/09/python-code-to-read-and-write-txt/">Python读写txt代码</a></h2>
-                </div>
-                <div class="summary"><p>09_09_09在Windows Live Writer下修正</p>
-<p>一直有学Python或者Perl的想法，不过没有规划到日程来，最近打算辞职专心考驾照，正好每天都有点时间来学Python。</p>
-<p>关于Python和Perl，我并没有什么谁优谁劣的看法，只是感觉Python可能资料会多一点，而且Google App
-Enginee支持Python,所以选择了Python。</p>
-<p>OK，这几天写的两段小代码，来自《<a href="http://www.china-
-pub.com/39969&amp;ref=xiangguan">Python核心编程（第二版）</a>》（原书中写这段有错误，我这儿也算勘误了）</p>
-<p>makeTextFile.py</p>
-<div class="highlight"><pre><span class="err">&#39;</span><span class="n">makeTextFile</span><span class="p">.</span><span class="n">py</span> <span class="o">--</span> <span class="n">create</span> <span class="n">text</span> <span class="n">file</span><span class="err">&#39;</span>
-</pre></div>
-
-
-<p>import os ls = os.linesep</p>
-<h1>get filename</h1>
-<p>while True:</p>
-<p>fname = raw_input('&gt; a ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2009/09/python-code-to-read-and-write-txt/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/tag/page/6/">&laquo;</a>
@@ -456,6 +449,11 @@ pub.com/39969&amp;ref=xiangguan">Python核心编程（第二版）</a>》（原�
                     <li class="list-group-item">
                         <a href="/category/wu-hua-ba-men/">
                             <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>项目管理
                         </a>
                     </li>
                     <li class="list-group-item">

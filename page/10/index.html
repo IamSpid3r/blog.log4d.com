@@ -73,6 +73,35 @@
         <div class="col-lg-8 col-lg-offset-2">
             <article class="article-list">
                 <div class="title">
+                  <h2 class="text-center"><a href="/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
+                </div>
+                <div class="summary"><p>前几天使用chmod时候，多打了一个/，导致根目录下面所有文件权限设定出了问题，额~重装系统吧，正好把装系统之后的配置过程记录下来。</p>
+<p>这些都是我操作过的命令，确切可靠，适用于Ubuntu 10.10 Desktop Edtion。</p>
+<div class="highlight"><pre><span class="o">=</span> <span class="n">init</span> <span class="n">Linux</span> <span class="n">programs</span> <span class="n">and</span> <span class="n">setting</span> <span class="o">=</span>
+<span class="o">:</span><span class="n">author</span><span class="o">:</span> <span class="n">alswl</span>
+<span class="o">:</span><span class="n">email</span><span class="o">:</span> <span class="n">alswlx</span><span class="err">#</span><span class="n">gmail</span><span class="p">.</span><span class="n">com</span>
+<span class="o">:</span><span class="n">toc</span><span class="o">:</span>
+<span class="o">:</span><span class="n">numbered</span><span class="o">:</span>
+</pre></div>
+
+
+<p>== first of all ==</p>
+<p>.update (打补丁、升级)</p>
+<hr />
+<p>sudo apt-get update</p>
+<p>Update System(fix bugs for sercurity): 299.0MB</p>
+<hr />
+<p>.reset permission(谨慎使用，设定文件为644,设定文件夹为755)</p>
+<hr />
+<p>find /home ...</p>
+                    <p class="text-right">
+                      <a class="btn btn-default btn-lg" href="/2011/04/ubuntu-setup/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                    </p>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <div class="title">
                   <h2 class="text-center"><a href="/2011/04/run-jetty-in-maven/">Maven下Jetty启动</a></h2>
                 </div>
                 <div class="summary"><p>部门最近开发的产品使用的开发服务器是Jetty（挂载在GWT中），启动方法是通过Eclipse的External
@@ -254,26 +283,6 @@ assembly。</p>
                 </div>
             </article>
             <hr/>
-            <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
-                </div>
-                <div class="summary"><h2>问题情境</h2>
-<p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
-,"total", Parameters!Language.Value)函数修改为GetCommentForComment(
-Parameters!F0001.Value , Parameters!F0002.Value ,"total",
-Parameters!Language.Value, "ReportConnection0107")。</p>
-<h2>思路</h2>
-<p>使用正则表达式里面的分组进行抓获，再用1将中间固定的参数取出，组成新的字符串。</p>
-<h3>Vim实现</h3>
-<p>%s/GetComment(((s<em>w+!w+.w+s</em>,){2}s<em>"w+"s</em>,s<em>w+!w+.w+s</em>))/GetCommentForReport(1
-, "ReportConnection0107")/gc&amp;nbsp_place_holder ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="/2011/01/regex-group-catch/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
-                </div>
-            </article>
-            <hr/>
 
 	<ul class="pagination">
 			<li class="prev"><a href="/page/9/">&laquo;</a>
@@ -440,6 +449,11 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
                     <li class="list-group-item">
                         <a href="/category/wu-hua-ba-men/">
                             <i class="icon-folder-open icon-large"></i>五花八门
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/category/xiang-mu-guan-li/">
+                            <i class="icon-folder-open icon-large"></i>项目管理
                         </a>
                     </li>
                     <li class="list-group-item">
