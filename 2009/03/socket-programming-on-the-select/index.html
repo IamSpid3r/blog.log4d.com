@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2009/03/socket-programming-on-the-select/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="网络编程" />
+        <meta name="keywords" content="C,网络编程" />
         <meta name="description" content="这篇文章讲的是Socket中的select，我觉得还不错就转来了 出处：http://www.cnblogs.com/xuyuan77/articles/1206418.html 感谢原作者 Select在Socket编程中还是比较重要的，可是对于初学Socket的人来说都不太爱用Select写程序，他们只是习惯写诸如connect、accept 、recv或recvfrom这样的阻塞程序（所谓阻塞方式block，顾名思义，就是进程或是线程执行到这些函数时必须等待某个事件的发生，如果事件没有发生，进程 或线程就被阻塞，函数不能立即返回）。可是使用Select就可以完成非阻塞（所谓非阻塞方式non-block，就是进程或线程执行此函数时不必非要等待事件的发生 ，一旦执行肯定返回，以返回值的不同来反映函数的执行情况，如果事件发生则与阻塞方式相同，若事件没有发生则返回一个代码来告知事件未发生，而进程或线程继续执行，所 以效率较高）方式工作的程序，它能够监视我们需要监视的文件描述符的变化情况——读写或是异常。 下面详细介绍一下！ Select的函数格式(我所说的是Unix系统下的伯克利socket编程 ..." />
 
 
@@ -84,6 +84,8 @@ Log4D            </a>
 
 
 <span class="label label-default">Tags</span>
+	<a href="http://blog.log4d.com/tag/c/">C</a>
+        /
 	<a href="http://blog.log4d.com/tag/wang-luo-bian-cheng/">网络编程</a>
     
 </footer><!-- /.post-info -->                    </div>
@@ -263,38 +265,13 @@ var jiathis_config = {data_track_clickback:'true'};
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/c/">
-                                <i class="fa fa-folder-open fa-lg"></i> C
+                            <a href="http://blog.log4d.com/category/coding/">
+                                <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/cheng-xu-ren-sheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> 程序人生
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/delphibian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Delphi编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/dotnet/">
-                                <i class="fa fa-folder-open fa-lg"></i> dotNet
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/flashbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Flash编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/gan-wu/">
-                                <i class="fa fa-folder-open fa-lg"></i> 感悟
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
-                                <i class="fa fa-folder-open fa-lg"></i> 工欲善其事必先利其器
+                            <a href="http://blog.log4d.com/category/efficiency/">
+                                <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -303,58 +280,18 @@ var jiathis_config = {data_track_clickback:'true'};
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/java/">
-                                <i class="fa fa-folder-open fa-lg"></i> Java
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
                                 <i class="fa fa-folder-open fa-lg"></i> 技术达人
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/jian-zhan/">
-                                <i class="fa fa-folder-open fa-lg"></i> 建站
+                            <a href="http://blog.log4d.com/category/life/">
+                                <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/jian-zhan-xin-de/">
-                                <i class="fa fa-folder-open fa-lg"></i> 建站心得
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/linuxer/">
-                                <i class="fa fa-folder-open fa-lg"></i> Linuxer
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/mei-shi-peng-ren/">
-                                <i class="fa fa-folder-open fa-lg"></i> 美食|烹饪
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/microsoft-net/">
-                                <i class="fa fa-folder-open fa-lg"></i> Microsoft .Net
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/net-zong-he-ji-zhu/">
-                                <i class="fa fa-folder-open fa-lg"></i> .Net, 综合技术
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/phpbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> PHP编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/pythonbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Python编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/qian-duan/">
-                                <i class="fa fa-folder-open fa-lg"></i> 前端
+                            <a href="http://blog.log4d.com/category/managment/">
+                                <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -368,16 +305,6 @@ var jiathis_config = {data_track_clickback:'true'};
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
-                                <i class="fa fa-folder-open fa-lg"></i> 软件开发和项目管理
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ruby-bian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Ruby 编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
                                 <i class="fa fa-folder-open fa-lg"></i> 视觉设计
                             </a>
@@ -388,8 +315,13 @@ var jiathis_config = {data_track_clickback:'true'};
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/webqian-duan/">
-                                <i class="fa fa-folder-open fa-lg"></i> Web前端
+                            <a href="http://blog.log4d.com/category/thinking/">
+                                <i class="fa fa-folder-open fa-lg"></i> Thinking
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/view/">
+                                <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -398,38 +330,13 @@ var jiathis_config = {data_track_clickback:'true'};
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/xiang-mu-guan-li/">
-                                <i class="fa fa-folder-open fa-lg"></i> 项目管理
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/xing-neng/">
-                                <i class="fa fa-folder-open fa-lg"></i> 性能
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
                                 <i class="fa fa-folder-open fa-lg"></i> 学海无涯
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/yi-dong-shou-chi/">
-                                <i class="fa fa-folder-open fa-lg"></i> 移动手持
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ying-jian/">
-                                <i class="fa fa-folder-open fa-lg"></i> 硬件
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/yu-le/">
                                 <i class="fa fa-folder-open fa-lg"></i> 娱乐
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/zong-he-ji-zhu/">
-                                <i class="fa fa-folder-open fa-lg"></i> 综合技术
                             </a>
                         </li>
                     </ul>

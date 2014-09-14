@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Coding - Log4D</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="alswl" />
+    <meta name="keywords" content="Coding" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Log4D" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Log4D"/>
+        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:description" content="Log4D"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+
+    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+
+</head>
+<body>
+
+<div class="navbar navbar-default" role="navigation">
+    <div class="container  col-lg-8 col-lg-offset-2">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.log4d.com/" class="navbar-brand">
+Log4D            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/01/a-change-of-home-made-icon/">换了一个自制的ICON</a></h2>
+                <div class="summary"><p>今天终于把自己主题框架建起来了，不过感觉好丑的说～～alswl一点艺术细胞都没有～</p>
+<p>伟人说的好啊，没有困难创造困难也要上，今天就硬着头皮做了一个ICON。</p>
+<p>什么是Icon呢，就是网站的图标啦，对于一个网站来说，很有标志性意义的。我们的口号是："Logo可以没有，Icon一定要独一无二。"</p>
+<p>低调而华丽的放上我下午刚新鲜出炉的制作，同学们只要Ctrl+F5就可以刷新缓存看到啦。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/01/D.png" /></p>
+<p>下面，砸鸡蛋和番茄吧～～～</p>
+<p>最后，推荐一个Icon的Flickr组：<a href="http://www.flickr.com/groups/fluid_icons/">Fluid Icons</a>
+暂时不想自己做的童鞋可以去那里搞一个自己喜欢的。</p>
+<p>ps:Yahoo的密码找回真难用，害的我重新注册了一个Yahoo ID。</p>
+<p>ps:ps:alswl@yahoo.com居然是一个36岁的韩国妇女，悲剧啊，我这个ID完全是凭空捏造的，怎么会重合呢，怎么会呢。。。怎么会呢。。。</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/a-change-of-home-made-icon/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/01/oracle-pl-sql-coding-standards/">Oracle PL/SQL编程规范</a></h2>
+                <div class="summary"><p>学习PL/SQL不可避免遇到规范的问题，这里转载一篇比较精的文章。</p>
+<p>当然，各个公司和个人有自己的风格和规范，甚至Oracle官方的教程代码也没有完全遵守这些规则，这里只是一个推荐和介绍。</p>
+<p>来源：<a href="http://database.51cto.com/art/200907/138973.htm">Oracle PL/SQL编程规范指南 -
+51CTO.COM</a></p>
+<p>更多参考：<a href="http://blog.chinaunix.net/u1/57759/showart_458439.html">SQL,PL/SQL编程规范 - PL/SQL -
+IT民工杂谈</a></p>
+<p><strong><em>**分割线，Google真汉子</em></strong>**</p>
+<h2>一、PL/SQL编程规范之大小写</h2>
+<p>就像在SQL中一样，PL / SQL中是不区分大小写的。其一般准则如下：</p>
+<p>关键字(<code>BEGIN</code>, <code>EXCEPTION</code>, <code>END</code>, <code>IF THEN ELSE</code>,<code>LOOP</code>, <code>END
+LOOP</code>)、数据类型(<code>VARCHAR2</code>, <code>NUMBER</code>)、内部函数(<code>LEAST</code>,
+<code>SUBSTR</code>)和用户定义的子程序(<code>procedures</code>, <code>functions</code>,<code>packages</code>)，使用大写 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/oracle-pl-sql-coding-standards/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/01/delphi-unit-testing-tool-dunit/">Delphi 的单元测试工具DUnit</a></h2>
+                <div class="summary"><p>以前写Java时候经常使用一款单元测试工具JUnit，工作之后在用Delphi，自然也要换到Delphi下面的单元测试工具DUnit。</p>
+<p>DUnit是XUnit家族中的一员，是Extreme Programming测试实现Xtreme Testing的一种工具。</p>
+<p>DUnit的用法和JUnit很类似，如果有相关经验很容易上手。这里是DUnit的官方地址：<a href="h
+ttp://dunit.sourceforge.net/">http://dunit.sourceforge.net/</a> ，下载地址：<a href="h
+ttp://sourceforge.net/projects/dunit/">http://sourceforge.net/projects/dunit/</a></p>
+<p>将DUnit解压至任意目录（我习惯在<code>D:/Study/DelphiLib/</code>），打开Delphi 7，将DUnit路径添加到 Tools- &gt;
+Environment Options 里面的 Library -&gt; Library Path ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/delphi-unit-testing-tool-dunit/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/">添加FireFox下的边框圆角</a></h2>
+                <div class="summary"><p>起因是换了DDDSpace.com 这个域名，需要测试邮件回复情况，我发现在在iGoogle的GMail小窗口显示着实有些难看，就修改了一下样式，添加了圆角
+、增加了<code>padding</code>值，唔，这个<strong>圆角不对IE系列有效果</strong>。</p>
+<p>增加圆角的部分如下：</p>
+<div class="highlight"><pre><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+</pre></div>
+
+
+<p>修改之后的Mail To Commenter 模板如下</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid rgb(183, 183, 183); margin: 1em 40px; padding ...</span></pre></div>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/use-ssh-to-the-wordpress-directory-package/">使用SSH对WordPress目录进行打包</a></h2>
+                <div class="summary"><p>最近用上了小张的10号主机，cPanel界面，支持SSH连接，<strong>DDD的一亩三分地</strong>也换了log4d.com域名。我想趁着这个机会对整个系统进行改版，迎
+接2010年的到来。</p>
+<p>我用<strong>Apache+PHP+MySQL</strong>在本地假设了服务器，然后取10号主机服务器上的<code>wp-
+content</code>界面。当准备把整个目录打包时候，居然发现没有打包命令，无奈之下，只能登录<strong>SSH</strong>，使用Linux命令打包了。</p>
+<p>我连接SSH使用的是<strong>Putty</strong>，点击<a href="http://www.xdowns.com/soft/6/65/2006/Soft_28585.htm
+l">这里</a>下载(via 绿软)，这个是<strong>绿色中文Final</strong>版本，比较好使唤。</p>
+<p>用到几个简单的Linux命令如下（好在我学过几周Linux啊 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/use-ssh-to-the-wordpress-directory-package/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/dddspace-com-bathed-in-fire-and-gave-birth-to/">DDDSpace.com浴火重生了</a></h2>
+                <div class="summary"><p>一大早过来，我就开始部署DDDSpace.com，上传文件和数据，修改数据库的域名，文章参考了<a href="http://wange.im/after-change-
+domain.html">"更换域名后应该做的事情 » Life
+Studio</a>"。我原来的DDDSpace.cn所在的重庆主机还在停止80端口状态，域名管理器我也无法登录，所以不能做301修改了。</p>
+<p>之后我索性更新到WordPress 2.9，出现了"wordpress Fatal error: Allowed memory size of
+33554432 bytes
+exhausted"这个错误，大意就是说内存超出指定大小。我在WordPress官方论坛找到了解决办法，原文在"<a href="http://wordpress.org/support/topic/194370?replies=16">WordPress › Support »
+Fatal error: Allowed memory size of 33554432 bytes exhausted ...</a></p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/dddspace-com-bathed-in-fire-and-gave-birth-to/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/godaddy-has-supported-alipay/">Godaddy已经支持支付宝</a></h2>
+                <div class="summary"><p>&amp;nbsp_place_holder;</p>
+<p>昨天在小张那里买了美国10号主机，今天下午开始买com域名。</p>
+<p>正在发愁代购的事情，小张突然跟我说，Godaddy已经支持支付宝了。</p>
+<p>我立马犀利的操作了一把。</p>
+<p>有图有真像</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2009/12/godaddy_alipay.jpg" /></p>
+<p>我犀利了，应该是今天下午开始支持的。</p>
+<p>同志们，冲啊！！！</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/godaddy-has-supported-alipay/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-06/">Delphi学习笔记06</a></h2>
+                <div class="summary"><p>我的博客所在的江西服务器需要服务器搬迁，所以这两天博客无法访问，看到404错误的童鞋们对不起拉…</p>
+<h2>几个概念：Owner/Parent/Sender/Self</h2>
+<p>Owner/Parent的字面意义都有点拥有者的意思，一个Button的Owner和Parent很有可能都是Form，但实际上这两个概念是没有关系的。</p>
+<p>Owner和Parent的区别：Parent对应组件的视觉容器而不是拥有者，比如一个<code>RadioGroup</code>是<code>RadioButton</code>的Parent；Ow
+ner对应组件的拥有者。尽管Parent和Owner很多时候都是同一个对象，但是还是需要严格区分的。</p>
+<p>Sender代表的是触发事件的组件，有了Sender参数，能够使用多个组件配合使用。在代码中可以使用<code>(Sender as
+TButton).Caption</code>这种语句来转换<code>TObject</code>类型。</p>
+<p>Self呢，相当于C++/Java中的<code>this</code>，指向当前对象，代表自身的意思。没有太多可讲的，我觉得如果要获取某个属性，前面加上Self.是个好习惯。</p>
+<p>这几个关键字能够加深对面向对象的理解，在VCL编程中，也是必须掌握的。</p>
+<h2>VCL编程感观</h2>
+<p>VCL全程Visual Component ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/delphi-study-notes-06/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/dlphi-a-small-summary-of-knowledge/">Dlphi资料小汇总</a></h2>
+                <div class="summary"><p>学Delphi大概一周时间，我经历从当初的初生牛犊不怕虎，到现在感慨Delphi的强大和复杂。说实话，我以前觉得Delphi是一门过气的语言，现在我重新修正
+自己的观点，没有弱势的语言，只有菜鸟的程序员。</p>
+<p>Delphi的整个架构让我叹为观止，我这么短的学习周期，只能学到一点基础的皮毛。由于完全自学，我花费很多精力在资料的收集上（很痛苦没有找到一本合适的书），现
+在我把我这段时间的资料收集整理，分享我的所得（这篇文章经历1个星期，发布时候遇到服务器卡住，丢失了一次，幸好我灵机一动，用FireFox脱机找回了缓存页面，
+还是得信春哥啊）。</p>
+<p>资料繁杂，很多都是来自信息采集站点，我无法一一署名，在这里对这些资料的原作者表示谢意。</p>
+<ol>
+<li>Delphi7的文件类型</li>
+<li>Delphi的关键字</li>
+<li>类型之间转换函数</li>
+<li>组件的常用属性</li>
+<li>组件的常用事件</li>
+<li>常用类型和函数的uses单元</li>
+<li>Delphi常用的ADO组件</li>
+<li>ADO组件常用属性</li>
+<li>ADO数据集类组件的共同方法</li>
+</ol>
+<h2>Delphi7的文件类型</h2>
+<p>文件扩展名 文件类型说明 产生时间</p>
+<p>BMP、ICO、CUR</p>
+<p>位图、图标及光标图像文件</p>
+<p>程序设计时</p>
+<p>BGP</p>
+<p>项目组文件，由多目标项目管理器产生 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/dlphi-a-small-summary-of-knowledge/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-04/">Delphi学习笔记04</a></h2>
+                <div class="summary"><p>今天主要学习了Object Pascal的<strong>面向对象</strong>部分：类的定义、继承、多态这些基本操作。</p>
+<p>1.Delphi的关键词好麻烦，居然result都没法用，返回值的错误我查找了很久才明白为什么编译器说result重定义。</p>
+<p>2.语法结构严谨，比如类定义必须在<code>interface</code>之后，过程/函数的实现必须要分开，而无法写成C++/Java那种inner类定义，写起来难免缚手缚脚
+。</p>
+<p>3.大小写的语法规范很麻烦，像<code>Integer/String</code>这些关键词，我真不知道该不该首字母大写。还有变量的定义，按照"Delphi编码规范"是应该大写
+，可是这样就需要频繁的使用Shift，还是喜欢Java的那种首字符小写的驼峰式，能够清楚地把函数/过程/变量区分开。</p>
+<p>4.<code>fuction/procedure</code>除了返回值又没什么大区别，现在想来真爱死void了。</p>
+<p>下面上今天学习的代码，是类的<strong>定义</strong>、<strong>继承</strong>、<strong>多态</strong>这些。</p>
+<h2>1.类的使用 ...</h2>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/delphi-study-notes-04/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev"><a href="http://blog.log4d.com/category/coding/page/9/">&laquo;</a>
+                </li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/">1</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/2/">2</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/3/">3</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/4/">4</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/5/">5</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/6/">6</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/7/">7</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/8/">8</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/9/">9</a></li>
+                    <li class="active"><a
+							href="http://blog.log4d.com/category/coding/page/10/">10</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/11/">11</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/12/">12</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/13/">13</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/14/">14</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/15/">15</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/16/">16</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/17/">17</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/18/">18</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/19/">19</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/20/">20</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/21/">21</a></li>
+                <li class="next"><a
+                        href="http://blog.log4d.com/category/coding/page/11/">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-lg-3 col-lg-offset-2" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
+                  </ul>
+                </li>
+
+
+
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    <div class="col-lg-3" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                    <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/coding/">
+                                <i class="fa fa-folder-open fa-lg"></i> Coding
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/efficiency/">
+                                <i class="fa fa-folder-open fa-lg"></i> Efficiency
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/guan-zhu-hu-lian-wang/">
+                                <i class="fa fa-folder-open fa-lg"></i> 关注互联网
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
+                                <i class="fa fa-folder-open fa-lg"></i> 技术达人
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/life/">
+                                <i class="fa fa-folder-open fa-lg"></i> Life
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/managment/">
+                                <i class="fa fa-folder-open fa-lg"></i> Managment
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/qing-chun-de-cai-hong/">
+                                <i class="fa fa-folder-open fa-lg"></i> 青春的彩虹
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ri-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 日记
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 视觉设计
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/sui-sui-nian/">
+                                <i class="fa fa-folder-open fa-lg"></i> 碎碎念
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/thinking/">
+                                <i class="fa fa-folder-open fa-lg"></i> Thinking
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/view/">
+                                <i class="fa fa-folder-open fa-lg"></i> View
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/wu-hua-ba-men/">
+                                <i class="fa fa-folder-open fa-lg"></i> 五花八门
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
+                                <i class="fa fa-folder-open fa-lg"></i> 学海无涯
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/yu-le/">
+                                <i class="fa fa-folder-open fa-lg"></i> 娱乐
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+        </ul>
+    </section>
+
+</aside>    </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 alswl
+            &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+</body>
+</html>

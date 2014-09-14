@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>php - Log4D</title>
+    <title>PHP - Log4D</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="alswl" />
-    <meta name="keywords" content="php" />
+    <meta name="keywords" content="PHP" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Log4D" />
@@ -84,6 +84,120 @@ Log4D            </a>
                 </div>
             </article>
             <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
+                <div class="summary"><p>唔，继续整理笔记，这些是在代码编写中遇到的问题和解决办法的总结，不是Turtial，问题有针对性，内容枯燥，路人可以直接忽略~</p>
+<h3>一、Comet服务器推技术</h3>
+<p>Comet推技术，一句话概括，就是形成一个不断开的连接，使得服务器能主动向客户端发送信息。这种技术在交互性强的Web产品中应用的非常多，比如GMail。Co
+met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式和基于 Iframe 及 htmlfile
+的流（streaming）方式，具体两种实现方式可以参考<a href="http://www.ibm.com/developerworks/cn/web/wa-lo-comet/">Comet：基于 HTTP
+长连接的"服务器推"技术</a>。</p>
+<p>我计划把这个技术引入，成为一个亮点，第二种Comet实现方式过于复杂（GMail使用的就是这种），我就尝试第一种。我在测试环境测试了基于 AJAX 的长轮询
+（long-polling）方式。这种方式说白了就是在Ajax获取返回数据时候，在状态吗为4（数据传输完成）情况随后进行下次查询。进行循环的查询 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/azaajaxchat-notes-implementation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/08/azaajaxchat-notes-frame/">AzaAjaxChat笔记-框架</a></h2>
+                <div class="summary"><p>1个月没有动PHP了，新装的系统甚至还没有配置PHP环境，今天看到BooguNote上有一个boo是专门记录AzaAjaxChat开发时候遇到的问题和解决办
+法。于是把一些东西整理记录一下。</p>
+<h3>1. 从ThinkPHP开始</h3>
+<p>最早的AzaAjaxChat是基于ThinkPHP的，我当时在OpenSouce上看到ThinkPHP的介绍，有很多优点，看的我很心动：MVC模型，Ajax
+支持，详细的文档和案例，国人开发的框架。我作为一个PHP新人一下子就被他吸引住了，决定用ThinkPHP做框架。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/08/thinkphp.png" /></p>
+<p>随着系统开发的推进，我却感觉到一些不自在，遇到一些问题却找不好太好的解决办法。比如ThinkPHP的模块和分组两个概念，让我比较疑惑，花费了大量时间重组目录
+结构，两种方法各有优劣，让我很难选择（有选择了反而难办了 ^_^）。</p>
+<p>最让我恼火的是相对目录带来的路径混乱，在JSP开发中，静态内容习惯性放在webcontent文件夹中，而ThinkPHP的CSS、图片、JS引用让我很疑惑，
+要区分App的和Model的静态文件。</p>
+<p>在开发过程中，我也遇到过框架本身的Bug，让我对这个框架失去信心。在这里我没有贬低ThinkPHP或者ThinkPHP开发者的意思，他们的"大道至简、开发由
+我"的理念很值得欣赏。只是作为初学者因为遇到的一些问题，带来了一定的开发难度，不得已放弃。</p>
+<h3>2. 选择CakePHP ...</h3>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/azaajaxchat-notes-frame/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/">Cakephp的国际化和poEdit的使用</a></h2>
+                <div class="summary"><p>原文出处：<a href="http://newsn.net/20090525/472.html">在Cakephp中使用i18n本地化程序，并使用poedit编辑语言文件 |
+程序如此灵动！</a></p>
+<p>alswl:
+官方的帮助手册都没有这篇文章来的详细，太赞了。这篇文章不仅介绍了CakePHP的使用，更多的介绍了PoEdit的使用，图文并茂，着实详细，感谢原作者苏南。</p>
+<p>----- 以下为原文 -----</p>
+<p>Cakephp的很强大的i18n功能就是用来实现本地化和国际化的。他通过使用语言配置文件使得程序能够很好的适应变化进行本地化。通过新建locale/chi/
+LC_MESSAGES/default.po文件，并指定语言选项为"chi"实现。本文中说的就是如何实现这个本地化过程，当然本文中的poedit并不是必须的
+，但是他可以使得工作效率更高。</p>
+<h2>一、关于i18n和L10n</h2>
+<p>这2个东东其实头一次我看到的时候也是一头雾水，但是经过百度的一通搜索，得出的结论就是，不管是几个n，最终的目的就是实现程序本地化就好了，说白了，就是由很多的
+语言配置文件，反正我是这么理解的。大家也可以去看看，<a href="http://baik
+e.baidu.com/view/372835.htm">http://baike ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/06/cakephp-localization-internationalization-and-usage-of-poedit/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
+                <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
+<p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
+和全局变量其实完全不是同一个概念）</p>
+<p>我使用的框架是CakePHP，查找资料后，找到了几种CakePHP中使用全局变量的方法。</p>
+<h3>一、使用bootstrap.php文件</h3>
+<p>在app/config 下面，有一个bootstrap文件，从名字就可以看出，这个是在控制器之前加载的文件，根据官方的描述，有下面几个用法。</p>
+<blockquote>
+<ul>
+<li>
+<p>定义方便的函数</p>
+</li>
+<li>
+<p>注册全局常量</p>
+</li>
+<li>
+<p>定义新增的控制器，视图，控制器路径</p>
+</li>
+</ul>
+</blockquote>
+<p>通过这个文件可以实现全局变量的声明。</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isset</span> <span class="p">(</span><span class="err">$</span><span class="n">globalAAC</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">global</span> <span class="err">$</span><span class="n">globalAAC</span><span class="p">;</span>
+    <span class="err">$</span><span class="n">globalAAC</span> <span class="o">=</span> <span class="n">array</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">currentMessageId</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">onlineUsers</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="n">array</span><span class="p">()</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>在其他文件中就可以调用这个全局变量了。</p>
+<h3>二、通过Configure 类</h3>
+<p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/cakephp-global-variables/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/03/use-firebug-and-firephp-debugging-php/">使用Firebug和FirePHP调试PHP[译文]</a></h2>
+                <div class="summary"><p>这是我第一篇译文，在写WordPress 主题时候偶尔看到的FirePHP插件，看都这篇文章，不知道为什么，动了翻译的念头。</p>
+<p>原文链接：<a href="http://www.sitepoint.com/blogs/2010/02/09/debug-php-firebug-firephp/">Debug PHP with Firebug and
+FirePHP</a></p>
+<p>译言的链接：<a href="http://article.yeeyan.org/view/119553/94520">译言网 |
+使用Firebug和FirePHP调试PHP</a></p>
+<p>×××××以下译文××××××</p>
+<p><img alt="" src="http://www.sitepoint.com/blogs/wp-content/uploads/2010/02/firephp.png" /></p>
+<p>如果你和我一样，你会在开发网页项目时候完全无法离开<a href="http://getfirebug.com/">FireBug</a>。这个小巧的"臭虫"是一个神奇而有用的H
+TML/CSS/JavaScript/Ajax调试器。但是你也许不知道这个还可以用来调试PHP，没错，它可以，感谢一款名为FirePHP的FireFox插件
+。</p>
+<p>通过一个小小的服务端库，和这款在Firebug上的插件，你的PHP脚本能够发送调试信息到浏览器，轻易的通过HTTP相应头编码。一旦你设置，你可以在Fiire
+bug的控制台获得PHP脚本警告和错误，就感觉像直接调试JavaScript一样</p>
+<p>使用这个工具，首先你需要安装<a href="https://addons.mozilla.org/en-US/firefox/addon/6149">FirePHP插件</a>
+。这个插件需要你已经安装FireBug。装好FirePHP之后，重新打开Firebug面板时候，你会看到新加了一个蓝色的臭虫图标。点击这个图标会出现一个开启
+或者关闭FirePHP的菜单。</p>
+<p><img alt="FirePHP Menu" src="http://www.sitepoint.com/blogs/wp-content/uploads/2010/02" title="/Screen-shot-2010-02-09-at-1.59.56-PM.png" /></p>
+<p>&amp;nbsp_place_holder;</p>
+<p>当然 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/03/use-firebug-and-firephp-debugging-php/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
 
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -114,38 +228,13 @@ Log4D            </a>
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/c/">
-                                <i class="fa fa-folder-open fa-lg"></i> C
+                            <a href="http://blog.log4d.com/category/coding/">
+                                <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/cheng-xu-ren-sheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> 程序人生
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/delphibian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Delphi编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/dotnet/">
-                                <i class="fa fa-folder-open fa-lg"></i> dotNet
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/flashbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Flash编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/gan-wu/">
-                                <i class="fa fa-folder-open fa-lg"></i> 感悟
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
-                                <i class="fa fa-folder-open fa-lg"></i> 工欲善其事必先利其器
+                            <a href="http://blog.log4d.com/category/efficiency/">
+                                <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -154,58 +243,18 @@ Log4D            </a>
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/java/">
-                                <i class="fa fa-folder-open fa-lg"></i> Java
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
                                 <i class="fa fa-folder-open fa-lg"></i> 技术达人
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/jian-zhan/">
-                                <i class="fa fa-folder-open fa-lg"></i> 建站
+                            <a href="http://blog.log4d.com/category/life/">
+                                <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/jian-zhan-xin-de/">
-                                <i class="fa fa-folder-open fa-lg"></i> 建站心得
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/linuxer/">
-                                <i class="fa fa-folder-open fa-lg"></i> Linuxer
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/mei-shi-peng-ren/">
-                                <i class="fa fa-folder-open fa-lg"></i> 美食|烹饪
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/microsoft-net/">
-                                <i class="fa fa-folder-open fa-lg"></i> Microsoft .Net
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/net-zong-he-ji-zhu/">
-                                <i class="fa fa-folder-open fa-lg"></i> .Net, 综合技术
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/phpbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> PHP编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/pythonbian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Python编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/qian-duan/">
-                                <i class="fa fa-folder-open fa-lg"></i> 前端
+                            <a href="http://blog.log4d.com/category/managment/">
+                                <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -219,16 +268,6 @@ Log4D            </a>
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
-                                <i class="fa fa-folder-open fa-lg"></i> 软件开发和项目管理
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ruby-bian-cheng/">
-                                <i class="fa fa-folder-open fa-lg"></i> Ruby 编程
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
                                 <i class="fa fa-folder-open fa-lg"></i> 视觉设计
                             </a>
@@ -239,8 +278,13 @@ Log4D            </a>
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/webqian-duan/">
-                                <i class="fa fa-folder-open fa-lg"></i> Web前端
+                            <a href="http://blog.log4d.com/category/thinking/">
+                                <i class="fa fa-folder-open fa-lg"></i> Thinking
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/view/">
+                                <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
                         <li class="list-group-item">
@@ -249,38 +293,13 @@ Log4D            </a>
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/xiang-mu-guan-li/">
-                                <i class="fa fa-folder-open fa-lg"></i> 项目管理
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/xing-neng/">
-                                <i class="fa fa-folder-open fa-lg"></i> 性能
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
                                 <i class="fa fa-folder-open fa-lg"></i> 学海无涯
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/yi-dong-shou-chi/">
-                                <i class="fa fa-folder-open fa-lg"></i> 移动手持
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ying-jian/">
-                                <i class="fa fa-folder-open fa-lg"></i> 硬件
-                            </a>
-                        </li>
-                        <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/yu-le/">
                                 <i class="fa fa-folder-open fa-lg"></i> 娱乐
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/zong-he-ji-zhu/">
-                                <i class="fa fa-folder-open fa-lg"></i> 综合技术
                             </a>
                         </li>
                     </ul>

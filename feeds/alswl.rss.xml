@@ -160,7 +160,7 @@
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 31 Aug 2014 20:12:06 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-31:2014/08/manage-it/</guid><category></category></item><item><title>加班那点事儿</title><link>http://blog.log4d.com/2014/08/work-overtime/</link><description>&lt;p&gt;前段时间，一个好基友告诉我，他换了份工作，去了一家用户数据表现堪称吓人的创业公司去了。其中有一个细节引起了我的注意：他们在实行 996 的上班制度。即 9 点钟上班，9 点钟下班，一周工作 6 天。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 31 Aug 2014 20:12:06 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-31:2014/08/manage-it/</guid><category>项目管理</category><category></category></item><item><title>加班那点事儿</title><link>http://blog.log4d.com/2014/08/work-overtime/</link><description>&lt;p&gt;前段时间，一个好基友告诉我，他换了份工作，去了一家用户数据表现堪称吓人的创业公司去了。其中有一个细节引起了我的注意：他们在实行 996 的上班制度。即 9 点钟上班，9 点钟下班，一周工作 6 天。&lt;/p&gt;
 &lt;p&gt;同样实行这种制度的还有阿里的来往团队。当年（其实就是去年）在抢占移动端 IM 入口时候，马云都使用了红包政策，来往的工程师在高压之下，也实行 996 了制度。
 我问过阿里的朋友，他们表示，整体加班情况的确比较多。我追问了一下加班效率，证实了我的一个猜想，有些个人是晚上加班没事干，尤其有些测试工程师，白天没活干，晚上活多，还经常等到 9 点之后才有事情。这个现象也许不是普遍的，但的确存在。&lt;/p&gt;
 &lt;p&gt;我自己是反感加班的，曾经面到一个开发工程师，表示工作三年来，加班时常为 0h。当时有点被这种表述惊讶了一下，然后我认为他是在标榜自己工作效率高。
@@ -190,7 +190,7 @@
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 30 Aug 2014 17:39:19 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-30:2014/08/work-overtime/</guid><category></category></item><item><title>痛快活</title><link>http://blog.log4d.com/2014/08/life-with-pain/</link><description>&lt;p&gt;上个月回家，在亲戚家里和侄子聊天，他刚从大学毕业，在家人的帮助下面找了算是对口的工作，对工作之后的状态有一些茫然，看不到前途和未来，我问了一个问题：&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 30 Aug 2014 17:39:19 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-30:2014/08/work-overtime/</guid><category>程序人生</category><category></category></item><item><title>痛快活</title><link>http://blog.log4d.com/2014/08/life-with-pain/</link><description>&lt;p&gt;上个月回家，在亲戚家里和侄子聊天，他刚从大学毕业，在家人的帮助下面找了算是对口的工作，对工作之后的状态有一些茫然，看不到前途和未来，我问了一个问题：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;你平时是怎么面对困难和挑战的？&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -217,7 +217,7 @@
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Mon, 11 Aug 2014 21:07:29 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-11:2014/08/life-with-pain/</guid><category></category></item><item><title>在 Raspberry Pi 上使用 AirPlay</title><link>http://blog.log4d.com/2014/07/raspberrypi-airplay/</link><description>&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Mon, 11 Aug 2014 21:07:29 +0800</pubDate><guid>tag:blog.log4d.com,2014-08-11:2014/08/life-with-pain/</guid><category>感悟</category><category></category></item><item><title>在 Raspberry Pi 上使用 AirPlay</title><link>http://blog.log4d.com/2014/07/raspberrypi-airplay/</link><description>&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
 已经忘了是从那里得知这个东西。这个卡片大小的电路板是可以运行
 Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a href="http://geekon.geekstack.org/"&gt;南京极客行动&lt;/a&gt;
 时候，Michael 好像还拿了一个板子参加比赛。&lt;/p&gt;
@@ -252,7 +252,7 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Wed, 23 Jul 2014 23:19:50 +0800</pubDate><guid>tag:blog.log4d.com,2014-07-23:2014/07/raspberrypi-airplay/</guid><category>RaspberryPi</category></item><item><title>读《如何高效学习》</title><link>http://blog.log4d.com/2014/04/lean-more-study-less/</link><description>&lt;p&gt;&lt;a href="http://book.douban.com/subject/25783654/"&gt;Learn More Study Less（如何高效学习）&lt;/a&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Wed, 23 Jul 2014 23:19:50 +0800</pubDate><guid>tag:blog.log4d.com,2014-07-23:2014/07/raspberrypi-airplay/</guid><category>硬件</category><category>RaspberryPi</category></item><item><title>读《如何高效学习》</title><link>http://blog.log4d.com/2014/04/lean-more-study-less/</link><description>&lt;p&gt;&lt;a href="http://book.douban.com/subject/25783654/"&gt;Learn More Study Less（如何高效学习）&lt;/a&gt;
 讲的是作者斯科特·扬如何快速学习的方法和技巧。&lt;/p&gt;
 &lt;p&gt;我在 Kindle 上面阅读了这本书，并用书中的方法学习这本书，顺便做了一些笔记。&lt;/p&gt;
 
@@ -494,7 +494,7 @@ source 时候，通过这个加上 &lt;code&gt;ifdef&lt;/code&gt; 来使用 &lt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 30 Mar 2014 15:41:43 +0800</pubDate><guid>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</guid><category>Redis</category><category>hiredis</category></item><item><title>Java 运行参数调整</title><link>http://blog.log4d.com/2014/03/java-options/</link><description>&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 30 Mar 2014 15:41:43 +0800</pubDate><guid>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</guid><category>C</category><category>Redis</category><category>hiredis</category></item><item><title>Java 运行参数调整</title><link>http://blog.log4d.com/2014/03/java-options/</link><description>&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
 &lt;p&gt;运行 &lt;code&gt;java -h&lt;/code&gt; 可以看到 Java 运行可调整的参数。
 运行 &lt;code&gt;java -X&lt;/code&gt; 可以查看 Java 支持的额外参数。
 注意一些参数的默认开启在 JDK6 和 JDK7 之间会有差异，甚至在 JDK7 的不同 update
@@ -575,7 +575,7 @@ source 时候，通过这个加上 &lt;code&gt;ifdef&lt;/code&gt; 来使用 &lt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 22 Mar 2014 18:31:55 +0800</pubDate><guid>tag:blog.log4d.com,2014-03-22:2014/03/java-options/</guid><category>JVM</category></item><item><title>Redis 到底有多快[译文]</title><link>http://blog.log4d.com/2014/02/redis-benchmarks/</link><description>&lt;p&gt;原文地址 &lt;a href="http://redis.io/topics/benchmarks"&gt;http://redis.io/topics/benchmarks&lt;/a&gt;。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 22 Mar 2014 18:31:55 +0800</pubDate><guid>tag:blog.log4d.com,2014-03-22:2014/03/java-options/</guid><category>Java</category><category>JVM</category></item><item><title>Redis 到底有多快[译文]</title><link>http://blog.log4d.com/2014/02/redis-benchmarks/</link><description>&lt;p&gt;原文地址 &lt;a href="http://redis.io/topics/benchmarks"&gt;http://redis.io/topics/benchmarks&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;拖了一个半月的稿子~&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;Redis 自带了一个叫 &lt;code&gt;redis-benchmark&lt;/code&gt; 的工具来模拟 N 个客户端同时发出 M 个请求。
@@ -996,7 +996,7 @@ Amazon EC2 上 的 EBS）。&lt;/li&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 23 Feb 2014 22:38:00 +0800</pubDate><guid>tag:blog.log4d.com,2014-02-23:2014/02/redis-benchmarks/</guid><category>Redis</category><category>benchmark</category><category>译文</category></item><item><title>从 SVN 到 Git，找回丢失的历史</title><link>http://blog.log4d.com/2014/01/renamed-svn-to-git/</link><description>&lt;p&gt;前段时间在将公司的 SVN 项目迁移到 Git 上面去，遇到一个很少见的问题：
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 23 Feb 2014 22:38:00 +0800</pubDate><guid>tag:blog.log4d.com,2014-02-23:2014/02/redis-benchmarks/</guid><category>性能</category><category>Redis</category><category>benchmark</category><category>译文</category></item><item><title>从 SVN 到 Git，找回丢失的历史</title><link>http://blog.log4d.com/2014/01/renamed-svn-to-git/</link><description>&lt;p&gt;前段时间在将公司的 SVN 项目迁移到 Git 上面去，遇到一个很少见的问题：
 有一个小伙伴使用 git-svn 做 &lt;code&gt;rename&lt;/code&gt; 操作时候，将一个目录 &lt;code&gt;svn mv&lt;/code&gt; 了，
 导致新目录只存了最近几个月提交历史，丢失了历史信息。对团队开发而言，
 历史提交是非常宝贵的财产，我们想了一些办法，把这些数据提取出来。&lt;/p&gt;
@@ -1036,7 +1036,7 @@ Amazon EC2 上 的 EBS）。&lt;/li&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 21 Jan 2014 00:20:06 +0800</pubDate><guid>tag:blog.log4d.com,2014-01-21:2014/01/renamed-svn-to-git/</guid><category>SVN</category><category>Git</category></item><item><title>Goodbye 2013, Hello 2014</title><link>http://blog.log4d.com/2013/12/2013/</link><description>&lt;p&gt;2013 年末，我给自己制定了几个年度目标：&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 21 Jan 2014 00:20:06 +0800</pubDate><guid>tag:blog.log4d.com,2014-01-21:2014/01/renamed-svn-to-git/</guid><category>软件开发和项目管理</category><category>SVN</category><category>Git</category></item><item><title>Goodbye 2013, Hello 2014</title><link>http://blog.log4d.com/2013/12/2013/</link><description>&lt;p&gt;2013 年末，我给自己制定了几个年度目标：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;离梦想更近一步&lt;/p&gt;
 &lt;p&gt;找一个靠谱的姑娘，我感觉她需要我，我也需要她了&lt;/p&gt;
@@ -1477,7 +1477,7 @@ bind j:alt focus behind
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 09 Nov 2013 14:59:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</guid><category>Postfix</category></item><item><title>在 Python 中使用 GDB 来调试[译文]</title><link>http://blog.log4d.com/2013/11/python-gdb/</link><description>&lt;p&gt;大约一年前，我接触了 Java 中的 &lt;a href="http://kenai.com/projects/btrace"&gt;Btrace&lt;/a&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 09 Nov 2013 14:59:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</guid><category>Linuxer</category><category>Postfix</category></item><item><title>在 Python 中使用 GDB 来调试[译文]</title><link>http://blog.log4d.com/2013/11/python-gdb/</link><description>&lt;p&gt;大约一年前，我接触了 Java 中的 &lt;a href="http://kenai.com/projects/btrace"&gt;Btrace&lt;/a&gt;
 能够不停机查看线上 JVM 运行情况的特性让我艳羡不已。
 另外还有强悍的 jStack 和 jConsole 来进行运行期侦测，JVM 的工业级强度果然不是盖的。&lt;/p&gt;
 &lt;p&gt;当时公司技术方面也遇到了一些瓶颈，一部分原因是 CPython 本身的 IO 模型问题，
@@ -1678,7 +1678,7 @@ Python debug 扩展包含了一些 debug 命令，并且添加了一些 Python �
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 01 Nov 2013 01:11:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-01:2013/11/python-gdb/</guid><category>GDB</category><category>译文</category></item><item><title>15 分钟学会 R 语言[译文]</title><link>http://blog.log4d.com/2013/10/r-tutorial/</link><description>&lt;p&gt;仗着自己有几门语言的基础，我在学新语言时候，都会选择一些快速入门教程。
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 01 Nov 2013 01:11:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-01:2013/11/python-gdb/</guid><category>Python</category><category>GDB</category><category>译文</category></item><item><title>15 分钟学会 R 语言[译文]</title><link>http://blog.log4d.com/2013/10/r-tutorial/</link><description>&lt;p&gt;仗着自己有几门语言的基础，我在学新语言时候，都会选择一些快速入门教程。
 比如 &lt;a href="http://learnxinyminutes.com/"&gt;Learn X in Y minuts&lt;/a&gt; 就是我经常光顾的站点。&lt;/p&gt;
 &lt;p&gt;前段时间，小柒在用 R 写数据分析脚本，我就建议她把 Learn X in Y minuts 里面的
 R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还是非常多的，赞。&lt;/p&gt;
@@ -2224,7 +2224,7 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 29 Oct 2013 22:32:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-10-29:2013/10/r-tutorial/</guid><category>R</category><category>译文</category></item><item><title>读《大规模Web服务开发技术》</title><link>http://blog.log4d.com/2013/06/web-technology/</link><description>&lt;p&gt;年前看了这本书《大规模Web服务开发技术》，当时给的评价是：&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 29 Oct 2013 22:32:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-10-29:2013/10/r-tutorial/</guid><category>综合技术</category><category>R</category><category>译文</category></item><item><title>读《大规模Web服务开发技术》</title><link>http://blog.log4d.com/2013/06/web-technology/</link><description>&lt;p&gt;年前看了这本书《大规模Web服务开发技术》，当时给的评价是：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;很好，让我这个渣渣看的很感动，数据翔实，经历可靠，翻译的也不错，我给 4.2 分&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2347,7 +2347,7 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 29 Jun 2013 00:17:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-06-29:2013/06/web-technology/</guid><category>读书笔记</category></item><item><title>Arch，再见</title><link>http://blog.log4d.com/2013/04/buy-arch/</link><description>&lt;p&gt;&lt;img alt="Arch" src="http://upload-log4d.qiniudn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 29 Jun 2013 00:17:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-06-29:2013/06/web-technology/</guid><category>综合技术</category><category>读书笔记</category></item><item><title>Arch，再见</title><link>http://blog.log4d.com/2013/04/buy-arch/</link><description>&lt;p&gt;&lt;img alt="Arch" src="http://upload-log4d.qiniudn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Arch 是我真正使用的第一款 Linux 发行版，大约使用了三年，
 现在的这个 VPS 跑的系统也是 Arch。
 然而随着时间变化，我从最早的天天更新狂，到一周、一个月、三个月和不主动更新。
@@ -2378,7 +2378,7 @@ Linuxer 了。
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 13 Apr 2013 22:04:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-13:2013/04/buy-arch/</guid><category>ArchLinux</category></item><item><title>读《人件》</title><link>http://blog.log4d.com/2013/04/peopleware/</link><description>&lt;p&gt;事情起源于动态语言和静态语言之争，最后争论焦点转移到：「相信人本身的能力重要，
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 13 Apr 2013 22:04:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-13:2013/04/buy-arch/</guid><category>Linuxer</category><category>ArchLinux</category></item><item><title>读《人件》</title><link>http://blog.log4d.com/2013/04/peopleware/</link><description>&lt;p&gt;事情起源于动态语言和静态语言之争，最后争论焦点转移到：「相信人本身的能力重要，
 还是通过语言/工具来约束人重要」。
 我认为项目开发中最重要的是个人能力和团队协作能力，工具只是加分项。
 如果代码质量差、监控难、性能难以优化，解决根本问题的关键还是在人身上。
@@ -2525,7 +2525,7 @@ Linuxer 了。
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Wed, 10 Apr 2013 23:35:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-10:2013/04/peopleware/</guid><category>创业</category><category>读书笔记</category></item><item><title>读《打造 Facebook》</title><link>http://blog.log4d.com/2013/02/facebook/</link><description>&lt;p&gt;感谢好基友 &lt;a href="http://weibo.com/idao"&gt;@daodao&lt;/a&gt; 送了我这本《&lt;a href="http://book.douban.com/subject/20471120/"&gt;打造 Facebook&lt;/a&gt;》，
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Wed, 10 Apr 2013 23:35:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-10:2013/04/peopleware/</guid><category>软件开发和项目管理</category><category>创业</category><category>读书笔记</category></item><item><title>读《打造 Facebook》</title><link>http://blog.log4d.com/2013/02/facebook/</link><description>&lt;p&gt;感谢好基友 &lt;a href="http://weibo.com/idao"&gt;@daodao&lt;/a&gt; 送了我这本《&lt;a href="http://book.douban.com/subject/20471120/"&gt;打造 Facebook&lt;/a&gt;》，
 年前一直忙，最近腾出两个晚上，把这本很火的书看完了。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="cover" src="http://img3.douban.com/lpic/s24581301.jpg" /&gt;&lt;/p&gt;
 
@@ -2753,7 +2753,7 @@ Linuxer 了。
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 12 Jan 2013 00:01:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-01-12:2013/01/python-epoll/</guid><category>译文</category></item><item><title>My 2012</title><link>http://blog.log4d.com/2013/01/my_2012/</link><description>&lt;p&gt;本想着末日来了也是好事，大家都挂了，一了百了，啥事情都不用干了。
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 12 Jan 2013 00:01:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-01-12:2013/01/python-epoll/</guid><category>Python</category><category>译文</category></item><item><title>My 2012</title><link>http://blog.log4d.com/2013/01/my_2012/</link><description>&lt;p&gt;本想着末日来了也是好事，大家都挂了，一了百了，啥事情都不用干了。
 不过末日既然没来，工作和生活就得继续下去，年末了还是需要缅怀一下 2012，
 然后展望一下 2013。&lt;/p&gt;
 

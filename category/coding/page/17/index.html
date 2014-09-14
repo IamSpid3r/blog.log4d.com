@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Coding - Log4D</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+    <meta name="author" content="alswl" />
+    <meta name="keywords" content="Coding" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Log4D" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Log4D"/>
+        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:description" content="Log4D"/>
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+
+    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+
+</head>
+<body>
+
+<div class="navbar navbar-default" role="navigation">
+    <div class="container  col-lg-8 col-lg-offset-2">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.log4d.com/" class="navbar-brand">
+Log4D            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/">Tags</a></li>
+                    <li><a href="/links/">Links</a></li>
+                    <li><a href="/about/">About</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/">FireFox下WordPress上传频繁崩溃解决方法</a></h2>
+                <div class="summary"><p>今天修改了数据库option中上传的路径，终于可以使用上传了，很开心，可是又遇到在FireFox下WordPress上传导致FireFox崩溃的问题。</p>
+<p>情况是这样，在后台点上传图片，出现上传面板的Loding界面，结果FireFox就崩溃了，查看崩溃信息，并没有什么特殊的显示。在IE下则完全没有这个问题。</p>
+<p>Google后几篇文章说是FireFox中Firebug的问题，<a href="http://www.tvwz.com.cn/html
+/computer-repaire/firebug-leads-to-firefox-to-
+collapse.html">猛击这里打开该文章</a>，我也算是个网页开发者，FireBug是必装的，禁止FireBug后重新尝试，依然失败。证明该文章问题和我并不一样。</p>
+<p>我一次尝试关闭Web Developer, FlashGot, Adblock Plus，都没有效果，直到最后关闭Google
+Gears，才发现崩溃终于停止了。</p>
+<p>那么问题就应该是在Google Gears上，这个Google Gears是FireFox的一个插件，用来对本地文件进行暂存的，我的系统也装了Google
+Gears，这两个Google Gears不是同一个，系统下的Google
+Gears可以对IE进行缓存加速 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/the-education-network-ubuntu8-04-source/">Ubuntu8.04的教育网源</a></h2>
+                <div class="summary"><p>Google的话有很多源，北大的宣称5M，结果我都连不上，交大的宣称2M，我发现只有20kb/s，连更新语言包都超级慢。</p>
+<p>最后经过我的测试，是成都电子科技大学的最快，2M左右，推荐使用。</p>
+<p>特别注意，这是8.04的源，虽然8.10大部分能用，但会出现某些软件包找不到，请大家使用前做好备份。</p>
+<p>速度的话，还是得自己测试，我只是推荐，下面的内容都是我复制过来自带的，不是我增加的。（PS:晚上时候我用官方的Mirror也3M/s）</p>
+<p>` #北京市清华大学更新服务器（教育网，推荐校园网和网通用户使用）：</p>
+<p>deb http://mirror9.net9.org/ubuntu/ hardy main multiverse restricted universe</p>
+<p>deb http://mirror9.net9.org/ubuntu/ hardy-backports main multiverse restricted ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/the-education-network-ubuntu8-04-source/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/ubuntu8-10-under-the-mysql-installation/">Ubuntu8.10下MySQL的安装</a></h2>
+                <div class="summary"><p>Ubuntu下的MySQL安装本应该很简单，但是如果因为修改了软件源的话，反而变得麻烦起来。</p>
+<p>为了加快更新一些组件的速度，我加入了清华的、交大等大学的源，是8.04下Ubuntu版本的，这个直接导致了之后安装MySQL的问题。</p>
+<p>当选择Mysql-server之后，需要一堆组建，要手动安装，基本上出现这种提示，就没戏了，硬着头皮查找软件包，最后到一个perl-
+api的软件包这里就再也进行不下去了。</p>
+<p>Google了好一会，才有一个人的答案正确，说是8.10下用8.04的源就会有这种问题，我换成原始的备份了的源</p>
+<p>下面就是原始的源，使用这个找到MySQL之后就一次成功了 ` # deb cdrom:[Ubuntu 8.10 <em>Intrepid Ibex</em> -
+Release i386 (20081029.5)]/ intrepid main restricted</p>
+<h1>See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade ...</h1>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/ubuntu8-10-under-the-mysql-installation/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/the-executable-file-mp3lrc/">Mp3Lrc的可执行文件</a></h2>
+                <div class="summary"><p>早上把代码输出成了Runnable Jar，生成一个jar格式的文件，只要是有JavaSE的电脑都可以运行了。</p>
+<p>当然，不是双击运行，进入CMD，然后进入jar文件所在文件夹，运行＂java -jar Mp3Lrc.jar＂</p>
+<p>就会出来提示输入Mp3根目录和歌词根目录，把两个目录输入就可以运行了。</p>
+<p><a href="http://upload-log4d.qiniudn.com/2009/05/mp3lrc.rar">猛击这里下载Mp3Lrc.rar</a></p>
+<p>这个程序是自己用的，可能存在Bug，由于会操作文件，请在使用前备份重要资料（虽然根本没有删除命令，只有复制命令）</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/the-executable-file-mp3lrc/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/lyrics-written-in-java-replicator-mp3/">Java写的Mp3歌词复制器</a></h2>
+                <div class="summary"><p>大家可能会遇到这样的情况，Mp3里有很多歌，电脑上也有很多相同的歌，但是有歌词。把歌词同步到Mp3播放器非常麻烦，我以前用千千静听导入目录，然后逐个播放，或
+者用一个软件从网上搜索到Mp3播放器。 千千静听或者其他播放器都会有一个选项是设置歌词存储位置的，一般来说，我们听过的歌都是会自动下载歌词到这个文件夹，其实
+我们完全可以不必大费周折去找lrc，只要把这个歌词文件夹和Mp3播放器同步就可以了。
+以前就想写一个东西完成这个麻烦的工程，现在贴吧1.0完成了，可以休息几天，晚上花了一点时间用Java写了一个这样的小东西。
+如果大家碰到和我一样的麻烦，可以试试。呃，时间仓促，没有图形界面，而且必须是Java程序员才能用，因为我这儿只提供了源码....</p>
+<div class="highlight"><pre><span class="n">package</span> <span class="n">ddd</span><span class="p">;</span>
+</pre></div>
+
+
+<p>import java.io.BufferedReader;</p>
+<p>import java.io.File;</p>
+<p>import java.io.IOException;</p>
+<p>import java.io.InputStreamReader;</p>
+<p>public class App {</p>
+<p>/**</p>
+<ul>
+<li>@author alswl ...</li></ul>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/lyrics-written-in-java-replicator-mp3/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/discussion-on-javascript-disabled/">关于禁用Javascript的讨论</a></h2>
+                <div class="summary"><p>做用户验证时候，在为客户端和服务器端各自的验证发愁，这时候我想到一个问题，现在这么多网站依赖javascript来表现页面，那么如果禁用了会怎么样呢。</p>
+<p>Google了一下，找到一篇06年的帖子。当客户端把Javascript禁用后，<a href="http://bbs.blueidea.com/archi
+ver/tid-2694115.html">猛击这里打开</a></p>
+<p>最让我吃惊的是这篇神奇的帖子从06年被讨论到09年，从挖坟N次，好狠...</p>
+<p>摘录部分语句如下：</p>
+<p>所以我会做一个纯HTML的首页，告诉人家不要屏蔽javascript，不要屏蔽ActiveX，不要............:( :(</p>
+<p>看看Gmail怎么做的。我觉得那就是答案（的一种）。</p>
+<p>禁止JS上在功能的使用上致少不该受到影响，但是国内的许多网站不去考虑这个。　只是盲目的跟风，　什么AJAX、什么体验，很多都是建立在JS上的，一旦使用的浏览
+器不支持JS，就什么都没了。google做得不错，可是国内一些所谓的门户网站，像sinasohu163yahoo或多或少都存在一定的问题，这些站的首页或许没
+什么问题，但看看其它的页面就知道。　既然浏览器提供了禁用JS、禁用COOKIE的功能，那我们就不得不考虑禁用后对我们的影响。</p>
+<p>CJJ 老是走极端 ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/discussion-on-javascript-disabled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/struts2-in-the-use-of-ajax/">Struts2中Ajax的使用</a></h2>
+                <div class="summary"><p>贴吧1.0差不多可以完成了，进入界面美化，我服务器验证写完之后，开始用jQuery写js。</p>
+<p>使用了jQuery的UI，后来想加入Ajax验证，但是遇到了问题：</p>
+<p>09-05-23 07:53 WARN [org.apache.struts2.dispatcher.Dispatcher] - Could not
+find action or result</p>
+<p>There is no Action mapped for namespace / and action name AjaxLogin. -
+[unknown location]</p>
+<p>我整整找了一个多小时，曾以为是action name的问题或者是package name, package namespace
+的问题，为此我特意重新学习了一下他们的使用方法，但是仍然没有效果。</p>
+<p>最后，终于在Google找到了一些资料：</p>
+<p><a href="http://huqilong.blog.51cto.com/53638/136802">struts2 json jquery ...</a></p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/struts2-in-the-use-of-ajax/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/battle-of-garbled/">乱码之战</a></h2>
+                <div class="summary"><p>今天重新设计了贴吧的数据库，参考了WordPress的无外键，设置default的值，我取消了两个外键，仅保留一个对应CategoryId的外键。</p>
+<p>修改数据库时候发现MySQL的charset还是'latin'，就顺手修改成'utf-8'来保证统一，结果就出事了。</p>
+<p>因为我修改了DAO，单元测试之后重新走一遍网页测试流程，结果发帖时候遇到乱码。</p>
+<p>一回生两回熟，咱也不怕。</p>
+<p>在Action里面设置logger，输出相应的数据，发现那里就是乱码，说明在Severlet或者Interceptor那里就出了问题。</p>
+<p>仿照上次设置Tomcat字符集，详情见<a href="../2009/05/12238.html">Eclipse中开发的Jave EE项目在Tomcat的部署
+</a>，但是测试发现没有效果。</p>
+<p>接着查看web.xml，发现里面还有Spring的filter，贴吧现阶段还没有加入Spring，删除，有一个编码过滤器org.apache.struts2
+.dispatcher.FilterDispatcher，采用org.apache.struts2.dispatcher.FilterDispatcher可
+以不适用，删除。</p>
+<p>这么一删，就发现乱码问题解决了。</p>
+<p>呵呵，只要人类还有很多语言，乱码仍然会存在，遇到了不要怕，慢慢调试就出来了</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/battle-of-garbled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/landscaping-postviews/">美化postviews</a></h2>
+                <div class="summary"><p>很多朋友用postviews这个插件，的确很适合国人的风格，但是如果单纯的添加到页面中，会显得很突兀，难看，我做了几个美化工作。</p>
+<p>首先，在用到postviews函数时候都定义span id，比如在single.php中修改，在下面代码</p>
+<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
+</pre></div>
+
+
+<p>后面跟上一段显示浏览次数的代码</p>
+<div class="highlight"><pre><span class="nt">&lt;span&gt;</span><span class="cp">&lt;?php the_author_posts_link(); ?&gt;</span><span class="nt">&lt;/span&gt;</span><span class="cp">&lt;?php endif; ?&gt;</span>
+</pre></div>
+
+
+<p>这样就可以显示浏览次数。</p>
+<p>然后修改style.css文件，我的是inove主题，在382行附近修改</p>
+<div class="highlight"><pre><span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">date</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">author</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">postviews</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editpost</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">comments</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addcomment</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">addlink</span><span class="p">,</span>
+<span class="p">.</span><span class="n">post</span> <span class="p">.</span><span class="n">editlinks</span> <span class="p">{</span>
+<span class="nl">background:</span><span class="n">url</span><span class="p">(</span><span class="n">img</span><span class="o">/</span><span class="n">icons ...</span></pre></div>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/landscaping-postviews/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
+                <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
+<p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
+<div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;Logout.action&quot;</span><span class="nt">&gt;</span>注销<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</pre></div>
+
+
+<p>Struts2的官方文档中标签库介绍写的很清楚，官方示例文档如下</p>
+<div class="highlight"><pre><span class="nt">&lt;s:if</span> <span class="na">test=</span><span class="s">&quot;%{false}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div&gt;</span>Will Not Be Executed<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/s:if&gt;</span>
+<span class="nt">&lt;s:elseif</span> <span class="na">test=</span><span class="s">&quot;%{true}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div&gt;</span>Will Be Executed<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/s:elseif&gt;</span>
+<span class="nt">&lt;s:else&gt;</span>
+<span class="nt">&lt;div&gt;</span>Will Not ...</pre></div>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+
+        <ul class="pagination">
+                <li class="prev"><a href="http://blog.log4d.com/category/coding/page/16/">&laquo;</a>
+                </li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/">1</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/2/">2</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/3/">3</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/4/">4</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/5/">5</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/6/">6</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/7/">7</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/8/">8</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/9/">9</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/10/">10</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/11/">11</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/12/">12</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/13/">13</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/14/">14</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/15/">15</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/16/">16</a></li>
+                    <li class="active"><a
+							href="http://blog.log4d.com/category/coding/page/17/">17</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/18/">18</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/19/">19</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/20/">20</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/category/coding/page/21/">21</a></li>
+                <li class="next"><a
+                        href="http://blog.log4d.com/category/coding/page/18/">&raquo;</a></li>
+        </ul>
+        </div>
+        <div class="col-lg-3 col-lg-offset-2" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
+                  </ul>
+                </li>
+
+
+
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    <div class="col-lg-3" id="sidebar">
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                    <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/coding/">
+                                <i class="fa fa-folder-open fa-lg"></i> Coding
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/efficiency/">
+                                <i class="fa fa-folder-open fa-lg"></i> Efficiency
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/guan-zhu-hu-lian-wang/">
+                                <i class="fa fa-folder-open fa-lg"></i> 关注互联网
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
+                                <i class="fa fa-folder-open fa-lg"></i> 技术达人
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/life/">
+                                <i class="fa fa-folder-open fa-lg"></i> Life
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/managment/">
+                                <i class="fa fa-folder-open fa-lg"></i> Managment
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/qing-chun-de-cai-hong/">
+                                <i class="fa fa-folder-open fa-lg"></i> 青春的彩虹
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ri-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 日记
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 视觉设计
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/sui-sui-nian/">
+                                <i class="fa fa-folder-open fa-lg"></i> 碎碎念
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/thinking/">
+                                <i class="fa fa-folder-open fa-lg"></i> Thinking
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/view/">
+                                <i class="fa fa-folder-open fa-lg"></i> View
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/wu-hua-ba-men/">
+                                <i class="fa fa-folder-open fa-lg"></i> 五花八门
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
+                                <i class="fa fa-folder-open fa-lg"></i> 学海无涯
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/yu-le/">
+                                <i class="fa fa-folder-open fa-lg"></i> 娱乐
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+        </ul>
+    </section>
+
+</aside>    </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 alswl
+            &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+</body>
+</html>
