@@ -351,7 +351,7 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="读书笔记"></category></entry><entry><title>hiredis 源码学习</title><link href="http://blog.log4d.com/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+</summary><category term="学海无涯"></category><category term="读书笔记"></category></entry><entry><title>hiredis 源码学习</title><link href="http://blog.log4d.com/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
 我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
 所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。&lt;/p&gt;
 &lt;p&gt;Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
@@ -1292,7 +1292,7 @@ bind j:alt focus behind
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Mac"></category></entry><entry><title>Postfix 基本配置[译文]</title><link href="http://blog.log4d.com/2013/11/postfix-basic-configuration/" rel="alternate"></link><updated>2013-11-09T14:59:00+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</id><summary type="html">&lt;p&gt;原文地址：&lt;a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html#syntax"&gt;Postfix Basic Configuration &lt;/a&gt;。
+</summary><category term="技术达人"></category><category term="Mac"></category></entry><entry><title>Postfix 基本配置[译文]</title><link href="http://blog.log4d.com/2013/11/postfix-basic-configuration/" rel="alternate"></link><updated>2013-11-09T14:59:00+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</id><summary type="html">&lt;p&gt;原文地址：&lt;a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html#syntax"&gt;Postfix Basic Configuration &lt;/a&gt;。
 有少许编译。&lt;/p&gt;
 &lt;h2&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Postfix 的配置文件 &lt;a href="http://www.postfix.org/postconf.5.html"&gt;main.cf&lt;/a&gt; 有数百个配置参数，
@@ -2617,7 +2617,7 @@ Linuxer 了。
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="创业"></category><category term="读书笔记"></category></entry><entry><title>在 Python 中使用 epoll[译文]</title><link href="http://blog.log4d.com/2013/01/python-epoll/" rel="alternate"></link><updated>2013-01-12T00:01:00+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2013-01-12:2013/01/python-epoll/</id><summary type="html">&lt;p&gt;原文地址： &lt;a href="http://scotdoyle.com/python-epoll-howto.html"&gt;http://scotdoyle.com/python-epoll-howto.html&lt;/a&gt; ，
+</summary><category term="学海无涯"></category><category term="创业"></category><category term="读书笔记"></category></entry><entry><title>在 Python 中使用 epoll[译文]</title><link href="http://blog.log4d.com/2013/01/python-epoll/" rel="alternate"></link><updated>2013-01-12T00:01:00+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2013-01-12:2013/01/python-epoll/</id><summary type="html">&lt;p&gt;原文地址： &lt;a href="http://scotdoyle.com/python-epoll-howto.html"&gt;http://scotdoyle.com/python-epoll-howto.html&lt;/a&gt; ，
 我这里取精简内容翻译过来。&lt;/p&gt;
 &lt;p&gt;============ 正文开始 ============ &lt;/p&gt;
 &lt;h2&gt;介绍&lt;/h2&gt;
