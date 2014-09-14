@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2009/10/python-enter-the-16-hex-save-to-file/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="Python," />
+        <meta name="keywords" content="Python" />
         <meta name="description" content="（题目有点勉强，不过问题真的很难描述，希望Google/Baidu到这里的童鞋不要失望） 前几天给zwwooooo写一个 小工具，其中遇到一个输入的问题。具体描述就是：&#34;输入4个16进制的数字，如&#39;00a0&#39;，输入之后必须能够把这个输入给保存到文件中存为2进制格式，必须是原始的 16进制，而不是字符串类型。如&#39;x00xa0&#39;&#34;。（其实这是用在处理文本上的） 不知道各位大大有没有明白我的意思，我花了很长时间没有一个好的解决方案。 第一种方案，先用int()转换，然后转换hex()，直接失败，hex()转换后格式为&#39;0x00a0&#39;，是字符串格式，根本不是我需要的内容。 我苦思冥想三天，终于找到一个最傻，也最好用的方法，用list进行匹配。 下面是生成匹配list的脚本： lst = &#39;{&#39; for i in range(int(&#39;0x00&#39;, 16), int(&#39;0xff&#39;, 16) + 1): hv ..." />
 
 
@@ -85,8 +85,6 @@ Log4D            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="http://blog.log4d.com/tag/python/">Python</a>
-        /
-	<a href="http://blog.log4d.com/tag//"></a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>

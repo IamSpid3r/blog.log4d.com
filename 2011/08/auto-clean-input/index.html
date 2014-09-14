@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2011/08/auto-clean-input/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="WebFront," />
+        <meta name="keywords" content="WebFront" />
         <meta name="description" content="早期的输入框提示是这样的（via baidu） 左边一个 label ，右边一个输入框。 比较现代的方式是（via Discuz!） 更漂亮的方式是（via 点点） 登录提示信息是放在输入框里面，可以减少文字干扰，我也想在自己手头的小项目中实现这种效果。 我需要达到几个要求： 提示信息是可以暂存的，即用户的输入在清空之后，还能够显示原来的提示信息 只需为 text / textarea 添加一个 class 即可实现效果 不修改 DOM 节点，避免影响上下文选择器 为了实现效果，我需要将提示信息暂存到某个地方。有3个地方可供选择： js 全局变量、输入框自定义属性、上下文 DOM 节点。 js 全局变量比较难控制元素标识，并不是每个元素都可以精准的用 id 标记；输入框自定义属性会破坏语义；在上下文加入节点会破坏 DOM 树。 权衡之后，我选择了使用 输入框自定义属性实现 ..." />
 
 
@@ -85,8 +85,6 @@ Log4D            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="http://blog.log4d.com/tag/webfront/">WebFront</a>
-        /
-	<a href="http://blog.log4d.com/tag//"></a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>

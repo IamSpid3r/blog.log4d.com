@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2009/05/station-restoration-of-mind/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="建站心得," />
+        <meta name="keywords" content="建站心得" />
         <meta name="description" content="由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据， 重建博客。 首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。 1.重新创建原始的WordPress，并把原来的一些插件和主题重新安装好。重新创建的数据库名称可能与原来的数据库名称有出入，就需要修改导出的sql文件。 2.比如我原始的数据库名称是alswl_wp，现在创建的数据库是dddspace_wp（记住哦，是全称，不是自己填的部分）。找到sql文件 ` -- -- 数据库: alswl_wp CREATE DATABASE alswl_wp DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; USE alswl_wp;` 只保留 USE &#39;alswl_wp&#39;，并且修改为USE &#39;dddspace_wp&#39;，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。 如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作 3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ..." />
 
 
@@ -85,8 +85,6 @@ Log4D            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="http://blog.log4d.com/tag/jian-zhan-xin-de/">建站心得</a>
-        /
-	<a href="http://blog.log4d.com/tag//"></a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>

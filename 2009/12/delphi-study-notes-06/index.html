@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2009/12/delphi-study-notes-06/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="Delphi," />
+        <meta name="keywords" content="Delphi" />
         <meta name="description" content="我的博客所在的江西服务器需要服务器搬迁，所以这两天博客无法访问，看到404错误的童鞋们对不起拉… 几个概念：Owner/Parent/Sender/Self Owner/Parent的字面意义都有点拥有者的意思，一个Button的Owner和Parent很有可能都是Form，但实际上这两个概念是没有关系的。 Owner和Parent的区别：Parent对应组件的视觉容器而不是拥有者，比如一个RadioGroup是RadioButton的Parent；Ow ner对应组件的拥有者。尽管Parent和Owner很多时候都是同一个对象，但是还是需要严格区分的。 Sender代表的是触发事件的组件，有了Sender参数，能够使用多个组件配合使用。在代码中可以使用(Sender as TButton).Caption这种语句来转换TObject类型。 Self呢，相当于C++/Java中的this，指向当前对象，代表自身的意思。没有太多可讲的，我觉得如果要获取某个属性，前面加上Self.是个好习惯。 这几个关键字能够加深对面向对象的理解，在VCL编程中，也是必须掌握的。 VCL编程感观 VCL全程Visual Component ..." />
 
 
@@ -85,8 +85,6 @@ Log4D            </a>
 
 <span class="label label-default">Tags</span>
 	<a href="http://blog.log4d.com/tag/delphi/">Delphi</a>
-        /
-	<a href="http://blog.log4d.com/tag//"></a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
