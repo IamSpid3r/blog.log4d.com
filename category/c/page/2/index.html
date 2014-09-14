@@ -1,52 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="https://www.facebook.com/2008/fbml">
+<html lang="en"
+>
 <head>
-    <title>Log4D - C</title>
+    <title>C - Log4D</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph tags -->
 
-            <meta property="og:type" content="website"/>
-            <meta property="og:title" content="Log4D"/>
-            <meta property="og:url" content="http://blog.log4d.com"/>
-            <meta property="og:description" content="Log4D"/>
+
+
+    <meta name="author" content="alswl" />
+    <meta name="keywords" content="C" />
+
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="Log4D" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Log4D"/>
+        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:description" content="Log4D"/>
+
 
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
     <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://blog.log4d.com/theme/css/pygments.css" rel="stylesheet">
+
+    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
     <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
-    <!-- JavaScript plugins (requires jQuery) -->
-    <script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 
     <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
     <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-8822123-3']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container col-lg-8 col-lg-offset-2">
+
+<div class="navbar navbar-default" role="navigation">
+    <div class="container  col-lg-8 col-lg-offset-2">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -54,7 +44,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">Log4D</a>
+            <a href="http://blog.log4d.com/" class="navbar-brand">
+Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -63,20 +54,19 @@
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="icon-th-list"></i>Archives</a></li>
+                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
-</nav>
-<!-- /.navbar -->
+</div> <!-- /.navbar -->
+
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
+
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2009/03/using-openssl-to-generate-certificates/">用OpenSSL生成证书</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2009/03/using-openssl-to-generate-certificates/">用OpenSSL生成证书</a></h2>
                 <div class="summary"><p>这些命令虽然是linux下面的，但是在windows下面也能用</p>
 <p>我遇到I am unable to access the ./demoCA/newcerts directory ./demoCA/newcerts: No
 such file or directory 然后找到这篇文章，只要用生成相应的目录就可以了。</p>
@@ -84,16 +74,12 @@ such file or directory 然后找到这篇文章，只要用生成相应的目录
 (http://kbase.redhat.com/faq/docs/DOC-3624)这篇文章。</p>
 <p>我将原来index.txt里面的内容剪切出，然后重新签证，再把剪切出的内容粘贴到后来生成文件之前，就解决了那个问题。</p>
 <p>下面是网上的资料：OpenSSL相关命令<a href="http://hi.baidu.com/kobetec/blog/item/706fc0440ff3b44a510ffe0b.html">hi.baidu.com/kobetec ...</a></p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/using-openssl-to-generate-certificates/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/using-openssl-to-generate-certificates/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2009/03/early-contact-with-openssl/">OpenSSL初接触</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2009/03/early-contact-with-openssl/">OpenSSL初接触</a></h2>
                 <div class="summary"><p>Boss昨个儿说，这两天把SSL上面的相关东西给他去看一下</p>
 <p>苦命啊，最近都在做Ajax，SSL几乎没有什么动静。唉，今天中午没吃饭，没睡觉，就开始做SSL</p>
 <p>耗费了很多时间，才正确的编译完OpenSSL</p>
@@ -106,16 +92,12 @@ such file or directory 然后找到这篇文章，只要用生成相应的目录
 <p><a href="http://www.ibm.com/developerworks/cn/linux/l-openssl.html">使用OpenSSL API
 进行安全编程</a></p>
 <p><a href="http://www.cnblogs.com/sleepingwit/archive/2008/11/03 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/early-contact-with-openssl/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/early-contact-with-openssl/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/">MFC将退出历史舞台，微软的下一代用户界面技术WPF</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/">MFC将退出历史舞台，微软的下一代用户界面技术WPF</a></h2>
                 <div class="summary"><p>转来的，最近对MFC很关注...</p>
 <p>WPF简介</p>
 <p>WPF的全称是WindowsPresentationFoundation，是微软新发布的Vista操作系统的三大核心开发库之一，其主要负责的是图形显示，
@@ -131,31 +113,23 @@ ation(WPF)。在此之前，它已经完成了从演示软件到开始阶段alph
 <p>首先，它清晰而又有效的将用户界面和程序实现分开。它使得设计可视化的用户界面的设计者和编写内部核心代码的开发人员可以并行工作。这是非常重要的：</p>
 <p>•将两者分开，软件开发公司可以使得设计者们集中精力将设计工作做得更好，同时让开发者支持他们。</p>
 <p>•随着软件外包和订购的逐渐风行，WPF使得一些商业的设计者们能够更好的从事界面设计工作，并集成一些简单的功能 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/10/mfc/">MFC</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/10/mfc/">MFC</a></h2>
                 <div class="summary"><p>刚开始似乎不太对MFC敏感，觉得现在导出讨论Java和.Net，很少看到MFC的身影，唔，当然了，是在我这只菜鸟看来</p>
 <p>后来慢慢写在WinAPI上的程序，都是在命令提示符里面完成代码，界面很不友好，这才翻出MFC的书看。觉得写起来不太容易，逻辑和实现有点差距，就放下了几天。</p>
 <p>这几天网络编程想写人性化一点的VC界面，还是得使用MFC。</p>
 <p>我到今天才稍微弄清楚MFC和WinAPI窗体之间的关系，一方面开始感慨微软的MFC类库的强大...</p>
 <p>嗯，继续fighting...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/">网络编程学习日记(3)_利用WinPcap实现ARP的发送和接受</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/">网络编程学习日记(3)_利用WinPcap实现ARP的发送和接受</a></h2>
                 <div class="summary"><p>网络编程学习日记(2)_利用WinPcap实现ARP的发送和接受</p>
 <p>网络编程学完以太网帧的结构，就开始正式进入IP层的学习了，在学习编程之前，对网络协议的有一定的了解，而且还要知道每个数据包，或者是报文，或者是帧他们每个字节
 的含义</p>
@@ -172,16 +146,12 @@ ation(WPF)。在此之前，它已经完成了从演示软件到开始阶段alph
 PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混杂模式</p>
 <p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;
 1000,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 读取超时时间 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/09/arp/">ARP</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/09/arp/">ARP</a></h2>
                 <div class="summary"><p>挺累的，连续两天忙到3点睡觉，早上9点起来继续做</p>
 <p>开始挺没状态，但后来写着写着状态来了，一个一个新的想法也加入了。代码就变得丰富多彩起来。</p>
 <p>这是网络编程，也就是我的专业方向课的第一份作业，我特别看中这次，当初分方向时候，鑫爷和大妈都去了软件，我留在网络了。似乎都觉得网络好学，简单，不要写程序</p>
@@ -194,16 +164,12 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
 <p>唔…睡觉了…</p>
 <p>手机打字还是挺累的…</p>
 <p>待会儿放上详细流程</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/arp/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/arp/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">网络编程学习日记(2)_WinPcap自带教程的一些例子的学习</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">网络编程学习日记(2)_WinPcap自带教程的一些例子的学习</a></h2>
                 <div class="summary"><p>1.编译时候会出现函数问题</p>
 <p>'pcap_findalldevs_ex' : undeclared identifier</p>
 <p>'PCAP_SRC_IF_STRING' : undeclared identifier</p>
@@ -221,16 +187,12 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
 <p>Cpp3.obj : error LNK2001: unresolved external symbol
 <a href="mailto:__imp__ntohs@4">__imp__ntohs@4</a></p>
 <p>Debug/Cpp3 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
             <article class="article-list">
-                <div class="title">
-                  <h2 class="text-center"><a href="http://blog.log4d.com/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/">网络编程学习日记(1)_WinPcap和VC的配置</a></h2>
-                </div>
+                <h2 class="title"><a href="http://blog.log4d.com/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/">网络编程学习日记(1)_WinPcap和VC的配置</a></h2>
                 <div class="summary"><p>下学期有网络变成，用的是《计算机网络高级软件编程技术》，研究生教材，感觉书写的很泛泛，毕竟是给研究生用的书籍，很多基础的细节都没有写清楚，搞不懂学校怎么弄这
 种书，叹一个。</p>
 <p>直接导致了我很多东西都得一点一点去网上查找。</p>
@@ -241,229 +203,250 @@ rg/install/default.htm">http://www.winpcap.org/install/default.htm</a></p>
 <p>下来之后，安装到某个目录，然后配置VC，把那个目录的include和lib两个目录放到VC的选项-&gt;目录里面。</p>
 <p>WinPcap目录下有doc文档，里面的东西相当全面。我运行了两个，都不能直接运行。</p>
 <p>第一个简单程序是获取网卡适配器信息，里面一个函数pcap_findalldevs_ex找不到，网上资料说是因为这个函数属于远程网卡获取 ...</p>
-                    <p class="text-right">
-                      <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                    </p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
 
-	<ul class="pagination">
-			<li class="prev"><a href="http://blog.log4d.com/category/c/">&laquo;</a>
-			</li>
-			<li class="next disabled"><a href="#">&laquo;</a></li>
-	</ul>
+        <ul class="pagination">
+                <li class="prev"><a href="http://blog.log4d.com/category/c/">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="http://blog.log4d.com/">1</a></li>
+                    <li class="active"><a
+                            href="http://blog.log4d.com/page/2/">2</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
-    </div>
-    <div class="row">
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
+
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Social</h4></li>
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i
-                        class=" icon-rss-sign icon-large"></i>RSS
-                    </a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i
-                        class=" icon-twitter-sign icon-large"></i>Twitter
-                    </a></li>
-                    <li class="list-group-item"><a href="https://github.com/alswl"><i
-                        class=" icon-github-sign icon-large"></i>Github
-                    </a></li>
-                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i
-                        class=" icon-weibo  icon-weibo-sign icon-large"></i>Weibo
-                    </a></li>
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                    <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
+                  </ul>
+                </li>
+
+
+
+
         </ul>
     </section>
+
 </aside>        </div>
-        <div class="col-lg-3" id="sidebar">
+    <div class="col-lg-3" id="sidebar">
 <aside>
     <section>
         <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                    <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/c/">
+                                <i class="fa fa-folder-open fa-lg"></i> C
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/cheng-xu-ren-sheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> 程序人生
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/delphibian-cheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> Delphi编程
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/dotnet/">
+                                <i class="fa fa-folder-open fa-lg"></i> dotNet
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/flashbian-cheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> Flash编程
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/gan-wu/">
+                                <i class="fa fa-folder-open fa-lg"></i> 感悟
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
+                                <i class="fa fa-folder-open fa-lg"></i> 工欲善其事必先利其器
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/guan-zhu-hu-lian-wang/">
+                                <i class="fa fa-folder-open fa-lg"></i> 关注互联网
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/java/">
+                                <i class="fa fa-folder-open fa-lg"></i> Java
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
+                                <i class="fa fa-folder-open fa-lg"></i> 技术达人
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/jian-zhan/">
+                                <i class="fa fa-folder-open fa-lg"></i> 建站
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/jian-zhan-xin-de/">
+                                <i class="fa fa-folder-open fa-lg"></i> 建站心得
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/linuxer/">
+                                <i class="fa fa-folder-open fa-lg"></i> Linuxer
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/mei-shi-peng-ren/">
+                                <i class="fa fa-folder-open fa-lg"></i> 美食|烹饪
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/microsoft-net/">
+                                <i class="fa fa-folder-open fa-lg"></i> Microsoft .Net
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/net-zong-he-ji-zhu/">
+                                <i class="fa fa-folder-open fa-lg"></i> .Net, 综合技术
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/phpbian-cheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> PHP编程
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/pythonbian-cheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> Python编程
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/qian-duan/">
+                                <i class="fa fa-folder-open fa-lg"></i> 前端
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/qing-chun-de-cai-hong/">
+                                <i class="fa fa-folder-open fa-lg"></i> 青春的彩虹
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ri-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 日记
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
+                                <i class="fa fa-folder-open fa-lg"></i> 软件开发和项目管理
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ruby-bian-cheng/">
+                                <i class="fa fa-folder-open fa-lg"></i> Ruby 编程
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
+                                <i class="fa fa-folder-open fa-lg"></i> 视觉设计
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/sui-sui-nian/">
+                                <i class="fa fa-folder-open fa-lg"></i> 碎碎念
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/webqian-duan/">
+                                <i class="fa fa-folder-open fa-lg"></i> Web前端
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/wu-hua-ba-men/">
+                                <i class="fa fa-folder-open fa-lg"></i> 五花八门
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/xiang-mu-guan-li/">
+                                <i class="fa fa-folder-open fa-lg"></i> 项目管理
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/xing-neng/">
+                                <i class="fa fa-folder-open fa-lg"></i> 性能
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
+                                <i class="fa fa-folder-open fa-lg"></i> 学海无涯
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/yi-dong-shou-chi/">
+                                <i class="fa fa-folder-open fa-lg"></i> 移动手持
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/ying-jian/">
+                                <i class="fa fa-folder-open fa-lg"></i> 硬件
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/yu-le/">
+                                <i class="fa fa-folder-open fa-lg"></i> 娱乐
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category/zong-he-ji-zhu/">
+                                <i class="fa fa-folder-open fa-lg"></i> 综合技术
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                <li class="list-group-item"><h4><i class="icon-home icon-large"></i>Categories</h4></li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/c/">
-                            <i class="icon-folder-open icon-large"></i>C
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/cheng-xu-ren-sheng/">
-                            <i class="icon-folder-open icon-large"></i>程序人生
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/delphibian-cheng/">
-                            <i class="icon-folder-open icon-large"></i>Delphi编程
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/dotnet/">
-                            <i class="icon-folder-open icon-large"></i>dotNet
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/flashbian-cheng/">
-                            <i class="icon-folder-open icon-large"></i>Flash编程
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/gan-wu/">
-                            <i class="icon-folder-open icon-large"></i>感悟
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/gong-yu-shan-qi-shi-bi-xian-li-qi-qi/">
-                            <i class="icon-folder-open icon-large"></i>工欲善其事必先利其器
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/guan-zhu-hu-lian-wang/">
-                            <i class="icon-folder-open icon-large"></i>关注互联网
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/java/">
-                            <i class="icon-folder-open icon-large"></i>Java
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/ji-zhu-da-ren/">
-                            <i class="icon-folder-open icon-large"></i>技术达人
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/jian-zhan/">
-                            <i class="icon-folder-open icon-large"></i>建站
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/jian-zhan-xin-de/">
-                            <i class="icon-folder-open icon-large"></i>建站心得
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/linuxer/">
-                            <i class="icon-folder-open icon-large"></i>Linuxer
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/mei-shi-peng-ren/">
-                            <i class="icon-folder-open icon-large"></i>美食|烹饪
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/microsoft-net/">
-                            <i class="icon-folder-open icon-large"></i>Microsoft .Net
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/net-zong-he-ji-zhu/">
-                            <i class="icon-folder-open icon-large"></i>.Net, 综合技术
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/phpbian-cheng/">
-                            <i class="icon-folder-open icon-large"></i>PHP编程
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/pythonbian-cheng/">
-                            <i class="icon-folder-open icon-large"></i>Python编程
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/qian-duan/">
-                            <i class="icon-folder-open icon-large"></i>前端
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/qing-chun-de-cai-hong/">
-                            <i class="icon-folder-open icon-large"></i>青春的彩虹
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/ri-ji/">
-                            <i class="icon-folder-open icon-large"></i>日记
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/ruan-jian-kai-fa-he-xiang-mu-guan-li/">
-                            <i class="icon-folder-open icon-large"></i>软件开发和项目管理
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/ruby-bian-cheng/">
-                            <i class="icon-folder-open icon-large"></i>Ruby 编程
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/shi-jue-she-ji/">
-                            <i class="icon-folder-open icon-large"></i>视觉设计
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/sui-sui-nian/">
-                            <i class="icon-folder-open icon-large"></i>碎碎念
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/webqian-duan/">
-                            <i class="icon-folder-open icon-large"></i>Web前端
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/wu-hua-ba-men/">
-                            <i class="icon-folder-open icon-large"></i>五花八门
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/xiang-mu-guan-li/">
-                            <i class="icon-folder-open icon-large"></i>项目管理
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/xing-neng/">
-                            <i class="icon-folder-open icon-large"></i>性能
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/xue-hai-wu-ya/">
-                            <i class="icon-folder-open icon-large"></i>学海无涯
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/yi-dong-shou-chi/">
-                            <i class="icon-folder-open icon-large"></i>移动手持
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/ying-jian/">
-                            <i class="icon-folder-open icon-large"></i>硬件
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/yu-le/">
-                            <i class="icon-folder-open icon-large"></i>娱乐
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://blog.log4d.com/category/zong-he-ji-zhu/">
-                            <i class="icon-folder-open icon-large"></i>综合技术
-                        </a>
-                    </li>
 
         </ul>
     </section>
-</aside>        </div>
+
+</aside>    </div>
     </div>
 </div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 alswl
+            &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
@@ -477,5 +460,23 @@ rg/install/default.htm">http://www.winpcap.org/install/default.htm</a></p>
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
     </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8822123-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
 </body>
 </html>
