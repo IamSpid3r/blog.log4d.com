@@ -66,6 +66,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/06/wordpress-static-pages-of/">WordPress页面静态化</a></h2>
+                <div class="summary"><p>其实以前也使用了静态化，但是只是显示文章别名为数字的固定链接，这个对搜索引擎不太友好，也不是很容易识别。</p>
+<p>今天我安装了一个插件wp-slug-
+translate，是偶爱偶家出品的&lt;<a href="http://blog.2i2j.com/">猛击这里打开</a>&gt;，感觉这位大大出了好几个很有用的插件，很是实用。</p>
+<p>这个插件的作用是会自动把文章名转换为英文表示的名称，是通过Google翻译来做的，基本还是没有什么出入的，当然，也可以自己手动修改文章名。</p>
+<p>我重新修改了一下固定链接的表示，修改成/%year%/%monthnum%/%day%/%postname%.html，这样看上去就像是伪静态了，例如本文的
+地址为http://log4d.com/2009/06/22/wordpress-static-pages-of.html</p>
+<p>这个插件一个缺点是不能修改已经存在的文章，那么如果要全部修改的话，只能自己手动修改，我用Google翻译一个一个修改，大约花了5分钟时间。如果自己的文章被别
+人引用的比较多，那么建议不要修改以前的地址，否则会产生很多无效链接的。</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/wordpress-static-pages-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/06/not-only-on-the-internet-solution-qq/">不能上网只能上QQ的解决办法</a></h2>
                 <div class="summary"><p>矿大的DNS服务器，每个星期都要来这么几下崩溃。典型症状是不能上网，只能上QQ，就是因为无法将域名解析为ip地址。</p>
 <p>如果网络中心老师反映的快，就会换一个DNS服务器，但如果没有采取及时措施，只能自己修改DNS服务器了。</p>
@@ -201,26 +215,6 @@ Get/Post ...</p>
 <p>至于一年后是否继续收费，金惠公司总经理张晨民接受采访时称：「目前还不清楚，需要等待相关部门进一步的意向。」</p>
 <p>另外，也有网友担心 ...</p>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/recommend-a-good-software-green-dam-young-escort-so-called-av-terminator-to-promote-the-installation-of-the-department-of-public-works-letter/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/06/xom-class-library-to-use-java-objects-serialization/">使用XOM类库对Java对象进行序列化</a></h2>
-                <div class="summary"><p>校内工具需要保存用户名和帐号，我就想把帐号信息作为一个XiaoneiUser类，然后对其进行对象持久化。
-Google下的方法有好几种方法进行持久化，JDOM， DOM4J,
-SAX等。我看了之后，感觉都比较麻烦，我个人比较喜欢使用jdk自带的工具，但是查阅jdk api之后，感觉使用javax.xml.*下工具开发更加困难。
-我仅仅是需要对一个简单的对象进行持久化来保存数据，并不需要太多太复杂的功能。最后我决定使用《Thinking in Java》推荐的开源类库：XOM
-<a href="http://www.xom.nu">猛击这里打开www.xom.nu</a> 友情提示一下，网站可以打开，但是下载的连接貌似被墙了，至少我教育网连不上去。推荐
-一个在线代理服务器古狗在线代理（<a href="http://www.ggproxy.com/">猛击这里打开</a>），通过它就可以下载类库了。
-使用类库非常简单，我这里提供个小例子。XiaoneiUser类</p>
-<div class="highlight"><pre><span class="n">package</span> <span class="n">cn</span><span class="p">.</span><span class="n">dddspace</span><span class="p">.</span><span class="n">xiaonei</span><span class="p">.</span><span class="n">bean</span><span class="p">;</span>
-</pre></div>
-
-
-<p>import java.io.OutputStream;</p>
-<p>import nu.xom.*;</p>
-<p>public ...</p>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/xom-class-library-to-use-java-objects-serialization/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
@@ -400,7 +394,7 @@ SAX等。我看了之后，感觉都比较麻烦，我个人比较喜欢使用jd
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

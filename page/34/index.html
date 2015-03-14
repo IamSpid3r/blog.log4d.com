@@ -66,6 +66,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/06/xom-class-library-to-use-java-objects-serialization/">使用XOM类库对Java对象进行序列化</a></h2>
+                <div class="summary"><p>校内工具需要保存用户名和帐号，我就想把帐号信息作为一个XiaoneiUser类，然后对其进行对象持久化。
+Google下的方法有好几种方法进行持久化，JDOM， DOM4J,
+SAX等。我看了之后，感觉都比较麻烦，我个人比较喜欢使用jdk自带的工具，但是查阅jdk api之后，感觉使用javax.xml.*下工具开发更加困难。
+我仅仅是需要对一个简单的对象进行持久化来保存数据，并不需要太多太复杂的功能。最后我决定使用《Thinking in Java》推荐的开源类库：XOM
+<a href="http://www.xom.nu">猛击这里打开www.xom.nu</a> 友情提示一下，网站可以打开，但是下载的连接貌似被墙了，至少我教育网连不上去。推荐
+一个在线代理服务器古狗在线代理（<a href="http://www.ggproxy.com/">猛击这里打开</a>），通过它就可以下载类库了。
+使用类库非常简单，我这里提供个小例子。XiaoneiUser类</p>
+<div class="highlight"><pre><span class="n">package</span> <span class="n">cn</span><span class="p">.</span><span class="n">dddspace</span><span class="p">.</span><span class="n">xiaonei</span><span class="p">.</span><span class="n">bean</span><span class="p">;</span>
+</pre></div>
+
+
+<p>import java.io.OutputStream;</p>
+<p>import nu.xom.*;</p>
+<p>public ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/xom-class-library-to-use-java-objects-serialization/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/06/java-net-operation-session-get-post-method/">java.net.*操作session/GET/POST方法</a></h2>
                 <div class="summary"><p>终于又考完一门试，开始做课程设计了，结果课程设计给工作室一个尾气3个月的项目，而这次的先用我写的贴吧放上去，我变得暂时空闲了，开始着手写校内开心农场小工具-
 全能拖拉机。 首先要解决的就是校内登录的问题，那就是Get/Post方法了，还有用户状态保存，就是session的操作。Java不同于C#，那位可以集成系统
@@ -193,29 +213,6 @@ Release i386 (20081029.5)]/ intrepid main restricted</p>
 <p><a href="http://upload-log4d.qiniudn.com/2009/05/mp3lrc.rar">猛击这里下载Mp3Lrc.rar</a></p>
 <p>这个程序是自己用的，可能存在Bug，由于会操作文件，请在使用前备份重要资料（虽然根本没有删除命令，只有复制命令）</p>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/the-executable-file-mp3lrc/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/05/lyrics-written-in-java-replicator-mp3/">Java写的Mp3歌词复制器</a></h2>
-                <div class="summary"><p>大家可能会遇到这样的情况，Mp3里有很多歌，电脑上也有很多相同的歌，但是有歌词。把歌词同步到Mp3播放器非常麻烦，我以前用千千静听导入目录，然后逐个播放，或
-者用一个软件从网上搜索到Mp3播放器。 千千静听或者其他播放器都会有一个选项是设置歌词存储位置的，一般来说，我们听过的歌都是会自动下载歌词到这个文件夹，其实
-我们完全可以不必大费周折去找lrc，只要把这个歌词文件夹和Mp3播放器同步就可以了。
-以前就想写一个东西完成这个麻烦的工程，现在贴吧1.0完成了，可以休息几天，晚上花了一点时间用Java写了一个这样的小东西。
-如果大家碰到和我一样的麻烦，可以试试。呃，时间仓促，没有图形界面，而且必须是Java程序员才能用，因为我这儿只提供了源码....</p>
-<div class="highlight"><pre><span class="n">package</span> <span class="n">ddd</span><span class="p">;</span>
-</pre></div>
-
-
-<p>import java.io.BufferedReader;</p>
-<p>import java.io.File;</p>
-<p>import java.io.IOException;</p>
-<p>import java.io.InputStreamReader;</p>
-<p>public class App {</p>
-<p>/**</p>
-<ul>
-<li>@author alswl ...</li></ul>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/lyrics-written-in-java-replicator-mp3/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
@@ -395,7 +392,7 @@ Release i386 (20081029.5)]/ intrepid main restricted</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
