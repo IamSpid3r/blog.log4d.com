@@ -66,6 +66,19 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
+                <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
+<p>找了好几个方法都没有奏效。</p>
+<p>游客登录情况下的Session还存在一点问题，原因是session类型转换上的问题，今天还没有好好的研究一下。</p>
+<p>至此为止，登录注册写完了，静态校验写了一个毛胚，今天写完的现实帖子的列表，表现层用OGNL完成的，终于脱离开代码混杂的页面。</p>
+<p>解决了一个tx.commit的错误，原来是《开发者突击》书上的代码有问题，我参考了Hibernate的官方文档，终于发现了错误的原因，tx.rollback
+()应该在catch里面而不是final里面。</p>
+<p>写着写着就感觉自己太多的不足，太多要学习的地方，加油！</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/post-bar-progress-09-05-07/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/05/moving-to-the-yo2/">搬家到Yo2了</a></h2>
                 <div class="summary"><p>今天终于下定决心，把百度里面所有内容转移阵地到yo2了。</p>
 <p>以前百度空间清理过一次，大约删了将近2年的日志，现在也不知道怎么恢复，以后用空再弄吧。</p>
@@ -197,25 +210,6 @@ com/xuyuan77/articles/1206418.html">http://www.cnblogs.com/xuyuan77/articles/120
 <p>下面详细介绍一下！</p>
 <p>Select的函数格式(我所说的是Unix系统下的伯克利socket编程 ...</p>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/socket-programming-on-the-select/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/03/introduction-to-openssl-programming/">OpenSSL 编程入门【转载-这篇很精】</a></h2>
-                <div class="summary"><p><strong>OpenSSL </strong><strong>编程入门</strong></p>
-<p>作者:Eric Rescorla on Sat, 2001-09-01 01:0</p>
-<p>如果你急切的想构建一个简单的Web客户端和服务器对,这时你就需要使用SSL了..</p>
-<p>SSL是一种保护基于TCP协议的网络应用最快而且最简单的的方法,如果你正在用C语言做开发,那么对于你来说,最好的选择可能就是使用OpenSSL了.
-OpenSSL是在Eric Young的SSLeay包的基础上对TSL/SSL的一个免费的执行(类似于BSD方式的License).然而, 不幸运的事情是,
-伴随OpenSSL一起发布的文档和示例代码并不是很完全, 使用它的人需要更多的东西.在OpenSSL被使用之处,
-man手册都相当优秀,可是这些手册失去了大的背景 因为它们只是参考资料而不是教程.</p>
-<p>OpenSSL的API多而复杂, 因此我们在此并不会作出一个完整的讲述. 相反,我的目的只是教会你如何去高效的使用man手册.在本文中,
-我们将会通过构建一个简单的Web客户端和服务器来演示OpenSSL的基本特点. 而在后续的第二篇中我们将会介绍OpenSSL的一些高级特性,
-比如会话恢复和客户端认证等.</p>
-<p>在话题开始之前, 我会认为你已经熟悉SSL和HTTP了, 或者最起码在概念层上应该有一些了解. 如果你对此一无所知,
-推荐一个比较好的方法,那就是参考RFC(参见附录).</p>
-<p>由于篇幅原因, 本文只包涵了源代码的一些摘录, 完整的代码可以从作者的站点<a href="http://www.rtfm.com/openssl-examples/">http://www.rtfm.com ...</a></p>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/introduction-to-openssl-programming/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>

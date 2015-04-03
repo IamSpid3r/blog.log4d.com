@@ -66,6 +66,24 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/03/svn-server-setup/">配置SVN服务端</a></h2>
+                <div class="summary"><p>实在忍受不了VSS了，下决心自己在虚拟机配置一个SVN服务器，然后再在服务器上安装一个SVN服务器端。以前都是使用现成的SVN服务器，或者使用Google
+Code提供的Project Host，今天就自己动手，丰衣足食吧。</p>
+<p>话说VSS的确过时了，好多特性很麻烦，也难怪Louis嘲笑我Eclipse用VSS了～</p>
+<h2>什么是SVN服务器</h2>
+<p>&amp;nbsp_place_holder;<strong>Subversion</strong>，简称<strong>SVN</strong>，是一个开放源代码的版本控制系统（SCM），相对于的RCS、CVS，采
+用了分支管理系统，它的设计目标就是取代CVS。互联网上越来越多的控制服务从CVS转移到Subversion。（via
+<a href="http://zh.wikipedia.org/zh-cn/Subversion">wiki</a>）</p>
+<p>关于SVN / VSS / CVS等源代码管理系统已经有很多比较的文章了，我这里推荐几篇</p>
+<p><a href="http://better-
+scm.berlios.de/comparison/comparison.html">Better SCM Initiative : Comparison</a>
+这篇是老外写的一篇各种SCM比较，内容相当翔实，可以作为论文参考资料了都</p>
+<p><a href="http://www.cnblogs.com/yansc/archive/2008/09/27/1300954.html">SVN对比VSS,不知这样够了没 ...</a></p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/03/svn-server-setup/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/03/dwr2-0-jdk1-4-configuration/">DWR2.0在JDK1.4下的配置</a></h2>
                 <div class="summary"><p>服务器的WebLogic版本是8.1，使用自带的JDK1.4</p>
 <p>MyEclipse版本是6.6，项目文件的<strong>Compiler compliance level</strong>设置为1.4</p>
@@ -222,30 +240,6 @@ reFox下需要正常运行。</p>
 <p><strong>样章阅读</strong>：<a href="http://images.china-pub.com/ebook195001-200000/195292/ch01.pdf">第一章. 精华</a> <a href="http://images.china-pub.com/ebook195001-200000/195292/ch10.pdf">第十章. 优美的特性</a></p>
 <p>以下文章没有URL出处，作者 ...</p>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/development-of-cross-browser-javascript-should-pay-attention-to-the-problem/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
-                <div class="summary"><p>这文是上个月开始写的，本来想深入的分析一下零宽断言，可惜工作一直忙，现在又要去转战<strong>DWR</strong>...OMG~~</p>
-<h2>起因</h2>
-<p>将要上线的系统中有一个字符规则："13位的字符串，其中有8位连续数字"，需要用这则表达式对这个字符串进行判断。而我之前对正则的认识仅仅停留在匹配固定的字符上
-，对这个问题一筹莫展。</p>
-<p>这时候热心的小邪出现了，我在他的博客 <a href="http://www.evlos.org">邪罗刹的菠萝阁</a>
-留下这个<a href="http://www.evlos.org/2010/01/05/use-regex-to-clear-the-mix-of-tag-
-img/#comment-5968">问题</a></p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/01/alswl_ask.jpg" /></p>
-<p>小邪很热心的撰写了一篇文章给出回答：<a href="http://www.evlos.org/2010/01/07/a-cuptool-and-a-washtool"> 一个杯具和一个洗具与最近学习手记 :
-邪罗刹的菠萝阁</a>。</p>
-<h2>解答</h2>
-<p>核心字符串如下： '/^(?!(.<em>?d){9,})(?!(.</em>?D){6,}).{13}$/';</p>
-<p>小邪的文章给了很详细的解答，比我自己解释要好得多～我就索性copy过来，如下：</p>
-<blockquote>
-<blockquote>
-<p>小邪是这个样子解答的，首先两边的斜杠是 Perl 正则式的要求。</p>
-</blockquote>
-<p>然后两边的 ^ 和 ...</p></blockquote>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>

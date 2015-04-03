@@ -66,6 +66,24 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/">添加FireFox下的边框圆角</a></h2>
+                <div class="summary"><p>起因是换了DDDSpace.com 这个域名，需要测试邮件回复情况，我发现在在iGoogle的GMail小窗口显示着实有些难看，就修改了一下样式，添加了圆角
+、增加了<code>padding</code>值，唔，这个<strong>圆角不对IE系列有效果</strong>。</p>
+<p>增加圆角的部分如下：</p>
+<div class="highlight"><pre><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+<span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
+</pre></div>
+
+
+<p>修改之后的Mail To Commenter 模板如下</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid rgb(183, 183, 183); margin: 1em 40px; padding ...</span></pre></div>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/12/use-ssh-to-the-wordpress-directory-package/">使用SSH对WordPress目录进行打包</a></h2>
                 <div class="summary"><p>最近用上了小张的10号主机，cPanel界面，支持SSH连接，<strong>DDD的一亩三分地</strong>也换了log4d.com域名。我想趁着这个机会对整个系统进行改版，迎
 接2010年的到来。</p>
@@ -198,23 +216,6 @@ log4d.qiniudn.com/2009/12/yoyo.jpg"><img alt="" src="http://upload-log4d.qiniudn
 <p>我的三部手机的保修卡和光盘。从3230、1100再到现在的6120c，妄想购买G3中。</p>
 <p>&amp;nbsp_place_holder;<a href="http://upload- ...</p>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/reluctant-to-leave/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-06/">Delphi学习笔记06</a></h2>
-                <div class="summary"><p>我的博客所在的江西服务器需要服务器搬迁，所以这两天博客无法访问，看到404错误的童鞋们对不起拉…</p>
-<h2>几个概念：Owner/Parent/Sender/Self</h2>
-<p>Owner/Parent的字面意义都有点拥有者的意思，一个Button的Owner和Parent很有可能都是Form，但实际上这两个概念是没有关系的。</p>
-<p>Owner和Parent的区别：Parent对应组件的视觉容器而不是拥有者，比如一个<code>RadioGroup</code>是<code>RadioButton</code>的Parent；Ow
-ner对应组件的拥有者。尽管Parent和Owner很多时候都是同一个对象，但是还是需要严格区分的。</p>
-<p>Sender代表的是触发事件的组件，有了Sender参数，能够使用多个组件配合使用。在代码中可以使用<code>(Sender as
-TButton).Caption</code>这种语句来转换<code>TObject</code>类型。</p>
-<p>Self呢，相当于C++/Java中的<code>this</code>，指向当前对象，代表自身的意思。没有太多可讲的，我觉得如果要获取某个属性，前面加上Self.是个好习惯。</p>
-<p>这几个关键字能够加深对面向对象的理解，在VCL编程中，也是必须掌握的。</p>
-<h2>VCL编程感观</h2>
-<p>VCL全程Visual Component ...</p>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/delphi-study-notes-06/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>

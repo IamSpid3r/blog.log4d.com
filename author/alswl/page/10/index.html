@@ -66,6 +66,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
+                <div class="summary"><p>官方中pylons都是通过在shell中运行paster serve --reload
+development.ini来运行应用实例。而整天在任务栏跑着一个黑乎乎的shell很碍眼，通过一下步骤可以在Eclipse中运行pylons。</p>
+<p>配置Run Configuration - Python Run如下。</p>
+<p>Main页签中Main Module指向paster-script.py，可以使用绝对路径。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/05/eclipse-main.png" /></p>
+<p>配置Arguments页签的参数，添加serve --reload development.ini，后面的ini配置文件可以使用绝对路径。</p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/05/eclipse-arguments.png" /></p>
+<p>勾选Common下的Allocate Console来进行paster调试信息输出。</p>
+<p>在Windows - Preference - Pydev - Interpreter - Python中的PYTHONPATH加入pylons目标环境
+，报过site-packages目录和site-packages目录下面的egg文件（理解为jar包，称之为蟒蛇蛋）。</p>
+<p>不出意外的话，就可以通过Run跑起整个应用了。</p>
+<p>很可惜的是，这样做还是不能对应用进行Debug，pylons的debug依然依赖于pylons的"交互调试页面"。</p>
+<p>参考<a href="http://stackoverflow.com/questions/147650/debug-pylons-application-
+through-eclipse">http://stackoverflow.com ...</p>
+                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/05/run-pylons-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/04/erp-defectors/">ERP叛逃者</a></h2>
                 <div class="summary"><p>大四实习时候，跑去驻厂开发，当时主管跟我说"我们做的是企业信息化软件"。毕业之后找工作，进入一家国内还算有名的ERP公司，做ERPII产品（CRM/工作流/
 电子商务平台等ERP软件附属产品）的开发和二次开发。</p>
@@ -213,24 +233,6 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <blockquote>
 <p>Brooks 认为，附加性的困难会随着工具的改善而逐渐淡化，反而是本质性的困难最难以解决 ...</p></blockquote>
                     <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/02/no-silver-bullet/"><i class="icon-circle-arrow-right"></i>more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
-                <div class="summary"><p>在系统开发中，数据库连接字符串经常被保存到.config/.ini等配置文件中，以提高系统的灵活性。上大学时候，为了实现灵活配置数据库的效果，用拼字符串的方
-法来动态生成连接字符串，这种方法充满了Bad Smell。</p>
-<p>昨天用CodeSmith时候，看到它的数据连接配置界面，如此的眼熟，如下图。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/02/DataConnectionDialog.jpg" /></p>
-<p>Google了一下，原来这家伙的名字叫做DataConnectionDialog，所属命名空间为Microsoft.VisualStudio.Data。</p>
-<p>使用的方法也很简单，引用Microsoft.Data.ConnectionUI.dll和Microsoft.Data.ConnectionUI.Dialog
-.dll，这两个文件位于Microsoft Visual Studio 9.0Common7IDE下面。</p>
-<p>这两个dll并没有其他依赖关系，可以放心的放到自己的程序中使用。</p>
-<p>使用代码如下</p>
-<div class="highlight"><pre><span class="n">DataConnectionDialog</span> <span class="n">dataConnectionDialog</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DataConnectionDialog</span><span class="p">();</span>
-<span class="n">DataSource</span><span class="p">.</span><span class="n">AddStandardDataSources</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
-                    <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
                 </div>
             </article>
             <hr/>
