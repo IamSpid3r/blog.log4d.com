@@ -105,17 +105,18 @@ a, a:hover {
     color: inherit;
 }
 
-.entry-content a {
+.entry-content a, .article-list .summary a {
+	color: #2A6496;
     text-decoration: none;
     border-bottom: 1px dotted;
 }
 
-.entry-content a:hover {
+.entry-content a:hover, article-list .summary a:hover {
     text-decoration: none;
     border-bottom: 1px solid;
 }
 
-.entry-content img {
+.entry-content img, article-list .summary img {
     max-width: 100%;
     height: auto;
 }
