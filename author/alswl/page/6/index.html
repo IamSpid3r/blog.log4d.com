@@ -66,6 +66,41 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/02/the-write-the-plugins-for-moinmoin/">给MoinMoin写插件</a></h2>
+                <div class="summary"><h2>1. 使用 MoinMoin</h2>
+<p>前些日子，我写了一篇<a href="../2011/12/moinmoin-kms">使用MoinMoin作为个人KMS</a>
+大赞MoinMoin的各种好处。MoinMoin的其中一个好处是基于GPL的开源，
+我们可以方便的给MoinMoin撰写自己的插件（当然也可以去官方的wiki上获取大量现成插件）。</p>
+<ul>
+<li><a href="http://moinmo.in/MoinDev">MoinMoin开发者wiki地址</a></li>
+<li><a href="http://docs.moinmo.in/">MoinMoin开发API文档（这个官方wiki居然很少提及）</a></li>
+<li><a href="http://moinmo.in/MoinDev/Translation">MoinMoin的多国语翻译组wiki地址</a></li>
+</ul>
+<p>我在使用MoinMoin过程中，有一个急迫需要的功能：</p>
+<blockquote>
+<p>保存一篇网页时候，要将里面的图片保存到本地，而不是使用外链接方式保存， 因为由于各种不可预测的原因，原始图片数据很有可能丢失或者无法连接。</p>
+</blockquote>
+<p>这个功能对于将Wiki产品转化为KMS应用非常需要，可惜MoinMoin官方并没有提供，
+我也没在MoinMoin的开发者插件库中找到类似功能，就自己写了一个插件image2attach。</p>
+<ul>
+<li><a href="http://moinmo.in/MoinMoinExtensions">MoinMoin插件库</a></li>
+<li><a href="http://moinmo.in/ActionMarket/Image2Attach">image2attach在MoinMoin官方Wiki的地址</a></li>
+</ul>
+<p>现在我分享一下如何写MoinMoin插件，技术大牛可以直接移步官方开发文档， 我这里只是写一些简单的内容，帮助像我一样的同学。</p>
+<p>以下内容需要Python编程基础～</p>
+<h2>2. MoinMoin 系统结构</h2>
+<p>MoinMoin的UML图：</p>
+<p><img alt="MoinMoin" src="http://upload-log4d.qiniudn.com/2012/02/MoinMoinArchitecture.png" /></p>
+<h2>3. MoinMoin 常用对象</h2>
+<h3>3.1. request</h3>
+<p>这个request和普通jsp/asp中request很类似（实际上这个request就是继承
+<a href="http://werkzeug.pocoo.org/">werkzeug</a>的Request）。</p>
+<p>除了正常的web request功能，Moin的request还带了Wiki自身的信息 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/02/the-write-the-plugins-for-moinmoin/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/02/refactory/">再读《重构》</a></h2>
                 <div class="summary"><p>Martin Fowler 的《<a href="http://book.douban.com/subject/1229923/">重构-
 改善既有代码的设计</a>》这本书，是我大学老师推荐给我的。
@@ -283,22 +318,6 @@ a）。客服很快确认，Arch在目前VPS无法正常使用，坑爹阿。</p
 <p>我觉得这本书在学完第一门语言/数据结构/操作系统之后就可以开始阅读。 也就是学生在大三-大四阶段阅读，会对代码撰写规范和风格形成大有帮助。</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/11/the-productive-programmer/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/11/gource/">Gource-可视化你的代码历史</a></h2>
-                <div class="summary"><p>昨天我在<a href="http://sunng.info/blog/2011/10/clojalk-scm-visualization/">sunng</a>
-那里看到一个非常好玩的东西<a href="http://code.google.com/p/gource/">Gource</a>。</p>
-<p><img alt="gource" src="http://upload-log4d.qiniudn.com/2011/11/gource-logo.png" /></p>
-<p>Gource可以将代码版本控制系统里面的日志全部可视化， 所谓可视化就是可以看见每个成员在系统里面提交代码的行为。
-Gource目前支持git/hg/svn，cvs通过一个简单的脚本也可以被Gource支持。</p>
-<p>官方视频在这里<a href="http://www.youtu
-be.com/watch?v=E5xPMW5fg48&amp;feature=player_embedded">Gource - Software Version Control Visualization Tool</a>，里面有Moodle/Git/Drupal/Postg
-reSQL/Ruby on Rails/Linux/VLC Player这几个非常漂亮的开源软件视频。Ruby on Rails那一段特别帅有没有。</p>
-<p>使用下列命令可以将视频录制下来(via <a href="http://code.google.com/p/gource/wiki/Videos">wiki</a>)：</p>
-<div class="highlight"><pre><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">x264</span> <span class="err">#在 ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/11/gource/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

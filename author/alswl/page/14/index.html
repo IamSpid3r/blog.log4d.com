@@ -66,6 +66,22 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/07/xi-mi-lu-with-milk/">牛奶西米露</a></h2>
+                <div class="summary"><p>在下厨房看到一篇做西米露的文章，就想起在广东时候吃煲仔饭时候赠送的一碗西米露。于是乎晚上跑去苏果采购了一袋西米，由于买的时候以为西米露是用牛奶做的，误买了一
+罐牛奶。</p>
+<p>西米露煮法说难也不难，就是用小火煮煮，然后闷上十几分钟，然后继续煮，继续闷，直到中间的白色芯消失的差不多，就可以起锅用清水洗了。煮的时候记得多放点水，西米会
+吸水的。</p>
+<p>如果用来做甜品吃，记得买小西米，我买的时候还不知道有大小西米之分。买了大西米然后一煮，就膨胀了～</p>
+<p>西米不能用冷水洗，因为使用土豆等制作的二次食品，冷水一洗就化掉了～</p>
+<p>这是最好的成果，大西米的爽滑口感不如小西米，而且比小西米难煮，我至少重复闷了4次，牛奶的口感也不如椰汁。</p>
+<p><a href="http://upload-
+log4d.qiniudn.com/2010/07/ximilu.jpg"><img alt="" src="http://upload-log4d.qiniudn.com/2010/07/ximilu.jpg" /></a></p>
+<p>下次继续努力咯～</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/07/xi-mi-lu-with-milk/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/07/love-qiezishaorou/">最爱茄子烧肉</a></h2>
                 <div class="summary"><p>大学里面有一条小吃一条街，其中有一个店面叫"思味特"，取义"Sweet"，其中有一道名为茄子烧肉的盖浇饭特别好吃，今天，我就来试试茄子烧肉。</p>
 <p>在这里，首先感谢我娘亲周末到我这里来看我，帮我清理小狗窝，其次感谢国家，让我有感谢我娘亲的机会。</p>
@@ -224,45 +240,6 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 <p>唔～继续搞鼓Flex的流媒体传输了 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/fms-80-port-used/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
-                <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
-<p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
-和全局变量其实完全不是同一个概念）</p>
-<p>我使用的框架是CakePHP，查找资料后，找到了几种CakePHP中使用全局变量的方法。</p>
-<h3>一、使用bootstrap.php文件</h3>
-<p>在app/config 下面，有一个bootstrap文件，从名字就可以看出，这个是在控制器之前加载的文件，根据官方的描述，有下面几个用法。</p>
-<blockquote>
-<ul>
-<li>
-<p>定义方便的函数</p>
-</li>
-<li>
-<p>注册全局常量</p>
-</li>
-<li>
-<p>定义新增的控制器，视图，控制器路径</p>
-</li>
-</ul>
-</blockquote>
-<p>通过这个文件可以实现全局变量的声明。</p>
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isset</span> <span class="p">(</span><span class="err">$</span><span class="n">globalAAC</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">global</span> <span class="err">$</span><span class="n">globalAAC</span><span class="p">;</span>
-    <span class="err">$</span><span class="n">globalAAC</span> <span class="o">=</span> <span class="n">array</span> <span class="p">(</span>
-        <span class="err">&#39;</span><span class="n">currentMessageId</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-        <span class="err">&#39;</span><span class="n">onlineUsers</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="n">array</span><span class="p">()</span>
-    <span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>在其他文件中就可以调用这个全局变量了。</p>
-<h3>二、通过Configure 类</h3>
-<p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/cakephp-global-variables/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

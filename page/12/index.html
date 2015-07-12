@@ -66,6 +66,38 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/11/a-week-python/">一周Python小记</a></h2>
+                <div class="summary"><p>上个星期以来忙里偷闲一直在写一系列小型的代码生成器，完成一些从需求到结构化代码生成和验证作业。这个小东西是用Python写的，我简单分享一下中间所得。</p>
+<h2>一、配置文件</h2>
+<h3>1、YAML格式</h3>
+<p>数据库连接信息和作业相关信息是存放在数据库中的，配置文件形式可以有很多种选择：XML / ini / txt，我这里选择YAML作为存放。</p>
+<p>YAML使用起来相当方便，能够自动解析成对应语言中的变量，比如列表解析为列表，数字文字分别解析成对应的格式变量。</p>
+<p>之所以选择YAML，是看中它对语言的亲和性和可读性，GAE的配置文件就是YAML格式。YAML的语法相当简单，用:来分隔key: value，用 -
+来分隔列表，注意点是缩进需要用空格，关键符号和内容之间要加上一个空格。我的配置文件如下：</p>
+<div class="highlight"><pre><span class="n">taskId</span><span class="o">:</span> <span class="n">PQMI06</span>
+<span class="n">taskName</span><span class="o">:</span> <span class="err">测试建制作业</span>
+<span class="n">author</span><span class="o">:</span> <span class="n">alswl</span>
+<span class="n">confirmId</span><span class="o">:</span> <span class="mi">20101025</span><span class="n">xxx</span>
+</pre></div>
+
+
+<p>headFiles:</p>
+<ul>
+<li>head1.txt  </li>
+<li>head2.txt  </li>
+<li>
+<p>head3.txt<br />
+bodyFiles:</p>
+</li>
+<li>
+<p>body1.txt  </p>
+</li>
+<li>body2 ...</li></ul>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/11/a-week-python/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/10/python-clipboard/">Python读写剪贴板</a></h2>
                 <div class="summary"><p>最近在写一个CodeGenX代码生成器，说是生成器，其实是目前只完成一堆零散的脚本。这些脚本的调用方式一般是从某个txt中读取数据，再写到另外一个txt中。</p>
 <p>由于某些数据变动频繁，导致我操作txt次数大增，我怒了，就找了一个脚本自动读写剪贴板。</p>
@@ -235,27 +267,6 @@ KMS发出来，再为思维导图做一次小小的推广。</p>
 log4d.qiniudn.com/2010 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/mind-map/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/08/taishan/">泰山顶上挨过冻</a></h2>
-                <div class="summary"><p>这是我在整理KMS时候翻出来的一篇箱底文章，2007年10月3日写的，印象中当时发在QQ空间了。</p>
-<p>记忆一下子被打开，想起那些熟悉的面容，原来我们都毕业了。</p>
-<p>你们还好吗？</p>
-<p><strong><em>*</em></strong><strong>以下原文<strong><em>*</em></strong>*<br />
-</strong></p>
-<p>好不容易回来了，徐州，俺想死你了。</p>
-<p>虽然过了一天了，我还是没什么力气，也不想在文字上面浪费文章，弄几张图片show show。</p>
-<p>我们10.1早晨7点出发，3个小时后到达山东滕州，进入当地的一个旅游景点，貌似什么生态园，里面有温泉。服务相当不错，我们玩的很开心，中午提供自助餐，虽然没什
-么肉，但是看在它的价格上面，整体还是相当不错的。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/08/taishan01.jpg" /></p>
-<p>在温泉里留影，后面是个大的温泉游泳池，还有大大小小的各种温泉，感觉相当超值。价格是30/人</p>
-<p>接着我们到了孔子老家山东曲阜，景点是孔家和孔庙，但是门票要自己掏，我们没有进去，价格是120/人&amp;60/人，学生可以半价。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/08/taishan02.jpg" /></p>
-<p>孔子家是门口的招牌</p>
-<p>曲阜感觉是个比较小的城市，而且比较搞笑的是当地政府为了保持曲阜古香古色的味道，强制每家店铺必须要用深色褐色做招牌背景，而且不允许图片，于是 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/taishan/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

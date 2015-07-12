@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/08/no-photo-caused-by-the/">由No photo引起</a></h2>
+                <div class="summary"><p><a href="http://www.chinaqiu
+gou.com/images/detail_no_pic.gif"><img alt="" src="http://www.chinaqiugou.com/images/detail_no_pic.gif" /></a></p>
+<p>某个系统，检查用户照片，如果发现用户并没有设定照片就返回一张No Photo的图片。</p>
+<p>返回数据库的图片代码比较格式化。</p>
+<div class="highlight"><pre><span class="kt">int</span> <span class="n">Id</span> <span class="o">=</span> <span class="n">Int32</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">Request</span><span class="p">.</span><span class="n">Params</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="s">&quot;Id&quot;</span><span class="p">));</span>
+<span class="n">string</span> <span class="n">type</span> <span class="o">=</span> <span class="n">Request</span><span class="p">.</span><span class="n">Params</span><span class="p">.</span><span class="n">Get</span><span class="p">(</span><span class="s">&quot;type&quot;</span><span class="p">);</span>
+<span class="n">BLL</span><span class="p">.</span><span class="n">Student</span> <span class="n">bll</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JznuManager</span><span class="p">.</span><span class="n">BLL</span><span class="p">.</span><span class="n">Student</span><span class="p">();</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">new</span> <span class="n">JznuManager</span><span class="p">.</span><span class="n">Model</span><span class="p">.</span><span class="n">Student</span><span class="p">();</span>
+<span class="n">student</span> <span class="o">=</span> <span class="n">bll</span><span class="p">.</span><span class="n">GetModel</span><span class="p">(</span><span class="n">Id</span><span class="p">);</span>
+<span class="n">Response</span><span class="p">.</span><span class="n">ContentType</span> <span class="o">=</span> <span class="s">&quot;image/jpeg&quot;</span><span class="p">;</span>
+<span class="n">Response ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/no-photo-caused-by-the/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/08/pan-shuangshuang-i-beg-you-say-you-are-willing-to/">潘霜霜，求求你，说你愿意</a></h2>
                 <div class="summary"><p>今天听歌时候听到一句歌词「潘霜霜，求求你，说你愿意」。</p>
 <p>一下子被雷住了，潘霜霜我还是知道的，每天订阅的「<a href="http://blog.mmhunter.com/">MM日报</a>」经常能看到潘霜霜的图图。对这个名字还是挺
@@ -208,22 +225,6 @@ Ni Shuang</a>,
 <p>调一下footer后，加入cnzz的分析，唔，可以enjoy it啦~</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/the-theme-for-the-7color/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/08/allergic-in-mind/">过敏记</a></h2>
-                <div class="summary"><p>7月底回到学校，当时徐州整天阴天，查查天气预报，说是零星小雨，吓得我不敢晒被子，就盖着裹了一个月的被子褥子将就着睡。</p>
-<p>结果可好，我为此付出了一个多星期的惨痛代价。</p>
-<p>起初是身上起肿块，红色的，痒痒的，特别是右腿部位，我以为是蚊子叮咬，一边咒骂的徐州的蚊子，一边喷着花露水。宿舍小白还要嘲笑我RP差，说蚊子只咬坏人。</p>
-<p>现在想来，我宁愿是被蚊子咬了。</p>
-<p>几天之后，情况越发严重，身上的小疙瘩如雨后春笋般的冒出（原谅我使用了这个成语）。我意识到情况不对：虽然我的肉也被称为「烂肉」，也不至于被叮的这么厉害吧，何况
-我蚊帐扎的那么严实。</p>
-<p>去网上查了相应症状，网友是中说纷纭啊：湿疹、风疹、螨虫性皮炎、皮肤过敏。解决方法也是各有特色，总结起来就是两句话：1.注意个人卫生、检查周围接触的东西。2.
-去找大夫吧。</p>
-<p>我去药房买了一支999皮炎平（这名儿真不好，老是打成屁眼平），没效果，第二天去买了无极膏，暂时压制住了。</p>
-<p>我回了宿舍时大扫除啊，褥子 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/allergic-in-mind/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

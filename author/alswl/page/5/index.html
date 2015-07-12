@@ -66,6 +66,22 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/05/networkmanager-policykit-consolekit/">关于 NetworkManager / PolicyKit / ConsoleKit 的那些屌事</a></h2>
+                <div class="summary"><p>在使用 Awesome 的过程中，我又遇到了一个老问题「NetworkManager 在非 Gnome
+环境启动后，会无法 添加 / 删除 / 编辑 无线连接」。明眼人一看就知道，
+这是权限的问题。</p>
+<h2>问题描述</h2>
+<p>我的环境是 <strong>ArchLinux / xmonad 0.10 / awesome v3.4.11 / GDM 3.4.1 / NetworkManager 0.9.4.0</strong>，
+下面我用 awesome 做示例，其他非 Gnome WM 也应该是类似配置。</p>
+<p>我的 WM 启动流程是：
+通过 GDM 启动 xmonad / awesome，启动 xsession 是 <code>/usr/share/xsessions/awesome.desktop</code>，
+内容如下</p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/networkmanager-policykit-consolekit/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/05/image-host/">使用独立图床子域名</a></h2>
                 <div class="summary"><p>最近在将 Wordpres 切换到 OctoPress，顺便将图片统一放到<a href="http://upload-log4d.qiniudn.com">Upload4D</a>管理。</p>
 <p>我挑选图床管理程序有下面几个需求，需求由强到弱排列：</p>
@@ -256,41 +272,6 @@ n.com/subject/1005576/">豆瓣链接</a></p>
 <li>人类普遍人为言行一致是基本的人格特征。信仰 ...</li></ul>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/03/influence/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/02/the-write-the-plugins-for-moinmoin/">给MoinMoin写插件</a></h2>
-                <div class="summary"><h2>1. 使用 MoinMoin</h2>
-<p>前些日子，我写了一篇<a href="../2011/12/moinmoin-kms">使用MoinMoin作为个人KMS</a>
-大赞MoinMoin的各种好处。MoinMoin的其中一个好处是基于GPL的开源，
-我们可以方便的给MoinMoin撰写自己的插件（当然也可以去官方的wiki上获取大量现成插件）。</p>
-<ul>
-<li><a href="http://moinmo.in/MoinDev">MoinMoin开发者wiki地址</a></li>
-<li><a href="http://docs.moinmo.in/">MoinMoin开发API文档（这个官方wiki居然很少提及）</a></li>
-<li><a href="http://moinmo.in/MoinDev/Translation">MoinMoin的多国语翻译组wiki地址</a></li>
-</ul>
-<p>我在使用MoinMoin过程中，有一个急迫需要的功能：</p>
-<blockquote>
-<p>保存一篇网页时候，要将里面的图片保存到本地，而不是使用外链接方式保存， 因为由于各种不可预测的原因，原始图片数据很有可能丢失或者无法连接。</p>
-</blockquote>
-<p>这个功能对于将Wiki产品转化为KMS应用非常需要，可惜MoinMoin官方并没有提供，
-我也没在MoinMoin的开发者插件库中找到类似功能，就自己写了一个插件image2attach。</p>
-<ul>
-<li><a href="http://moinmo.in/MoinMoinExtensions">MoinMoin插件库</a></li>
-<li><a href="http://moinmo.in/ActionMarket/Image2Attach">image2attach在MoinMoin官方Wiki的地址</a></li>
-</ul>
-<p>现在我分享一下如何写MoinMoin插件，技术大牛可以直接移步官方开发文档， 我这里只是写一些简单的内容，帮助像我一样的同学。</p>
-<p>以下内容需要Python编程基础～</p>
-<h2>2. MoinMoin 系统结构</h2>
-<p>MoinMoin的UML图：</p>
-<p><img alt="MoinMoin" src="http://upload-log4d.qiniudn.com/2012/02/MoinMoinArchitecture.png" /></p>
-<h2>3. MoinMoin 常用对象</h2>
-<h3>3.1. request</h3>
-<p>这个request和普通jsp/asp中request很类似（实际上这个request就是继承
-<a href="http://werkzeug.pocoo.org/">werkzeug</a>的Request）。</p>
-<p>除了正常的web request功能，Moin的request还带了Wiki自身的信息 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/02/the-write-the-plugins-for-moinmoin/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
