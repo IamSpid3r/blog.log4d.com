@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Redis 集群迁移 - Log4D</title>
+    <title>Redis 集群扩容 - Log4D</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,11 +11,11 @@
 
 
 
-<link rel="canonical" href="http://blog.log4d.com/drafts/redis-migration.html">
+<link rel="canonical" href="http://blog.log4d.com/2015/07/redis-migration/">
 
         <meta name="author" content="alswl" />
         <meta name="keywords" content="Redis" />
-        <meta name="description" content="几乎每一个网站都需要用户登录系统，其中核心是存储 Session 的用户登录状态存储系统。 它的特点是读取频率极高，对吞吐量、响应速度、容量要求都很苛刻， 用户的每次点击都需要进行身份认证，量大，期望响应速度快， 否则看着 loading 那个小圈圈转啊转，肯定会疯掉。 目前主流的实现使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、 存储结构丰富（虽然一般只会用到简单 key-value 存取）、有持久化功能。 我大堆糖的使用的 Session 存储系统也正是 Redis。 可是 Redis 也不是什么问题没有，Redis 自身没有 Sharding 功能，Replication 也是在逐步完善完善过程中 （2.4 支持 Replication，2.8 加入 Replication partial resynchronization 功能 ..." />
+        <meta name="description" content="几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。 主流的实现之一是使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、 存储结构丰富、有持久化功能。 我大堆糖的 Session 存储系统也正是基于 Redis。 可是 Redis 也存在一些问题，比如 Redis 自身没有 Sharding 功能，Replication 也是在逐步完善完善过程中 （2.4 支持 Replication，2.8 加入 Replication partial resynchronization 功能）。 纵观当下流行的 DB 系统，哪个不是自带这两个特性，这两个分布式特性应该成为新出产的 DB 系统的标配。 而且作者还经常发布延期，放烟雾弹，不知道 Redis 自带 Sharding ..." />
 
 
 
@@ -66,10 +66,10 @@ Log4D            </a>
         <article class="article-detail">
             <header class="page-header">
                 <h1 class="title">
-                    <a href="http://blog.log4d.com/drafts/redis-migration.html"
+                    <a href="http://blog.log4d.com/2015/07/redis-migration/"
                        rel="bookmark"
-                       title="Permalink to Redis 集群迁移">
-                        Redis 集群迁移
+                       title="Permalink to Redis 集群扩容">
+                        Redis 集群扩容
                     </a>
                 </h1>
             </header>
@@ -79,7 +79,7 @@ Log4D            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-03-08T15:33:49"> 2015-03-08</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-07-26T15:33:49"> 2015-07-26</time>
     </span>
 
 
@@ -89,29 +89,96 @@ Log4D            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>几乎每一个网站都需要用户登录系统，其中核心是存储 Session 的用户登录状态存储系统。
-它的特点是读取频率极高，对吞吐量、响应速度、容量要求都很苛刻，
-用户的每次点击都需要进行身份认证，量大，期望响应速度快，
-否则看着 loading 那个小圈圈转啊转，肯定会疯掉。
-目前主流的实现使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、
-存储结构丰富（虽然一般只会用到简单 key-value 存取）、有持久化功能。
-我大堆糖的使用的 Session 存储系统也正是 Redis。</p>
-<p>可是 Redis 也不是什么问题没有，Redis 自身没有 Sharding 功能，Replication
+                <p>几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。
+主流的实现之一是使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、
+存储结构丰富、有持久化功能。
+我大堆糖的 Session 存储系统也正是基于 Redis。</p>
+<p>可是 Redis 也存在一些问题，比如 Redis 自身没有 Sharding 功能，Replication
 也是在逐步完善完善过程中
 （2.4 支持 <code>Replication</code>，2.8 加入 <code>Replication partial resynchronization</code> 功能）。
 纵观当下流行的 DB 系统，哪个不是自带这两个特性，这两个分布式特性应该成为新出产的 DB 系统的标配。
 而且作者还经常发布延期，放烟雾弹，不知道 Redis 自带 Sharding 特性要等到何年马月。</p>
-<p>吐槽归吐槽，日子还是要过，随着业务规模的扩大，单台 Redis 实例不能满足需求。
-考虑到 Redis 也是久经考验的战士，替换掉他成本比较高，那就来扩容吧。</p>
-<p>扩容的基本要求是，扩大系统容量，业务不中断，保证原始数据的可用性。
-本着这几个基本要求，想着我遇到的问题别一定遇到过，就开始 Google 了。</p>
-<p>虽然搜索到的信息比较少，最后还是在 Github 搜到了好心人提供的解决方案
+<p>随着业务规模的扩大，单台 Redis 实例不能满足需求。
+考虑到 Redis 也是久经考验的战士，替换掉他成本比较高，那就对 Redis 进行扩容。</p>
+<p>扩容的基本要求是：</p>
+<ul>
+<li>扩大系统容量，成为分布式系统，未来有横向扩展</li>
+<li>业务不中断</li>
+<li>保证原始数据的可用性</li>
+</ul>
+<p>Google 了一下，有两个项目可以参考：
 <a href="https://github.com/idning/redis-mgr">https://github.com/idning/redis-mgr</a>
-和 Codis 这个项目。</p>
-<p>研究了这两项目的代码之后，发现前者存在几个问题：没有估算系统容量，需要停机进行操作。
-后者是一个 Proxy，虽然有动态加入节点功能，只能用来参考实现方法。</p>
+和豌豆荚的 <a href="https://github.com/wandoulabs/codis">Codis</a>。</p>
+<p>研究了这两项目的代码之后，发现前者存在几个问题：
+需要停机进行操作。
+后者提供了完整一套解决方案，Server/Proxy/Config Manage，对我这次迁移来说，太重了，
+而且项目比较新，风险高，只能用来参考实现方法。</p>
+<p>最后我决定参考 redis-mgr 的方案，然后使用两种方式同步数据：
+系统运行中打上 patch 完成数据的动态迁移；后台跑迁移数据脚本。</p>
+<h2>方案的关键词</h2>
+<h3><code>dump</code> / <code>restore</code> / <code>pttl</code></h3>
+<p>核心的操作流程是：
+使用 <code>dump</code> 命令导出数据，<code>restore</code> 命令恢复数据，<code>pttl</code> 命令获取设置 TTL。</p>
+<h3>Presharding</h3>
+<p>Redis 官方没有 sharding 方案，但提供一种策略 presharding。
+Redis 作者写了一篇<a href="http://oldblog.antirez.com/post/redis-presharding.html">Redis Presharding</a>。核心是：
+提前做 2^n 个实例，避免扩容时候数据迁移，一般使用 2^n 个实例，
+目的是为了能够自然地乘以 2 进行拆分。
+这些实例可以分开放，也可以放在同一台机器上面。</p>
+<p>我这次操作，将 <code>OLD_CLUSTER</code> 的一个实例拆分为了 <code>NEW_CLUSTER</code> 的 32 个实例，
+跑在 4 台服务器上面。</p>
+<h3>Twemproxy</h3>
+<p>Redis 的 经典款 Proxy，用来实现对多个 Redis 实例 sharding，
+Twitter 出品，<a href="https://github.com/twitter/twemproxy">链接</a>。</p>
+<h3>一致性 Hash</h3>
+<p>传统的 Hash 方法是 <code>hash(key) = value % nodes.length</code>，
+当加入、减少 Hash 节点时候，会导致 <code>hash(key)</code> 的全部失效。
+典型的一致性 Hash 算法，<a href="https://github.com/RJ/ketama">Ketama</a> 通过环状 node 分布，解决了这个问题。</p>
+<p>Twemproxy 还提供 <code>modula</code> 和 random 两种分布式方案。</p>
+<h3>db 大小预估</h3>
+<p>Redis 只能查看整个实例内存尺寸。不能查看单个 db。
+使用 <code>ramdomkey</code> 做抽样检查，取 1% key 抽样，估计单个 key 大小，
+然后做 benchmark 估算操作性能，估算操作时间。</p>
+<h3>动态迁移数据</h3>
+<p>为了在迁移过程中保证服务可用，需要将数据兼容 Redis 集群 <code>OLD_CLUSTER</code> / <code>NEW_CLUSTER</code>，
+业务代码必须同时支持访问两个集群，做法也很简单</p>
+<ul>
+<li>访问 <code>NEW_CLUSTER</code></li>
+<li>有数据则继续操作，无数据则访问 <code>OLD_CLUSTER</code>，获取数据 <code>DATA</code></li>
+<li>将数据和 TTL 保存到 <code>NEW_CLUSTER</code></li>
+</ul>
+<p>将这个逻辑封装成一个 client，替换掉原来 Redis Client 即可。</p>
+<p>注意，这个点可能产生幻读，读取 key 和写入 key 有个时间差，
+但是我处理的 session 是 immutable 数据，不会出现问题。
+而如果将 Redis 用作 Persistence，就要评估对业务的影响了。</p>
+<h3>后台迁移数据</h3>
+<p>依赖用户访问来进行迁移，效率太低了，这个迁移时间和最长 TTL 时间相当，
+需要主动将这个数据从 <code>OLD_CLUSTER</code> 迁移到 <code>NEW_CLUSTER</code>。</p>
+<p>方案也很简单，使用 <code>randomkey</code> 获取一批数据，然后按动态迁移数据方法进行迁移。</p>
+<h3>pipeline</h3>
+<p>如果在业务逻辑中使用了 PIPELINE，就会遇到问题，需要改写掉业务方案，
+待迁移完成之后，再进行恢复。</p>
+<h3>multikey</h3>
+<p><code>mget</code> / <code>mset</code> 等多键操作方法需要注意拆解 key，然后一一 <code>dump</code> / <code>restore</code> /
+<code>ttl</code>。</p>
+<h2>正式操作</h2>
+<p>线上操作的数据：</p>
+<div class="highlight"><pre><span class="cp"># 0.483 g db0</span>
+<span class="mi">12</span><span class="o">:</span><span class="mo">05</span><span class="o">:</span><span class="mi">19</span><span class="p">,</span><span class="mi">444</span> <span class="o">-</span> <span class="n">__main__</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">v</span><span class="p">,</span> <span class="n">dumps</span> <span class="n">keys</span> <span class="mi">1014</span><span class="o">/</span><span class="mi">1375371</span><span class="o">/</span><span class="p">...,</span> <span class="n">time</span><span class="o">:</span> <span class="mf">974.183676004</span>
+<span class="cp"># 4.552 g db1</span>
+<span class="mi">17</span><span class="o">:</span><span class="mi">38</span><span class="o">:</span><span class="mi">36</span><span class="p">,</span><span class="mi">422</span> <span class="o">-</span> <span class="n">__main__</span> <span class="o">-</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">v</span><span class="p">,</span> <span class="n">dumps</span> <span class="n">keys</span> <span class="mi">1392</span><span class="o">/</span><span class="mi">7711834</span><span class="o">/</span><span class="p">...,</span> <span class="n">time</span><span class="o">:</span> <span class="mf">3076.41647506</span>
+</pre></div>
             </div>
             <!-- /.entry-content -->
+              
+<hr>
+<div class="panel">
+<div class="panel-body">
+   <small>原文链接: <a href="http://blog.log4d.com/2015/07/redis-migration/">http://blog.log4d.com/2015/07/redis-migration/</a></small><br>
+   <small>3a1ff193cee606bd1e2ea554a16353ee</small>
+</div>
+</div>
+
 <!-- JiaThis Button BEGIN -->
 <div class="jiathis_style">
 	<span class="jiathis_txt">分享到：</span>
@@ -137,7 +204,7 @@ var jiathis_config = {data_track_clickback:'true'};
             var disqus_shortname = 'log4d'; // required: replace example with your forum shortname
 
                     var disqus_identifier = 'redis-migration';
-                var disqus_url = 'http://blog.log4d.com/drafts/redis-migration.html';
+                var disqus_url = 'http://blog.log4d.com/2015/07/redis-migration/';
 
             var disqus_config = function () {
                 this.language = "en";

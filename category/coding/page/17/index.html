@@ -67,6 +67,31 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/06/java-net-operation-session-get-post-method/">java.net.*操作session/GET/POST方法</a></h2>
+                <div class="summary"><p>终于又考完一门试，开始做课程设计了，结果课程设计给工作室一个尾气3个月的项目，而这次的先用我写的贴吧放上去，我变得暂时空闲了，开始着手写校内开心农场小工具-
+全能拖拉机。 首先要解决的就是校内登录的问题，那就是Get/Post方法了，还有用户状态保存，就是session的操作。Java不同于C#，那位可以集成系统
+的浏览器或者之间创建一个Browser。</p>
+<p>开始写了自己的第一个版本。</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">BufferedReader</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">IOException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">InputStreamReader</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">MalformedURLException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ProtocolException</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">URL</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">HttpURLConnection</span><span class="p">;</span>
+</pre></div>
+
+
+<p>public class FarmerHelper {</p>
+<p>/**</p>
+<ul>
+<li>@param args  </li>
+<li>@throws ...</li></ul>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/java-net-operation-session-get-post-method/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/06/firefox-frequently-collapse-under-the-wordpress-upload-solution/">FireFox下WordPress上传频繁崩溃解决方法</a></h2>
                 <div class="summary"><p>今天修改了数据库option中上传的路径，终于可以使用上传了，很开心，可是又遇到在FireFox下WordPress上传导致FireFox崩溃的问题。</p>
 <p>情况是这样，在后台点上传图片，出现上传面板的Loding界面，结果FireFox就崩溃了，查看崩溃信息，并没有什么特殊的显示。在IE下则完全没有这个问题。</p>
@@ -222,28 +247,6 @@ find action or result</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/landscaping-postviews/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/">Struts2的s:if标签的Bug和曲线使用</a></h2>
-                <div class="summary"><p>贴吧的用户状态显示，登录和未登录应该是不同的div显示，我决定用做标签。</p>
-<p>本来应该很简单的事情，却没有我预想中的情形出现，检查后发现失效了，代码如下：</p>
-<div class="highlight"><pre><span class="nt">&lt;li&gt;</span><span class="cp">${</span><span class="n">session</span><span class="o">.</span><span class="n">userName</span><span class="cp">}</span>欢迎你<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;Logout.action&quot;</span><span class="nt">&gt;</span>注销<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</pre></div>
-
-
-<p>Struts2的官方文档中标签库介绍写的很清楚，官方示例文档如下</p>
-<div class="highlight"><pre><span class="nt">&lt;s:if</span> <span class="na">test=</span><span class="s">&quot;%{false}&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;div&gt;</span>Will Not Be Executed<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/s:if&gt;</span>
-<span class="nt">&lt;s:elseif</span> <span class="na">test=</span><span class="s">&quot;%{true}&quot;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;div&gt;</span>Will Be Executed<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/s:elseif&gt;</span>
-<span class="nt">&lt;s:else&gt;</span>
-<span class="nt">&lt;div&gt;</span>Will Not ...</pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/struts2-tags-the-curve-of-the-bug-and-the-use-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/16/">&laquo;</a>
@@ -380,7 +383,7 @@ find action or result</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

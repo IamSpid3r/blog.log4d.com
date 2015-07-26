@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/09/when-google-app-engine-encounter-campus/">当Google APP Engine遇上校内</a></h2>
+                <div class="summary"><p>昨天看《<a href="http://www.csdn.net">程序员</a>》时候看到一篇讲开放接口的文章，是FaceBook的一个开发人员写的，讲了很多关于开放平台的东西
+。其中提到Google App Engine的云计算支持，FaceBook的FBML（校内的称为XNML，一种标记性语言）。</p>
+<h2>Google App Engine(GAE)</h2>
+<p>Google App Engine让用户可以在 Google 的基础架构上运行的网络应用程序。Google App Engine
+应用程序易于构建和维护，并可根据用户的访问量和数据存储需要的增长轻松扩展。使用 Google App
+Engine，将不再需要维护服务器：用户只需上传用户的应用程序，它便可立即为用户的用户提供服务。</p>
+<p>通俗的说，App Engine就像是免费提供的一个500M高性能的空间，和一个appspot.com二级域名。在Google强大的云计算能力下，服务器的速度
+和质量毋容置疑。现在App Engine支持Python和Java（似乎Java有些限制，具体的细节我没有看）。</p>
+<h2>XNML</h2>
+<p>XNML（xiao nei market
+language ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/when-google-app-engine-encounter-campus/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/09/python-comes-to-mind-by-learning/">由学Python所想到的</a></h2>
                 <div class="summary"><p>开始学Python大概有1个多月了，深深的被这门简单的语言所吸引着，简单却强大，是一门非常精彩的语言。特别是它的设计理念：「在允许性能牺牲的范围内，提高开发
 效率，简化开发方法」。（呃…这个原文我找不到了，我自己总结了一下）</p>
@@ -207,32 +224,6 @@ Python的标准模块struct就用来解决这个问题。</p>
 leading byte，它总是大于127，这个字节的含义是说明它和后面的字节（们）一起表示一个字符 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/">Python读写文件</a></h2>
-                <div class="summary"><p>本文来源：<a href="http://www.cnblogs.com/coderzh/archive/2008/05/10/1191410.html">Python天天美味(17) - open读写文件 - CoderZh的技术博客 -
-博客园</a></p>
-<p>「我本来想加上看到这篇文章的博客链接，结果粘贴时候发现了图片来源居然是cnblogs，这才反应过来这不是那个博客的原创。我不反对转载，看到的好文章我自己也会
-收藏下来，转载能帮助更多需要的人，可是，至少加上人家原作者的地址呀……」-alswl</p>
-<p>Python中文件操作可以通过open函数，这的确很像C语言中的fopen。通过open函数获取一个file
-object，然后调用read()，write()等方法对文件进行读写操作。</p>
-<h2>1.open</h2>
-<p>使用open打开文件后一定要记得调用文件对象的close()方法。比如可以用try/finally语句来确保最后能关闭文件。</p>
-<div class="highlight"><pre><span class="n">file_object</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">thefile</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="nl">try:</span>
-    <span class="n">all_the_text</span> <span class="o">=</span> <span class="n">file_object</span><span class="p">.</span><span class="n">read</span><span class="p">(</span> <span class="p">)</span>
-<span class="nl">finally:</span>
-    <span class="n">file_object</span><span class="p">.</span><span class="n">close</span><span class="p">(</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>注：不能把open语句放在try块里，因为当打开文件出现异常时，文件对象file_object无法执行close()方法。</p>
-<h2>2.读文件</h2>
-<h3>读文本文件</h3>
-<div class="highlight"><pre><span class="n">input</span> <span class="o">=</span> <span class="n">open ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

@@ -66,6 +66,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/07/difference-between-char-nchar-varchar-nvarchar/">char nchar varchar nvarchar 区别</a></h2>
+                <div class="summary"><p>在开发时候，发现数据库的一个字段用的是nchar(16)，让我感觉很奇怪，我知道nvarchar可以变长，nchar会用空格填充，这在存取时候需要Trim(
+)操作，所以我一直不用nchar。而现在在产品中发现nchar的使用，不由觉得很奇怪。</p>
+<p>私底下认为是效率的问题，一番Google之后发现一段文章详述了几种数据库文字类型存储的差异。</p>
+<p>原文出处：<a href="http://www.cnblogs.com/yoyozhou/archive/2008/11/21/1338452.html">char nchar varchar nvarchar 区别 - Rainbow -
+博客园</a></p>
+<p>联机帮助上的：</p>
+<p>char(n)&amp;nbsp_place_holder;</p>
+<p>定长</p>
+<p>索引效率高 程序里面使用trim去除多余的空白</p>
+<p>n 必须是一个介于 1 和 8,000 之间的数值,存储大小为 n 个字节</p>
+<p>varchar(n)</p>
+<p>变长</p>
+<p>效率没char高 灵活</p>
+<p>n 必须是一个介于 1 和 8,000 之间的数值 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/07/difference-between-char-nchar-varchar-nvarchar/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/07/xi-mi-lu-with-milk/">牛奶西米露</a></h2>
                 <div class="summary"><p>在下厨房看到一篇做西米露的文章，就想起在广东时候吃煲仔饭时候赠送的一碗西米露。于是乎晚上跑去苏果采购了一袋西米，由于买的时候以为西米露是用牛奶做的，误买了一
 罐牛奶。</p>
@@ -220,26 +240,6 @@ cript脚本能够自动检测PC、Mac机器上各种主流浏览器对Flash插�
 <p>[swfobject - Project Hosting on ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/swfobject/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/05/fms-80-port-used/">FMS的80端口占用</a></h2>
-                <div class="summary"><p>AzaAjaxChat 的语音聊天需要使用的Flex的流媒体传输，我在评估的方案有两套：1.使用原声Socket在客户端进行连接，2.使用FMS
-流媒体服务器进行数据传输。</p>
-<p>FMS （Flash Media Server）在安装时候，有一个选项是端口使用哪个，默认是1935 和
-80端口，安装之后发现在使用两个Apache在80端口发生冲突（FMS使用的也是Apache服务器），需要将这个端口修改。</p>
-<p>Google后，发现修改 Flash Media Server 3conffms.ini 删除80留下1935即可。</p>
-<div class="highlight"><pre><span class="cp"># IP address and port(s) Flash Media Server should listen on</span>
-<span class="cp"># For example:</span>
-<span class="cp">#    ADAPTOR.HOSTPORT = :1935,80</span>
-<span class="cp">#</span>
-<span class="n">ADAPTOR</span><span class="p">.</span><span class="n">HOSTPORT</span> <span class="o">=</span> <span class="o">:</span><span class="mi">1935</span>
-</pre></div>
-
-
-<p>唔～继续搞鼓Flex的流媒体传输了 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/fms-80-port-used/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

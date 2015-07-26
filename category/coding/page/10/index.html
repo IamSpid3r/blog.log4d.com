@@ -67,6 +67,30 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
+                <div class="summary"><p>这文是上个月开始写的，本来想深入的分析一下零宽断言，可惜工作一直忙，现在又要去转战<strong>DWR</strong>...OMG~~</p>
+<h2>起因</h2>
+<p>将要上线的系统中有一个字符规则："13位的字符串，其中有8位连续数字"，需要用这则表达式对这个字符串进行判断。而我之前对正则的认识仅仅停留在匹配固定的字符上
+，对这个问题一筹莫展。</p>
+<p>这时候热心的小邪出现了，我在他的博客 <a href="http://www.evlos.org">邪罗刹的菠萝阁</a>
+留下这个<a href="http://www.evlos.org/2010/01/05/use-regex-to-clear-the-mix-of-tag-
+img/#comment-5968">问题</a></p>
+<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/01/alswl_ask.jpg" /></p>
+<p>小邪很热心的撰写了一篇文章给出回答：<a href="http://www.evlos.org/2010/01/07/a-cuptool-and-a-washtool"> 一个杯具和一个洗具与最近学习手记 :
+邪罗刹的菠萝阁</a>。</p>
+<h2>解答</h2>
+<p>核心字符串如下： '/^(?!(.<em>?d){9,})(?!(.</em>?D){6,}).{13}$/';</p>
+<p>小邪的文章给了很详细的解答，比我自己解释要好得多～我就索性copy过来，如下：</p>
+<blockquote>
+<blockquote>
+<p>小邪是这个样子解答的，首先两边的斜杠是 Perl 正则式的要求。</p>
+</blockquote>
+<p>然后两边的 ^ 和 ...</p></blockquote>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/01/a-change-of-home-made-icon/">换了一个自制的ICON</a></h2>
                 <div class="summary"><p>今天终于把自己主题框架建起来了，不过感觉好丑的说～～alswl一点艺术细胞都没有～</p>
 <p>伟人说的好啊，没有困难创造困难也要上，今天就硬着头皮做了一个ICON。</p>
@@ -218,21 +242,6 @@ TButton).Caption</code>这种语句来转换<code>TObject</code>类型。</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/dlphi-a-small-summary-of-knowledge/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-04/">Delphi学习笔记04</a></h2>
-                <div class="summary"><p>今天主要学习了Object Pascal的<strong>面向对象</strong>部分：类的定义、继承、多态这些基本操作。</p>
-<p>1.Delphi的关键词好麻烦，居然result都没法用，返回值的错误我查找了很久才明白为什么编译器说result重定义。</p>
-<p>2.语法结构严谨，比如类定义必须在<code>interface</code>之后，过程/函数的实现必须要分开，而无法写成C++/Java那种inner类定义，写起来难免缚手缚脚
-。</p>
-<p>3.大小写的语法规范很麻烦，像<code>Integer/String</code>这些关键词，我真不知道该不该首字母大写。还有变量的定义，按照"Delphi编码规范"是应该大写
-，可是这样就需要频繁的使用Shift，还是喜欢Java的那种首字符小写的驼峰式，能够清楚地把函数/过程/变量区分开。</p>
-<p>4.<code>fuction/procedure</code>除了返回值又没什么大区别，现在想来真爱死void了。</p>
-<p>下面上今天学习的代码，是类的<strong>定义</strong>、<strong>继承</strong>、<strong>多态</strong>这些。</p>
-<h2>1.类的使用 ...</h2>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/delphi-study-notes-04/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/9/">&laquo;</a>
@@ -369,7 +378,7 @@ TButton).Caption</code>这种语句来转换<code>TObject</code>类型。</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

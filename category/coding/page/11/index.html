@@ -67,6 +67,21 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-04/">Delphi学习笔记04</a></h2>
+                <div class="summary"><p>今天主要学习了Object Pascal的<strong>面向对象</strong>部分：类的定义、继承、多态这些基本操作。</p>
+<p>1.Delphi的关键词好麻烦，居然result都没法用，返回值的错误我查找了很久才明白为什么编译器说result重定义。</p>
+<p>2.语法结构严谨，比如类定义必须在<code>interface</code>之后，过程/函数的实现必须要分开，而无法写成C++/Java那种inner类定义，写起来难免缚手缚脚
+。</p>
+<p>3.大小写的语法规范很麻烦，像<code>Integer/String</code>这些关键词，我真不知道该不该首字母大写。还有变量的定义，按照"Delphi编码规范"是应该大写
+，可是这样就需要频繁的使用Shift，还是喜欢Java的那种首字符小写的驼峰式，能够清楚地把函数/过程/变量区分开。</p>
+<p>4.<code>fuction/procedure</code>除了返回值又没什么大区别，现在想来真爱死void了。</p>
+<p>下面上今天学习的代码，是类的<strong>定义</strong>、<strong>继承</strong>、<strong>多态</strong>这些。</p>
+<h2>1.类的使用 ...</h2>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/delphi-study-notes-04/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/12/delphi-study-notes-05/">Delphi学习笔记05</a></h2>
                 <div class="summary"><p>今天是第五天了，我对自己的学习速度很不满意，还是处在半懵懂状态。语法还要经过大脑才能想出来，一点不顺手。</p>
 <p>VCL控件使用了几个简单的，<strong>BDE数据库</strong>和<strong>ADO数据库</strong>这一块还没有涉及，<strong>网络编程</strong>也没涉及到。</p>
@@ -217,20 +232,6 @@ happiness</a>"修改了Mail To Comment插件。请大家帮忙在这个页面测
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/11/emergency-declaration-on-the-reply-notification-is-spam/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/11/mailtocommenter-of-the-spam-problem/">MailToCommenter的垃圾邮件问题</a></h2>
-                <div class="summary"><p>Mail To Commenter发出的邮件会被GMail判定为垃圾邮件，这个问题我曾经发现，不过没有重视起来。鸵鸟理论告诉我说也许只有自己的GMail这样
-，别人都是完好的，直到<a href="http://www.derekblog.cn/">derek</a>同学提出来。</p>
-<p>于是乎我开始修改，经过十余次的发送垃圾邮件，我反复查看邮件源码，检查<code>Mail To
-Commenter的</code>mailtocommenter_send_email<code>函数，终于修改如下代码。</code></p>
-<p><code>代码部分分别参考</code><a href="http://xfuxing.com/2009/modify-the-mail-to-commenter-so-that-more-
-user-friendly-e-mail-notification.html">修改 mail to commenter,让邮件通知更加友好 |&amp;nbsp_place_holder; Simple
-happiness</a>和<a href="http://www.evlos.org/2009/11/03/edit-the-poster-of-
-mailtocomments ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/11/mailtocommenter-of-the-spam-problem/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/10/">&laquo;</a>
@@ -367,7 +368,7 @@ mailtocomments ...</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

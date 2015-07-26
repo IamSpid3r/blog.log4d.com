@@ -1,5 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/feeds/alswl.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 12 Jul 2015 17:29:19 +0800</lastBuildDate><item><title>带理想的执行者 - 柳比歇夫的一生</title><link>http://blog.log4d.com/2015/07/liu-bi-xie-fu/</link><description>&lt;p&gt;作为战斗民族的俄罗斯民族，不但能在热带风暴级的灿鸿中进行正常起降，
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/feeds/alswl.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 26 Jul 2015 15:33:49 +0800</lastBuildDate><item><title>Redis 集群扩容</title><link>http://blog.log4d.com/2015/07/redis-migration/</link><description>&lt;p&gt;几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。
+主流的实现之一是使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、
+存储结构丰富、有持久化功能。
+我大堆糖的 Session 存储系统也正是基于 Redis。&lt;/p&gt;
+&lt;p&gt;可是 Redis 也存在一些问题，比如 Redis 自身没有 Sharding 功能，Replication
+也是在逐步完善完善过程中
+（2.4 支持 &lt;code&gt;Replication&lt;/code&gt;，2.8 加入 &lt;code&gt;Replication partial resynchronization&lt;/code&gt; 功能）。
+纵观当下流行的 DB 系统，哪个不是自带这两个特性，这两个分布式特性应该成为新出产的 DB 系统的标配。
+而且作者还经常发布延期，放烟雾弹，不知道 Redis 自带 Sharding 特性要等到何年马月。&lt;/p&gt;
+&lt;p&gt;随着业务规模的扩大，单台 Redis 实例不能满足需求。
+考虑到 Redis 也是久经考验的战士，替换掉他成本比较高，那就对 Redis 进行扩容。&lt;/p&gt;
+&lt;p&gt;扩容的基本要求是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;扩大系统容量，成为分布式系统，未来有横向扩展&lt;/li&gt;
+&lt;li&gt;业务不中断&lt;/li&gt;
+&lt;li&gt;保证原始数据的可用性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Google 了一下，有两个项目可以参考：
+&lt;a href="https://github.com/idning/redis-mgr"&gt;https://github.com/idning/redis-mgr&lt;/a&gt;
+和豌豆荚的 &lt;a href="https://github.com/wandoulabs/codis"&gt;Codis&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;研究了这两项目的代码之后，发现前者存在几个问题：
+需要停机进行操作。
+后者提供了完整一套解决方案，Server/Proxy/Config Manage，对我这次迁移来说，太重了，
+而且项目比较新，风险高，只能用来参考实现方法。&lt;/p&gt;
+&lt;p&gt;最后我决定参考 redis-mgr 的方案，然后使用两种方式同步数据：
+系统运行中打上 patch 完成数据的动态迁移；后台跑迁移数据脚本。&lt;/p&gt;
+&lt;h2&gt;方案的关键词&lt;/h2&gt;
+&lt;h3&gt;&lt;code&gt;dump&lt;/code&gt; / &lt;code&gt;restore&lt;/code&gt; / &lt;code&gt;pttl&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;核心的操作流程是：
+使用 &lt;code&gt;dump&lt;/code&gt; 命令导出数据，&lt;code&gt;restore&lt;/code&gt; 命令恢复数据，&lt;code&gt;pttl&lt;/code&gt; 命令获取设置 TTL。&lt;/p&gt;
+&lt;h3&gt;Presharding&lt;/h3&gt;
+&lt;p&gt;Redis 官方没有 sharding 方案，但提供一种策略 presharding。
+Redis 作者写了一篇&lt;a href="http://oldblog.antirez.com/post/redis-presharding.html"&gt;Redis Presharding&lt;/a&gt;。核心是：
+提前做 2^n 个实例，避免扩容时候数据迁移，一般使用 2^n 个实例，
+目的是为了能够自然地乘以 2 进行拆分。
+这些实例可以分开放，也可以放在同一台机器上面。&lt;/p&gt;
+&lt;p&gt;我这次操作，将 &lt;code&gt;OLD_CLUSTER&lt;/code&gt; 的一个实例拆分为了 &lt;code&gt;NEW_CLUSTER&lt;/code&gt; 的 32 个实例，
+跑在 4 台服务器上面。&lt;/p&gt;
+&lt;h3&gt;Twemproxy&lt;/h3&gt;
+&lt;p&gt;Redis 的 经典款 Proxy，用来实现对多个 Redis 实例 sharding，
+Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;/a&gt;。&lt;/p&gt;
+&lt;h3&gt;一致性 Hash&lt;/h3&gt;
+&lt;p&gt;传统的 Hash 方法是 &lt;code&gt;hash(key) = value % nodes.length&lt;/code&gt;，
+当加入、减少 Hash 节点时候，会导致 &lt;code&gt;hash(key)&lt;/code&gt; 的全部失效。
+典型的一致性 Hash 算法，&lt;a href="https://github.com/RJ/ketama"&gt;Ketama&lt;/a&gt; 通过环状 node 分布，解决了这个问题。&lt;/p&gt;
+&lt;p&gt;Twemproxy 还提供 &lt;code&gt;modula&lt;/code&gt; 和 random 两种分布式方案。&lt;/p&gt;
+&lt;h3&gt;db 大小预估&lt;/h3&gt;
+&lt;p&gt;Redis 只能查看整个实例内存尺寸。不能查看单个 db。
+使用 &lt;code&gt;ramdomkey&lt;/code&gt; 做抽样检查，取 1% key 抽样，估计单个 key 大小，
+然后做 benchmark 估算操作性能，估算操作时间。&lt;/p&gt;
+&lt;h3&gt;动态迁移数据&lt;/h3&gt;
+&lt;p&gt;为了在迁移过程中保证服务可用，需要将数据兼容 Redis 集群 &lt;code&gt;OLD_CLUSTER&lt;/code&gt; / &lt;code&gt;NEW_CLUSTER&lt;/code&gt;，
+业务代码必须同时支持访问两个集群，做法也很简单&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;访问 &lt;code&gt;NEW_CLUSTER&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;有数据则继续操作，无数据则访问 &lt;code&gt;OLD_CLUSTER&lt;/code&gt;，获取数据 &lt;code&gt;DATA&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;将数据和 TTL 保存到 &lt;code&gt;NEW_CLUSTER&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;将这个逻辑封装成一个 client，替换掉原来 Redis Client 即可。&lt;/p&gt;
+&lt;p&gt;注意，这个点可能产生幻读，读取 key 和写入 key 有个时间差，
+但是我处理的 session 是 immutable 数据，不会出现问题。
+而如果将 Redis 用作 Persistence，就要评估对业务的影响了。&lt;/p&gt;
+&lt;h3&gt;后台迁移数据&lt;/h3&gt;
+&lt;p&gt;依赖用户访问来进行迁移，效率太低了，这个迁移时间和最长 TTL 时间相当，
+需要主动将这个数据从 &lt;code&gt;OLD_CLUSTER&lt;/code&gt; 迁移到 &lt;code&gt;NEW_CLUSTER&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;方案也很简单，使用 &lt;code&gt;randomkey&lt;/code&gt; 获取一批数据，然后按动态迁移数据方法进行迁移。&lt;/p&gt;
+&lt;h3&gt;pipeline&lt;/h3&gt;
+&lt;p&gt;如果在业务逻辑中使用了 PIPELINE，就会遇到问题，需要改写掉业务方案，
+待迁移完成之后，再进行恢复。&lt;/p&gt;
+&lt;h3&gt;multikey&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;mget&lt;/code&gt; / &lt;code&gt;mset&lt;/code&gt; 等多键操作方法需要注意拆解 key，然后一一 &lt;code&gt;dump&lt;/code&gt; / &lt;code&gt;restore&lt;/code&gt; /
+&lt;code&gt;ttl&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;正式操作&lt;/h2&gt;
+&lt;p&gt;线上操作的数据：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# 0.483 g db0&lt;/span&gt;
+&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;444&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dumps&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="mi"&gt;1014&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;1375371&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;...,&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;974.183676004&lt;/span&gt;
+&lt;span class="cp"&gt;# 4.552 g db1&lt;/span&gt;
+&lt;span class="mi"&gt;17&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;38&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;36&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;422&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;__main__&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dumps&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt; &lt;span class="mi"&gt;1392&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;7711834&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;...,&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;3076.41647506&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class="panel"&gt;
+&lt;div class="panel-body"&gt;
+   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/07/redis-migration/"&gt;http://blog.log4d.com/2015/07/redis-migration/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sun, 26 Jul 2015 15:33:49 +0800</pubDate><guid>tag:blog.log4d.com,2015-07-26:2015/07/redis-migration/</guid><category>Redis</category></item><item><title>带理想的执行者 - 柳比歇夫的一生</title><link>http://blog.log4d.com/2015/07/liu-bi-xie-fu/</link><description>&lt;p&gt;作为战斗民族的俄罗斯民族，不但能在热带风暴级的灿鸿中进行正常起降，
 历来也盛产各种奇葩人物。
 最近我有看到一本描述一个科学家的如何生活的书，叫「奇特的一生」。
 让人拍案称奇。&lt;/p&gt;
@@ -2506,151 +2592,4 @@ Linuxer 了。
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 13 Apr 2013 22:04:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-13:2013/04/buy-arch/</guid><category>Linuxer</category><category>ArchLinux</category></item><item><title>读《人件》</title><link>http://blog.log4d.com/2013/04/peopleware/</link><description>&lt;p&gt;事情起源于动态语言和静态语言之争，最后争论焦点转移到：「相信人本身的能力重要，
-还是通过语言/工具来约束人重要」。
-我认为项目开发中最重要的是个人能力和团队协作能力，工具只是加分项。
-如果代码质量差、监控难、性能难以优化，解决根本问题的关键还是在人身上。
-并不是静态编译和工具检查就能搞定了。&lt;/p&gt;
-&lt;p&gt;我愤愤的在 QQ 对话框中写道：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我工作第一年痛苦于开发流程，阅读了《人月神话》，就开始坚信软件工程的哲学
-后来痛苦与代码质量，阅读了《重构》，开始坚信代码质量决定产品质量
-现在痛苦于人和语言的冲突，动态和静态的冲突，我想读《人件》了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img alt="人件" src="http://img3.douban.com/lpic/s1299961.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;人件已经绝版，只能在找线上版，我花了两个星期把它读完。
-书中给了我一部分答案，另外还有一些意外的收获。&lt;/p&gt;
-
-
-&lt;p&gt;《人件》其实讲了一件事情：怎样将脑力劳动者管理好，打造出一个高效的团队。&lt;/p&gt;
-&lt;p&gt;《人件》@豆瓣： &lt;a href="http://book.douban.com/subject/1108725/"&gt;http://book.douban.com/subject/1108725/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;《人件》在线阅读地址： &lt;a href="http://book.zi5.me/books/read/2206"&gt;http://book.zi5.me/books/read/2206&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;吐槽：翻译太烂太烂太烂了，下次要看直接去看翻译版。&lt;/p&gt;
-&lt;h2&gt;以人为本&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们工作的主要挑战，与其说来源于技术，不如说来源于团队成员本身&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;技术人员转成项目经理经理之后，往往继续用工程化思维管理人员，
-认为人是可以设计成标准化接口，是可以替换的。很可惜，这种想法不是那么 &lt;strong&gt;有效&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;因为脑力劳动和体力重复劳动不一样，不是在卖汉堡这种重复工作，
-而是需要创造、思考和发明的工作。软件经理需要提供有限额的错误机会。
-错误无法完全避免，并且是工作内容的健康组成部分。一旦硬性阻止犯错，
-会让团队成员失去创造的勇气。
-我相信这也是为什么 Facebook 早期会践行「Break it Down」。&lt;/p&gt;
-&lt;h2&gt;何不双赢&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;西班牙人的理论坚持认为地球上只有一个固定数量的价值，
-因此通向积累财富的道路就是学会从土地或者从人身上更有效地榨取财富。
-而英国人的理论认为价值可以通过天才和技术创造出来。因此英国就产生了工业革命，
-而西班牙人就转动起了车轮，开始开拓疆土和剥削在新大陆的印第安人。
-他们从海上运回大量的黄金，
-他们所有努力带来的却是通货膨胀（太多的金钱追逐太少的有用货物）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我坚信公司和员工并不是对立面的，双赢才是正确的路线。
-大部分情况下，我愿意牺牲个人时间和精力来完成公司的任务。
-前提就是对产品有认同感，对公司有归属感。&lt;/p&gt;
-&lt;h2&gt;最好和最坏&lt;/h2&gt;
-&lt;p&gt;作者通过一个持续两年，有来自 92 个公司的 600 多名开发程序员参加的比赛，
-分析出以下数据：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;成绩最好与成绩最差的人之间的绩效比率是10 : 1。&lt;/li&gt;
-&lt;li&gt;最好选手成绩大约是中等成绩选手成绩的2.5倍。&lt;/li&gt;
-&lt;li&gt;成绩中等以上的一半选手与另外一半选手的绩效比是2 : 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="http://www.aqee.net/"&gt;外刊 IT 评论&lt;/a&gt;的
-&lt;a href="http://www.aqee.net/why-programmers-are-not-paid-in-proportion-to-their-productivity/"&gt;为什么程序员的工作效率跟他们的工资不成比例&lt;/a&gt; 一文中也提供一些数据支持。&lt;/p&gt;
-&lt;p&gt;我离最好还有很长的距离，但是我相信个人能力是可以提升的，
-并且在个人能力上面的投资汇报比极高。&lt;/p&gt;
-&lt;h2&gt;高效工作的秘诀&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;进入顺流：咦？怎么时间过得这么快？！&lt;/li&gt;
-&lt;li&gt;邮件比电话更不容易打乱人的思绪&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;团队的力量&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;团结起来，工作的更高效更开心&lt;/li&gt;
-&lt;li&gt;有目标的团队，1 + 1 &amp;gt; 2&lt;/li&gt;
-&lt;li&gt;为一个共同的目标走到一起&lt;/li&gt;
-&lt;li&gt;优秀的团队里的成员，不会因为钱、阶层、晋升的问题离开团队&lt;/li&gt;
-&lt;li&gt;优秀的团队往往是带有个性的&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;《人人都是产品经理》中当时讲了一个愿景（Vison）问题，
-我相信一个好的愿景可以吸引更多高质量人才，为赚钱而创建的团队是不会长久的。&lt;/p&gt;
-&lt;h2&gt;烂团队的苗头&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;防范团队成员&lt;/li&gt;
-&lt;li&gt;官僚作风&lt;/li&gt;
-&lt;li&gt;不挨在一起工作（空间上）&lt;/li&gt;
-&lt;li&gt;某个成员的职责被分割多份&lt;/li&gt;
-&lt;li&gt;对产品质量要求降低&lt;/li&gt;
-&lt;li&gt;无意义的截止日期（不可能达到的目标）&lt;/li&gt;
-&lt;li&gt;结党营私&lt;/li&gt;
-&lt;li&gt;加班&lt;/li&gt;
-&lt;li&gt;绩效考核 / 目标奖励 &lt;/li&gt;
-&lt;li&gt;早期时候人员超编&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里和上文的愿景问题是对应的，无论是强制加班还是通过考核回报激励，
-都不是激发人的创造力和战斗力的好方法。老大们应该学会画饼，画大饼。
-另外，管理团队果然好难：做的事情必须靠谱，才能吸引到人才；
-需要能管理好有个性的人才（比如伞哥这样的）； 在中国大环境下，还要不错的物质回报。&lt;/p&gt;
-&lt;h2&gt;经营好团队&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;崇拜高质量：因为市场和用户需要高质量的产品&lt;/li&gt;
-&lt;li&gt;通过里程碑的方式管理任务，提高士气&lt;/li&gt;
-&lt;li&gt;崇拜精英&lt;/li&gt;
-&lt;li&gt;允许和鼓励异端：异端代表创新和进化，没有异端就会种群灭亡&lt;/li&gt;
-&lt;li&gt;给予自由度：对成员信任，而不是纯粹服从权威工作&lt;/li&gt;
-&lt;li&gt;交流，唤醒那些有潜力的巨人（唤醒了才能将脑力劳动能力发挥到极限）&lt;/li&gt;
-&lt;li&gt;内部竞争和培养&lt;/li&gt;
-&lt;li&gt;管理层自身的学习，公司自身定位的不断改变&lt;/li&gt;
-&lt;li&gt;将公司内部建设出社区文化（我觉得就是公司团队文化建设嘛）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我有一个观点是工程质量决定产品质量，产品质量决定整个团队。
-质量的一个标准是：&lt;strong&gt;我以此为荣&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;工作是一种乐趣&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;将混乱重建成秩序是有趣的&lt;/li&gt;
-&lt;li&gt;敢于用小项目来做尝试&lt;/li&gt;
-&lt;li&gt;组织竞赛游戏&lt;/li&gt;
-&lt;li&gt;团队头脑风暴&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这本这么老的书居然提到团队竞争游戏，和 Facebook 的 Hackday 异曲同工啊。
-再为这种乐趣补充一点：将公司的成果分享到开源社区。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;团队成员需要做到：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;界定自己工作，成为主人翁&lt;/li&gt;
-&lt;li&gt;促使自己成长为多面手，而不是单纯某个职位&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;给了成员足够的自由度，那么就会有相应的风险，需要对他们进行监测，
-另外招人时候就需要找靠谱的人，这也是为什么 Facebook / Google / 早期百度对招人要求极其严格。&lt;/p&gt;
-&lt;h2&gt;流程改进&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;CMM 是标准，是标准的话就一定不是对于个体的最优情况&lt;/li&gt;
-&lt;li&gt;CMM 自身也在改进，说明上一个版本的 CMM 不是最优&lt;/li&gt;
-&lt;li&gt;流程的目标是：提高质量 / 提高生产力 / 减少风险&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;读后感&lt;/h2&gt;
-&lt;p&gt;发挥个人的能力才是最关键的，要点在于信任、自由、乐趣。原则是 Pull 而不是 Push。&lt;/p&gt;
-&lt;p&gt;我会继续学习和思考这些原则，因为总有一天我也会面临这样的挑战。&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class="panel"&gt;
-&lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2013/04/peopleware/"&gt;http://blog.log4d.com/2013/04/peopleware/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
-   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Wed, 10 Apr 2013 23:35:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-10:2013/04/peopleware/</guid><category>软件开发和项目管理</category><category>创业</category><category>读书笔记</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 13 Apr 2013 22:04:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-04-13:2013/04/buy-arch/</guid><category>Linuxer</category><category>ArchLinux</category></item></channel></rss>

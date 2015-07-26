@@ -67,6 +67,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/03/solution-of-pda-failed-to-establish-a-network-connection/">PDA"未能建立与网络的连接"的解决办法</a></h2>
+                <div class="summary"><p>遇到这个问题大凡是因为模拟器或者真机无法连接网络，所以需要先测试网络是否畅通，在真机或者模拟器的IE中打开需要的WebService地址，看看是否能够正常获
+取。</p>
+<p>确定是网络原因后，可以采用多种方式连接网络，比如使用虚拟网卡来实现，又或者使用ActiveSync来实现。</p>
+<h3>使用本地网卡</h3>
+<p>在模拟器的文件-配置中的网卡中，选择本地网卡，可能会需要提示安装Virtual PC
+2007，我不愿意装这么一个大家伙，也就没有尝试这种方法，需要的朋友可以在<a href="http:
+//www.microsoft.com/downloads/details.aspx?FamilyID=04d26402-3199-48a3-afa2-2d
+c0b40a73b6&amp;DisplayLang=en">Download details: Virtual PC 2007</a>来下载Virtual PC 2007进而连接互联网。</p>
+<h3>使用ActiveSync</h3>
+<p>ActiveSync是一个连接Win系列手持到电脑的同步软件，通过它可以使真机或者模拟机连接网络，步骤如下。</p>
+<p>1、打开ActiveSync ，点击文件-连接设置，在"允许连接到以下其中一个端口"下选择 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/03/solution-of-pda-failed-to-establish-a-network-connection/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/03/a-solution-of-can-not-create-or-open-the-smart-device-project-in-vs2005/">VS2005无法创建或打开"智能设备"项目的一个问题的解决方法</a></h2>
                 <div class="summary"><h3>状况</h3>
 <p>在VS2005中创建或打开"智能设备"项目时，提示以下错误： "从用户数据存储中检索信息时出错。系统未找到指定的对象。" 和
@@ -219,30 +236,6 @@ reFox下需要正常运行。</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/development-of-cross-browser-javascript-should-pay-attention-to-the-problem/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
-                <div class="summary"><p>这文是上个月开始写的，本来想深入的分析一下零宽断言，可惜工作一直忙，现在又要去转战<strong>DWR</strong>...OMG~~</p>
-<h2>起因</h2>
-<p>将要上线的系统中有一个字符规则："13位的字符串，其中有8位连续数字"，需要用这则表达式对这个字符串进行判断。而我之前对正则的认识仅仅停留在匹配固定的字符上
-，对这个问题一筹莫展。</p>
-<p>这时候热心的小邪出现了，我在他的博客 <a href="http://www.evlos.org">邪罗刹的菠萝阁</a>
-留下这个<a href="http://www.evlos.org/2010/01/05/use-regex-to-clear-the-mix-of-tag-
-img/#comment-5968">问题</a></p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2010/01/alswl_ask.jpg" /></p>
-<p>小邪很热心的撰写了一篇文章给出回答：<a href="http://www.evlos.org/2010/01/07/a-cuptool-and-a-washtool"> 一个杯具和一个洗具与最近学习手记 :
-邪罗刹的菠萝阁</a>。</p>
-<h2>解答</h2>
-<p>核心字符串如下： '/^(?!(.<em>?d){9,})(?!(.</em>?D){6,}).{13}$/';</p>
-<p>小邪的文章给了很详细的解答，比我自己解释要好得多～我就索性copy过来，如下：</p>
-<blockquote>
-<blockquote>
-<p>小邪是这个样子解答的，首先两边的斜杠是 Perl 正则式的要求。</p>
-</blockquote>
-<p>然后两边的 ^ 和 ...</p></blockquote>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/8/">&laquo;</a>
@@ -379,7 +372,7 @@ img/#comment-5968">问题</a></p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

@@ -67,6 +67,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/11/mailtocommenter-of-the-spam-problem/">MailToCommenter的垃圾邮件问题</a></h2>
+                <div class="summary"><p>Mail To Commenter发出的邮件会被GMail判定为垃圾邮件，这个问题我曾经发现，不过没有重视起来。鸵鸟理论告诉我说也许只有自己的GMail这样
+，别人都是完好的，直到<a href="http://www.derekblog.cn/">derek</a>同学提出来。</p>
+<p>于是乎我开始修改，经过十余次的发送垃圾邮件，我反复查看邮件源码，检查<code>Mail To
+Commenter的</code>mailtocommenter_send_email<code>函数，终于修改如下代码。</code></p>
+<p><code>代码部分分别参考</code><a href="http://xfuxing.com/2009/modify-the-mail-to-commenter-so-that-more-
+user-friendly-e-mail-notification.html">修改 mail to commenter,让邮件通知更加友好 |&amp;nbsp_place_holder; Simple
+happiness</a>和<a href="http://www.evlos.org/2009/11/03/edit-the-poster-of-
+mailtocomments ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/11/mailtocommenter-of-the-spam-problem/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/11/note-the-use-of-java-reflection-to-improve-the-basedao/">Java笔记 使用反射来改进BaseDao</a></h2>
                 <div class="summary"><h2>关于反射</h2>
 <p>反射的定义（via <a href="http://zh.wikipedia.org/zh-cn/%E5%8F%8D%E5%B0%84_%28%E8%AE%A1
@@ -214,23 +228,6 @@ uml简单设计图，数据库文档，需求分析和论文。</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/10/membership-moving-soft-issue-of-builder-under-the-userid/">MemberShip在动软生成器下UserId的问题</a></h2>
-                <div class="summary"><h2>背景</h2>
-<p>这个月的课程设计我抽签是「房屋销售系统」，一个比较简单的类CMS系统。考虑到时间的因素，我放弃了Python in Django，而是选择了我相对熟悉的.N
-ET平台。我使用的主要工具是<a href="http://www.maticsoft.com/">动软.NET代码生成器</a>(一个很强大的.NET代码生成器)+Member
-Ship(微软推出的一个Asp.NET的权限系统)。</p>
-<p>我之前只是对MemberShip略有耳闻，动软也是用过几次，所以在一个星期内完成这个课程设计还是比较冒险的。呃```呵呵，这也比较符合我的风格，总是要学点东
-西的嘛。</p>
-<h2>问题</h2>
-<p>MemberShip本身是一个很强大的权限管理系统，其中UserId使用的是uniqueidentifier这种值类型，对应到微软提出的一种标示类型GUID
-(System.GUID)。这是一种类似「9498ea1f-ce4e-4e6d-b636-1bbbe3db9bde」的非字符串。</p>
-<p>动软.NET代码生成器会根据建好的数据库生成相应的代码，可以选择三层模式（BLL+DAL+Model+Web），他会自动生成每层代码。一般来说，生成的项目可
-以编译完成，但是如果在其中存在uniqueidentifier这种类型的表，就会产生错误 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/10/membership-moving-soft-issue-of-builder-under-the-userid/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/11/">&laquo;</a>
@@ -367,7 +364,7 @@ Ship(微软推出的一个Asp.NET的权限系统)。</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

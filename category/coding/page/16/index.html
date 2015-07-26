@@ -67,6 +67,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/07/mysql-command-line-client-garbled-problems-and-solutions/">MySQL Command Line Client乱码问题及解决方案</a></h2>
+                <div class="summary"><p>以前用MySQL时候都是可视化界面，如MySQL Admin使用，现在学着使用MySQL Command Line client，初次接触，就遇到乱码问题。</p>
+<p>乱码是中文字符串的，Google后，找到一些解决方案。摘录如下：</p>
+<p>引用自今天去祸害哪家的闺女呢？&lt;<a href="http://leonel.javaeye.com/blog/315090">猛击这里打开</a>&gt;</p>
+<p>1:改变数据库的默认编码配置，在MYSQL的安装目录中，找到my.ini，修改默认编</p>
+<p>码为：default-character-set=utf8</p>
+<p>2:建立数据库时，CREATE DATABASE ms_db CHARACTER SET utf8 COLLATE</p>
+<p>utf8_general_ci;</p>
+<p>3:执行脚本：指定编码格式set names utf8(注意，不是UTF-8)</p>
+<p>4:如果你采用的是外部接入的方式，在连接中确定请求的编码格式如：</p>
+<p>jdbc:mysql://localhost:3306 /ms_db?</p>
+<p>useUnicode ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/mysql-command-line-client-garbled-problems-and-solutions/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/07/summary-report-of-post-bar/">贴吧小结报告</a></h2>
                 <div class="summary"><p>终于完成了这个贴吧系统，虽然还有很多地方不完善，但是却包含了我很多心血和精力，也实践了我的很多想法。</p>
 <p>具体的不说了，稍微说一下开发使用的技术：Java、Struts2、Hibernate、OGNL、Eclipse、Tomcat、MySQL、AJAX、jQue
@@ -208,31 +225,6 @@ SAX等。我看了之后，感觉都比较麻烦，我个人比较喜欢使用jd
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/xom-class-library-to-use-java-objects-serialization/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/06/java-net-operation-session-get-post-method/">java.net.*操作session/GET/POST方法</a></h2>
-                <div class="summary"><p>终于又考完一门试，开始做课程设计了，结果课程设计给工作室一个尾气3个月的项目，而这次的先用我写的贴吧放上去，我变得暂时空闲了，开始着手写校内开心农场小工具-
-全能拖拉机。 首先要解决的就是校内登录的问题，那就是Get/Post方法了，还有用户状态保存，就是session的操作。Java不同于C#，那位可以集成系统
-的浏览器或者之间创建一个Browser。</p>
-<p>开始写了自己的第一个版本。</p>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">BufferedReader</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">IOException</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">InputStreamReader</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">MalformedURLException</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">ProtocolException</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">URL</span><span class="p">;</span>
-<span class="n">import</span> <span class="n">java</span><span class="p">.</span><span class="n">net</span><span class="p">.</span><span class="n">HttpURLConnection</span><span class="p">;</span>
-</pre></div>
-
-
-<p>public class FarmerHelper {</p>
-<p>/**</p>
-<ul>
-<li>@param args  </li>
-<li>@throws ...</li></ul>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/java-net-operation-session-get-post-method/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/15/">&laquo;</a>
@@ -369,7 +361,7 @@ SAX等。我看了之后，感觉都比较麻烦，我个人比较喜欢使用jd
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 alswl
+         <div class="col-xs-10">&copy; 2015 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
