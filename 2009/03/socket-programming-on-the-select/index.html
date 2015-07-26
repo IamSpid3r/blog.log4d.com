@@ -130,56 +130,56 @@ ct在timeout时间内阻塞，超时时间之内有事件到来就返回了，�
 <p>在有了select后可以写出像样的网络程序来！</p>
 <p>举个简单的例子，就是从网络上接受数据写入一个文件中。</p>
 <p>例子：</p>
-<p><img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />main()
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedBlockStart.gif" />{
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> int sock;
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> FILE <em>fp;
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> struct
-fd_set fds; <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubB" title="lockStart.gif" /> struct timeval timeout={3,0}; //select等待3秒，3秒轮询，要非阻塞就置0 <img alt="" src="htt" title="p://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> char
+<p><img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" />main()
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedBlockStart.gif" />{
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> int sock;
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> FILE <em>fp;
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> struct
+fd_set fds; <img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubB" title="lockStart.gif" /> struct timeval timeout={3,0}; //select等待3秒，3秒轮询，要非阻塞就置0 <img alt="image" src="htt" title="p://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> char
 buffer[256]={0}; //256字节的接收缓冲区
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> <img alt="" src="http://" title="www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> /</em>
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> <img alt="image" src="http://" title="www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> /</em>
 假定已经建立UDP连接，具体过程不写，简单，当然TCP也同理，主机ip和port都已经给定，要写的文件已经打开
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-sock=socket(<img alt="" src="http://www.cnblogs.com/Images/dot.gif" />);
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-bind(<img alt="" src="http://www.cnblogs.com/Images/dot.gif" />);
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
-fp=fopen(<img alt="" src="http://www.cnblogs.com/Images/dot.gif" />); */
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> while(1) <img alt="
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+sock=socket(<img alt="image" src="http://www.cnblogs.com/Images/dot.gif" />);
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+bind(<img alt="image" src="http://www.cnblogs.com/Images/dot.gif" />);
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
+fp=fopen(<img alt="image" src="http://www.cnblogs.com/Images/dot.gif" />); */
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> while(1) <img alt="
 " src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" />
-{ <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+{ <img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 FD_ZERO(&amp;fds); //每次循环都要清空集合，否则不能检测描述符变化
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 FD_SET(sock,&amp;fds); //添加描述符
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 FD_SET(fp,&amp;fds); //同上
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 maxfdp=sock&gt;fp?sock+1:fp+1; //描述符最大值加1
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-switch(select(maxfdp,&amp;fds,&amp;fds,NULL,&amp;timeout)) //select使用 <img alt="" src="http://www.cnblo" title="gs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> {
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> case -1:
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+switch(select(maxfdp,&amp;fds,&amp;fds,NULL,&amp;timeout)) //select使用 <img alt="image" src="http://www.cnblo" title="gs.com/Images/OutliningIndicators/ExpandedSubBlockStart.gif" /> {
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> case -1:
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 exit(-1);break; //select错误，退出程序
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> case 0:
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> break;
-//再次轮询 <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-default: <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-if(FD_ISSET(sock,&amp;fds)) //测试sock是否可读，即是否网络上有数据 <img alt="" src="http://www.cnblogs.com/Imag" title="es/OutliningIndicators/ExpandedSubBlockStart.gif" /> {
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> recvfrom(so
-ck,buffer,256,<img alt="" src="http://www.cnblogs.com/Images/dot.gif" />..);//接受网络数据
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> case 0:
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> break;
+//再次轮询 <img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+default: <img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+if(FD_ISSET(sock,&amp;fds)) //测试sock是否可读，即是否网络上有数据 <img alt="image" src="http://www.cnblogs.com/Imag" title="es/OutliningIndicators/ExpandedSubBlockStart.gif" /> {
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> recvfrom(so
+ck,buffer,256,<img alt="image" src="http://www.cnblogs.com/Images/dot.gif" />..);//接受网络数据
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
 if(FD_ISSET(fp,&amp;fds)) //测试文件是否可写
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
-fwrite(fp,buffer<img alt="" src="http://www.cnblogs.com/Images/dot.gif" />);//写入文件
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> buffer清空;
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" />
+fwrite(fp,buffer<img alt="image" src="http://www.cnblogs.com/Images/dot.gif" />);//写入文件
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/InBlock.gif" /> buffer清空;
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
 }// end if break;
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
 }// end switch
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
-}//end while <img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedBlo" title="ckEnd.gif" />}//end main
-<img alt="" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" /></p>
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedSubBlockEnd.gif" />
+}//end while <img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/ExpandedBlo" title="ckEnd.gif" />}//end main
+<img alt="image" src="http://www.cnblogs.com/Images/OutliningIndicators/None.gif" /></p>
             </div>
             <!-- /.entry-content -->
               

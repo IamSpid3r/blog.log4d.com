@@ -121,12 +121,12 @@ AssemblyKeyFile("dutil.snk")]，这个dutil.snk可以是绝对路径，我使用
 <p>警告 1 使用命令行选项"/keyfile"或适当的项目设置代替"AssemblyKeyFile"
 F:WorkSpace.netDUtilPropertiesAssemblyInfo.cs 38 12 DUtil</p>
 <p>既然VS建议我们用选项设定，那我们就用项目选项页设定key。如下图所示：</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/01/snk.jpg" /></p>
+<p><img alt="image" src="http://upload-log4d.qiniudn.com/2011/01/snk.jpg" /></p>
 <p>PS：我测试过，生成DLL之后，就算删除签名使用的snk文件，依然可以正常使用。即snk文件只有在编译时候使用。</p>
 <h2>安装到GAC</h2>
 <p>安装到GAC有两种办法，一种是把DLL拖入windows/assembly目录下（不是复制粘贴，是拖动），另外一种是使用gacutil。</p>
 <p>在Win7下，拖动的话会遇到权限问题，如下图所示</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/01/gac_setup_error.jpg" /></p>
+<p><img alt="image" src="http://upload-log4d.qiniudn.com/2011/01/gac_setup_error.jpg" /></p>
 <p>在gacutil下面也会遇到如下错误</p>
 <div class="highlight"><pre><span class="n">F</span><span class="o">:</span><span class="n">WorkSpace</span><span class="o">.</span><span class="na">netDUtilbinDebug</span><span class="o">&gt;</span><span class="n">gacutil</span> <span class="o">-</span><span class="n">i</span> <span class="n">DUtil</span><span class="o">.</span><span class="na">dll</span>
 <span class="n">Microsoft</span> <span class="o">(</span><span class="n">R</span><span class="o">)</span> <span class="o">.</span><span class="na">NET</span> <span class="n">Global</span> <span class="n">Assembly</span> <span class="n">Cache</span> <span class="n">Utility</span><span class="o">.</span>  <span class="n">Version</span> <span class="mf">3.5</span><span class="o">.</span><span class="mf">21022.8</span>
@@ -150,7 +150,7 @@ WindowsassemblyGAC_MSILDUtil .1.0.0__35f4c1ba225b3cc6DUtil.dll，这个路径包
 这种方式，就能避免版本和错误dll的问题了。</p>
 <h2>使用GAC的dll</h2>
 <p>打开任意一个项目，添加引用时候，选择编译出来的DUtil.dll即可。查看具体属性，就会发现，这个DLL并未复制到本地，因为它可以从GAC中获取了。</p>
-<p><img alt="" src="http://upload-log4d.qiniudn.com/2011/01/dll_property.jpg" /></p>
+<p><img alt="image" src="http://upload-log4d.qiniudn.com/2011/01/dll_property.jpg" /></p>
 <p>这时候如果我们删除引用地方的DLL，会发现程序依然可以正确跑起来，说明我们的DLL确实来自GAC。（Update：当引用DLL文件存在时候，优先引用此DLL
 ，不存在才引用GAC的DLL）</p>
 <p>PS:不要尝试去打开windows/assembly目录来引用，你会发现你徒劳的。</p>
