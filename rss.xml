@@ -89,7 +89,7 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 历来也盛产各种奇葩人物。
 最近我有看到一本描述一个科学家的如何生活的书，叫「奇特的一生」。
 让人拍案称奇。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="201507/liu_bi_xie_fu.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201507/liu_bi_xie_fu.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201507/liu_bi_xie_fu.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/upload_dropbox/201507/liu_bi_xie_fu.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;主人公是一位名叫柳比歇夫的科学家，想必他在「回首往事时候没有因为虚度年华而悔恨」，
 因为他将自己的一生都精确的奉献到分类学、地蚤研究上面。
 他的工作投入，不是单纯激情洋溢投入，而是精确到分钟级别的投入，
@@ -124,7 +124,7 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 去做点实际的事情，是一件不容易的事情。
 对快 30 的我来说，别说「立言」，就光「立命」，
 就已经让我困苦不堪，在这和平年代，没有家仇国恨美国梦，想要做点牛逼的事情，就得需要勇气和爱来驱动。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="201507/da_sheng_gui_lai.jpeg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201507/da_sheng_gui_lai.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201507/da_sheng_gui_lai.jpeg" src="http://77g0h6.com1.z0.glb.clouddn.com/upload_dropbox/201507/da_sheng_gui_lai.jpeg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
@@ -136,18 +136,18 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 但苦于需要连续两天时间，一直没有下定决心参加。&lt;/p&gt;
 &lt;p&gt;上周末本来安排了两天的团队会议，后来临时取消，
 给了我充足的时间。于是我在 27 号周五下午，报名参加了 27 号晚上开始的 2015 沪港 Hackathon。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="5D3_0001.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201504/5D3_0001.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5D3_0001.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/upload_dropbox/201504/5D3_0001.jpg" /&gt;&lt;/p&gt;
 
 
 &lt;p&gt;独自作战的我，在现场寻觅了几个小伙伴组了一个队伍，其中有 &lt;a href="http://homeway.me/2015/03/30/play-music-through-senses/"&gt;小草&lt;/a&gt; / tevin / 女王 / Doris / n1k0。
 小草负责树莓派服务端，tevin 负责传感器取数据，我……负责前端游戏逻辑，哈哈哈，我已经三年没有写前端代码了，为了团队职责分工，只能赶鸭子上架了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="IMG_4467.JPG" src="http://upload-log4d.qiniudn.com/upload_dropbox/201504/IMG_4467.JPG" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="IMG_4467.JPG" src="http://77g0h6.com1.z0.glb.clouddn.com/upload_dropbox/201504/IMG_4467.JPG" /&gt;&lt;/p&gt;
 &lt;p&gt;经过现场的头脑风暴，我们最后选定了基于树莓派的游戏：
 通过感应玩家的手掌移动距离来玩类似节奏大师的音乐游戏。&lt;/p&gt;
 &lt;p&gt;具体的游戏原理，可以在 &lt;a href="http://homeway.me/2015/03/30/play-music-through-senses/"&gt;基于树莓派的体感音乐游戏&lt;/a&gt; 看到，
 源码也在 &lt;a href="https://github.com/2015-hackathon/hackathon"&gt;Github&lt;/a&gt; 这里。&lt;/p&gt;
 &lt;p&gt;最关键是，我们这支临时凑齐的战队，经过两天一夜的奋战，拿了一等奖（第二名），拥有了去香港参加国际赛资格和一堆乱七八糟的云服务器现金券、折扣券！！！撒花~~撒花~~&lt;/p&gt;
-&lt;p&gt;&lt;img alt="5D3_2087.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201504/5D3_2087.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="5D3_2087.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/upload_dropbox/201504/5D3_2087.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;第一次参加 Hackathon，就能获得这个奖，觉得自己蛮幸运，
 和队友合作愉快，和队友通宵到三点多调整音乐命中算法，然后在早上 6 点钟被冻醒。五音不全的我花了几个小时将超级玛丽五线谱转化为发音库能够理解的符号描述。&lt;/p&gt;
 &lt;p&gt;虽然最后由于时间原因不能和队友去香港参加比赛，但是仍然祝愿他们在香港能够继续加油。各位队友，Have fun。&lt;/p&gt;
@@ -435,7 +435,7 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 已经忘了是从那里得知这个东西。这个卡片大小的电路板是可以运行
 Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a href="http://geekon.geekstack.org/"&gt;南京极客行动&lt;/a&gt;
 时候，Michael 好像还拿了一个板子参加比赛。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="RaspberryPi.jpg" src="http://upload-log4d.qiniudn.com/2014/07/RaspberryPi.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="RaspberryPi.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/2014/07/RaspberryPi.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;我对这个东西充满了兴趣，仅售 $39 的主机，小巧的机身，
 可以充分发挥自己的想象力：离线下载，动作片播放器，家庭分享中心，
 给侄子学习编程~想到这些可以发挥自己的创造力，
@@ -444,7 +444,7 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
 于是，我这么一压抑，就压抑了一年。&lt;/p&gt;
 &lt;p&gt;后来在 InnoSpae 看到 &lt;a href="http://segmentfault.com/"&gt;SegmentFault&lt;/a&gt; 的姜尚用 &lt;a href="http://www.arduino.cc/"&gt;Arduino&lt;/a&gt;
 写了一个播放超级玛丽音乐的程序，又让我重新燃烧起使用硬件创造一些小玩意的热情。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="4f42dcf03f067e12fe5c156e2af1373b.image.538x354.jpg" src="http://upload-log4d.qiniudn.com/2014/07/4f42dcf03f067e12fe5c156e2af1373b.image.538x354.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="4f42dcf03f067e12fe5c156e2af1373b.image.538x354.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/2014/07/4f42dcf03f067e12fe5c156e2af1373b.image.538x354.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;碰巧的是，现在有一个非常适合的场景需要这样的工具：前段时间，团队在优化发布流程，也就是将工程师写好的代码发布到正式环境的过程。其中有一个重要环节是需要需求方对提出的功能进行验证。而需求方往往验证的不及时，就需要一个方法来通知需求方。使用 QQ 群效果不好，喊又太累，就想了一个歪主意，在办公室播放音乐。&lt;/p&gt;
 &lt;p&gt;简而言之，就是用 Raspberry Pi 播放音乐。几个方案确定之后，发现用 AirPlay 的方式最适合我们：每个人都有控制内容的权利；方案使用方便，一个苹果手机即可；内容来源多，豆瓣、网易、虾米都可以播放。&lt;/p&gt;
 &lt;p&gt;分分钟搞定这个方案，一个需要 5 个步骤。&lt;/p&gt;
@@ -456,8 +456,8 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
 &lt;li&gt;在 &lt;strong&gt;同一个&lt;/strong&gt; 局域网连着的手机播放音乐，从底向上拉 iPhone 菜单，就会发现多了一个 AirPlay 标记「3DAir」，点击即可播放。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;上图：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2014-07-15 19.43.16.jpg" src="http://upload-log4d.qiniudn.com/2014/07/2014-07-15%2019.43.16.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="2014-07-16 19.25.33.png" src="http://upload-log4d.qiniudn.com/2014/07/2014-07-16%2019.25.33.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2014-07-15 19.43.16.jpg" src="http://77g0h6.com1.z0.glb.clouddn.com/2014/07/2014-07-15%2019.43.16.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="2014-07-16 19.25.33.png" src="http://77g0h6.com1.z0.glb.clouddn.com/2014/07/2014-07-16%2019.25.33.png" /&gt;&lt;/p&gt;
 &lt;p&gt;哈哈，以后办公室开 Party，周末关怀，生日会什么的，再不不用担心放音乐问题了~&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
@@ -2561,7 +2561,7 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 29 Jun 2013 00:17:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-06-29:2013/06/web-technology/</guid><category>综合技术</category><category>读书笔记</category></item><item><title>Arch，再见</title><link>http://blog.log4d.com/2013/04/buy-arch/</link><description>&lt;p&gt;&lt;img alt="Arch" src="http://upload-log4d.qiniudn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 29 Jun 2013 00:17:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-06-29:2013/06/web-technology/</guid><category>综合技术</category><category>读书笔记</category></item><item><title>Arch，再见</title><link>http://blog.log4d.com/2013/04/buy-arch/</link><description>&lt;p&gt;&lt;img alt="Arch" src="http://77g0h6.com1.z0.glb.clouddn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Arch 是我真正使用的第一款 Linux 发行版，大约使用了三年，
 现在的这个 VPS 跑的系统也是 Arch。
 然而随着时间变化，我从最早的天天更新狂，到一周、一个月、三个月和不主动更新。

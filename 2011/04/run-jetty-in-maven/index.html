@@ -176,16 +176,16 @@ class为<code>org.mortbay.xml.XmlConfiguration</code>，在Arguments - Program a
 roject_loc}/jetty.xml</code>，其中<code>${project_loc}</code>是动态参数，指向当前项目目录，jetty.xml为我们随后要创建的jett
 y配置文件。</p>
 <p><a href="http
-://upload-log4d.qiniudn.com/2011/04/run_configurations .png"><img alt="image" src="http://upload-log4d.qiniudn.com/2011/04/run_configurations" title=".png" /></a></p>
+://77g0h6.com1.z0.glb.clouddn.com/2011/04/run_configurations .png"><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/04/run_configurations" title=".png" /></a></p>
 <p>如果想将这个应用保存成文件，可以修改Common - Sava
 as到当前目录，就可以保存为jetty.launch文件了。（没错，就是launch文件，Eclipse的运行配置文件）</p>
 <p><a href="http
-://upload-log4d.qiniudn.com/2011/04/eclipse_common.png"><img alt="image" src="http://upload-log4d.qiniudn.com/2011/04/eclipse_common.png" /></a></p>
+://77g0h6.com1.z0.glb.clouddn.com/2011/04/eclipse_common.png"><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/04/eclipse_common.png" /></a></p>
 <p>2、准备jetty.xml文件</p>
 <p>Jetty是一款轻量形的Web服务器，轻到甚至仅仅靠Maven插件即可运行，不过我们依然需要通过jetty.xml文件进行配置。在项目根目录下建立jetty
 .xml（此路径与Java Application中的Arguments相对应，有些朋友可能更习惯放在WEB-INF下面）。</p>
 <p>官方说从$JETTY_HOME/webapps/test/WEB-INF/jetty-web.xml可以取到jetty-xml的范例，我这里就提供下载好了。</p>
-<p>点击下载<a href="http://upload-log4d.qiniudn.com/2011/04/jetty.xml">jetty.xml </a>，这里面写了hard
+<p>点击下载<a href="http://77g0h6.com1.z0.glb.clouddn.com/2011/04/jetty.xml">jetty.xml </a>，这里面写了hard
 code&amp;nbsp_place_holder;<code>&lt;Set
 name="resourceBase"&gt;./target/study_web-1.0-SNAPSHOT&lt;/Set&gt;</code>，请记得替换。</p>
 <p>配置好Jetty之后，就可以运行Jetty了，在Run - Run

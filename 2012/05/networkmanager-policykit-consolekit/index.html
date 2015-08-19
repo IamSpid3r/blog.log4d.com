@@ -122,7 +122,7 @@ Log4D            </a>
 <p><code>$HOME/.start-session.sh</code> 中的作用是启动 <strong>nm-applet</strong> 和 <strong>exec awesome</strong>。</p>
 <p>启动之后的情况是 NetworkManager 无线 编辑/删除 按钮变灰无法点击，或者可以点击，
 但是会发生 <strong>insufficient privileges</strong> 错误。</p>
-<p><img alt="insufficient privileges" src="http://upload-log4d.qiniudn.com/2012/05/insufficient-privileges.png" /></p>
+<p><img alt="insufficient privileges" src="http://77g0h6.com1.z0.glb.clouddn.com/2012/05/insufficient-privileges.png" /></p>
 <h2>问题原因</h2>
 <p>这个问题是由 PolicyKit 和 ConsoleKit 启动不当引起的。</p>
 <p>PolicyKit 是：</p>
@@ -158,7 +158,7 @@ Log4D            </a>
 <code>ck-launch-session</code> 来启动 WM 了。</p>
 <p>随后我把怀疑的目光放到 <code>/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1</code>
 这个程序给系统提供 PolicyKit 权限认证，请求时候会让用户输入密码，如下图：</p>
-<p><img alt="PolicyKit Agent" src="http://upload-log4d.qiniudn.com/2012/05/policykit-agent.png" /></p>
+<p><img alt="PolicyKit Agent" src="http://77g0h6.com1.z0.glb.clouddn.com/2012/05/policykit-agent.png" /></p>
 <p>可惜还是不行。</p>
 <p>我甚至还参考<a href="http://blog.san-ss.com.ar/2011/03/using-gnome-keyring-in-xmonad.html">Using gnome keyring in xmonad</a>
 试图手工建立一个 Gnome Keyring。事实证明，Gnome Keyring 和这个问题无关。</p>
