@@ -67,6 +67,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/">AjaxControlToolKit控件介绍[转载]</a></h2>
+                <div class="summary"><p>来源：<a href="http://www.cnblogs.com/haha8/archive/
+2009/09/26/1574412.html">ajax toolkit 控件介绍 - 欢迎来到哈哈的天堂 - 博客园</a>（只是来源，感觉不是这个博客原创，作者应该未知）</p>
+<p>文字太多了，所以我没有把代码提取到代码段，只是把标题提出来了，大家不要介意啊…^_^</p>
+<h3>1.Accordion</h3>
+<p>功能：实现了QQ、Msn好友分类的折叠效果，就像包含了多个CollapsiblePanels</p>
+<p>细节： (1)不要把Accordion放在Table种同时又把 FadeTransitions 设置为True，这将引起布局混乱</p>
+<p>(2)每一个 AccordionPane control 有一个Header 和Content的 template</p>
+<p>(3)在Content中可以进行任意扩展，你什么都可以放上^_ ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/10/membership-moving-soft-issue-of-builder-under-the-userid/">MemberShip在动软生成器下UserId的问题</a></h2>
                 <div class="summary"><h2>背景</h2>
 <p>这个月的课程设计我抽签是「房屋销售系统」，一个比较简单的类CMS系统。考虑到时间的因素，我放弃了Python in Django，而是选择了我相对熟悉的.N
@@ -213,32 +227,6 @@ Python的标准模块struct就用来解决这个问题。</p>
 leading byte，它总是大于127，这个字节的含义是说明它和后面的字节（们）一起表示一个字符 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/">Python读写文件</a></h2>
-                <div class="summary"><p>本文来源：<a href="http://www.cnblogs.com/coderzh/archive/2008/05/10/1191410.html">Python天天美味(17) - open读写文件 - CoderZh的技术博客 -
-博客园</a></p>
-<p>「我本来想加上看到这篇文章的博客链接，结果粘贴时候发现了图片来源居然是cnblogs，这才反应过来这不是那个博客的原创。我不反对转载，看到的好文章我自己也会
-收藏下来，转载能帮助更多需要的人，可是，至少加上人家原作者的地址呀……」-alswl</p>
-<p>Python中文件操作可以通过open函数，这的确很像C语言中的fopen。通过open函数获取一个file
-object，然后调用read()，write()等方法对文件进行读写操作。</p>
-<h2>1.open</h2>
-<p>使用open打开文件后一定要记得调用文件对象的close()方法。比如可以用try/finally语句来确保最后能关闭文件。</p>
-<div class="highlight"><pre><span class="n">file_object</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">thefile</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="nl">try:</span>
-    <span class="n">all_the_text</span> <span class="o">=</span> <span class="n">file_object</span><span class="p">.</span><span class="n">read</span><span class="p">(</span> <span class="p">)</span>
-<span class="nl">finally:</span>
-    <span class="n">file_object</span><span class="p">.</span><span class="n">close</span><span class="p">(</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>注：不能把open语句放在try块里，因为当打开文件出现异常时，文件对象file_object无法执行close()方法。</p>
-<h2>2.读文件</h2>
-<h3>读文本文件</h3>
-<div class="highlight"><pre><span class="n">input</span> <span class="o">=</span> <span class="n">open ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

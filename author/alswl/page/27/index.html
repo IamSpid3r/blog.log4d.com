@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/">编码: ASCII(ANSI), GB-2312, UNICODE, UTF-8，UTF-16</a></h2>
+                <div class="summary"><h2>ASCII字符集</h2>
+<p>7位的编码方案，总共表示128个字符，其中包括了大小写英文字母、数字、标点符号等常用字符。英语世界已经足够应付。</p>
+<h2>ISO-8859-1字符集</h2>
+<p>也称ISO-Latin字符集，它扩展了ASCII字符集，用到了8bit字节里的最高一位，这样它就有256个字符，前128个字符和ASCII字符集相同
+。有了ISO-Latin字符集，西方世界的一些其它语言，如西班牙语、法语、德语、意大利语都够用了。</p>
+<h2>GB系列字符集（GB2312，GBK，GB18030）</h2>
+<p>由于一个字节是无论如何也表达不了哪怕是最长用的汉字字符集的，所以为了用计算机存储汉字，必须使用多个字节。</p>
+<p>多字节字符集就是使用可变长的编码长度来编码字符，有的字符用一个字节编码，比如ASCII字符，有的字符用两个字节编码，比如汉字。在VC里，多字节字符集等同于双
+字节字符集，VC不支持多于2个字节编码长度的字符。GB系列的字符集和ISO-Latin字符集一样，前128个字符和ASCII字符集相同。GB系列字符集是兼容
+的，相同的中文字符在这3个字符集里有相同的编码。GB2312和GBK一个字符最多2个字节表示，GB18030可多达4个字节。在这种编码里表示汉字时，需要一个
+leading byte，它总是大于127，这个字节的含义是说明它和后面的字节（们）一起表示一个字符 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/">Python读写文件</a></h2>
                 <div class="summary"><p>本文来源：<a href="http://www.cnblogs.com/coderzh/archive/2008/05/10/1191410.html">Python天天美味(17) - open读写文件 - CoderZh的技术博客 -
 博客园</a></p>
@@ -243,19 +260,6 @@ ag类,基于jQuery</a>》
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/direction/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/08/tested-in-google-reader-using-flash/">测试在Google Reader下使用Flash</a></h2>
-                <div class="summary"><p>发现我贴的Flash都不能在Google
-Reader中显示，而<a href="http://jandan.net">煎蛋</a>的可以，我FireBug了一下，发现它的Flash代码和我的略有区别。</p>
-<p>我之前的Flash代码~ <code>&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-width="420" height="363" codebase="http://download.macromedia.com/pub/shockwav
-e/cabs/flash/swflash.cab#version=6,0,40,0"&gt;&lt;param name="allowFullScreen"
-value="true" /&gt;&lt;param name="allowscriptaccess" value="always" /&gt;&lt;param
-name="wmode" value="opaque" /&gt;&lt;param name ...</code></p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/tested-in-google-reader-using-flash/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/author/alswl/page/26/">&laquo;</a>
@@ -342,6 +346,8 @@ name="wmode" value="opaque" /&gt;&lt;param name ...</code></p>
 							href="http://blog.log4d.com/author/alswl/page/40/">40</a></li>
                     <li class=""><a
 							href="http://blog.log4d.com/author/alswl/page/41/">41</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/author/alswl/page/42/">42</a></li>
                 <li class="next"><a
                         href="http://blog.log4d.com/author/alswl/page/28/">&raquo;</a></li>
         </ul>

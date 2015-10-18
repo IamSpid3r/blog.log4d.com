@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Authors - Log4D</title>
+    <title>Logger - Log4D</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,8 @@
 
 
 
-        <meta name="author" content="alswl" />
+    <meta name="author" content="alswl" />
+    <meta name="keywords" content="Logger" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Log4D" />
@@ -65,8 +66,28 @@ Log4D            </a>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
 
-    <h1>Authors on Log4D</h1>
-        <li><a href="http://blog.log4d.com/author/alswl/">alswl</a> (411)</li>
+            <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2015/10/how-to-log/">怎么打日志</a></h2>
+                <div class="summary"><p><img alt="logger" src="http://upload-log4d.qiniudn.com/upload_dropbox/201510/logger.jpg" /></p>
+<p>需要解决的问题：</p>
+<ul>
+<li>业务日志打太乱，没有位置和格式约束</li>
+<li>什么情况打日志，如何避免滥用，提高日志作用</li>
+</ul>
+<h2>打日志最佳实践</h2>
+<p>Dropwizard 列出的打日志原则：</p>
+<blockquote>
+<p>Be human readable.</p>
+<p>Be machine parsable.</p>
+<p>Be easy for sleepy ops folks to figure out why things are pear-shaped at 3:30AM using standard UNIXy tools like tail and grep.</p>
+</blockquote>
+<p>eg.:</p>
+<div class="highlight"><pre><span class="n">TRACE</span> <span class="p">[</span><span class="mi">2010</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mo">06</span> <span class="mo">06</span><span class="o">:</span><span class="mi">42</span><span class="o">:</span><span class="mi">35</span><span class="p">,</span><span class="mi">271</span><span class="p">]</span> <span class="n">com</span><span class="p">.</span><span class="n">example ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2015/10/how-to-log/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
 

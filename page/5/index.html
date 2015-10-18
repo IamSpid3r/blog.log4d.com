@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
+                <div class="summary"><p>上周，我将 Log4D 由 Wordpress 转换为 Octopress，略加打理，颇为顺手。
+自动分类 / 评论转移 / 代码高亮 / 图床 的问题一一解决之后，
+就只剩下 tag 的问题没有搞定了。</p>
+<p>我当时使用了YORKXIN的<a href="https://gist.github.com/1394128">修改版本</a>来处理 Wordpress
+的数据迁移，这个脚本很好用，数据没有遗失，甚至是让我担心的 category /
+tag 都给予了保留。具体使用方法可以参见<a href="http://blog.dayanjia.com/2012/04/migration-to-octopress-from-wordpress/">从Wordpress迁移到Octopress</a>。</p>
+<p>只是虽然 tag 的数据保留了，但是 <strong>Octopress 仅支持 category 的分类，而完全忽略
+tag</strong>。这是我不能容忍的：category 和 tag 分别代表 有序 / 无序 的知识点归纳方法。
+<strong>一篇文章只能属于一个 category，但可以同时属于多个 tag</strong>。
+Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，我开始吭次吭次寻找插件。</p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/tag-cloud/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/05/the-non-designers-design-book/">《写给大家看的设计书》读后感</a></h2>
                 <div class="summary"><p>我读过两本关于视觉设计的书，一本是<a href="http://book.douban.com/subject/6783748/">《写给程序员的Web设计书》</a>，
 这是第二本<a href="http://book.douban.com/subject/3323633/">《写给大家看的设计书》</a>。</p>
@@ -233,21 +250,6 @@ inoremap &lt;C-e&gt; &lt;End&gt;
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/03/python-debug/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/03/chrome-proxy/">Chrome 独立代理设置</a></h2>
-                <div class="summary"><p>Chrome 在2011年4月份时候，加入了两个新的实验性扩展分支，分别是 Web Navigation Extension API 以及 Proxy
-Extension API， 通过他们，可以让 Chrome 使用自己独立的代理。</p>
-<p>借助这个新功能，我们可以通过 SwitchySharp 使用某个 list 完成部分网址代理。</p>
-<p>我的环境： Arch Linux / Chromiun(17.0.963.78) / Proxy SwitchySharp 1.9.38。</p>
-<h2>安装 Proxy SwitchySharp</h2>
-<p>由于 <a href="http://code.google.com/p/switchyplus/">SwitchyPlus</a> 停止维护， 因此这里我使用 <a href="http://code.google.com/p/switchysharp/">Proxy
-SwitchySharp</a>。</p>
-<p>Proxy SwitchySharp 介绍如下：</p>
-<div class="highlight"><pre><span class="err">轻松快捷地管理和切换多个代理设置。基于</span> <span class="s">&quot;Proxy ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/03/chrome-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/page/4/">&laquo;</a>
@@ -334,6 +336,8 @@ SwitchySharp</a>。</p>
 							href="http://blog.log4d.com/page/40/">40</a></li>
                     <li class=""><a
 							href="http://blog.log4d.com/page/41/">41</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/page/42/">42</a></li>
                 <li class="next"><a
                         href="http://blog.log4d.com/page/6/">&raquo;</a></li>
         </ul>

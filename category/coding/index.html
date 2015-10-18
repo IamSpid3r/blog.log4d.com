@@ -67,6 +67,27 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2015/10/how-to-log/">怎么打日志</a></h2>
+                <div class="summary"><p><img alt="logger" src="http://upload-log4d.qiniudn.com/upload_dropbox/201510/logger.jpg" /></p>
+<p>需要解决的问题：</p>
+<ul>
+<li>业务日志打太乱，没有位置和格式约束</li>
+<li>什么情况打日志，如何避免滥用，提高日志作用</li>
+</ul>
+<h2>打日志最佳实践</h2>
+<p>Dropwizard 列出的打日志原则：</p>
+<blockquote>
+<p>Be human readable.</p>
+<p>Be machine parsable.</p>
+<p>Be easy for sleepy ops folks to figure out why things are pear-shaped at 3:30AM using standard UNIXy tools like tail and grep.</p>
+</blockquote>
+<p>eg.:</p>
+<div class="highlight"><pre><span class="n">TRACE</span> <span class="p">[</span><span class="mi">2010</span><span class="o">-</span><span class="mo">04</span><span class="o">-</span><span class="mo">06</span> <span class="mo">06</span><span class="o">:</span><span class="mi">42</span><span class="o">:</span><span class="mi">35</span><span class="p">,</span><span class="mi">271</span><span class="p">]</span> <span class="n">com</span><span class="p">.</span><span class="n">example ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2015/10/how-to-log/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2015/07/redis-migration/">Redis 集群扩容</a></h2>
                 <div class="summary"><p>几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。
 主流的实现之一是使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、
@@ -223,18 +244,6 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
 
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/06/web-technology/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/04/buy-arch/">Arch，再见</a></h2>
-                <div class="summary"><p><img alt="Arch" src="http://77g0h6.com1.z0.glb.clouddn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /></p>
-<p>Arch 是我真正使用的第一款 Linux 发行版，大约使用了三年，
-现在的这个 VPS 跑的系统也是 Arch。
-然而随着时间变化，我从最早的天天更新狂，到一周、一个月、三个月和不主动更新。
-彻底从从不折腾会死星人变成了一个尽量避免变更的老用户。</p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/04/buy-arch/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

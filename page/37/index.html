@@ -66,6 +66,22 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/solve-the-null-value-was-assigned-to-a-property/">解决 Null value was assigned to a property</a></h2>
+                <div class="summary"><p>晚上开始写贴吧分类，把class改成category，规避了关键字class，也显得更合理，百度的分类就是ct</p>
+<p>然后在分类上遇到一个小问题，category_father在数据库是integer类型，可以为null，因为存在根分类，在这种情况下用Hibernate读取
+Category时会产生错误</p>
+<p>在jUnit单元测试中就通不过，错误为 org.hibernate.PropertyAccessException: Null value was
+assigned to a property</p>
+<p>Google后，发现Category中定义categoryFather为int类型，是不支持null的，需要改为Wrapper类Interger</p>
+<p>有人说只需要设定setXXX和getXXX的Integer的类型和.hbm.xml文件中个Type="java.lang.Integer"就可以了</p>
+<p>但是经过我测试发现，categoryFather 这个成员也要定义成Interger，否则会报错
+org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</p>
+<p>晚上写完分类，感慨到：框架先行，功能其后 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/solve-the-null-value-was-assigned-to-a-property/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/05/struts2-encoding-problem/">Struts2的编码问题</a></h2>
                 <div class="summary"><p>继续昨天的编码问题 我一直全部采用UTF-8格式，而且在jUnit测试中并没有问题，说明是在Struts进行数据收集时候出错。</p>
 <p>Google之后，根据网上一些建议修改web.xml struts.xml 但都没有效果。</p>
@@ -210,21 +226,6 @@ bm.com/developerworks/cn/linux/l-openssl2.html">http://www.ibm.com/developerwork
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/safe-use-of-openssl-api-programming-part-2-security-handshake/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/03/the-most-powerful-ibm-publib-information-center/">IBM publib 最强大资料中心</a></h2>
-                <div class="summary"><p>今天做OpenSSL密码算法选择时候，用到了两个函数 SSL_get_cipher_list(SSL <em>ssl, int priority) 和
-SSL_CTX_set_cipher_list(SSL </em>ssl, const char *char)</p>
-<p>google以后，在OpenSSL的官方doc找不到太详细的解释，呵呵，也许和我英文水平太差有关吧</p>
-<p>结果第一条返回数据就是IBM的连接，好奇过去看了一下，哇塞，比OpenSSL的官方doc还详细。</p>
-<p>如果光这样，只能让我吃惊一下子而已，而我往下翻，居然发现这个文档中心几乎囊括了IBM系统开发中所有方面，可惜我见识太少，只能看到MySQL啊，GCC这些简单
-的字眼</p>
-<p>连接地址：http://publib.boulder.ibm.com/infocenter/tpfhelp/current/index.jsp?topic=
-/com.ibm.ztpf-ztpfdf.doc_put.cur/gtpc2/cpp_ssl_ctx_set_cipher_list.html</p>
-<p><img alt="image" src="http://tbn3.google.cn/images?q=tbn:1XCDIW0n3-blkM:" /></p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/the-most-powerful-ibm-publib-information-center/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/page/36/">&laquo;</a>
@@ -311,6 +312,8 @@ SSL_CTX_set_cipher_list(SSL </em>ssl, const char *char)</p>
 							href="http://blog.log4d.com/page/40/">40</a></li>
                     <li class=""><a
 							href="http://blog.log4d.com/page/41/">41</a></li>
+                    <li class=""><a
+							href="http://blog.log4d.com/page/42/">42</a></li>
                 <li class="next"><a
                         href="http://blog.log4d.com/page/38/">&raquo;</a></li>
         </ul>
