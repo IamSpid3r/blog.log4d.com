@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/05/support-rss/">让 Octopress 支持 RSS2.0</a></h2>
+                <div class="summary"><p>土鳖人人网的 <strong>日志导入</strong> 功能仅支持 RSS2.0，而 Octopress 输出的订阅格式是 Atom1.0。
+于是为了让人人网的同学能看见我那些技术宅，又或非技术宅的文章，
+我只能昧着良心，给 Octopress 加上过时的 RSS2.0 输出。</p>
+<p>在 <code>source/</code> 下创建新文件 <code>rss.xml</code> ，内容如下：</p>
+<div class="highlight"><pre><span class="o">---</span>
+<span class="nx">layout</span><span class="p">:</span> <span class="nx">nil</span>
+<span class="o">---</span>
+<span class="o">&lt;?</span><span class="kt">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;UTF-8&quot;</span><span class="cp">?&gt;</span>
+<span class="nt">&lt;rss</span> <span class="na">xmlns:dc=</span><span class="s">&quot;http://purl.org/dc/elements/1.1/&quot;</span> <span class="na">version=</span><span class="s">&quot;2.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;channel&gt;</span>
+        <span class="nt">&lt;description&gt;</span><span class="cp">&lt;![</span><span class="nx">CDATA</span><span class="err">[</span><span class="p">{{</span> <span class="nx">site ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/support-rss/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
                 <div class="summary"><p>上周，我将 Log4D 由 Wordpress 转换为 Octopress，略加打理，颇为顺手。
 自动分类 / 评论转移 / 代码高亮 / 图床 的问题一一解决之后，
@@ -223,31 +240,6 @@ inoremap &lt;C-e&gt; &lt;End&gt;
 <li>入门（安装 / GAccount / webapp / app ...</li></ul></li></ul>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/03/gae/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/03/python-debug/">在Python中调试代码</a></h2>
-                <div class="summary"><p>撰写程序时候，需要在调试上面花费不少时间，好的调试工具可以让这个过程如虎添翼， 靠打 log 调试会是一种很痛苦的过程，我总结一下 Pylons
-开发的调试技巧。</p>
-<p>吐槽：团队开发时候，每个成员需要学习、总结和分享各自的开发技巧， 这样才能自我提升并提高开发效率。这属于团队文化建设，开发是一种艺术创造过程，
-绝对不是简单的复制和粘帖。</p>
-<h2>在 Python 中调试</h2>
-<h3>pdb</h3>
-<p>在代码中加入下列语句即可启用交互式调试。</p>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">pdb</span><span class="p">;</span><span class="n">pdb</span><span class="p">.</span><span class="n">set_trace</span><span class="p">()</span>
-</pre></div>
-
-
-<p>在 pdb 中，可以使用 <code>h / l / b / n / s / c / j / a / p / ! / q</code> 这些命令所代表的含义可以通过
-<code>h(elp)</code> 打印出来。</p>
-<p>参考链接：</p>
-<ul>
-<li><a href="http://magustest.com/blog/python/use-pdb-debug-python/comment-page-1">用PDB库调试Python程序</a></li>
-</ul>
-<h3>ipdb</h3>
-<p>比 pdb 更好用的是 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/03/python-debug/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

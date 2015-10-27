@@ -66,6 +66,22 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
+                <div class="summary"><p>在url中使用中文其实是一个坏习惯，会带来一系列的转码问题， 我更喜欢英文译名或者id来标识某个uri。但是现实往往是残酷的，
+特别是在我们调用别人服务时候，有时候被逼无奈使用中文URL。</p>
+<p>Python中unicode转码一向是让人头疼的问题。数次碰壁之后，我也摸出了一些门道，
+研读完<a href="http://ipie.blogbus.com/logs/19379694.html">Python字符串的encode与decode</a>
+之后，就自认为找到了万金油，谁知道这次又碰上这个老冤家。</p>
+<div class="highlight"><pre><span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nb">call</span> <span class="nb">last</span><span class="p">):</span>
+  <span class="nb">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line</span> <span class="mi">126</span><span class="p">,</span> <span class="k">in</span> <span class="nx">urlopen</span>
+    <span class="k">return</span> <span class="nx">_opener.open</span><span class="p">(</span><span class="nb">url</span><span class="p">,</span> <span class="kd">data</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
+  <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/06/urllib2-urlopen-unicode/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
                 <div class="summary"><h2>1. 背景</h2>
 <p>我目前有两台电脑，一台是家里使用的Linux笔记本（Dell 6400，4年）， 一台是公司使用的Windows笔记本（IBM X201，1个月）。
@@ -226,23 +242,6 @@ log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
 <p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/03/plrcmatch4d.jpg" /></p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/03/plrcmatch4d/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/03/nanjing-library/">南京图书馆检索系统升级</a></h2>
-                <div class="summary"><p>我经常去南京图书馆借书，南图的书虽然馆藏很多，在架的却往往不多。我习惯在去南图之前将在豆瓣上标记为"想读"的书搜索一下，检查书是否在架，以前南图的检索系统挺
-难用。我甚至一度想写一个查询小脚本。</p>
-<p>好消息是，前几天南图将ALEPH500业务系统升级到20版，官方的消息如下：</p>
-<blockquote>
-<p>南京图书馆于2011年3月15-17日顺利完成了ALEPH500业务管理系统升级工作，顺利实现从16版到20版的切换，3月18日起ALRPH500 V2
-0正式开始运行。20版是ALEPH500的最新版本，从16版到20版的升级，因为越过了中间的18版，所以难度更大，过程更加复杂，南京图书馆是第一家完成此项工
-作的省级图书馆。</p>
-<p>新版业务管理系统具有检索界面更简洁、检索提示更友好、信息显示更全面、检索结果更准确、沟通交流更直接等优点，从而更加方便读者使用。新版系统的的最大亮点是在
-OPAC（联机公共查询目录）中引入了社区的理念，通过新增的标签、评论、评级功能，建立了图书馆和读者互动与交流的虚拟社区。</p>
-<p>ALEPH500业务系统升级项目是南京图书馆2010年确定的重点工作，为此，南图不仅召开了项目专家论证会，还赴国家图书馆进行专题调研，并成立了专门的项目
-工作小组，制定了升级工作方案和应急预案。在项目实施过程中，南图始终贯彻时间服从质量的原则，召开项目汇报会和项目工作会10余次，集中培训人员2次 ...</p></blockquote>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/03/nanjing-library/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
