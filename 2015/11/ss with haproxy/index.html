@@ -14,7 +14,7 @@
 <link rel="canonical" href="http://blog.log4d.com/2015/11/ss with haproxy/">
 
         <meta name="author" content="alswl" />
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="SS,HAProxy" />
         <meta name="description" content="以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。 经常不稳定，丢一半的包。 于是买了 SS 服务， 9 台服务器，自己挑觉得速度快的服务器。 但一直固定某台服务器也会偶尔出问题，导致邮件出不来，网页打不开。 需要手动切换一下服务器。 于是用 HA 做了一个本地代理，调整了一些参数，让 SS 总是有快速的服务器供选择。 结构： +-----------------+ +----------------+ | | | | | Server 1 |&gt;&gt;&gt;&gt;v &gt;&gt;| Mail.app | | | v ^ | | +-----------------+ v ^ +----------------+ v ^ +-----------------+ v |----------------+ +------------+ ^ +----------------+ | | v | | | | ^ | | | Server 2 |&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;| HAProxy |&gt;&gt;&gt;&gt;&gt;&gt;| SS-Client |&gt;&gt;&gt;| Browser | | | ^ | | | | v | | +-----------------+ ^ +----------------+ +------------+ v +----------------+ ^ v +-----------------+ ^ v +----------------+ | | ^ v | | | Server ..." />
 
 
@@ -85,7 +85,9 @@ Log4D            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://blog.log4d.com/tag//"></a>
+	<a href="http://blog.log4d.com/tag/ss/">SS</a>
+        /
+	<a href="http://blog.log4d.com/tag/haproxy/">HAProxy</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -246,11 +248,6 @@ var jiathis_config = {data_track_clickback:'true'};
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
-                        <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category//">
-                                <i class="fa fa-folder-open fa-lg"></i> 
-                            </a>
-                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
