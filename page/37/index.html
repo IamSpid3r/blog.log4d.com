@@ -66,6 +66,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
+                <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
+<p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
+里的Category.action 里的 result 后面的url加入参数，可以读取正确categoryId了</p>
+<p>本来想在result中加入param元素而不是在url后面加 ？categoryId=0来实现，但是尝试了好久，Google和官方文档都没有什么解决方案</p>
+<p>其中遇到的一个问题是「&amp;」这个符号不能直接使用，需要进行转义，用「&amp;」来替代。</p>
+<p>最后是categoryName的问题了，本来以为很简单，却遇到了编码问题，之前从Home.action转到Category.action能正确编码，像 ht
+tp://localhost:8080/PostBar/Category.action?categoryId=4&amp;categoryName=%E9%9F%B
+3%E4%B9%90 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/garbled-see-also-garbled/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/05/to-submit-the-issue-of-an-action/">一个Action提交的问题</a></h2>
                 <div class="summary"><p>贴吧在提交帖子时候必须提供贴吧分类id categoryId，但是怎么把这个id提交到PostAction就比较麻烦了，在jsp页面中我试了好多办法，尝试使
 用param和hidden（baidu用的hidden）标签，但是都不能读出cagegory.jsp页面的categoryId值。</p>
@@ -220,19 +234,6 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/04/4_13/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/04/web-site-has-been-linked-to-a-trojan-horse/">网站被挂木马了```</a></h2>
-                <div class="summary"><p>寒假就发现自己的那个网站能被万能asp密码攻破，还留了一句"网站有漏洞，请加强防护"</p>
-<p>当时不知道什么造成漏洞，就写了一个ipTrace来跟踪ip</p>
-<p>前段时间打开ipTrace一看，有这么多用户非法登录</p>
-<p>61.51.177.16 2009-4-4 9:02:40 -1 北京市 网通(崇文区)</p>
-<p>58.251.77.207 2009-4-4 9:27:39 -1 广东省深圳市 网通</p>
-<p>219.149.162.151 2009-4-4 9:39:08 -1 山西省大同市 电信</p>
-<p>219.149.162.151 2009-4-4 9:50:41 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/04/web-site-has-been-linked-to-a-trojan-horse/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/page/36/">&laquo;</a>
@@ -352,6 +353,11 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category//">
+                                <i class="fa fa-folder-open fa-lg"></i> 
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding

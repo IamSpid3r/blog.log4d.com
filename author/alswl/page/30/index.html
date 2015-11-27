@@ -66,6 +66,28 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/07/iis-ie7-opera-firefox-requires-a-user-name-and-password/">IIS IE7 Opera Firefox 需要用户名和密码？【转载】</a></h2>
+                <div class="summary"><p>转载自《<a href="http://www.ruizhisky.cn/article/Digest/207.htm">IIS IE7 Opera Firefox 需要用户名和密码？ -
+睿之工作室</a>》（虽然从图片上来看是转载自多彩工作室```）</p>
+<p>我先说几句：在FireFox about:config那里输入值时候，如果有多个网址应该用逗号隔开，如「localhost,
+127.0.0.1」，这样比原文章中只添加localhost要更加方便。</p>
+<p>转载的文字加灰色</p>
+<p>Windows XP Professional IIS 5.1</p>
+<p>原因：由于安全性能优越IE7.0的internet默认采用的「用户被询问是否允许带参数加载或编码控件」选项，也就是总是要验证用户是否有参数
+加载，而IIS默认采用的匿名登录不进行任何验证，而前后的internet和IIS的设置矛盾，ie7的权限优先于iis所以冲突导致总是要密码验证。</p>
+<p><img alt="image" src="http://www.i170.com/Attach/5DE1DA55-8E8E-4A0A-8768-DB93CD5E0E6A" /></p>
+<p><img alt="image" src="http://www.i170.com/Attach/2681B4F4-D11A-47ED-8FB9-E7B0BE76FC5A" /></p>
+<p><strong>Firefox</strong></p>
+<p>Firefox 登录本地站点也需要用户名和密码的吧，用此办法即可解决</p>
+<p>在Firefox地址栏中输入：about:config</p>
+<p>然后在过滤器中输入：NTLM</p>
+<p>双击network.automatic-ntlm-auth.trusted-uris,</p>
+<p>在输入值中输入 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/iis-ie7-opera-firefox-requires-a-user-name-and-password/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/07/practice-the-first-day-of-the-next-day-gym/">实习第二天+健身房第一天</a></h2>
                 <div class="summary"><p>刚完成主管布置的Html设计，本来计划今天完成，结果提前到上午10点。看看主管不在，就偷偷写一篇日志吧。</p>
 <p>昨天是实习第二天，我开始学会享受QJ，没办法，逆来顺受么，我这个伪美工小王子终于被逼上了绝路，开始研究(x)html标准，和大师们的css全局设计。（我私底
@@ -235,19 +257,6 @@ Baidu那时候大部分日志都是关于Cinderella，有一次闹矛盾删除�
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/those-times-those-who-do-log-archiving-2007/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/07/volume-by-adding-a-watermark-image/">图片批量加入水印</a></h2>
-                <div class="summary"><p>在群里聊天，偶尔提及图片水印问题，呃，我居然一直忘了做这一块内容。</p>
-<p>图片加水印，无非3个办法：1.插件自动处理。2.专业加水印软件。3.用PS等修图软件自己动手。</p>
-<p>我不太喜欢用太多插件，于是就测试了一下自己电脑上的几个图片编辑软件：PhotoCap3,
-HyperSnap，发现他们水印功能都不是那么理想。我不想专门为一个水印去安装一个软件，最后决定用Photoshop写一个Acion动作自己批处理。</p>
-<p>参考这篇文章：《<a href="http://www.16xx8.com/photoshop/zhizuosh
-ili/photoshop-4274.html">PS制作水印的简单教程_ps制作实例-photoshop</a>》和《<a href="http://i
-t.21cn.com/software/pingmian/adobe/2006/01/19/2441838.shtml">Photoshop批量处理动作的录制与运用  - 21CN ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/volume-by-adding-a-watermark-image/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/author/alswl/page/29/">&laquo;</a>
@@ -367,6 +376,11 @@ t.21cn.com/software/pingmian/adobe/2006/01/19/2441838.shtml">Photoshop批量处�
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category//">
+                                <i class="fa fa-folder-open fa-lg"></i> 
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding

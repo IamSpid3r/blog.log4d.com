@@ -66,6 +66,17 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
+                <div class="summary"><p>在Eclipse中新建JSP页面时候，<strong>contentType="text/html; charset=utf-8"</strong>,
+<strong>pageEncoding="utf-8"</strong>, <strong>content="text/html; charset=utf-8"</strong>， 这样连中文字都无法保存
+，必须修改成UTF-8才能显示。</p>
+<p>在网上找了很久都没有合适的方案，都是给出在General下面的Content Types修改编码，而且下面人留言还说有效，我自己试了去发现根本没有作用。。。</p>
+<p>自己琢磨了很久，终于在Web - JSP Files 里面找到了正确的设置，把其中的<strong>Encoding</strong>由ISO改为UTF-8就一切完美解决。</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/02/servlet-jsp-s-java-type-of-the-most-simple-mvc-model/">Servlet JSP 的 Java类的最简单MVC模型</a></h2>
                 <div class="summary"><p>来自Head First Servlet and JSP</p>
 <p><em>XML语言</em>: <a href="http://www.fayaa.com/code/view//">web.xml</a></p>
@@ -203,19 +214,6 @@ cn ...</a></p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/12/office-of-the-art-publishing-long-documents/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/12/annoying-clip/">恼人的美工</a></h2>
-                <div class="summary"><p>一边在考试中挣扎着，操作系统，系统安全，系统结构都一股脑的狠狠的向我砸来，一方面还得为那个ASP项目烦恼</p>
-<p>程序永远不是问题，VB Script虽然没用过，不过感觉还是在的，写起来也算是有条理，可到了界面重新设计这一块，就烦了</p>
-<p>客户要求重新换一个风格界面，加上 我对原来的table控制界面很不喜欢，索性用div+css全部重写，不过在风格定位上遇到了很大的困难，毕竟我是程序员，不是
-专业美工，而且css本来就不熟，我就看着一大堆的css书，学着什么盒子理论啊，IE6,FF,IE7的css值不同拉做着各种设计，疯了，混到这个份上了。
-变成纯体力活了。。。</p>
-<p>我一边还自个儿安慰自己，嗯，哥哥是位艺术家了....</p>
-<p>借鉴着大量的美工做的非常好的网站，佩服着其他一些美术设计师，行行出状元啊...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/12/annoying-clip/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/page/39/">&laquo;</a>
@@ -335,6 +333,11 @@ cn ...</a></p>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category//">
+                                <i class="fa fa-folder-open fa-lg"></i> 
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding

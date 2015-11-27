@@ -66,6 +66,25 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/03/using-openssl-to-create-certificates-using-the-command/">用OpenSSL创建证书时用到的命令【原创】</a></h2>
+                <div class="summary"><p>这几天在弄OpenSSL需要使用的证书，翻了很多文档，找来一《本OpenSSL与网络信息安全-
+基础、结构和指令》，书上的密码学和OpenSSL的基础介绍的很详细，但是缺少一些实例。</p>
+<p>这证书死活做不出来，最后在《计算机网络高级软件编程技术》上第19章"利用OpenSSL实现安全的Web Server"中找到自己需要的内容，现在分享一下。</p>
+<p>1.生成CA中心的私钥</p>
+<blockquote>
+<p>openssl req -newkey rsa:1024 -sha1 -keyout rootkey.pem -out rootreq.pem</p>
+</blockquote>
+<p>2.生成CA中心的自签证书</p>
+<blockquote>
+<p>openssl x509 -req -in rootreq.pem -sha1 -extensions v3_ca -days 365 -signkey
+rootkey.pem -out rootcert.pem</p>
+</blockquote>
+<p>3 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/using-openssl-to-create-certificates-using-the-command/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/03/common-certificate-format-and-conversion/">常见证书格式和转换【转载】</a></h2>
                 <div class="summary"><p>这些文字都是转来转去，都找不到原作者是谁，唉````</p>
 <p>仍然感谢作者的贡献....</p>
@@ -286,17 +305,6 @@ background-color:#f3f3f3 ...</style>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/02/ajax-started-use-dom-to-resolve-xml/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/">Eclipse中JSP文件的编码设置</a></h2>
-                <div class="summary"><p>在Eclipse中新建JSP页面时候，<strong>contentType="text/html; charset=utf-8"</strong>,
-<strong>pageEncoding="utf-8"</strong>, <strong>content="text/html; charset=utf-8"</strong>， 这样连中文字都无法保存
-，必须修改成UTF-8才能显示。</p>
-<p>在网上找了很久都没有合适的方案，都是给出在General下面的Content Types修改编码，而且下面人留言还说有效，我自己试了去发现根本没有作用。。。</p>
-<p>自己琢磨了很久，终于在Web - JSP Files 里面找到了正确的设置，把其中的<strong>Encoding</strong>由ISO改为UTF-8就一切完美解决。</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/02/eclipse-in-the-jsp-file-s-encoding-settings/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/page/38/">&laquo;</a>
@@ -416,6 +424,11 @@ background-color:#f3f3f3 ...</style>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category//">
+                                <i class="fa fa-folder-open fa-lg"></i> 
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding

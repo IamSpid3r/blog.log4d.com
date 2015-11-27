@@ -66,6 +66,25 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/11/jquery-html-in-ie6/">jQuery.html()在IE下面错误解决办法</a></h2>
+                <div class="summary"><p>今天遇到一个jQuery的<code>.html()</code>设定错误问题，FF和Chrome下面都能够正常工作，而IE下面却失败。</p>
+<p>检查之后，我把问题定性到jQuery.html(html)设定在IE下有问题。当设定html文本中含有空行、空格、Tab时候，会出现异常中断，导致<code>html
+()</code>设定失败，但是又不会引发js错误。</p>
+<p>狗日的IE！</p>
+<p>下文是Google来的参考文章：<a href="http://sixpoint.me/808/jquery-html-function-ie-error/">使用 jQuery .html() 得到的string时,
+在IE中出现错误的解决方法</a></p>
+<hr />
+<p>使用 jQuery 的 .html() 函数( 使用 .text() 也类似 )得到元素内的值使用时，在IE6中出错，FireFox 中正常。</p>
+<p>基本代码如下:</p>
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;demo&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeInQuad<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeOutQuad<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>easeInOutQuad<span class="nt">&lt;/li ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/11/jquery-html-in-ie6/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/11/vps-lnmp-setup-config/">128M内存VPS LNMP安装优化小记</a></h2>
                 <div class="summary"><blockquote>
 <p>重要通知：Log4D 的域名由 <a href="http://dddspace.com">http://dddspace.com</a> 迁移到 <a href="http://log4d.com">http://log4d.com</a> 。
@@ -239,31 +258,6 @@ VPS，128M内存，300G流量，我用来运行这个博客，同时配置了VPN
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/09/jwj/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/09/pptpclient/">使用pptpclient连接vpn网络[译文]</a></h2>
-                <div class="summary"><p>最近在ddwrt配置vpn，参考了arch的pptpclient配置文档<a href="https://wiki.archlinux.org/index.php/Microsoft_VPN_client_setup_with_pptpcl
-ient">Microsoft VPN client setup with pptpclien
-t</a>，同时顺便花了一点时间翻译成中文，正文如下（使用<a href="https://github.com/tanin47/wiky.js">wiky.js</a>转换pe
-diawiki到html，原文会有更多的wiki模板样式便于查看，有问题请参照原文）。</p>
-<p>pptpclient是一个实现Microsoft PPTP协议的程序。因此它能够被用来接入另一个Microsoft VPN网络，比如学校和单位。</p>
-<h3>安装PPTPClient</h3>
-<p>pptpclient由安装包pptpclient提供，运行下列命令可以安装：</p>
-<h1>pacman -S pptpclient</h1>
-<h3>配置</h3>
-<p>你需要从网络管理员获取以下信息来配置pptpclient:</p>
-<ul>
-<li>VPN服务器的ip或者域名</li>
-<li>VPN隧道名称</li>
-<li>Windows域（不是所有网络都需要）</li>
-<li>VPN用户名</li>
-<li>VPN密码</li>
-</ul>
-<h2>编辑配置文件</h2>
-<p>用你称手的编辑器打开/etc ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/09/pptpclient/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/author/alswl/page/7/">&laquo;</a>
@@ -383,6 +377,11 @@ diawiki到html，原文会有更多的wiki模板样式便于查看，有问题�
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
+                        <li class="list-group-item">
+                            <a href="http://blog.log4d.com/category//">
+                                <i class="fa fa-folder-open fa-lg"></i> 
+                            </a>
+                        </li>
                         <li class="list-group-item">
                             <a href="http://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
