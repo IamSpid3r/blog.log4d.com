@@ -156,13 +156,14 @@ Log4D            </a>
 
     <span class="n">option</span> <span class="n">tcp</span><span class="o">-</span><span class="n">check</span>
 
-    <span class="n">server</span> <span class="n">s1</span> <span class="n">host1</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">5</span> <span class="n">fall</span> <span class="mi">2</span>
-    <span class="n">server</span> <span class="n">s2</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">5</span> <span class="n">fall</span> <span class="mi">2</span>
-    <span class="n">server</span> <span class="n">s3</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">5</span> <span class="n">fall</span> <span class="mi">2</span>
+    <span class="n">server</span> <span class="n">s1</span> <span class="n">host1</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span> <span class="n">backup</span>
+    <span class="n">server</span> <span class="n">s2</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span>
+    <span class="n">server</span> <span class="n">s3</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span>
 </pre></div>
 
 
 <p>挺稳定，很快速。</p>
+<p>update: 2015-12-15，添加 <code>backup</code> 项，选一台最稳定的做 backup，避免所有连接都超时。</p>
             </div>
             <!-- /.entry-content -->
               
