@@ -152,13 +152,15 @@ Log4D            </a>
     <span class="n">timeout</span> <span class="n">connect</span> <span class="mi">200</span><span class="n">ms</span>
     <span class="n">timeout</span> <span class="n">client</span> <span class="mi">600</span><span class="n">s</span>
     <span class="n">timeout</span> <span class="n">server</span> <span class="mi">600</span><span class="n">s</span>
-    <span class="n">timeout</span> <span class="n">check</span> <span class="mi">150</span><span class="n">ms</span>
-
+    <span class="n">timeout</span> <span class="n">check</span> <span class="mi">80</span><span class="n">ms</span>  <span class="err">#</span> <span class="k">for</span> <span class="n">office</span> <span class="o">/</span> <span class="n">home</span>
+    <span class="err">#</span> <span class="n">timeout</span> <span class="n">check</span> <span class="mi">400</span><span class="n">ms</span>  <span class="err">#</span> <span class="k">for</span> <span class="n">starbucks</span>
+    <span class="n">retries</span> <span class="mi">1</span>
+    <span class="n">option</span> <span class="n">redispatch</span>
     <span class="n">option</span> <span class="n">tcp</span><span class="o">-</span><span class="n">check</span>
 
     <span class="n">server</span> <span class="n">s1</span> <span class="n">host1</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span> <span class="n">backup</span>
     <span class="n">server</span> <span class="n">s2</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span>
-    <span class="n">server</span> <span class="n">s3</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">2</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">30</span> <span class="n">fall</span> <span class="mi">6</span>
+    <span class="n">server</span> <span class="n">s3</span> <span class="n">host2</span><span class="o">:</span><span class="n">port</span> <span class="n">maxconn</span> <span class="mi">20</span> <span class="n">check</span> <span class="n">inter</span> <span class="mi">1</span><span class="n">s</span> <span class="n">rise</span> <span class="mi">60</span> <span class="n">fall</span> <span class="mi">6</span>
 </pre></div>
 
 
