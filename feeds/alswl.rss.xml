@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/feeds/alswl.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 20:23:24 +0800</lastBuildDate><item><title>ss with haproxy</title><link>http://blog.log4d.com/2015/11/ss%20with%20haproxy/</link><description>&lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/feeds/alswl.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 20:23:24 +0800</lastBuildDate><item><title>ss with haproxy</title><link>http://blog.log4d.com/2015/11/ss%20with%20haproxy/</link><description>&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
+&lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
 经常不稳定，丢一半的包。&lt;/p&gt;
 &lt;p&gt;于是买了 &lt;a href="https://portal.shadowsocks.com/aff.php?aff=4215"&gt;SS&lt;/a&gt; 服务，
 9 台服务器，自己挑觉得速度快的服务器。&lt;/p&gt;
