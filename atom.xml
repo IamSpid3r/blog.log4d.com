@@ -74,7 +74,9 @@
 
 
 &lt;p&gt;挺稳定，很快速。&lt;/p&gt;
-&lt;p&gt;update: 2015-12-15，添加 &lt;code&gt;backup&lt;/code&gt; 项，选一台最稳定的做 backup，避免所有连接都超时。&lt;/p&gt;
+&lt;p&gt;update: 2015-12-15，添加 &lt;code&gt;backup&lt;/code&gt; 项，选一台最稳定的做 backup，避免所有连接都超时。
+update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;retries&lt;/code&gt; 项，换机器重试，
+大幅提高可用性，注意，可能在非幂等状态下面产生未知错误&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
