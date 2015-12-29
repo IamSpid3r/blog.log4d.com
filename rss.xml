@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 20:23:24 +0800</lastBuildDate><item><title>ss with haproxy</title><link>http://blog.log4d.com/2015/11/ss%20with%20haproxy/</link><description>&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 20:23:24 +0800</lastBuildDate><item><title>SS with Haproxy</title><link>http://blog.log4d.com/2015/11/ss-with-haproxy/</link><description>&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
 &lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
 经常不稳定，丢一半的包。&lt;/p&gt;
 &lt;p&gt;于是买了 &lt;a href="https://portal.shadowsocks.com/aff.php?aff=4215"&gt;SS&lt;/a&gt; 服务，
@@ -84,11 +84,11 @@ update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;r
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/11/ss with haproxy/"&gt;http://blog.log4d.com/2015/11/ss with haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/11/ss-with-haproxy/"&gt;http://blog.log4d.com/2015/11/ss-with-haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 27 Nov 2015 20:23:24 +0800</pubDate><guid>tag:blog.log4d.com,2015-11-27:2015/11/ss with haproxy/</guid><category>SS</category><category>HAProxy</category></item><item><title>几步拥有一个安全密码</title><link>http://blog.log4d.com/2015/10/a-security-password/</link><description>&lt;p&gt;&lt;img alt="password.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/password.jpg" /&gt;&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 27 Nov 2015 20:23:24 +0800</pubDate><guid>tag:blog.log4d.com,2015-11-27:2015/11/ss-with-haproxy/</guid><category>SS</category><category>HAProxy</category></item><item><title>几步拥有一个安全密码</title><link>http://blog.log4d.com/2015/10/a-security-password/</link><description>&lt;p&gt;&lt;img alt="password.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/password.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;给团队非开发同学写的邮件，对其他人也有些意义，遂贴出来。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;这个互联网越来越不安全 &lt;a href="https://www.baidu.com/s?wd=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2%E4%BA%8B%E4%BB%B6&amp;amp;rsp=3&amp;amp;f=1&amp;amp;oq=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2&amp;amp;ie=utf-8&amp;amp;usm=2&amp;amp;rsv_idx=1&amp;amp;rsv_pq=f9362ac90000f994&amp;amp;rsv_t=31d7A5Zyu36Hn4omAU5F9llRh3WBGl5tInDRywq%2FbPEwdPnyjCCcfGLdnNA&amp;amp;rsv_ers=xn0&amp;amp;rs_src=0"&gt;https://www.baidu.com/s?wd=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2%E4%BA%8B%E4%BB%B6&lt;/a&gt;。密码数据库泄露，黑客暴库攻击，社会工程学攻击层出不穷。我给大家介绍几个小方法，轻松提高自己各类密码的安全等级。&lt;/p&gt;

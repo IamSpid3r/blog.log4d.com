@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="http://blog.log4d.com/" rel="alternate"></link><link href="http://blog.log4d.com/atom.xml" rel="self"></link><id>http://blog.log4d.com/</id><updated>2015-11-27T20:23:24+08:00</updated><entry><title>ss with haproxy</title><link href="http://blog.log4d.com/2015/11/ss%20with%20haproxy/" rel="alternate"></link><updated>2015-11-27T20:23:24+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-11-27:2015/11/ss with haproxy/</id><summary type="html">&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="http://blog.log4d.com/" rel="alternate"></link><link href="http://blog.log4d.com/atom.xml" rel="self"></link><id>http://blog.log4d.com/</id><updated>2015-11-27T20:23:24+08:00</updated><entry><title>SS with Haproxy</title><link href="http://blog.log4d.com/2015/11/ss-with-haproxy/" rel="alternate"></link><updated>2015-11-27T20:23:24+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-11-27:2015/11/ss-with-haproxy/</id><summary type="html">&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
 &lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
 经常不稳定，丢一半的包。&lt;/p&gt;
 &lt;p&gt;于是买了 &lt;a href="https://portal.shadowsocks.com/aff.php?aff=4215"&gt;SS&lt;/a&gt; 服务，
@@ -84,7 +84,7 @@ update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;r
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/11/ss with haproxy/"&gt;http://blog.log4d.com/2015/11/ss with haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/11/ss-with-haproxy/"&gt;http://blog.log4d.com/2015/11/ss-with-haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
