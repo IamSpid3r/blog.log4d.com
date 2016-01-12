@@ -18,7 +18,7 @@
 需要先从内置库升级到外部数据库，比如 MySQL。&lt;/p&gt;
 &lt;p&gt;苦逼旅程就开始了。&lt;/p&gt;
 &lt;h2&gt;From embedded to MySQL&lt;/h2&gt;
-&lt;p&gt;更新内之苦到外部库的操作流程：&lt;/p&gt;
+&lt;p&gt;更新内置库到外部库的操作流程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;导出当前的数据备份，包括附件，我导出后 1G+&lt;/li&gt;
 &lt;li&gt;使用当前同版本（3.0.1）安装一个全新的 wiki，注意下载 JDBC-connector&lt;/li&gt;
