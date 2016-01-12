@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Nov 2015 20:23:24 +0800</lastBuildDate><item><title>SS with Haproxy</title><link>http://blog.log4d.com/2015/11/ss-with-haproxy/</link><description>&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Log4D</title><link>http://blog.log4d.com/</link><description></description><atom:link href="http://blog.log4d.com/rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 12 Jan 2016 22:53:55 +0800</lastBuildDate><item><title>一次艰难的 Wiki 升级</title><link>http://blog.log4d.com/2016/01/confluence-upgrade/</link><description>&lt;p&gt;公司使用 [Confluence][_confluence] 管理自己的知识库，
+现在使用的版本还是 3.0.1，而最新的 Confluence 版本已经是 5.4+。
+新版本加入的一些现代化 Web 系统的新特性很吸引人，
+在群众的强烈呼声下，我着手开始升级。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201601/confluence.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201601/confluence.jpg" /&gt;&lt;/p&gt;
+
+
+&lt;p&gt;官方的升级路线很扯，3.0.1 的升级路线是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3.0.1 -&amp;gt; 3.5.17&lt;/li&gt;
+&lt;li&gt;5.0.3 -&amp;gt; 5.4.4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;中间两次大版本升级，第一次原因不明，第二次是更新了 markup 渲染引擎，
+改为 HTML 格式类型的渲染模式。&lt;/p&gt;
+&lt;p&gt;由于一些原因，我们系统还跑在 embedded 模式下（其实就是 HyperSQL），这种大版本升级，
+需要先从内置库升级到外部数据库，比如 MySQL。&lt;/p&gt;
+&lt;p&gt;苦逼旅程就开始了。&lt;/p&gt;
+&lt;h2&gt;From embedded to MySQL&lt;/h2&gt;
+&lt;p&gt;更新内之苦到外部库的操作流程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;导出当前的数据备份，包括附件，我导出后 1G+&lt;/li&gt;
+&lt;li&gt;使用当前同版本（3.0.1）安装一个全新的 wiki，注意下载 JDBC-connector&lt;/li&gt;
+&lt;li&gt;安装之后，配置好 MySQL，开始导入之前准备好的备份&lt;/li&gt;
+&lt;li&gt;悲剧上演&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;遇到了错误：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Import failed. Hibernate operation: could not insert: [com.atlassian.confluence.core.BodyContent#12028015]; SQL []; Duplicate entry '12028015' for key 'PRIMARY'; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '12028015' for key 'PRIMARY'&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;官方文档 &lt;a href="https://confluence.atlassian.com/doc/troubleshooting-xml-backups-that-fail-on-restore-199034.html"&gt;https://confluence.atlassian.com/doc/troubleshooting-xml-backups-that-fail-on-restore-199034.html&lt;/a&gt;
+让修改重复键数据，好吧，我改，搜索一把重复主键，将备份里面的 &lt;code&gt;entities.xml&lt;/code&gt; 弄出来。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;格式化&lt;/span&gt;
+&lt;span class="nx"&gt;awk&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;{s=s $0}END{gsub(/&amp;gt;&amp;lt;/,&amp;quot;&amp;gt;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;lt;&amp;quot;,s);s=gensub(/&amp;gt;([^ &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;gt;]*)&amp;lt;/,&amp;quot;&amp;gt;&lt;/span&gt;&lt;span class="se"&gt;\n\\&lt;/span&gt;&lt;span class="s1"&gt;1&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s1"&gt;&amp;lt;&amp;quot;,&amp;quot;g&amp;quot;,s);print s}&amp;#39;&lt;/span&gt; &lt;span class="nx"&gt;entities.xml&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nx"&gt;entities.xml.format&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="err"&gt;找重复主键&lt;/span&gt; &lt;span class="nx"&gt;cat&lt;/span&gt; &lt;span class="nx"&gt;entities.xml.format&lt;/span&gt; &lt;span class="nx"&gt;G&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;content&amp;quot; class=&amp;quot;Page&amp;#39;&lt;/span&gt; &lt;span class="na"&gt;-A&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nx"&gt;G&lt;/span&gt; &lt;span class="na"&gt;-E&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;[0-9]+&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nb"&gt;sort&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;uniq&lt;/span&gt; &lt;span class="na"&gt;-c&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nb"&gt;sort&lt;/span&gt; &lt;span class="na"&gt;-gr&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt; &lt;span class="nx"&gt;cat&lt;/span&gt; &lt;span class="nx"&gt;entities.xml.format&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;grep&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;name=&amp;quot;id&amp;quot;&amp;#39;&lt;/span&gt; &lt;span class="na"&gt;-A&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="na"&gt;-B&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;grep&lt;/span&gt; &lt;span class="na"&gt;-E&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;[0-9]+&amp;#39;&lt;/span&gt; &lt;span class="na"&gt;-B&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nx"&gt;L&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;操作过程中，发现有数据就一条数据（grep entities.xml），还是插入重复（13238835）。
+官方文档解释是，内置数据库的锁有时候会不灵，插入重复键。
+于是决定再试试去掉主键约束方案，大不了那个数据我就不要了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ALTER&lt;/span&gt; &lt;span class="n"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;BODYCONTENT&lt;/span&gt; &lt;span class="n"&gt;DROP&lt;/span&gt; &lt;span class="n"&gt;PRIMARY&lt;/span&gt; &lt;span class="n"&gt;KEY&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;结果还有其他 PK 约束，我于是一条一条解开，然后……还是不行，真是作了一手的好死。&lt;/p&gt;
+&lt;p&gt;结论是，这数据错误了太多，已经无法手工修复。&lt;/p&gt;
+&lt;h2&gt;横插一刀的 Emoji 😊😢💗&lt;/h2&gt;
+&lt;p&gt;导入时候报了这么一个错误：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Caused by: java.sql.SQLException: Incorrect string value: '\xF0\x9F\x8C\x8D\xE5\x9B...' for column 'BODY' at row 1 org.xml.sax.SAXException: Error while parsing 2015-10-19 23:14:13,108 ERROR [Importing data task] [confluence.importexport.impl.ReverseDatabinder] fromXML Error processing backup: -- referer: http://10.1.2.155:8087/setup/setup-restore-start.action | url: /setup/setup-restore-local.action | userName: anonymous | action: setup-restore-local org.xml.sax.SAXException: Error while parsing net.sf.hibernate.exception.GenericJDBCException: could not insert: [com.atlassian.confluence.core.BodyContent#12028161]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是 Emoji 编码的问题，理论上 MySQL 换到 5.6+，更新 encoding 就可以了。&lt;/p&gt;
+&lt;p&gt;但是……Confluence 的建表 SQL 爆出了 255 varchar 超过 1000 限制的错误
+，我尝试使用 &lt;a href="https://github.com/rails/rails/issues/9855"&gt;innodb_large_prefix&lt;/a&gt;
+似乎可以解决（因为重复键的问题，导致导入已经行不通）。&lt;/p&gt;
+&lt;p&gt;另外 innodb_large_prefix 是 5.6.3 才有的，只能升级 MySQL，
+并且需要创建表时候使用 DYNAMIC 参数。&lt;/p&gt;
+&lt;p&gt;弄个 Emoji 这么绕，这导致我直接弃用了 MySQL。&lt;/p&gt;
+&lt;p&gt;如果是正常迁移，不遇到重复键，Emoji 的问题，可以参考官方的文档，完成平滑迁移：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://confluence.atlassian.com/doc/migrating-to-another-database-148867.html&lt;/li&gt;
+&lt;li&gt;https://confluence.atlassian.com/doc/database-setup-for-mysql-128747.html&lt;/li&gt;
+&lt;li&gt;https://confluence.atlassian.com/doc/upgrading-confluence-4578.html&lt;/li&gt;
+&lt;li&gt;https://confluence.atlassian.com/doc/upgrading-confluence-manually-255363437.html&lt;/li&gt;
+&lt;li&gt;https://confluence.atlassian.com/conf56/confluence-user-s-guide/creating-content/using-the-editor/using-symbols-emoticons-and-special-characters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;妈蛋，自己干&lt;/h2&gt;
+&lt;p&gt;上面这么点东西，陆陆续续花了我两周的时间（晚上）。已经确认走不通平滑迁移，那就别怪我手段糙了。&lt;/p&gt;
+&lt;p&gt;使用 API 导出后直接导入，这种做法最大问题是不平滑，会丢掉 Wiki 修改的历史记录，
+在和各个业务方沟通之后，最后达成了一致：可以暴力升级。&lt;/p&gt;
+&lt;p&gt;升级流程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;准备最新 Confluence 新站点&lt;/li&gt;
+&lt;li&gt;关停站点&lt;/li&gt;
+&lt;li&gt;导出数据，包括 Page、评论、附件&lt;/li&gt;
+&lt;li&gt;导入 Page，评论，附件&lt;/li&gt;
+&lt;li&gt;启动旧站点，开启只读模式&lt;/li&gt;
+&lt;li&gt;启用新站点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;官方有一个 &lt;a href="https://migrations.atlassian.net/wiki"&gt;Universal Wiki Converter&lt;/a&gt;，
+我在 Bitbucket 上面找到了源码，但是已经不可工作了。
+虽然宣称「The UWC will however save you 1-2+ weeks of scripting development time, compared with starting from scratch, for many of the most common conversion cases.」
+但并没有卵用。&lt;/p&gt;
+&lt;p&gt;不行就自己随便搞搞好了，看了一下开发需要的 &lt;a href="https://confluence.atlassian.com/display/CONF30/Remote+API+Specification+2.4#RemoteAPISpecification2.4-Page"&gt;Conflunce API&lt;/a&gt;，
+和尤其贴心的新版本 &lt;a href="https://developer.atlassian.com/confdev/confluence-rest-api?continue=https%3A%2F%2Fdeveloper.atlassian.com%2Fconfdev%2Fconfluence-rest-api&amp;amp;application=dac"&gt;RESTful API&lt;/a&gt;，就开始搞了。&lt;/p&gt;
+&lt;p&gt;写迁移代码，在这里 &lt;a href="https://github.com/duitang/atlassian-confluence-xxoo"&gt;atlassian-confluence-xxoo&lt;/a&gt;，已经开源了，只使用过一次，成功的从 3.0.1 迁移到 5.4.4，
+理论上，支持任意版本的 3.x/4.x Confluence 迁移到最新。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;python app.py -h&lt;/code&gt; 查看帮助，不行就看看代码。&lt;/p&gt;
+&lt;p&gt;希望有迁移需求的同学，搜索到这里能够获得一些帮助。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class="panel"&gt;
+&lt;div class="panel-body"&gt;
+   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/01/confluence-upgrade/"&gt;http://blog.log4d.com/2016/01/confluence-upgrade/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Tue, 12 Jan 2016 22:53:55 +0800</pubDate><guid>tag:blog.log4d.com,2016-01-12:2016/01/confluence-upgrade/</guid><category>confluence</category></item><item><title>SS with Haproxy</title><link>http://blog.log4d.com/2015/11/ss-with-haproxy/</link><description>&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
 &lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
 经常不稳定，丢一半的包。&lt;/p&gt;
 &lt;p&gt;于是买了 &lt;a href="https://portal.shadowsocks.com/aff.php?aff=4215"&gt;SS&lt;/a&gt; 服务，
@@ -1895,205 +1991,4 @@ bind j:alt focus behind
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 09 Nov 2013 14:59:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</guid><category>Linuxer</category><category>Postfix</category></item><item><title>在 Python 中使用 GDB 来调试[译文]</title><link>http://blog.log4d.com/2013/11/python-gdb/</link><description>&lt;p&gt;大约一年前，我接触了 Java 中的 &lt;a href="http://kenai.com/projects/btrace"&gt;Btrace&lt;/a&gt;
-能够不停机查看线上 JVM 运行情况的特性让我艳羡不已。
-另外还有强悍的 jStack 和 jConsole 来进行运行期侦测，JVM 的工业级强度果然不是盖的。&lt;/p&gt;
-&lt;p&gt;当时公司技术方面也遇到了一些瓶颈，一部分原因是 CPython 本身的 IO 模型问题，
-另一方面也和早期代码写的极不工整脱不了关系。万般无奈之下，我们用
-Jython 推翻重做了主要业务，效果立竿见影，但同时也把真实问题给规避掉了。&lt;/p&gt;
-&lt;p&gt;在这之后我们在 JVM 的领导下，走上了康庄大道。但我心中始终还有一个梗，
-就是想对性能遇到瓶颈的 Python Process 进行线上侦测。
-这篇文章就是开始的第一步。&lt;/p&gt;
-&lt;p&gt;PS:这篇文章理论上是可行的，但是在我机器（Ubuntu 12.04 / 系统自带 Python）
-无法正常执行，会爆出 &lt;code&gt;unable to read python frame information&lt;/code&gt;
-的问题。解决方法我会在下篇文章中写出。这里只是单纯翻译一下原文。&lt;/p&gt;
-&lt;p&gt;原文可以移步 &lt;a href="https://wiki.python.org/moin/DebuggingWithGdb"&gt;https://wiki.python.org/moin/DebuggingWithGdb&lt;/a&gt;。&lt;/p&gt;
-
-
-&lt;hr /&gt;
-&lt;p&gt;有一些类型的 bugs 很难使用 Python 直接进行 debug，比如&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;段错误（无法被捕捉的 Python 异常）&lt;/li&gt;
-&lt;li&gt;卡住的进程（这种情况下面没法使用 &lt;code&gt;pdb&lt;/code&gt; 来进行跟踪）&lt;/li&gt;
-&lt;li&gt;控制之外的后台处理 daemon 进程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这些情况下，你可以使用尝试使用 &lt;code&gt;gdb&lt;/code&gt;。&lt;/p&gt;
-&lt;h2&gt;准备&lt;/h2&gt;
-&lt;p&gt;需要在系统安装 &lt;code&gt;gdb&lt;/code&gt; 和 Python debug 扩展。
-Python debug 扩展包含了一些 debug 命令，并且添加了一些 Python 特定的命令到 &lt;code&gt;gdb&lt;/code&gt;。
-在主流的 Linux 发行版中，你可以轻松的安装他们：&lt;/p&gt;
-&lt;p&gt;Fedora:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gdb&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;debuginfo&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Ubunt:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gdb&lt;/span&gt; &lt;span class="n"&gt;python2&lt;/span&gt;&lt;span class="mf"&gt;.7&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dbg&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;在一些老系统上面，也一样可以使用 &lt;code&gt;gdb&lt;/code&gt;，具体看文章末尾。&lt;/p&gt;
-&lt;h2&gt;使用 &lt;code&gt;GDB&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;有两种可行的方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;一开始就使用 &lt;code&gt;gdb&lt;/code&gt; 来启动应用&lt;/li&gt;
-&lt;li&gt;连接到一个已经运行的 Python 进程&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在 &lt;code&gt;gdb&lt;/code&gt; 下面启动 Python 同样有两种方式：&lt;/p&gt;
-&lt;p&gt;交互式：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="nx"&gt;gdb&lt;/span&gt; &lt;span class="nx"&gt;python&lt;/span&gt;
-&lt;span class="nx"&gt;...&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;run&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;programname&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;py&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;arguments&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;自动：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="nx"&gt;gdb&lt;/span&gt; &lt;span class="na"&gt;-ex&lt;/span&gt; &lt;span class="nb"&gt;r&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt; &lt;span class="nx"&gt;python&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;programname&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="bp"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;py&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;arguments&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这样的话，它会一直运行直到退出、段错误、或者人为的停止（使用 &lt;code&gt;Ctrl+C&lt;/code&gt;）。&lt;/p&gt;
-&lt;p&gt;如果进程已经开始运行，你可以通过 PID 来接入它：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gdb&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;pid&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;running&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;调试进程&lt;/h2&gt;
-&lt;p&gt;如果你的程序段错误了， &lt;code&gt;gdb&lt;/code&gt; 会自动暂停程序，这样你可以切换到 &lt;code&gt;gdb&lt;/code&gt;
-命令行来检查状态。你也可以人为地使用 &lt;code&gt;Ctrl+C&lt;/code&gt; 来暂停程序运行。&lt;/p&gt;
-&lt;p&gt;查看 &lt;a href="https://fedoraproject.org/wiki/Features/EasierPythonDebugging"&gt;EasierPythonDebugging&lt;/a&gt;
-获得 &lt;code&gt;gdb&lt;/code&gt; 里面的 Python 命令列表。&lt;/p&gt;
-&lt;h2&gt;查看 C 调用栈&lt;/h2&gt;
-&lt;p&gt;如果你在 debug 段错误，你最想做的可能就是查看 C 调用栈。&lt;/p&gt;
-&lt;p&gt;在 &lt;code&gt;gdb&lt;/code&gt; 的命令行里面，只要运行一下命令：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nx"&gt;bt&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;  &lt;span class="mh"&gt;0x0000002a95b3b705&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;raise&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;libc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;so&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;  &lt;span class="mh"&gt;0x0000002a95b3ce8e&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;abort&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="nx"&gt;from&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;libc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;so&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;  &lt;span class="mh"&gt;0x00000000004c164f&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;posix_abort&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;self&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;noargs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mh"&gt;0x0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;Modules&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;posixmodule&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;7158&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;  &lt;span class="mh"&gt;0x0000000000489fac&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;call_function&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;pp_stack&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mh"&gt;0x7fbffff110&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;oparg&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;ceval&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3531&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;  &lt;span class="mh"&gt;0x0000000000485fc2&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;PyEval_EvalFrame&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mh"&gt;0x66ccd8&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nx"&gt;at&lt;/span&gt; &lt;span class="p"&gt;..&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;Python&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;ceval&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2163&lt;/span&gt;
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;运气好的话，你可以直接看到问题出现在什么地方。如果它提供的信息不能直接帮你解决问题，
-你可以尝试继续追踪调用栈。
-调式的结果取决于 debug 信息的有效程度。&lt;/p&gt;
-&lt;h2&gt;查看 Python 调用栈&lt;/h2&gt;
-&lt;p&gt;如果你安装了 Python 扩展，你可以使用&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bt&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;可以获取熟悉的 Python 源代码。&lt;/p&gt;
-&lt;h2&gt;对挂住的进程开刀&lt;/h2&gt;
-&lt;p&gt;如果一个进程看上去挂住了，他可能在等待什么东西（比如锁、IO 等等）。
-也有可能在拼命的跑循环。连接上这个进程，然后检查调用栈也许可以帮上忙。&lt;/p&gt;
-&lt;p&gt;如果进程在疯狂循环，你可以先让它运行一会，使用 &lt;code&gt;cont&lt;/code&gt; 命令，
-然后使用 &lt;code&gt;Ctrl+C&lt;/code&gt; 来暂停，并且打印出调用栈。&lt;/p&gt;
-&lt;p&gt;如果一些线程卡住了，下面的命令可能会帮上忙：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="n"&gt;threads&lt;/span&gt;
-  &lt;span class="n"&gt;Id&lt;/span&gt;   &lt;span class="n"&gt;Target&lt;/span&gt; &lt;span class="n"&gt;Id&lt;/span&gt;         &lt;span class="n"&gt;Frame&lt;/span&gt;
-  &lt;span class="mi"&gt;37&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa29feb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17914&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;NotificationThr&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;36&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa03fcb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17913&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;35&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa0bfdb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17911&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;QProcessManager&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;34&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa13feb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17910&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;33&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa1bffb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17909&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;31&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa31ffb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17907&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;QFileInfoGather&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;30&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa3fdfb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17906&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;QInotifyFileSys&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;29&lt;/span&gt;   &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa481cb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17905&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;QFileInfoGather&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;7&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa508db40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17883&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;QThread&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;6&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa5cebb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17882&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;5&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa660cb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17881&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xabdffb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17876&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;gdbus&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-  &lt;span class="mi"&gt;2&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xac7b7b40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17875&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dconf worker&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;    &lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xb7d876c0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17863&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;python2.7&amp;quot;&lt;/span&gt; &lt;span class="mh"&gt;0xb7fdd424&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__kernel_vsyscall&lt;/span&gt; &lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;当前运行的线程被标记为 &lt;code&gt;*&lt;/code&gt;，要查看 Python 代码运行到哪里，使用 &lt;code&gt;py-list&lt;/code&gt; 查看：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
-&lt;span class="mi"&gt;2025&lt;/span&gt;        &lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Open&lt;/span&gt; &lt;span class="n"&gt;external&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt; &lt;span class="n"&gt;Mac&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;
-&lt;span class="mi"&gt;2026&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;platform&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;darwin&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;and&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Spyder&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;__file__&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;span class="mi"&gt;2027&lt;/span&gt;            &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;connect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SIGNAL&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;open_external_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QString&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-&lt;span class="mi"&gt;2028&lt;/span&gt;                         &lt;span class="n"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;open_external_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-&lt;span class="mi"&gt;2029&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;2030&lt;/span&gt;        &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exec_&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="mi"&gt;2031&lt;/span&gt;        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;
-&lt;span class="mi"&gt;2032&lt;/span&gt;
-&lt;span class="mi"&gt;2033&lt;/span&gt;
-&lt;span class="mi"&gt;2034&lt;/span&gt;    &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;__remove_temp_session&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;span class="mi"&gt;2035&lt;/span&gt;        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;osp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isfile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TEMP_SESSION_PATH&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;查看所有进程的 Python 代码位置，可以使用：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;thread&lt;/span&gt; &lt;span class="n"&gt;apply&lt;/span&gt; &lt;span class="n"&gt;all&lt;/span&gt; &lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
-&lt;span class="p"&gt;...&lt;/span&gt;
- &lt;span class="mi"&gt;200&lt;/span&gt;
- &lt;span class="mi"&gt;201&lt;/span&gt;        &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;202&lt;/span&gt;            &lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;addr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_sock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
- &lt;span class="mi"&gt;203&lt;/span&gt;            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_socketobject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_sock&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;addr&lt;/span&gt;
- &lt;span class="mi"&gt;204&lt;/span&gt;        &lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_realsocket&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt;
- &lt;span class="mi"&gt;205&lt;/span&gt;
- &lt;span class="mi"&gt;206&lt;/span&gt;        &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;dup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
- &lt;span class="mi"&gt;207&lt;/span&gt;            &lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;dup() -&amp;gt; socket object&lt;/span&gt;
-
-&lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mi"&gt;35&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa0bfdb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17911&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;span class="n"&gt;Unable&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;locate&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;frame&lt;/span&gt;
-
-&lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mi"&gt;34&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt; &lt;span class="mh"&gt;0xa13feb40&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;LWP&lt;/span&gt; &lt;span class="mi"&gt;17910&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
- &lt;span class="mi"&gt;197&lt;/span&gt;            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;_delegate_methods&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
- &lt;span class="mi"&gt;198&lt;/span&gt;                &lt;span class="n"&gt;setattr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dummy&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
- &lt;span class="mi"&gt;199&lt;/span&gt;        &lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_realsocket&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;close&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__doc__&lt;/span&gt;
- &lt;span class="mi"&gt;200&lt;/span&gt;
- &lt;span class="mi"&gt;201&lt;/span&gt;        &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="mi"&gt;202&lt;/span&gt;            &lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;addr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_sock&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;accept&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
- &lt;span class="mi"&gt;203&lt;/span&gt;            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;_socketobject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_sock&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;addr&lt;/span&gt;
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;引用&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://fedoraproject.org/wiki/Features/EasierPythonDebugging"&gt;http://fedoraproject.org/wiki/Features/EasierPythonDebugging&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://code.google.com/p/spyderlib/wiki/HowToDebugDeadlock"&gt;https://code.google.com/p/spyderlib/wiki/HowToDebugDeadlock&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;老系统上的 GDB&lt;/h2&gt;
-&lt;p&gt;有时候你需要在老系统上面安装 &lt;code&gt;gdb&lt;/code&gt;，这时候你可能需要下列信息：&lt;/p&gt;
-&lt;h3&gt;GDB Macros&lt;/h3&gt;
-&lt;p&gt;一些随着 Python 发布的 GDB 脚本可以用来调试 Python 进程。
-你可以把 Python 源码里面的 &lt;code&gt;Misc/gdbinit&lt;/code&gt;  拷贝到 &lt;code&gt;~/.gdbinit&lt;/code&gt;，
-或者从 &lt;a href="http://svn.python.org/view/python/branches/release27-maint/Misc/gdbinit?view=log"&gt;Subversion&lt;/a&gt;
-来拷贝他们。请注意你的 Python，确保使用正确的代码版本，否则有些功能可能无法工作。&lt;/p&gt;
-&lt;p&gt;请注意有些新的 GDB 命令只有在 debug 需要的库存在才能正常工作。&lt;/p&gt;
-&lt;p&gt;这个脚本在 Ubuntu 上面的 gcc 4.5.2 工作时，会爆出错误
-&lt;code&gt;No symbol "co" in current context.&lt;/code&gt;，是因为 &lt;code&gt;call_function&lt;/code&gt; 在
-&lt;a href="https://wiki.python.org/moin/EvalFrameEx"&gt;PyEval_EvalFrameEx&lt;/a&gt; 和
-&lt;a href="https://wiki.python.org/moin/EvalCodeEx"&gt;PyEval_EvalCodeEx&lt;/a&gt; 之间。
-重新使用 &lt;code&gt;make "CFLAGS=-g -fno-inline -fno-strict-aliasing"&lt;/code&gt;
-编译 Python 可以解决这个问题。&lt;/p&gt;
-&lt;h3&gt;使用 Python Stack Traces GDB 脚本&lt;/h3&gt;
-&lt;p&gt;在 gdb 命令行里，可以这样查看 Python stack trace:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;pystack&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;同样的，可以获取一列 stack frame 的 Python 变量：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;gdb&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;pystackv&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;更多 gdbinit 里面没定义的有用的脚本可以在这里找到：&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://web.archive.org/web/20070915134837/http://www.mashebali.com/?Python_GDB_macros:The_Macros"&gt;http://web.archive.org/web/20070915134837/http://www.mashebali.com/?Python_GDB_macros:The_Macros&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class="panel"&gt;
-&lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2013/11/python-gdb/"&gt;http://blog.log4d.com/2013/11/python-gdb/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
-   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Fri, 01 Nov 2013 01:11:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-01:2013/11/python-gdb/</guid><category>Python</category><category>GDB</category><category>译文</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">alswl</dc:creator><pubDate>Sat, 09 Nov 2013 14:59:00 +0800</pubDate><guid>tag:blog.log4d.com,2013-11-09:2013/11/postfix-basic-configuration/</guid><category>Linuxer</category><category>Postfix</category></item></channel></rss>

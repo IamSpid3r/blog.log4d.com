@@ -66,6 +66,21 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/ognl-operators-in/">OGNL中的操作符</a></h2>
+                <div class="summary"><p><s:textfield name="loginName" value="%{#request.loginNames}"/></p>
+<p>使用此表达式，会生成一个文本框，并且，如果request.attribute中有loginNames属性，将会做为些文本框的默认值。</p>
+<p>如果只使用#request.loginNames在struts2的标签内部，是不会显示任何值的，注意外面加上的%{}附号，才会被正常的使用。</p>
+<p>如果希望如EL语言一样直接输出文件，如在一个<a></a>之间的innerHTML文本为#request.loginNames的值，我们只要使用：<s:pr
+operty value="#request.loginNames" />使可以正常使用！</p>
+<p>注：</p>
+<p>1.${}是EL语言的 %{}这样的形式是ognl表过式语言的，在struts2的标签内部，使用%{}这样的形式，在标签外部可以使用${}EL语言的方式。如
+果在struts2的标签内部使用${}这样的方式，会出现以下的错误提示：</p>
+<p>According to TLD or attribute directive in tag file, attribute value ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/ognl-operators-in/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/05/garbled-see-also-garbled/">乱码！又见乱码！</a></h2>
                 <div class="summary"><p>今天解决了贴吧发帖的问题，可以正确的发送到正确的分类了。</p>
 <p>随后遇到的问题是发帖完毕返回 Category.action 时候，无法读取争取的贴吧分类数据，经过在 struts.xml
@@ -213,25 +228,6 @@ html</a>
 <a href="http://www.javaeye.com/topic/125743">www.javaeye ...</a></p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/no-configuration-found-for-the-specified-action/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/04/4_13/">4_13</a></h2>
-                <div class="summary"><p>每天上着课。。。</p>
-<p>慢吞吞的看着jQuery基础教程（FireBug真TMD好用，太喜欢了）</p>
-<p>慢吞吞的学着Struts2，孙鑫的那本书图书馆就剩一本，还被人藏了，借了李刚的那本，虽然China-
-pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试成功</p>
-<p>大牛说不如看官方文档，于是乎我开始看Tutorial</p>
-<p>程序员明明是1号出版，我10号去，没有，12号去，没到，今天还得再去一次</p>
-<p>软件设计师的那本书看起来实在是痛苦，唉````</p>
-<p>等鸡鸡帮我转完帐，还得在China-pub上买几本书，得把第四版的《Think in Java》买来，我基础太不行</p>
-<p>工作室快名存实亡了````</p>
-<p>道哥辞职不干回来考研了</p>
-<p>最近和M联系挺多</p>
-<p>最近状态很恍惚</p>
-<p>下了好多励志的umd```</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/04/4_13/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
@@ -412,7 +408,7 @@ pub评论5星，我却老感觉不喜欢，至少我一个HelloWorld都没调试
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
