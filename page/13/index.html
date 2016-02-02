@@ -66,6 +66,31 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/09/script-mm2html/">小脚本mm->html</a></h2>
+                <div class="summary"><p>我同时在使用两套信息记录工具，知识收集记录工具BooguNote + KMS Wiz，关于这两套系统具体介绍请见<a href="http://log4d.com/2010/04/desktop-recording-tool-boogunote">桌面记录神器-
+BooguNote</a> &amp;
+<a href="http://log4d.com/2010/09/my-kms">我所使用的知识管理系统</a>。</p>
+<p>我的使用习惯是在BooguNote中收集日常的琐碎知识点，包括我所想的和工作记录。每个小知识节点的长度大概在200-300字左右。这些被我称为的知识碎片显然
+不能直接放入KMS。</p>
+<p>BooguNote可以将里面的文字直接复制出来，会在父亲节点上加入+，子节点加入-，这种简单的txt不能满足我的要求。于是我花了点时间写了一个mm文件到ht
+ml的转换脚本。</p>
+<p>BooguNote的文件格式是boo，可以转换成FreeMind的思维导图格式.mm，我认为用mm作为源数据格式适用范围更大。</p>
+<div class="highlight"><pre><span class="cp">#coding=utf-8</span>
+<span class="n">from</span> <span class="n">xml</span><span class="p">.</span><span class="n">dom</span> <span class="n">import</span> <span class="n">minidom</span>
+<span class="n">import</span> <span class="n">sys</span>
+<span class="n">import</span> <span class="n">os</span>
+</pre></div>
+
+
+<p>class MM2Html:</p>
+<p>'转换MM-&gt;Html类'</p>
+<p>def <strong>init</strong>(self):</p>
+<p>self.html = '''&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/09/script-mm2html/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/09/my-kms/">我所使用的知识管理系统</a></h2>
                 <div class="summary"><p>最近工作比较忙，自由上网的时间被大幅度减少，加上在啃.net的书，所以能够分享的东西就不多了。公司所在的部门需要将PMS和KMS整合在一起，正在对KMS进行
 选型，我就趁这个机会把我使用知识管理系统的经验分享一下。</p>
@@ -222,26 +247,6 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
 <h3>2. 选择CakePHP ...</h3>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/azaajaxchat-notes-frame/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/08/teachers/">一路走来，师恩难忘</a></h2>
-                <div class="summary"><p>毕业答辩的最后一天，我以AzaAjaxChat聊天系统完成答辩。在走下答辩桌之后，得知自己成绩是3个优秀，我长嘘一口气，这个成绩终于给自己的大学生活划上了最
-后一个比较完美的句号。总算没有对不起自己喜爱的计算机专业。</p>
-<p>晚上是和灵动工作室的同学们、系主任杨老师和工作室负责人孙老师一起聚会的，回来的路上，我一直在想，哪些人在我前进的路上给了我帮助呢？</p>
-<p>晃了晃有喝晕的头，想起那些在我计算机成长路上给了我巨大帮助和前进方向的老师们，回忆起和他们在一起的点点滴滴。</p>
-<h3>高中班主任-老张</h3>
-<p>这是列出来第一个也是唯一一个不是做IT的老师。老张是我高中班主任，典型的陕西人，他老婆也是我英语老师，我一直很难想象身材魁梧的老张怎么骗到娇小的小郭。高中时
-候学校管理特别严格，教室里有一台教学用电脑，我仗着自己电脑技术还可以，整天偷偷玩电脑。老张为了不让我玩电脑，甚至放下话说谁逮到我玩电脑，就奖励举报人5块钱。
-不过到高考之后也没有人举报我。</p>
-<p>虽然老张对我进行军事管制，不过还是让我参加了江苏省奥林匹克信息比赛，幸运的是，我还拿到一个不错的名次，其实里面很多猫腻，不过培养了我对计算机的浓厚兴趣。（过
-几天等我写计算机生涯时候再详细透露）</p>
-<p>今年过年时候，我大年初一就到老张家里拜年，老张也带着他刚2个月的老婆孩子大年初二到我家拜年，老张还提到我当时晚上偷偷去网吧魔兽公测，偷偷用班级电脑下载BT的
-事情，我就汗颜了，原来都知道啊～</p>
-<p>祝福老张的孩子健康成长哈，到时候还要喊我哥的～</p>
-<h3>高中计算机老师-徐老师 ...</h3>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/teachers/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

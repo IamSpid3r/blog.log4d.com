@@ -67,6 +67,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/03/plrcmatch4d/">历史记录-歌词复制器</a></h2>
+                <div class="summary"><p>之前写过一个Java的小工具叫做Mp3Lrc歌词复制器，用来复制歌词到Mp3播放器中的对应目录下面。之前的文章参见<a href="http:/
+/log4d.com/2009/05/the-executable-file-
+mp3lrc">Mp3Lrc的可执行文件</a>和<a href="http://log4d.com/2009/05/lyrics-written-in-java-
+replicator-mp3">Java写的Mp3歌词复制器</a>。</p>
+<p>这几天整理硬盘时候发现大四时候还用Delphi写了一个完整的GUI界面的Mp3歌词复制工具叫做PLrcMatch4D。</p>
+<p>源码已经丢失，只剩下可执行文件，T_T。</p>
+<p>如果非要定义以下这个工具的作用，就是从某个固定文件夹（歌词文件夹）复制对应Mp3播放器中歌曲的lrc文件到目标文件夹，从而让Mp3播放器可以正常显示歌词。</p>
+<p>下载点击这里，<a href="http://upload-
+log4d.qiniudn.com/2011/03/PLrcMatch4D.zip">PLrcMatch4D.zip</a></p>
+<p>界面比较实在，大致是这样：</p>
+<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/03/plrcmatch4d.jpg" /></p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/03/plrcmatch4d/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/03/maven-eclipse/">在Eclipse中使用Maven</a></h2>
                 <div class="summary"><p>一提到Eclipse中使用Maven，都会想到<a href="http://m2eclipse.codehaus.org/">m2eclipse</a>这个插件。其实在Ecli
 pse下使用Maven不用插件也能完成，我们只需要使用bin/mvn下面的mvn即可。</p>
@@ -248,20 +265,6 @@ ml的转换脚本。</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/09/script-mm2html/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/08/azaajaxchat-notes-implementation/">AzaAjaxChat笔记-实现</a></h2>
-                <div class="summary"><p>唔，继续整理笔记，这些是在代码编写中遇到的问题和解决办法的总结，不是Turtial，问题有针对性，内容枯燥，路人可以直接忽略~</p>
-<h3>一、Comet服务器推技术</h3>
-<p>Comet推技术，一句话概括，就是形成一个不断开的连接，使得服务器能主动向客户端发送信息。这种技术在交互性强的Web产品中应用的非常多，比如GMail。Co
-met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式和基于 Iframe 及 htmlfile
-的流（streaming）方式，具体两种实现方式可以参考<a href="http://www.ibm.com/developerworks/cn/web/wa-lo-comet/">Comet：基于 HTTP
-长连接的"服务器推"技术</a>。</p>
-<p>我计划把这个技术引入，成为一个亮点，第二种Comet实现方式过于复杂（GMail使用的就是这种），我就尝试第一种。我在测试环境测试了基于 AJAX 的长轮询
-（long-polling）方式。这种方式说白了就是在Ajax获取返回数据时候，在状态吗为4（数据传输完成）情况随后进行下次查询。进行循环的查询 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/08/azaajaxchat-notes-implementation/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/6/">&laquo;</a>
@@ -398,7 +401,7 @@ met的实现方式有两种：基于 AJAX 的长轮询（long-polling）方式�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

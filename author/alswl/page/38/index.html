@@ -66,6 +66,22 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/no-configuration-found-for-the-specified-action/">No configuration found for the specified action</a></h2>
+                <div class="summary"><p>Tomcat 控制台打出如下警告：</p>
+<p>WARN - No configuration found for the specified action: ‘xxxxx’in namespace:
+‘/’. Form action defaulting to ‘action’ attribute’s literal value.</p>
+<p>主要由于在写struts2表单时有给action指定全名，如:<s:form action=」xxxAction.do」…>,直接写成<s:form
+action=」xxxAction」…>即可,因为在struts.xml中struts.action.extension属性有指定啦。</p>
+<p>有一个关于在namespace上的设置在 <a href="http://hi.baidu.com/mum0532/blog/item/128f9a64fa8594f5f6365457.html">hi.baidu.com/mum0532/blog/item/128f9a64fa8594f5f6365457.
+html</a>
+。这位朋友讲的很透彻很详细</p>
+<p>关于Struts2 的 namespace 详细解释
+<a href="http://www.javaeye.com/topic/125743">www.javaeye ...</a></p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/no-configuration-found-for-the-specified-action/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/04/4_13/">4_13</a></h2>
                 <div class="summary"><p>每天上着课。。。</p>
 <p>慢吞吞的看着jQuery基础教程（FireBug真TMD好用，太喜欢了）</p>
@@ -205,28 +221,6 @@ layer security)是ietf的tls工作组在ssl3.0基础之上提出的安全通信�
 证,证书生成等功能,甚至可以用其建立一个完整的ca.与其同时,它也提供了一套完整的库函数,可用开发用ssl/tls的通信程序. apache的https两种 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/openssl-prepared-using-ssl-tls-instance/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/03/programming-with-openssl-for-ssl/">用openssl进行SSL编程【转载-月光】</a></h2>
-                <div class="summary"><p>主要介绍openssl进行SSL通信的一些函数以及过程，主要是初始化过程，至于数据的接收以及后续处理可以具体问题具体分析。</p>
-<p>load所有的SSL算法</p>
-<p>OpenSSL_add_ssl_algorithms();</p>
-<p>建立SSL所用的method</p>
-<p>SSL_METHOD *meth=SSLv23_method();</p>
-<p>初始化上下文情景</p>
-<p>SSL_CTX *ctx=SSL_CTX_new(meth);</p>
-<p>ret-&gt;quiet_shutdown=1;默认的是ret-&gt;quiet_shutdown=0;他相当于SSL_set_shutdown函数将参数设置为SS
-L_SENT_SHUTDOWN|SSL_RECEIVED_SHUTDOWN</p>
-<p>当设置为1时，假如关闭后，不通知对方，这样不适合TLS标准</p>
-<p>SSL_CTX_set_quiet_shutdown(ctx,1);</p>
-<p>ctx-&gt;options|=SSL_OP_ALL，SSL/TLS有几个公认的bug,这样设置会使出错的可能更小</p>
-<p>SSL_CTX_set_options(ctx,SSL_OP_ALL);</p>
-<p>设置cache的大小，默认的为1024*20=20000，这个也就是可以存多少个session_id，一般都不需要更改的。假如为0的话将是无限</p>
-<p>SSL_CTX_sess_set_cache_size(ctx,128);</p>
-<p>SSL_CTX_load_verify_locations用于加载受信任的CA证书 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/programming-with-openssl-for-ssl/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

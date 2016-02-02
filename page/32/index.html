@@ -66,6 +66,21 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/">DAO的设计-使用泛型来避免重复DAO</a></h2>
+                <div class="summary"><p>DAO的全称是Data Access Object数据访问接口。数据访问：顾名思义就是与数据库打交道。夹在业务逻辑与数据库资源中间。</p>
+<p>我大二时候写的一个小型管理系统，那时候老师开始强调分层和MVC的思想，当时我将DAO层分了开来，把所有与数据库的交互操作封装成对应的DAO类，这样最大的好处
+是实现了封装和隔离，方便系统的迁移和重构。</p>
+<p>分层、封装、接口化是一种基本的解决思路，无论是TCP/IP协议族，还是软件工程，都是很值得使用的方案。</p>
+<p>那么接下来的问题就是DAO类的设计，我当时遇到的问题就是DAO类之间存在大量的冗余代码，用敏捷的角度来思考，这绝对是不允许存在的。</p>
+<p>讲相同的方法抽象出来，这也是最常见的解决方案，最简单的例子就是函数的产生，其实也是对程序的一种抽象和提炼，避免冗余，达到复用效果。</p>
+<p>在Java1.5出来之前，用Object来操作对象，实现方法复用，就可以达到上面的目的，但是，存在类型安全的问题。Java1.5提出了泛型的概念，类似与C+
++中的Template，Java运行环境帮助会检查类型的安全。</p>
+<p>这里有一篇IBM资料库的文章，详细阐述了泛型在DAO设计的使用「不要重复DAO」&lt;<a href="http://www.ibm ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/07/prohibition-of-wordpress-automatically-to-replace-the-half-angle-punctuation/">禁止WordPress自动替换半角标点符号【转】</a></h2>
                 <div class="summary"><p>转载自「禁止WordPress自动替换半角标点符号 - 布语博客」&lt;<a href="http://buyu.name/074.html">点击这里打开</a>&gt;</p>
 <p>Wordpress虽好，可毛病也不少，今天发现WordPress会将半角标点符号自动转换成全角的，但并没有替换数据库里的信息，真搞不明白开发团队是怎么想的，
@@ -207,18 +222,6 @@ jian.html/comment-page-1#comment-292569">猛击这里打开</a>&gt;，谢谢作�
 content/uploads/0 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/statistics-eclipse-plug-in-code-to/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/06/return-s-if-the-use-of/">再谈s:if的使用</a></h2>
-                <div class="summary"><p>上次遇到过<s:if>的问题，费了好久才弄好，这次又遇到，有了一点新的体验。</p>
-<p><s:if test="">中的判断，如果是数字判断一般都没有问题，问题会在字符串时候凸显出来。</p>
-<p>尤其是中文字符串，几乎没有能够通过的，上一次是曲线救国，用了true和false着两个英文，如果非得用中文怎么办？</p>
-<p>其实使用<s:if test='str=="中文"'>，就可以了，请注意，是单引号-双引号-中文-双引号-
-单引号的顺序，这样才能够正确的解析中文字符串是否相等。</p>
-<p>唔。。。终于可以做下一个部分了</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/06/return-s-if-the-use-of/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

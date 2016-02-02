@@ -66,6 +66,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/11/kuku/">KuKu-一个 Weekend Project</a></h2>
+                <div class="summary"><p>一个小小的 Weekend Project，基于 <a href="http://webpy.org/">web.py</a>。
+代码在 <a href="https://github.com/alswl/kuku">alswl / kuku</a> ，很简陋，属于差不多能用阶段。</p>
+<p><img alt="Kuku" src="http://77g0h6.com1.z0.glb.clouddn.com/2012/11/kuku.png" /></p>
+<p>基于以下原因开发：</p>
+<ul>
+<li>想把服务器去 PHP 化，以前的 <a href="http://77g0h6.com1.z0.glb.clouddn.com/">upload.log4d.com</a> 是基于 PHP 的，
+详情请见 <a href="http://log4d.com/2012/05/image-host/">使用独立图床子域名</a>。</li>
+<li>刚买的 <a href="http://www.linode.com/?r=7e51a136a0eca06c5f6474373f616bbdaa2b5b6c">Linode VPS</a>，终于从 128MB 内存解放出来了，赶紧放个 Python 程序跑跑。</li>
+<li>想些 Python 了，手痒，想看看写这么简单的功能需要多长时间，
+弥补上次没能参加黑客马拉松的遗憾。</li>
+</ul>
+<p>KuKu 的发音是我家乡话的「看看」。</p>
+<p>KuKu 中比较有趣的地方是，用了 <a href="http://foundation.zurb.com/">Foundation</a> 这个流式 Web 前端框架，
+用了 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/11/kuku/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/10/pycon-2012/">PyCon 2012 见闻</a></h2>
                 <div class="summary"><p>PyCon 是 Python 领域最著名的技术会议，从 2011 年开始，中国区开始举办自己的
 PyCon 大会。这次 PyCon 2012 分成两个场地同时进行，北京和上海，
@@ -229,29 +249,6 @@ PyCon 大会。这次 PyCon 2012 分成两个场地同时进行，北京和上�
 
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/06/do-and-think/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/06/vundle-submodule/">Vundle 和 Submodule</a></h2>
-                <div class="summary"><h2>问题背景</h2>
-<p>Vundle 是个好东西，可以用来管理 vim 配置和 vim 插件。Vundle
-会将所有插件管理在 <code>.vim/bundle/</code> 中，详情可看
-<a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a>。</p>
-<p>官方安装 Vundle 方法如下：</p>
-<div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-</pre></div>
-
-
-<p>我的 Vundle 的版本是 <code>59bff0c457f68c3d52bcebbf6068ea01ac8f5dac</code>，
-git 版本是 <code>git version 1.7.10.2</code> 。
-使用 <code>BundleInstall</code> 可以安装 <code>.vimrc</code> 中配置的插件，</p>
-<p>我使用 git 控制 <code>.vim</code> 和 <code>.vimrc</code> 版本。在 <code>BundleInstall</code>
-之后会导致 vundle 目录项目状态混乱，要么形成一个无法追踪的
-submodule 比如 <code>.vim/bundle/The-NERD-Commenter (untracked content)</code>
-，要么变成一个普通的文件夹 <code>.vim/bundle/vim-markdown</code>。</p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/06/vundle-submodule/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

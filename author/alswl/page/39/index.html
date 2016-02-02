@@ -66,6 +66,28 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/03/programming-with-openssl-for-ssl/">用openssl进行SSL编程【转载-月光】</a></h2>
+                <div class="summary"><p>主要介绍openssl进行SSL通信的一些函数以及过程，主要是初始化过程，至于数据的接收以及后续处理可以具体问题具体分析。</p>
+<p>load所有的SSL算法</p>
+<p>OpenSSL_add_ssl_algorithms();</p>
+<p>建立SSL所用的method</p>
+<p>SSL_METHOD *meth=SSLv23_method();</p>
+<p>初始化上下文情景</p>
+<p>SSL_CTX *ctx=SSL_CTX_new(meth);</p>
+<p>ret-&gt;quiet_shutdown=1;默认的是ret-&gt;quiet_shutdown=0;他相当于SSL_set_shutdown函数将参数设置为SS
+L_SENT_SHUTDOWN|SSL_RECEIVED_SHUTDOWN</p>
+<p>当设置为1时，假如关闭后，不通知对方，这样不适合TLS标准</p>
+<p>SSL_CTX_set_quiet_shutdown(ctx,1);</p>
+<p>ctx-&gt;options|=SSL_OP_ALL，SSL/TLS有几个公认的bug,这样设置会使出错的可能更小</p>
+<p>SSL_CTX_set_options(ctx,SSL_OP_ALL);</p>
+<p>设置cache的大小，默认的为1024*20=20000，这个也就是可以存多少个session_id，一般都不需要更改的。假如为0的话将是无限</p>
+<p>SSL_CTX_sess_set_cache_size(ctx,128);</p>
+<p>SSL_CTX_load_verify_locations用于加载受信任的CA证书 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/03/programming-with-openssl-for-ssl/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/03/safe-use-of-openssl-api-programming/">使用 OpenSSL API 进行安全编程【转载】</a></h2>
                 <div class="summary"><p>使用 OpenSSL API 进行安全编程</p>
 <p>创建基本的安全连接和非安全连接</p>
@@ -205,76 +227,6 @@ a和j2ee的网络学习，ssl的开发，还得边带着学linux，很是吃力�
 also the best of times。 ps：高端视点是指大大们的视点，不是我的…</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/02/e9-ab-98-e7-ab-af-e8-a7-86-e7-82-b9/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/02/ajax-drag-and-drop-fun-the-way-chrome-test-the-code-under-the-highlighted-text-editor-search/">Ajax 好玩的拖拽（顺便测试chrome下文字编辑的代码高亮）</a></h2>
-                <div class="summary"><p><em>HTML语言</em>: <a href="http://www.fayaa.com/code/view//">ajax 拖拽</a></p>
-<p><HTML></p>
-<p><HEAD></p>
-<p><TITLE> New Document </TITLE></p>
-<p><meta http-equiv="Content-Type" content="text/html; charset=gb2312" /></p>
-<style type="text/css">
-
-body
-
-{
-
-margin:10px;
-
-}
-
-
-
-#dragHelper
-
-{
-
-position:absolute;/*重要*/
-
-border:2px dashed #000000;
-
-background-color:#FFFFFF;
-
-filter: alpha(opacity=30);
-
-}
-
-
-
-.normal
-
-{
-
-position:absolute;/*重要*/
-
-width:300px;
-
-#height:10px;
-
-border:1px solid #666666;
-
-background-color:#FFFFFF;
-
-}
-
-
-
-.over
-
-{
-
-position:absolute;/*重要*/
-
-width:300px;
-
-#height:10px;
-
-border:1px solid #666666;
-
-background-color:#f3f3f3 ...</style>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/02/ajax-drag-and-drop-fun-the-way-chrome-test-the-code-under-the-highlighted-text-editor-search/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

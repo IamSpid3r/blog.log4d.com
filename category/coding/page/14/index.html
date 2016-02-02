@@ -67,6 +67,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/">编码: ASCII(ANSI), GB-2312, UNICODE, UTF-8，UTF-16</a></h2>
+                <div class="summary"><h2>ASCII字符集</h2>
+<p>7位的编码方案，总共表示128个字符，其中包括了大小写英文字母、数字、标点符号等常用字符。英语世界已经足够应付。</p>
+<h2>ISO-8859-1字符集</h2>
+<p>也称ISO-Latin字符集，它扩展了ASCII字符集，用到了8bit字节里的最高一位，这样它就有256个字符，前128个字符和ASCII字符集相同
+。有了ISO-Latin字符集，西方世界的一些其它语言，如西班牙语、法语、德语、意大利语都够用了。</p>
+<h2>GB系列字符集（GB2312，GBK，GB18030）</h2>
+<p>由于一个字节是无论如何也表达不了哪怕是最长用的汉字字符集的，所以为了用计算机存储汉字，必须使用多个字节。</p>
+<p>多字节字符集就是使用可变长的编码长度来编码字符，有的字符用一个字节编码，比如ASCII字符，有的字符用两个字节编码，比如汉字。在VC里，多字节字符集等同于双
+字节字符集，VC不支持多于2个字节编码长度的字符。GB系列的字符集和ISO-Latin字符集一样，前128个字符和ASCII字符集相同。GB系列字符集是兼容
+的，相同的中文字符在这3个字符集里有相同的编码。GB2312和GBK一个字符最多2个字节表示，GB18030可多达4个字节。在这种编码里表示汉字时，需要一个
+leading byte，它总是大于127，这个字节的含义是说明它和后面的字节（们）一起表示一个字符 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/09/python-to-read-and-write-files/">Python读写文件</a></h2>
                 <div class="summary"><p>本文来源：<a href="http://www.cnblogs.com/coderzh/archive/2008/05/10/1191410.html">Python天天美味(17) - open读写文件 - CoderZh的技术博客 -
 博客园</a></p>
@@ -240,25 +257,6 @@ gou.com/images/detail_no_pic.gif"><img alt="image" src="http://www.chinaqiugou.c
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/no-photo-caused-by-the/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/">中国省份与城市数据SQL</a></h2>
-                <div class="summary"><p>本文来源：<a href="http://blog.csdn.net/xielingxu/archive/2007/08/26/1759471.aspx">中国省份与城市数据插入 - xlx -
-CSDN博客</a></p>
-<p>在Google找到这个，实在是爱不释手，就转过来了，很多项目都需要用到这些数据。</p>
-<div class="highlight"><pre><span class="k">if</span> <span class="n">exists</span> <span class="p">(</span><span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">sysobjects</span> <span class="n">where</span> <span class="n">id</span> <span class="o">=</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="err">&#39;</span><span class="p">[</span><span class="n">province</span><span class="p">]</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">and</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">IsUserTable</span><span class="err">&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">DROP</span> <span class="n">TABLE</span> <span class="p">[</span><span class="n">province</span><span class="p">]</span>
-</pre></div>
-
-
-<p>CREATE TABLE [province] (</p>
-<p>[id] [int] NOT NULL,</p>
-<p>[provinceID] [nvarchar] (12) NOT NULL,</p>
-<p>[province] [nvarchar] (80) NOT NULL)</p>
-<p>ALTER TABLE [province] WITH NOCHECK ADD CONSTRAINT [PK_province ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/13/">&laquo;</a>
@@ -395,7 +393,7 @@ CSDN博客</a></p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

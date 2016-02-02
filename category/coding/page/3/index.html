@@ -67,6 +67,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
+                <div class="summary"><p>上周，我将 Log4D 由 Wordpress 转换为 Octopress，略加打理，颇为顺手。
+自动分类 / 评论转移 / 代码高亮 / 图床 的问题一一解决之后，
+就只剩下 tag 的问题没有搞定了。</p>
+<p>我当时使用了YORKXIN的<a href="https://gist.github.com/1394128">修改版本</a>来处理 Wordpress
+的数据迁移，这个脚本很好用，数据没有遗失，甚至是让我担心的 category /
+tag 都给予了保留。具体使用方法可以参见<a href="http://blog.dayanjia.com/2012/04/migration-to-octopress-from-wordpress/">从Wordpress迁移到Octopress</a>。</p>
+<p>只是虽然 tag 的数据保留了，但是 <strong>Octopress 仅支持 category 的分类，而完全忽略
+tag</strong>。这是我不能容忍的：category 和 tag 分别代表 有序 / 无序 的知识点归纳方法。
+<strong>一篇文章只能属于一个 category，但可以同时属于多个 tag</strong>。
+Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，我开始吭次吭次寻找插件。</p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/tag-cloud/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/05/networkmanager-policykit-consolekit/">关于 NetworkManager / PolicyKit / ConsoleKit 的那些屌事</a></h2>
                 <div class="summary"><p>在使用 Awesome 的过程中，我又遇到了一个老问题「NetworkManager 在非 Gnome
 环境启动后，会无法 添加 / 删除 / 编辑 无线连接」。明眼人一看就知道，
@@ -266,27 +283,6 @@ book.douban.com/subject/1792387/">UML和模式应用</a>》和《重构》这本
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/01/tingdownload/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/12/moinmoin-plugin-image2attach/">MoinMoin plugin: image2attach</a></h2>
-                <div class="summary"><p><img alt="MoinMoin" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/12/moinmoin.png" /></p>
-<h2>What's this</h2>
-<p>Image2Attach is a extension for <a href="http://moinmo.in">MoinMoin</a>.
-It can create a page action to save images from web to page's attachments.</p>
-<h2>Requirment</h2>
-<ul>
-<li>MoinMoin 1.9 (I only test in this version.)</li>
-</ul>
-<h2>Install</h2>
-<ul>
-<li>copy action/Image2Attach.py to data/plugin/action/</li>
-<li>restart python server</li>
-</ul>
-<h2>Usage</h2>
-<p>Go into a ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/12/moinmoin-plugin-image2attach/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/2/">&laquo;</a>
@@ -423,7 +419,7 @@ It can create a page action to save images from web to page's attachments.</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

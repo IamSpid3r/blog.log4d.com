@@ -67,6 +67,33 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2013/06/web-technology/">读《大规模Web服务开发技术》</a></h2>
+                <div class="summary"><p>年前看了这本书《大规模Web服务开发技术》，当时给的评价是：</p>
+<blockquote>
+<p>很好，让我这个渣渣看的很感动，数据翔实，经历可靠，翻译的也不错，我给 4.2 分</p>
+</blockquote>
+<p>现在经历过 Python / Django / 烂代码的阵痛，开始有更多的想法，
+在整理这些粗糙的想法之前，我又把这本书翻了一遍，写个流水帐读书笔记。</p>
+<p><img alt="大规模Web服务开发技术" src="http://img3.douban.com/lpic/s6818566.jpg" /></p>
+<p>《大规模Web服务开发技术》@豆瓣： <a href="http://book.douban.com/subject/6758780/">http://book.douban.com/subject/6758780/</a></p>
+<h2>规模</h2>
+<p>小规模 / 大规模 /
+超大规模的侧重点各不相同：保持扩展性/保持冗余/低成本运维/开发合作方便</p>
+<h2>内存、磁盘、负载</h2>
+<p>内存快，磁盘慢，ＩＯ 速度的差异</p>
+<h2>数据分布式</h2>
+<ol>
+<li>使用局部分布式，热数据独立出来。</li>
+<li>Partition 分布式，按模块分割数据。</li>
+<li>按 ID 分割，比如 a-g, h-z</li>
+<li>按访问类型，一般请求 / feed / 图像（#毒药计划的原理）</li>
+</ol>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/06/web-technology/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2013/04/buy-arch/">Arch，再见</a></h2>
                 <div class="summary"><p><img alt="Arch" src="http://77g0h6.com1.z0.glb.clouddn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /></p>
 <p>Arch 是我真正使用的第一款 Linux 发行版，大约使用了三年，
@@ -225,23 +252,6 @@ PyCon 大会。这次 PyCon 2012 分成两个场地同时进行，北京和上�
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/support-rss/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/05/tag-cloud/">给 Octopress 加上标签功能</a></h2>
-                <div class="summary"><p>上周，我将 Log4D 由 Wordpress 转换为 Octopress，略加打理，颇为顺手。
-自动分类 / 评论转移 / 代码高亮 / 图床 的问题一一解决之后，
-就只剩下 tag 的问题没有搞定了。</p>
-<p>我当时使用了YORKXIN的<a href="https://gist.github.com/1394128">修改版本</a>来处理 Wordpress
-的数据迁移，这个脚本很好用，数据没有遗失，甚至是让我担心的 category /
-tag 都给予了保留。具体使用方法可以参见<a href="http://blog.dayanjia.com/2012/04/migration-to-octopress-from-wordpress/">从Wordpress迁移到Octopress</a>。</p>
-<p>只是虽然 tag 的数据保留了，但是 <strong>Octopress 仅支持 category 的分类，而完全忽略
-tag</strong>。这是我不能容忍的：category 和 tag 分别代表 有序 / 无序 的知识点归纳方法。
-<strong>一篇文章只能属于一个 category，但可以同时属于多个 tag</strong>。
-Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，我开始吭次吭次寻找插件。</p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/05/tag-cloud/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/">&laquo;</a>
@@ -378,7 +388,7 @@ Octopress 的设计方法显然和我长期养成的知识归纳体系冲突，�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

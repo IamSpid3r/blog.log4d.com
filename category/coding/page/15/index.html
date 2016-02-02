@@ -67,6 +67,25 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/">中国省份与城市数据SQL</a></h2>
+                <div class="summary"><p>本文来源：<a href="http://blog.csdn.net/xielingxu/archive/2007/08/26/1759471.aspx">中国省份与城市数据插入 - xlx -
+CSDN博客</a></p>
+<p>在Google找到这个，实在是爱不释手，就转过来了，很多项目都需要用到这些数据。</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">exists</span> <span class="p">(</span><span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">sysobjects</span> <span class="n">where</span> <span class="n">id</span> <span class="o">=</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="err">&#39;</span><span class="p">[</span><span class="n">province</span><span class="p">]</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">and</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">IsUserTable</span><span class="err">&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="p">[</span><span class="n">province</span><span class="p">]</span>
+</pre></div>
+
+
+<p>CREATE TABLE [province] (</p>
+<p>[id] [int] NOT NULL,</p>
+<p>[provinceID] [nvarchar] (12) NOT NULL,</p>
+<p>[province] [nvarchar] (80) NOT NULL)</p>
+<p>ALTER TABLE [province] WITH NOCHECK ADD CONSTRAINT [PK_province ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/08/wordpress-plug-match-keywords-automatically-link-to/">wordpress关键字自动链接匹配插件[转]</a></h2>
                 <div class="summary"><p>原文链接：《<a href="http://www.changshaseo.com/seo-
 tools/882.html">wordpress关键字自动链接匹配插件 | 长沙SEO特色高端咨询顾问服务</a>》<a href="http://www.changshaseo.com/seo-tools/882.html"></a></p>
@@ -219,29 +238,6 @@ t.21cn.com/software/pingmian/adobe/2006/01/19/2441838.shtml">Photoshop批量处�
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/dao-design-the-use-of-generics-to-avoid-duplication-of-dao/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/07/prohibition-of-wordpress-automatically-to-replace-the-half-angle-punctuation/">禁止WordPress自动替换半角标点符号【转】</a></h2>
-                <div class="summary"><p>转载自「禁止WordPress自动替换半角标点符号 - 布语博客」&lt;<a href="http://buyu.name/074.html">点击这里打开</a>&gt;</p>
-<p>Wordpress虽好，可毛病也不少，今天发现WordPress会将半角标点符号自动转换成全角的，但并没有替换数据库里的信息，真搞不明白开发团队是怎么想的，
-现将解决方法记录如下。</p>
-<p>1、 编辑 wp-includes/formatting.php 文件，找到以下代码：</p>
-<div class="highlight"><pre><span class="c1">// static strings</span>
-<span class="err">$</span><span class="n">curl</span> <span class="o">=</span> <span class="n">str_replace</span><span class="p">(</span><span class="err">$</span><span class="n">static_characters</span><span class="p">,</span> <span class="err">$</span><span class="n">static_replacements</span><span class="p">,</span> <span class="err">$</span><span class="n">curl</span><span class="p">);</span>
-<span class="c1">// regular expressions</span>
-<span class="err">$</span><span class="n">curl</span> <span class="o">=</span> <span class="n">preg_replace</span><span class="p">(</span><span class="err">$</span><span class="n">dynamic_characters</span><span class="p">,</span> <span class="err">$</span><span class="n">dynamic_replacements</span><span class="p">,</span> <span class="err">$</span><span class="n">curl</span><span class="p">);</span>
-</pre></div>
-
-
-<p>正是 str_replace() 和 preg_replace() 两个函数在作怪。</p>
-<p>2、 将相应语句注释，禁用自动替换功能：</p>
-<div class="highlight"><pre><span class="c1">// static strings</span>
-<span class="c1">//$curl = str_replace($static_characters, $static_replacements, $curl);</span>
-<span class="c1">// regular expressions</span>
-<span class="c1">//$curl = preg_replace ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/07/prohibition-of-wordpress-automatically-to-replace-the-half-angle-punctuation/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/14/">&laquo;</a>
@@ -378,7 +374,7 @@ t.21cn.com/software/pingmian/adobe/2006/01/19/2441838.shtml">Photoshop批量处�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

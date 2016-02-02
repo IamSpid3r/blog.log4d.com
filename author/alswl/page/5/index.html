@@ -66,6 +66,29 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2012/06/vundle-submodule/">Vundle 和 Submodule</a></h2>
+                <div class="summary"><h2>问题背景</h2>
+<p>Vundle 是个好东西，可以用来管理 vim 配置和 vim 插件。Vundle
+会将所有插件管理在 <code>.vim/bundle/</code> 中，详情可看
+<a href="/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a>。</p>
+<p>官方安装 Vundle 方法如下：</p>
+<div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</pre></div>
+
+
+<p>我的 Vundle 的版本是 <code>59bff0c457f68c3d52bcebbf6068ea01ac8f5dac</code>，
+git 版本是 <code>git version 1.7.10.2</code> 。
+使用 <code>BundleInstall</code> 可以安装 <code>.vimrc</code> 中配置的插件，</p>
+<p>我使用 git 控制 <code>.vim</code> 和 <code>.vimrc</code> 版本。在 <code>BundleInstall</code>
+之后会导致 vundle 目录项目状态混乱，要么形成一个无法追踪的
+submodule 比如 <code>.vim/bundle/The-NERD-Commenter (untracked content)</code>
+，要么变成一个普通的文件夹 <code>.vim/bundle/vim-markdown</code>。</p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/06/vundle-submodule/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2012/05/comet/">服务器 Push 技术</a></h2>
                 <div class="summary"><p>服务器 Push 技术表示服务器可以主动推送消息给客户端浏览器。</p>
 <h2>实现方式</h2>
@@ -209,32 +232,6 @@ inoremap &lt;C-e&gt; &lt;End&gt;
 <span class="s2">&quot;inoremap &lt;C-p ...</span></pre></div>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/04/vim-emacs-key-binding/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2012/04/vundle/">使用 Vundle 管理 Vim 插件</a></h2>
-                <div class="summary"><p>早在这个月初，我就在 Vim 的邮件列表看到了一封关于 Vim 插件管理的
-<a href="https://groups.google.com/d/topic/vim-cn/mPES0sNT87Q/discussion">邮件</a>。
-才惊呼原来有这么强大的插件可以用来管理我那一坨插件，
-今天细细阅读并查了一些资料，变开始配置自己的 Vim。</p>
-<h2>几种管理插件</h2>
-<p>Vim 的插件管理工具有蛮多，比如：</p>
-<ul>
-<li><a href="https://github.com/gmarik/vundle">Vundle</a></li>
-<li><a href="http://www.vim.org/scripts/script.php?script_id=2905">vim-addon-manager</a></li>
-<li><a href="http://www.vim.org/scripts/script.php?script_id=2332">vpathogen.vim</a></li>
-<li><a href="http://www.vim.org/scripts/script.php?script_id=3458">vvundle</a></li>
-<li><a href="https://github.com/c9s/Vimana">vvimana</a></li>
-<li><a href="http://www.douban.com/note/173144456/">一位同学自己写的</a></li>
-</ul>
-<p>Vim-addon-manager 和 vimana 的对比，参见
-<a href="http://yixf.name/2011/10/26/vim的插件管理工具/">Vim的插件管理工具</a></p>
-<p>我最会选择了 Vundle，通过子目录管理插件，支持 Git 更新。
-我其实不太喜欢子目录，觉得目录太多看着烦，但是考虑到在没有一个良好的 PKG
-包描述文件的前提下，分子目录是一种简单有效的方法。</p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2012/04/vundle/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

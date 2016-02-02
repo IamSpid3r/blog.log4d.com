@@ -66,6 +66,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/11/jagged-alliance-edt-txt-converter-v0-9/">铁血联盟EdtTxt转换器v0.9</a></h2>
+                <div class="summary"><p>上个月时候，<a href="http://zww.me/">zwwooooo</a>同鞋联系我让帮写一个铁血联盟中需要用到的Edt&lt;-&gt;Txt转换器，我前前后后大约三个星期完成
+到v0.9，能完成基本的功能（但似乎存在一些未知Bug，-_-#）。由于我之后很长一段时间得找工作，所以不能继续维护这个小工具，现在把他的代码开放，如果有高
+人能看到这个小工具，有兴趣的话可以继续维护下去，(zwwooooo，真的很不好意思……)。
+一些关于程序说明，zwwooooo原文，更详细可以联系zwwooooo本人：</p>
+<blockquote>
+<p>edt（后缀） 是游戏对话文件，游戏里有很多种，但都是有规律的，我把一些规律和流程说一下</p>
+</blockquote>
+<p>一、从 edt 提取出对话部分文本，然后转换并输出为 ansi 码文本，用附件的 000.edt 为例说明</p>
+<ol>
+<li>
+<p>把 000.edt 文件用16进制方式打开，对话从"0"处开始，结束标志是2个16进制字节：00 00</p>
+</li>
+<li>
+<p>000.edt ...</p></li></ol>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/11/jagged-alliance-edt-txt-converter-v0-9/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/10/defeat/">挫败</a></h2>
                 <div class="summary"><p>投阿里巴巴的校园招聘，完全没有回音。嗯，这在我预料之内，毕竟阿里这么强大的公司，的确很难投。</p>
 <p>投江苏电信的校园照片，投了家乡的县级公司。明天就是在无锡的笔试，我没有拿到笔试资格，这也在我意料之中，毕竟人家要求上就写着全国重点大学或者邮电学院。</p>
@@ -213,20 +233,6 @@ caption="葫芦"]<a href="http://upload-
 log4d.qiniudn.com/2009/10/20091008.jpg ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/10/the-first-day-home/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/10/python-enter-the-16-hex-save-to-file/">Python输入16进制保存到文件</a></h2>
-                <div class="summary"><p>（题目有点勉强，不过问题真的很难描述，希望Google/Baidu到这里的童鞋不要失望） 前几天给<a href="http://zww.me/">zwwooooo</a>写一个
-小工具，其中遇到一个输入的问题。具体描述就是："输入4个16进制的数字，如'00a0'，输入之后必须能够把这个输入给保存到文件中存为2进制格式，必须是原始的
-16进制，而不是字符串类型。如'x00xa0'"。（其实这是用在处理文本上的） 不知道各位大大有没有明白我的意思，我花了很长时间没有一个好的解决方案。
-第一种方案，先用int()转换，然后转换hex()，直接失败，hex()转换后格式为'0x00a0'，是字符串格式，根本不是我需要的内容。
-我苦思冥想三天，终于找到一个最傻，也最好用的方法，用list进行匹配。 下面是生成匹配list的脚本：</p>
-<div class="highlight"><pre><span class="n">lst</span> <span class="o">=</span> <span class="sc">&#39;{&#39;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="n">range</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="err">&#39;</span><span class="mh">0x00</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="err">&#39;</span><span class="mh">0xff</span><span class="err">&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">hv ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/10/python-enter-the-16-hex-save-to-file/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

@@ -67,6 +67,26 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/11/jagged-alliance-edt-txt-converter-v0-9/">铁血联盟EdtTxt转换器v0.9</a></h2>
+                <div class="summary"><p>上个月时候，<a href="http://zww.me/">zwwooooo</a>同鞋联系我让帮写一个铁血联盟中需要用到的Edt&lt;-&gt;Txt转换器，我前前后后大约三个星期完成
+到v0.9，能完成基本的功能（但似乎存在一些未知Bug，-_-#）。由于我之后很长一段时间得找工作，所以不能继续维护这个小工具，现在把他的代码开放，如果有高
+人能看到这个小工具，有兴趣的话可以继续维护下去，(zwwooooo，真的很不好意思……)。
+一些关于程序说明，zwwooooo原文，更详细可以联系zwwooooo本人：</p>
+<blockquote>
+<p>edt（后缀） 是游戏对话文件，游戏里有很多种，但都是有规律的，我把一些规律和流程说一下</p>
+</blockquote>
+<p>一、从 edt 提取出对话部分文本，然后转换并输出为 ansi 码文本，用附件的 000.edt 为例说明</p>
+<ol>
+<li>
+<p>把 000.edt 文件用16进制方式打开，对话从"0"处开始，结束标志是2个16进制字节：00 00</p>
+</li>
+<li>
+<p>000.edt ...</p></li></ol>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/11/jagged-alliance-edt-txt-converter-v0-9/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/10/ajaxcontroltoolkit-controls-introduced-reproduced/">AjaxControlToolKit控件介绍[转载]</a></h2>
                 <div class="summary"><p>来源：<a href="http://www.cnblogs.com/haha8/archive/
 2009/09/26/1574412.html">ajax toolkit 控件介绍 - 欢迎来到哈哈的天堂 - 博客园</a>（只是来源，感觉不是这个博客原创，作者应该未知）</p>
@@ -212,23 +232,6 @@ Python的标准模块struct就用来解决这个问题。</p>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/python-data-format-conversion-using-struct/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/">编码: ASCII(ANSI), GB-2312, UNICODE, UTF-8，UTF-16</a></h2>
-                <div class="summary"><h2>ASCII字符集</h2>
-<p>7位的编码方案，总共表示128个字符，其中包括了大小写英文字母、数字、标点符号等常用字符。英语世界已经足够应付。</p>
-<h2>ISO-8859-1字符集</h2>
-<p>也称ISO-Latin字符集，它扩展了ASCII字符集，用到了8bit字节里的最高一位，这样它就有256个字符，前128个字符和ASCII字符集相同
-。有了ISO-Latin字符集，西方世界的一些其它语言，如西班牙语、法语、德语、意大利语都够用了。</p>
-<h2>GB系列字符集（GB2312，GBK，GB18030）</h2>
-<p>由于一个字节是无论如何也表达不了哪怕是最长用的汉字字符集的，所以为了用计算机存储汉字，必须使用多个字节。</p>
-<p>多字节字符集就是使用可变长的编码长度来编码字符，有的字符用一个字节编码，比如ASCII字符，有的字符用两个字节编码，比如汉字。在VC里，多字节字符集等同于双
-字节字符集，VC不支持多于2个字节编码长度的字符。GB系列的字符集和ISO-Latin字符集一样，前128个字符和ASCII字符集相同。GB系列字符集是兼容
-的，相同的中文字符在这3个字符集里有相同的编码。GB2312和GBK一个字符最多2个字节表示，GB18030可多达4个字节。在这种编码里表示汉字时，需要一个
-leading byte，它总是大于127，这个字节的含义是说明它和后面的字节（们）一起表示一个字符 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/09/encoding-ascii-ansi-gb-2312-unicode-utf-8-utf-16/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://blog.log4d.com/category/coding/page/12/">&laquo;</a>
@@ -365,7 +368,7 @@ leading byte，它总是大于127，这个字节的含义是说明它和后面�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 alswl
+         <div class="col-xs-10">&copy; 2016 alswl
             &middot; Powered by <a href="https://github.com/alswl/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
