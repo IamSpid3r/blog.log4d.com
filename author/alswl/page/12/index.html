@@ -66,6 +66,23 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/01/gac/">在.net中使用GAC</a></h2>
+                <div class="summary"><h2>GAC</h2>
+<p>GAC是什么？是用来干嘛的？GAC的全称叫做全局程序集缓存，通俗的理解就是存放各种.net平台下面需要使用的dll的地方。GAC的具体目录在windows/
+assembly。</p>
+<p>喜欢使用破解软件的朋友可能会经常使用替换DLL这招，这个DLL虽然和.net下面的DLL有所不同，但大致起的作用还是一样的：使用共同的动态链接库来提高库复用
+，减少文件体积。在.net平台之前，程序们都把可能用到的公共DLL存放到system32文件夹下。由于版本的不一致及其他原因（将控制信息存放到注册表），造成
+了很有名的<a href="http://zh.wikipedia.org/zh-cn/DLL%E5%9C%B0%E7%8D%84">DLL Hell</a>。</p>
+<p>最近在读俞甲子的《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》，中间花了很大的篇幅描述程序编译中
+的链接这个过程。而比较巧合的是，我的《<a href="http://book.douban.com/subject/3563971/">C#与.NET 3.5高级程序设计</a>》也正好读到程序集这一块。微软使用了GAC来避免DLL重蹈覆辙。现在，我就来部署一个简单的通用类库到GAC中。</p>
+<h2>获取强名称（签名）</h2>
+<p>并不是随便一个DLL都可以放到GAC中，如果这样的话，和之前的DLL Hell也没什么区别了。GAC使用一个强名称（签名）的方式来区分不同的DLL。每个签名
+都是独一无二的公钥私钥对。现在我们使用SDK的sn工具为我的DUtil库生成一个snk签名 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/gac/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
                 <div class="summary"><h2>问题情境</h2>
 <p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
@@ -236,21 +253,6 @@ bodyFiles:</p>
 <p>如果是双击 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/10/python-clipboard/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/10/win7-standalone-network-extender/">在Win7上面使用Standalone Network Extender</a></h2>
-                <div class="summary"><p>用Win7大概1个月了，的确很不错，本来试用的心态变成了完全不想回到XP时代了。</p>
-<p>Win7的UAC比Vista已有很大的进步，至少不是那么烦心了，但是仍然很多场合都不能与以前旧版本的一些软件配合默契。</p>
-<p>比如公司用的这款VPN软件-Standalone Network Extender。</p>
-<p>这款软件是Billion BiGuard公司推出的SSL产品，通过IE载入一个Active插件来连接公司内网。我在以前XP时候很轻松连入，先在却死活无法连接
-成功。我看了一下版本：build:Sep 7 2009-14:06:08，在<a href="http://www.biguard.com">Billion
-BiGuard公司</a>的主页也没有找到适合Win7的新版本。</p>
-<p>我猜测VPN软件需要修改系统底层参数，可能需要管理员权限，就试用管理员权限打开IE，果然，顺利连接成功。</p>
-<p>嗯，以后使用古董遇到一些比较怪异的问题，如果它是安全可靠的，就可以试试管理员权限了。我是不推荐关闭UAC的，权限机制虽然烦，但是可以保证一些系统权限不被开放
-。</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/10/win7-standalone-network-extender/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

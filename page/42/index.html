@@ -66,6 +66,29 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/">网络编程学习日记(2)_WinPcap自带教程的一些例子的学习</a></h2>
+                <div class="summary"><p>1.编译时候会出现函数问题</p>
+<p>'pcap_findalldevs_ex' : undeclared identifier</p>
+<p>'PCAP_SRC_IF_STRING' : undeclared identifier</p>
+<p>'pcap_open' : undeclared identifier</p>
+<p>'PCAP_OPENFLAG_PROMISCUOUS' : undeclared identifier</p>
+<p>'=' : cannot convert from 'int' to 'struct pcap *'</p>
+<p>等一系列函数找不到的问题，导致这些问题的关键在于他们的函数声明并不包含在pcap.h这个</p>
+<p>头文件里面，而是包含在remote-ext.h这个函数里面，所以只需要在</p>
+<h1>include "pcap.h"后面加上</h1>
+<h1>include "remote-ext.h"</h1>
+<p>就可以编译通过了。</p>
+<p>网上有网友戏称说是WinPcap开发小组故意做的恶作剧或者是撰写doc说明时候忘记加入了</p>
+<p>= =#</p>
+<p>2.出现连接错误</p>
+<p>Cpp3.obj : error LNK2001: unresolved external symbol
+<a href="mailto:__imp__ntohs@4">__imp__ntohs@4</a></p>
+<p>Debug/Cpp3 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/network-programming-learning-diary-2-_winpcap-some-examples-of-course-bring-their-own-learning/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2008/08/learning-network-programming-diary-1-_winpcap-and-vc-configuration/">网络编程学习日记(1)_WinPcap和VC的配置</a></h2>
                 <div class="summary"><p>下学期有网络变成，用的是《计算机网络高级软件编程技术》，研究生教材，感觉书写的很泛泛，毕竟是给研究生用的书籍，很多基础的细节都没有写清楚，搞不懂学校怎么弄这
 种书，叹一个。</p>

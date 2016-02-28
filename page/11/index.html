@@ -66,6 +66,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/04/erp-defectors/">ERP叛逃者</a></h2>
+                <div class="summary"><p>大四实习时候，跑去驻厂开发，当时主管跟我说"我们做的是企业信息化软件"。毕业之后找工作，进入一家国内还算有名的ERP公司，做ERPII产品（CRM/工作流/
+电子商务平台等ERP软件附属产品）的开发和二次开发。</p>
+<p>在这一年半的时间里，我学习了一些行业知识，熟悉了公司自己的开发模式、框架和工具。浑浑噩噩的直到某一天，我发现我写代码没有键盘飞扬的感觉。我惶恐，我感觉我遇到
+瓶颈停止成长了。我开始思索我这种状况的产生，我重新翻开曾经看的糊里糊涂的《人月神话》，研读阿朱的《走出软件作坊》，尝试找到问题和解决办法。</p>
+<p>我回想我工作之后做的事情：我负责的是从顾问那里拿到伪SQL+伪代码，然后将它们在公司的框架上面实现起来，再手工完成功能性测试。我做一个极端的假设：如果早50
+年，ERP公司给用户提供解决方案可以是在纸上提出，根本不需要电脑。所以ERP的本质是对业务的梳理，规范化的引导，让企业高效整合资源充分发挥产能的公司。这与我
+想象的IT公司完全不一样，我所希望的IT公司能够追求极致，创造用户喜欢的，快速响应用户需求，扩展性强的产品。如果具备这些元素，会很快被同类公司超越。</p>
+<p>可是公司立足于市场近30年，绝对不是这么不堪，她有自己的核心竞争力 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/04/erp-defectors/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/04/ubuntu-setup/">Ubuntu安装之后设定操作</a></h2>
                 <div class="summary"><p>前几天使用chmod时候，多打了一个/，导致根目录下面所有文件权限设定出了问题，额~重装系统吧，正好把装系统之后的配置过程记录下来。</p>
 <p>这些都是我操作过的命令，确切可靠，适用于Ubuntu 10.10 Desktop Edtion。</p>
@@ -218,23 +232,6 @@ cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意�
 <span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/01/gac/">在.net中使用GAC</a></h2>
-                <div class="summary"><h2>GAC</h2>
-<p>GAC是什么？是用来干嘛的？GAC的全称叫做全局程序集缓存，通俗的理解就是存放各种.net平台下面需要使用的dll的地方。GAC的具体目录在windows/
-assembly。</p>
-<p>喜欢使用破解软件的朋友可能会经常使用替换DLL这招，这个DLL虽然和.net下面的DLL有所不同，但大致起的作用还是一样的：使用共同的动态链接库来提高库复用
-，减少文件体积。在.net平台之前，程序们都把可能用到的公共DLL存放到system32文件夹下。由于版本的不一致及其他原因（将控制信息存放到注册表），造成
-了很有名的<a href="http://zh.wikipedia.org/zh-cn/DLL%E5%9C%B0%E7%8D%84">DLL Hell</a>。</p>
-<p>最近在读俞甲子的《<a href="http://book.douban.com/subject/3652388/">程序员的自我修养</a>》，中间花了很大的篇幅描述程序编译中
-的链接这个过程。而比较巧合的是，我的《<a href="http://book.douban.com/subject/3563971/">C#与.NET 3.5高级程序设计</a>》也正好读到程序集这一块。微软使用了GAC来避免DLL重蹈覆辙。现在，我就来部署一个简单的通用类库到GAC中。</p>
-<h2>获取强名称（签名）</h2>
-<p>并不是随便一个DLL都可以放到GAC中，如果这样的话，和之前的DLL Hell也没什么区别了。GAC使用一个强名称（签名）的方式来区分不同的DLL。每个签名
-都是独一无二的公钥私钥对。现在我们使用SDK的sn工具为我的DUtil库生成一个snk签名 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/gac/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

@@ -66,6 +66,25 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/">中国省份与城市数据SQL</a></h2>
+                <div class="summary"><p>本文来源：<a href="http://blog.csdn.net/xielingxu/archive/2007/08/26/1759471.aspx">中国省份与城市数据插入 - xlx -
+CSDN博客</a></p>
+<p>在Google找到这个，实在是爱不释手，就转过来了，很多项目都需要用到这些数据。</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">exists</span> <span class="p">(</span><span class="n">select</span> <span class="o">*</span> <span class="n">from</span> <span class="n">sysobjects</span> <span class="n">where</span> <span class="n">id</span> <span class="o">=</span> <span class="n">OBJECT_ID</span><span class="p">(</span><span class="err">&#39;</span><span class="p">[</span><span class="n">province</span><span class="p">]</span><span class="err">&#39;</span><span class="p">)</span> <span class="n">and</span> <span class="n">OBJECTPROPERTY</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">IsUserTable</span><span class="err">&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="p">[</span><span class="n">province</span><span class="p">]</span>
+</pre></div>
+
+
+<p>CREATE TABLE [province] (</p>
+<p>[id] [int] NOT NULL,</p>
+<p>[provinceID] [nvarchar] (12) NOT NULL,</p>
+<p>[province] [nvarchar] (80) NOT NULL)</p>
+<p>ALTER TABLE [province] WITH NOCHECK ADD CONSTRAINT [PK_province ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/zhong-guo-sheng-fen-yu-cheng-shi-shu-ju-sql/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/08/i-finally-had-the-4/">牛逼的我终于过了四级</a></h2>
                 <div class="summary"><p>上图，啥也不说了</p>
 <p>[caption id="attachment_12659" align="alignnone" width="391"
@@ -208,24 +227,6 @@ Ni Shuang</a>,
 <p>蓦然回首，自05年12月成立，校内网已经在风风雨雨中走过了接近四年 ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/the-school-changed-its-name-to-all/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/08/wordpress-to-add-robots-txt/">给WordPress加上robots.txt</a></h2>
-                <div class="summary"><p>在Google搜索我的页面，能出来400+页面，但好多都是额外的页面，比如分页下的信息，比如说wap下的信息，最可怕的是甚至登录页面都暴露在Google搜索
-结果中，这让我有点害怕了。</p>
-<p>参考下面两篇文章《<a href="http://wangyueblog.com/2009/02/11/wordpress-robots-
-txt/">善用 robots.txt 优化 Wordpress 博客 |
-望月的博客</a>》、《<a href="http://www.itokit.com/bbs/viewthread.php?tid=45">总结一下Meta的用法及robot.txt的讲解 - SEO搜索引擎优化 -  ITOKIT.COM |WEB开发技术,站长交流论坛 -
-Powered by Discuz!</a>》</p>
-<p>为了优化WordPress的SEO效率，我们可以使用<a href="http://log4d.com/robots.txt">robots.txt</a>文件来对搜索引擎搜索范
-围进行限制。</p>
-<p>下面是我的robots.txt内容：</p>
-<div class="highlight"><pre><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="o">:</span> <span class="o">*</span>
-<span class="nl">Disallow:</span> <span class="o">/</span><span class="n">wp</span><span class="o">-</span>
-<span class="nl">Disallow ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/08/wordpress-to-add-robots-txt/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
