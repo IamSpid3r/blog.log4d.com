@@ -1,5 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="http://blog.log4d.com/" rel="alternate"></link><link href="http://blog.log4d.com/atom.xml" rel="self"></link><id>http://blog.log4d.com/</id><updated>2016-02-28T18:16:01+08:00</updated><entry><title>技术之外</title><link href="http://blog.log4d.com/2016/02/team-geek/" rel="alternate"></link><updated>2016-02-28T18:16:01+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-28:2016/02/team-geek/</id><summary type="html">&lt;p&gt;这是一天一本书的第二次执行，这次选了一本比较薄的书，上周的书看了一天，脑仁疼。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="http://blog.log4d.com/" rel="alternate"></link><link href="http://blog.log4d.com/atom.xml" rel="self"></link><id>http://blog.log4d.com/</id><updated>2016-03-05T16:36:16+08:00</updated><entry><title>Windows management for hacker</title><link href="http://blog.log4d.com/2016/03/windows-management-for-hacker/" rel="alternate"></link><updated>2016-03-05T16:36:16+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-03-05:2016/03/windows-management-for-hacker/</id><summary type="html">&lt;p&gt;团队里的同学有时看见我键指如飞，可以用快捷键将 Mac 的窗口玩转于手心。他们表示酷炫非常，
+心生羡慕的同时，希望掌握这门技艺，我就把使用的 Phoenix 介绍给大家。结果过了一段时间，
+发现普及率并不高，本着好为人师的精神，今天我就来八一八这款优秀的桌面管理工具。&lt;/p&gt;
+&lt;p&gt;在介绍我使用的工具之前，我要先介绍一下我选择的原因和历史。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201604/ergodox_infinity.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201604/ergodox_infinity.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;ps：配图是我长草多年的 Ergodox Infinity。（@夫人，看到这里的时候，请留步思考 5s）。&lt;/p&gt;
+&lt;h2&gt;Alt+Tab = 苦难的历史&lt;/h2&gt;
+&lt;p&gt;当我还年轻的时候，曾经对 Alt+Tab 这个快捷键愤慨无比，觉得这种设计虽然简单但是很蠢。&lt;/p&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;命中率低&lt;/strong&gt;。要在茫茫图标中查找自己需要的窗口，如果开了 20 个应用，切换到一个非常用窗口至多可能需要 20-1 次按键。
+    不要跟我说有 Alt+Shift+Tab 的反向循环操作，估计大部分用户都不知道。而且 正向/反向 切换伤脑子。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;交互方式耗时&lt;/strong&gt;。由于 Alt+Tab 的操作需要用户进行反馈才能进行，是 &lt;code&gt;眼-手-眼-手&lt;/code&gt; 的操作反馈方式，
+    这种交互模式费时费脑子。跟这种需要实时反馈对立的交互模式应当是类似「一键呼出」的操作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在大显示器、多显示器的环境下面，Alt-Tab 模式没有做任何优化&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;频繁切出窗口进行切换，容易让人分神，比如切换时候看到某个播放器的标题，在放一首喜欢的歌，很可能吸引过去。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;有人会问，难道不优化都是缺陷么？
+    我的答案是肯定的。Alt+Tab 是几乎除鼠标之外的唯一一种窗口操作方式。如果它不能跟上时代的步伐，
+    对大显示器、多显示器做优化，那就是不作为，不努力，不上进。跟不上变化是要被淘汰的！&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201604/alt_tab_windows.jpeg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201604/alt_tab_windows.jpeg" /&gt;&lt;/p&gt;
+&lt;h2&gt;平铺式窗口管理器&lt;/h2&gt;
+&lt;p&gt;在被 Windows Alt-Tab 虐了多年之后，我长大了，开始接触 Linux，但是这种痛苦仍然时刻包围着我。
+当我分期购买一个外置显示器之后，这种痛苦到达到了顶端。
+恰好彼时我是 &lt;a href="https://www.archlinux.org/"&gt;ArchLinux&lt;/a&gt; 的信徒，很快就发现了一片桃源：
+自己安装 &lt;a href="https://wiki.archlinux.org/index.php/window_manager"&gt;Window manager&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我重新认识了桌面系统世界，除了介绍常规的 Gnome / KDE / xfce 之外，还有一类窗口管理系统，他们叫做「平铺式窗口管理器」。
+（严格来说，Gnome / KDE / xfce 属于 Desktop environment，层级比「窗口管理系统」要高，我这里不做严格区分）。&lt;/p&gt;
+&lt;p&gt;什么是平铺式窗口管理器？来一个直观的认识：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201604/awesome_1.jpeg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201604/awesome_1.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201604/awesome_2.jpeg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201604/awesome_2.jpeg" /&gt;&lt;/p&gt;
+&lt;p&gt;官方的解释是……呵呵，自己点进去看解释吧。平铺式桌面管理器（包括同时支持平铺式和堆叠式的混合式桌面管理器）给我带来了新的认知，
+原来桌面系统是可以进行接口编程的，我不那么 care 到底是哪种风格，我 care 的是，
+能否通过编程定制来解决我的 Alt-Tab 问题。&lt;/p&gt;
+&lt;h2&gt;我期望的窗口管理模式&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;快速启动最常用的应用，同时也能将其快速呼出&lt;/li&gt;
+&lt;li&gt;对大屏幕友好，现在显示器普遍是大屏幕，可以自由控制窗体的移动，方便多个窗口同时进行操作&lt;/li&gt;
+&lt;li&gt;对多屏幕友好，多屏幕间的切换，要友好。可以快速屏幕间切换&lt;/li&gt;
+&lt;li&gt;对键盘友好，对鼠标友好，全键盘操作模式，但同时要对鼠标友好，比如鼠标跟随焦点功能，毕竟一些操作还是鼠标方便&lt;/li&gt;
+&lt;li&gt;帮助集中注意力，将操作界面隔离成多个目的区分的空间，比如写作时候，期望只有一个 Evernote + Chrome 在眼前&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;我在 Mac 下面的方案&lt;/h2&gt;
+&lt;p&gt;呜呼，感谢伟大的 &lt;a href="https://github.com/jasonm23/"&gt;Jason Milkins&lt;/a&gt; 做了一堆尝试，
+创造了一堆乱七八糟的桌面管理器。然后感谢 &lt;a href="https://github.com/kasper"&gt;Kasper Hirvikoski&lt;/a&gt;
+在 Jason 拍拍屁股走人之后，接过了 Jason 的棒子，将 Phoenix 这个项目快速推进，解决了一堆导致不可用的 bug，
+并新增了很多特性。&lt;/p&gt;
+&lt;p&gt;回到要介绍的主角身上，&lt;a href="https://github.com/kasper/phoenix"&gt;Phoenix&lt;/a&gt;：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A lightweight OS X window and app manager scriptable with JavaScript&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;基本特性是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Javascript 作为配置文件，定制性超级强&lt;/li&gt;
+&lt;li&gt;支持 App / Window / Space / Screen 等对象的操作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;基于 Phoenix，我达成了我的窗口管理模式的目标：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;快速启动&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;Option&lt;/code&gt; + ` / 1 / 2 / 3 / 4 / 8 / 9 / e / a / s / z /, / . / / 启动&lt;/li&gt;
+&lt;li&gt;iTerm / Chrome / Safari / QQ / Bearychat / Wechat / Neteasy Music / MacVim / IntelliJ IDEA / Macdown / Mail / Evernote / Finder&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;窗口操作&lt;ul&gt;
+&lt;li&gt;Option + - / =&lt;ul&gt;
+&lt;li&gt;大小控制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Option + m&lt;ul&gt;
+&lt;li&gt;窗口移动到屏幕中央&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Option + Space&lt;ul&gt;
+&lt;li&gt;鼠标找回到窗口中央&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;屏幕内操作&lt;ul&gt;
+&lt;li&gt;Option + J / K&lt;ul&gt;
+&lt;li&gt;焦点在同屏幕窗口切换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ctrl + Option + J / K / H / L&lt;ul&gt;
+&lt;li&gt;窗口移动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;屏幕间操作&lt;ul&gt;
+&lt;li&gt;Option + H / L&lt;ul&gt;
+&lt;li&gt;焦点左右屏幕切换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Space 操作&lt;ul&gt;
+&lt;li&gt;Option + I / O&lt;ul&gt;
+&lt;li&gt;Space 左右切换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Option + Ctrl + I / O&lt;ul&gt;
+&lt;li&gt;将当前窗口移动到相邻 Space&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Option + Enter&lt;ul&gt;
+&lt;li&gt;将当前窗口移动到 Work Space&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Option + Delete&lt;ul&gt;
+&lt;li&gt;将当前窗口移动到 Park Space&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Work / Park Space 就是用来帮助我集中精力的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我的配置文件在 &lt;a href="https://github.com/alswl/.oOo./blob/master/.phoenix.js"&gt;https://github.com/alswl/.oOo./blob/master/.phoenix.js&lt;/a&gt;
+我的配置文件可以开箱即用，但这是我自己的工作模式，想要获得自己最舒适的效果，需要自己进行一些研究和定制。&lt;/p&gt;
+&lt;h2&gt;其他一些替代方案&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac&lt;ul&gt;
+&lt;li&gt;SizeUp  # 简单的桌面平铺工具，不支持一键切换&lt;/li&gt;
+&lt;li&gt;Spectacle  # 类 SizeUp&lt;/li&gt;
+&lt;li&gt;Divvy  # 类 SizeUp，收费&lt;/li&gt;
+&lt;li&gt;Slate  # 支持配置，支持一键切换（推荐）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Linux&lt;ul&gt;
+&lt;li&gt;Awesome&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://hahack.com/tools/awesome/"&gt;平铺式窗口管理器-Awesome | HaHack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/alswl/awesome"&gt;我的 Awesome 配置文件（停止位置）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;xmonad&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Windows&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/fuhsjr00/bug.n"&gt;fuhsjr00/bug.n: Tiling Window Manager for Windows&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;p&gt;我曾经写过一篇 &lt;a href="http://blog.log4d.com/2013/12/mac/"&gt;Linux 程序员的 Mac 安装记录&lt;/a&gt;，
+告诉大家我在 Mac 上面常用的工具、包管理器。&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class="panel"&gt;
+&lt;div class="panel-body"&gt;
+   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/03/windows-management-for-hacker/"&gt;http://blog.log4d.com/2016/03/windows-management-for-hacker/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="Mac"></category></entry><entry><title>技术之外</title><link href="http://blog.log4d.com/2016/02/team-geek/" rel="alternate"></link><updated>2016-02-28T18:16:01+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-28:2016/02/team-geek/</id><summary type="html">&lt;p&gt;这是一天一本书的第二次执行，这次选了一本比较薄的书，上周的书看了一天，脑仁疼。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;在我组织团队新兵训练营（入职之后一段时间内容集中的培训）时候，
 经常和新同事聊到一个词：软实力。
@@ -1767,44 +1920,4 @@ Amazon EC2 上 的 EBS）。&lt;/li&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="性能"></category><category term="Redis"></category><category term="benchmark"></category><category term="译文"></category></entry><entry><title>从 SVN 到 Git，找回丢失的历史</title><link href="http://blog.log4d.com/2014/01/renamed-svn-to-git/" rel="alternate"></link><updated>2014-01-21T00:20:06+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-01-21:2014/01/renamed-svn-to-git/</id><summary type="html">&lt;p&gt;前段时间在将公司的 SVN 项目迁移到 Git 上面去，遇到一个很少见的问题：
-有一个小伙伴使用 git-svn 做 &lt;code&gt;rename&lt;/code&gt; 操作时候，将一个目录 &lt;code&gt;svn mv&lt;/code&gt; 了，
-导致新目录只存了最近几个月提交历史，丢失了历史信息。对团队开发而言，
-历史提交是非常宝贵的财产，我们想了一些办法，把这些数据提取出来。&lt;/p&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# 找出丢失之前的版本，列出丢失目录上层的操作记录。&lt;/span&gt;
-&lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt; &lt;span class="mi"&gt;2000&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/trunk/apps/ios/ | less&lt;/span&gt;
-
-&lt;span class="cp"&gt;# 将重命名之前的版本拷贝到一个临时目录&lt;/span&gt;
-&lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;copy&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/trunk/apps/ios/nami@43252 svn://log4d.com/trunk/apps/ios/nami_lost&lt;/span&gt;
-
-&lt;span class="cp"&gt;# 准备现有代码到 Git&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com/ -T trunk/apps/ios/nami -t tags -b branches -r 13532 nami&lt;/span&gt;
-
-&lt;span class="cp"&gt;# 修改 .git/config 来加入丢失的历史数据 Remote&lt;/span&gt;
-&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;svn-lost&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-    &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//log4d.com&lt;/span&gt;
-    &lt;span class="n"&gt;fetch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;apps&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;ios&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nami_lost&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;refs&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;remotes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lost&lt;/span&gt;
-
-&lt;span class="cp"&gt;# 并抓取 Remote 内容&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;svn&lt;/span&gt; &lt;span class="n"&gt;fetch&lt;/span&gt;
-
-&lt;span class="cp"&gt;# Rebase 新代码到恢复过来的历史记录上&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;checkout&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
-&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;rebase&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;committer&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;is&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;author&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;date&lt;/span&gt; &lt;span class="n"&gt;trunk&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lost&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;其中注意的是手动添加一个 &lt;code&gt;svn-remote&lt;/code&gt; 地址为历史数据副本地址。
-还有就是 &lt;code&gt;rebase&lt;/code&gt; 时候参数 &lt;code&gt;--committer-date-is-author-date&lt;/code&gt;
-可以保证 &lt;code&gt;rebase&lt;/code&gt; 不会造成提交时间被修改，方便回溯。&lt;/p&gt;
-&lt;p&gt;整整搞了一天，说出来都是泪，希望看到的人用不到，搜到的人用得到。&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class="panel"&gt;
-&lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/01/renamed-svn-to-git/"&gt;http://blog.log4d.com/2014/01/renamed-svn-to-git/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
-   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="软件开发和项目管理"></category><category term="SVN"></category><category term="Git"></category></entry></feed>
+</summary><category term="性能"></category><category term="Redis"></category><category term="benchmark"></category><category term="译文"></category></entry></feed>

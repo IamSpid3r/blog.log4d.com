@@ -66,6 +66,30 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/">正则表达式中的零宽断言</a></h2>
+                <div class="summary"><p>这文是上个月开始写的，本来想深入的分析一下零宽断言，可惜工作一直忙，现在又要去转战<strong>DWR</strong>...OMG~~</p>
+<h2>起因</h2>
+<p>将要上线的系统中有一个字符规则："13位的字符串，其中有8位连续数字"，需要用这则表达式对这个字符串进行判断。而我之前对正则的认识仅仅停留在匹配固定的字符上
+，对这个问题一筹莫展。</p>
+<p>这时候热心的小邪出现了，我在他的博客 <a href="http://www.evlos.org">邪罗刹的菠萝阁</a>
+留下这个<a href="http://www.evlos.org/2010/01/05/use-regex-to-clear-the-mix-of-tag-
+img/#comment-5968">问题</a></p>
+<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/01/alswl_ask.jpg" /></p>
+<p>小邪很热心的撰写了一篇文章给出回答：<a href="http://www.evlos.org/2010/01/07/a-cuptool-and-a-washtool"> 一个杯具和一个洗具与最近学习手记 :
+邪罗刹的菠萝阁</a>。</p>
+<h2>解答</h2>
+<p>核心字符串如下： '/^(?!(.<em>?d){9,})(?!(.</em>?D){6,}).{13}$/';</p>
+<p>小邪的文章给了很详细的解答，比我自己解释要好得多～我就索性copy过来，如下：</p>
+<blockquote>
+<blockquote>
+<p>小邪是这个样子解答的，首先两边的斜杠是 Perl 正则式的要求。</p>
+</blockquote>
+<p>然后两边的 ^ 和 ...</p></blockquote>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/regular-expressions-in-the-zero-width-assertion/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2010/01/a-change-of-home-made-icon/">换了一个自制的ICON</a></h2>
                 <div class="summary"><p>今天终于把自己主题框架建起来了，不过感觉好丑的说～～alswl一点艺术细胞都没有～</p>
 <p>伟人说的好啊，没有困难创造困难也要上，今天就硬着头皮做了一个ICON。</p>
@@ -210,24 +234,6 @@ Calendar。（实现GTD其实也不一定需要这么复杂的工具，有时候
 <p>希望下次铁道部能够把数据查询的接口公开，使售票活动更加公开化，使那些在售票流程中黄牛、XX无处可下手。</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/01/the-remaining-votes-in-the-amount-of-the-national-rail-inquiries/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/">添加FireFox下的边框圆角</a></h2>
-                <div class="summary"><p>起因是换了DDDSpace.com 这个域名，需要测试邮件回复情况，我发现在在iGoogle的GMail小窗口显示着实有些难看，就修改了一下样式，添加了圆角
-、增加了<code>padding</code>值，唔，这个<strong>圆角不对IE系列有效果</strong>。</p>
-<p>增加圆角的部分如下：</p>
-<div class="highlight"><pre><span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
-<span class="o">-</span><span class="n">khtml</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
-<span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
-<span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="mi">10</span><span class="n">px</span><span class="p">;</span>
-</pre></div>
-
-
-<p>修改之后的Mail To Commenter 模板如下</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;border: 1px solid rgb(183, 183, 183); margin: 1em 40px; padding ...</span></pre></div>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/12/add-a-border-fillet-under-firefox/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

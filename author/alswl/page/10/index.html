@@ -66,6 +66,20 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/">go-pylons.py在Python2.7下错误解决</a></h2>
+                <div class="summary"><p>当使用 Python2.7 +<a href="http://pylonshq.com/download/1.0/go-pylons.py"> go-pylons.py</a>
+创建 Pylons 运行环境的话，会报一下错误。</p>
+<div class="highlight"><pre><span class="cp">[</span><span class="nx">alswl</span><span class="p">@</span><span class="nx">arch</span><span class="na">-vm</span> <span class="nx">xingtong</span><span class="cp">]</span>$ python go-pylons.py myb_env
+New python executable in myb_env/bin/python
+Traceback (most recent call last):
+  File &quot;/home/alswl/work/xingtong/myb_env/lib/python2.7/site.py&quot;, line 67, in <span class="nt">&lt;module&gt;</span>
+    import os
+  File &quot;/home/alswl/work ...</pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/07/sina-weibo-app-key/">新浪微博应用Key</a></h2>
                 <div class="summary"><p>前两天 <a href="https://chrome.google.com/webstore/detail/aicelmgbddfgmpieedjiggi
 fabdpcnln">FaWave</a> 的新浪微博接口出现了问题， 一直无法发送和接受信息，今天查看了一下设定里面的信息，官方给出这样的解释：</p>
@@ -228,26 +242,6 @@ framework">浅谈Python web框架</a>，另外，这个<a href="http://www.bestw
 Framework ...</a></p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/05/pylons/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/05/run-pylons-in-eclipse/">Eclipse中运行Pylons</a></h2>
-                <div class="summary"><p>官方中pylons都是通过在shell中运行paster serve --reload
-development.ini来运行应用实例。而整天在任务栏跑着一个黑乎乎的shell很碍眼，通过一下步骤可以在Eclipse中运行pylons。</p>
-<p>配置Run Configuration - Python Run如下。</p>
-<p>Main页签中Main Module指向paster-script.py，可以使用绝对路径。</p>
-<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/05/eclipse-main.png" /></p>
-<p>配置Arguments页签的参数，添加serve --reload development.ini，后面的ini配置文件可以使用绝对路径。</p>
-<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/05/eclipse-arguments.png" /></p>
-<p>勾选Common下的Allocate Console来进行paster调试信息输出。</p>
-<p>在Windows - Preference - Pydev - Interpreter - Python中的PYTHONPATH加入pylons目标环境
-，报过site-packages目录和site-packages目录下面的egg文件（理解为jar包，称之为蟒蛇蛋）。</p>
-<p>不出意外的话，就可以通过Run跑起整个应用了。</p>
-<p>很可惜的是，这样做还是不能对应用进行Debug，pylons的debug依然依赖于pylons的"交互调试页面"。</p>
-<p>参考<a href="http://stackoverflow.com/questions/147650/debug-pylons-application-
-through-eclipse">http://stackoverflow.com ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/05/run-pylons-in-eclipse/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

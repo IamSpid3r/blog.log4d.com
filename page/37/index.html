@@ -66,6 +66,24 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2009/05/station-restoration-of-mind/">小站恢复记</a></h2>
+                <div class="summary"><p>由于原来服务器被攻击，销售代表给我重新安排了一台主机，之前我做过一次数据备份，但是文件没有备份，左等右等，都不见服务器恢复，于是打定主意自己恢复自己的数据，
+重建博客。</p>
+<p>首先得确保手头有原始的数据，我当时在phpMyAdmin中导出了所有的数据保存为sql文档。</p>
+<p>1.重新创建原始的WordPress，并把原来的一些插件和主题重新安装好。重新创建的数据库名称可能与原来的数据库名称有出入，就需要修改导出的sql文件。</p>
+<p>2.比如我原始的数据库名称是alswl_wp，现在创建的数据库是dddspace_wp（记住哦，是全称，不是自己填的部分）。找到sql文件 ` --</p>
+<h2>-- 数据库: <code>alswl_wp</code></h2>
+<p>CREATE DATABASE <code>alswl_wp</code> DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</p>
+<p>USE <code>alswl_wp</code>;`</p>
+<p>只保留 USE 'alswl_wp'，并且修改为USE
+'dddspace_wp'，之所以不在这里创建，是因为一般空间管理器取消了phpMyAdmin创建数据库权限，只能在面板创建。</p>
+<p>如果当初备份数据库是全部备份的话可能还会有其他的系统数据库，这些必须删除，保证sql文件只对dddspace_wp这个数据库进行增加表的操作</p>
+<p>3.为了保证数据库数据正确，把WP自动创建的表删除，然后就可以导入sql文件执行了 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/station-restoration-of-mind/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2009/05/rainy-day/">下雨天</a></h2>
                 <div class="summary"><p>很不喜欢下雨天啊，每每这个时候，心情总是比较低潮`</p>
 <p>尤其记得小时候在电视屏幕前，红木沙发，黑洞洞的屋子里，我一个人在看着动画片，大凡这个时候作业是没做的，承受着心理的压力享受着片刻的欢娱`</p>
@@ -219,19 +237,6 @@ org.hibernate.PropertyAccessException: Exception occurred inside setter of ...</
 <p>HH:mm ...</p>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/learning-to-use-log4j/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/05/post-bar-progress-09-05-07/">贴吧进度-09-05-07</a></h2>
-                <div class="summary"><p>今天写到创建帖子，在编码上遇到问题，jUnit下调用函数没有任何问题，那就表示问题出在Struts Filter捕获的文本上。</p>
-<p>找了好几个方法都没有奏效。</p>
-<p>游客登录情况下的Session还存在一点问题，原因是session类型转换上的问题，今天还没有好好的研究一下。</p>
-<p>至此为止，登录注册写完了，静态校验写了一个毛胚，今天写完的现实帖子的列表，表现层用OGNL完成的，终于脱离开代码混杂的页面。</p>
-<p>解决了一个tx.commit的错误，原来是《开发者突击》书上的代码有问题，我参考了Hibernate的官方文档，终于发现了错误的原因，tx.rollback
-()应该在catch里面而不是final里面。</p>
-<p>写着写着就感觉自己太多的不足，太多要学习的地方，加油！</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/05/post-bar-progress-09-05-07/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 

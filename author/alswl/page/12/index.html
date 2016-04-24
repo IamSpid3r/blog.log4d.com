@@ -66,6 +66,24 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
+                <h2 class="title"><a href="http://blog.log4d.com/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
+                <div class="summary"><p>在系统开发中，数据库连接字符串经常被保存到.config/.ini等配置文件中，以提高系统的灵活性。上大学时候，为了实现灵活配置数据库的效果，用拼字符串的方
+法来动态生成连接字符串，这种方法充满了Bad Smell。</p>
+<p>昨天用CodeSmith时候，看到它的数据连接配置界面，如此的眼熟，如下图。</p>
+<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/02/DataConnectionDialog.jpg" /></p>
+<p>Google了一下，原来这家伙的名字叫做DataConnectionDialog，所属命名空间为Microsoft.VisualStudio.Data。</p>
+<p>使用的方法也很简单，引用Microsoft.Data.ConnectionUI.dll和Microsoft.Data.ConnectionUI.Dialog
+.dll，这两个文件位于Microsoft Visual Studio 9.0Common7IDE下面。</p>
+<p>这两个dll并没有其他依赖关系，可以放心的放到自己的程序中使用。</p>
+<p>使用代码如下</p>
+<div class="highlight"><pre><span class="n">DataConnectionDialog</span> <span class="n">dataConnectionDialog</span> <span class="o">=</span> <span class="n">new</span> <span class="n">DataConnectionDialog</span><span class="p">();</span>
+<span class="n">DataSource</span><span class="p">.</span><span class="n">AddStandardDataSources</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
                 <h2 class="title"><a href="http://blog.log4d.com/2011/01/gac/">在.net中使用GAC</a></h2>
                 <div class="summary"><h2>GAC</h2>
 <p>GAC是什么？是用来干嘛的？GAC的全称叫做全局程序集缓存，通俗的理解就是存放各种.net平台下面需要使用的dll的地方。GAC的具体目录在windows/
@@ -223,36 +241,6 @@ bodyFiles:</p>
 <li>body2 ...</li></ul>
                 </div>
                 <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/11/a-week-python/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/10/python-clipboard/">Python读写剪贴板</a></h2>
-                <div class="summary"><p>最近在写一个CodeGenX代码生成器，说是生成器，其实是目前只完成一堆零散的脚本。这些脚本的调用方式一般是从某个txt中读取数据，再写到另外一个txt中。</p>
-<p>由于某些数据变动频繁，导致我操作txt次数大增，我怒了，就找了一个脚本自动读写剪贴板。</p>
-<div class="highlight"><pre><span class="cp">#coding=utf-8</span>
-<span class="err">&#39;&#39;&#39;</span>
-<span class="err">读写剪贴板</span>
-<span class="err">&#39;&#39;&#39;</span>
-<span class="n">import</span> <span class="n">win32clipboard</span> <span class="n">as</span> <span class="n">w</span>
-<span class="n">import</span> <span class="n">win32con</span>
-</pre></div>
-
-
-<p>def getText():</p>
-<p>w.OpenClipboard()</p>
-<p>d = w.GetClipboardData(win32con.CF_TEXT)</p>
-<p>w.CloseClipboard()</p>
-<p>return d</p>
-<p>def setText(aString):</p>
-<p>w.OpenClipboard()</p>
-<p>w.EmptyClipboard()</p>
-<p>w.SetClipboardData(win32con.CF_TEXT, aString)</p>
-<p>w.CloseClipboard()</p>
-<p>别说有了这个脚本用起来还是蛮方便的，建议丢到Python的lib下面，然后可以方便调用。</p>
-<p>&amp;nbsp_place_holder;</p>
-<p>如果是双击 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/10/python-clipboard/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
