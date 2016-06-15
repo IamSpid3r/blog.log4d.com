@@ -11,26 +11,26 @@
 
 
 
-<link rel="canonical" href="http://blog.log4d.com">
+<link rel="canonical" href="https://blog.log4d.com">
         <meta name="author" content="alswl" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Log4D" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Log4D"/>
-        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:url" content="https://blog.log4d.com"/>
         <meta property="og:description" content="Log4D"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.log4d.com/theme/css/style.css" type="text/css"/>
 
-    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
-    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+    <link href="https://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="https://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">
+            <a href="https://blog.log4d.com/" class="navbar-brand">
 Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,7 +54,7 @@ Log4D            </a>
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="https://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -66,18 +66,47 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2014/01/renamed-svn-to-git/">从 SVN 到 Git，找回丢失的历史</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2014/03/java-options/">Java 运行参数调整</a></h2>
+                <div class="summary"><p>JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：</p>
+<p>运行 <code>java -h</code> 可以看到 Java 运行可调整的参数。
+运行 <code>java -X</code> 可以查看 Java 支持的额外参数。
+注意一些参数的默认开启在 JDK6 和 JDK7 之间会有差异，甚至在 JDK7 的不同 update
+也会有差异，运行 <code>java -XX:+PrintFlagsFinal</code> 查看默认的参数配置。</p>
+<p>参考：
+<a href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html">Java HotSpot VM Options</a>
+<a href="http://stas-blogspot.blogspot.com/2011/07/most-complete-list-of-xx-options-for.html">The most complete list of -XX options for Java JVM </a>
+<a href="http://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html"> Tuning JVM Garbage Collection for Production Deployments </a>
+<a href="http://www.jvmer.com/jvm-xx-参数介绍/">JVM -XX: 参数介绍</a></p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2014/03/java-options/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2014/02/redis-benchmarks/">Redis 到底有多快[译文]</a></h2>
+                <div class="summary"><p>原文地址 <a href="http://redis.io/topics/benchmarks">http://redis.io/topics/benchmarks</a>。</p>
+<p>拖了一个半月的稿子~</p>
+<hr />
+<p>Redis 自带了一个叫 <code>redis-benchmark</code> 的工具来模拟 N 个客户端同时发出 M 个请求。
+（类似于 Apache <code>ab</code> 程序）。你可以使用 <code>redis-benchmark -h</code> 来查看基准参数。</p>
+
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2014/02/redis-benchmarks/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2014/01/renamed-svn-to-git/">从 SVN 到 Git，找回丢失的历史</a></h2>
                 <div class="summary"><p>前段时间在将公司的 SVN 项目迁移到 Git 上面去，遇到一个很少见的问题：
 有一个小伙伴使用 git-svn 做 <code>rename</code> 操作时候，将一个目录 <code>svn mv</code> 了，
 导致新目录只存了最近几个月提交历史，丢失了历史信息。对团队开发而言，
 历史提交是非常宝贵的财产，我们想了一些办法，把这些数据提取出来。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2014/01/renamed-svn-to-git/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2014/01/renamed-svn-to-git/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/12/2013/">Goodbye 2013, Hello 2014</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/12/2013/">Goodbye 2013, Hello 2014</a></h2>
                 <div class="summary"><p>2013 年末，我给自己制定了几个年度目标：</p>
 <blockquote>
 <p>离梦想更近一步</p>
@@ -94,11 +123,11 @@ Log4D            </a>
 找到一个能产生共鸣，生活兴趣相近，相互欣赏的人太难了。一定会珍惜的。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/12/2013/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/12/2013/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/12/mac/">Linux 程序员的 Mac 安装记录</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/12/mac/">Linux 程序员的 Mac 安装记录</a></h2>
                 <div class="summary"><p>作为一个 Linux 的老用户，我再一次验证了那句老话「Linux 用户有钱就换 Mac」。
 前段时间，托朋友从香港购入一台 rMBP，下面就是我的 Mac 使用安装记录。</p>
 <h2>Brew</h2>
@@ -112,11 +141,11 @@ Log4D            </a>
 <p>我安装的 Brew 包：</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/12/mac/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/12/mac/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/11/postfix-basic-configuration/">Postfix 基本配置[译文]</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/11/postfix-basic-configuration/">Postfix 基本配置[译文]</a></h2>
                 <div class="summary"><p>原文地址：<a href="http://www.postfix.org/BASIC_CONFIGURATION_README.html#syntax">Postfix Basic Configuration </a>。
 有少许编译。</p>
 <h2>介绍</h2>
@@ -128,11 +157,11 @@ Log4D            </a>
 <a href="http://www.postfix.org/STANDARD_CONFIGURATION_README.html">标准配置说明</a> 里面查看。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/11/postfix-basic-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/11/postfix-basic-configuration/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/11/python-gdb/">在 Python 中使用 GDB 来调试[译文]</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/11/python-gdb/">在 Python 中使用 GDB 来调试[译文]</a></h2>
                 <div class="summary"><p>大约一年前，我接触了 Java 中的 <a href="http://kenai.com/projects/btrace">Btrace</a>
 能够不停机查看线上 JVM 运行情况的特性让我艳羡不已。
 另外还有强悍的 jStack 和 jConsole 来进行运行期侦测，JVM 的工业级强度果然不是盖的。</p>
@@ -148,11 +177,11 @@ Jython 推翻重做了主要业务，效果立竿见影，但同时也把真实�
 <p>原文可以移步 <a href="https://wiki.python.org/moin/DebuggingWithGdb">https://wiki.python.org/moin/DebuggingWithGdb</a>。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/11/python-gdb/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/11/python-gdb/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/10/r-tutorial/">15 分钟学会 R 语言[译文]</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/10/r-tutorial/">15 分钟学会 R 语言[译文]</a></h2>
                 <div class="summary"><p>仗着自己有几门语言的基础，我在学新语言时候，都会选择一些快速入门教程。
 比如 <a href="http://learnxinyminutes.com/">Learn X in Y minuts</a> 就是我经常光顾的站点。</p>
 <p>前段时间，小柒在用 R 写数据分析脚本，我就建议她把 Learn X in Y minuts 里面的
@@ -166,11 +195,11 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
 你也可以在 LaTeX 文档中运行 <code>R</code> 命令。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/10/r-tutorial/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/10/r-tutorial/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/06/web-technology/">读《大规模Web服务开发技术》</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/06/web-technology/">读《大规模Web服务开发技术》</a></h2>
                 <div class="summary"><p>年前看了这本书《大规模Web服务开发技术》，当时给的评价是：</p>
 <blockquote>
 <p>很好，让我这个渣渣看的很感动，数据翔实，经历可靠，翻译的也不错，我给 4.2 分</p>
@@ -193,11 +222,11 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
 </ol>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/06/web-technology/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/06/web-technology/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/04/buy-arch/">Arch，再见</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2013/04/buy-arch/">Arch，再见</a></h2>
                 <div class="summary"><p><img alt="Arch" src="http://77g0h6.com1.z0.glb.clouddn.com/2013/04/archlinux-logo-dark-1200dpi_.png" /></p>
 <p>Arch 是我真正使用的第一款 Linux 发行版，大约使用了三年，
 现在的这个 VPS 跑的系统也是 Arch。
@@ -205,130 +234,99 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
 彻底从从不折腾会死星人变成了一个尽量避免变更的老用户。</p>
 
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/04/buy-arch/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/04/peopleware/">读《人件》</a></h2>
-                <div class="summary"><p>事情起源于动态语言和静态语言之争，最后争论焦点转移到：「相信人本身的能力重要，
-还是通过语言/工具来约束人重要」。
-我认为项目开发中最重要的是个人能力和团队协作能力，工具只是加分项。
-如果代码质量差、监控难、性能难以优化，解决根本问题的关键还是在人身上。
-并不是静态编译和工具检查就能搞定了。</p>
-<p>我愤愤的在 QQ 对话框中写道：</p>
-<blockquote>
-<p>我工作第一年痛苦于开发流程，阅读了《人月神话》，就开始坚信软件工程的哲学
-后来痛苦与代码质量，阅读了《重构》，开始坚信代码质量决定产品质量
-现在痛苦于人和语言的冲突，动态和静态的冲突，我想读《人件》了</p>
-</blockquote>
-<p><img alt="人件" src="http://img3.douban.com/lpic/s1299961.jpg" /></p>
-<p>人件已经绝版，只能在找线上版，我花了两个星期把它读完。
-书中给了我一部分答案，另外还有一些意外的收获。</p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/04/peopleware/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2013/02/facebook/">读《打造 Facebook》</a></h2>
-                <div class="summary"><p>感谢好基友 <a href="http://weibo.com/idao">@daodao</a> 送了我这本《<a href="http://book.douban.com/subject/20471120/">打造 Facebook</a>》，
-年前一直忙，最近腾出两个晚上，把这本很火的书看完了。</p>
-<p><img alt="cover" src="http://img3.douban.com/lpic/s24581301.jpg" /></p>
-
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2013/02/facebook/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2013/04/buy-arch/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="http://blog.log4d.com/page/2/">&laquo;</a>
+                <li class="prev"><a href="https://blog.log4d.com/page/2/">&laquo;</a>
                 </li>
                     <li class=""><a
-							href="http://blog.log4d.com/">1</a></li>
+							href="https://blog.log4d.com/">1</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/2/">2</a></li>
+							href="https://blog.log4d.com/page/2/">2</a></li>
                     <li class="active"><a
-							href="http://blog.log4d.com/page/3/">3</a></li>
+							href="https://blog.log4d.com/page/3/">3</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/4/">4</a></li>
+							href="https://blog.log4d.com/page/4/">4</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/5/">5</a></li>
+							href="https://blog.log4d.com/page/5/">5</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/6/">6</a></li>
+							href="https://blog.log4d.com/page/6/">6</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/7/">7</a></li>
+							href="https://blog.log4d.com/page/7/">7</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/8/">8</a></li>
+							href="https://blog.log4d.com/page/8/">8</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/9/">9</a></li>
+							href="https://blog.log4d.com/page/9/">9</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/10/">10</a></li>
+							href="https://blog.log4d.com/page/10/">10</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/11/">11</a></li>
+							href="https://blog.log4d.com/page/11/">11</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/12/">12</a></li>
+							href="https://blog.log4d.com/page/12/">12</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/13/">13</a></li>
+							href="https://blog.log4d.com/page/13/">13</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/14/">14</a></li>
+							href="https://blog.log4d.com/page/14/">14</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/15/">15</a></li>
+							href="https://blog.log4d.com/page/15/">15</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/16/">16</a></li>
+							href="https://blog.log4d.com/page/16/">16</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/17/">17</a></li>
+							href="https://blog.log4d.com/page/17/">17</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/18/">18</a></li>
+							href="https://blog.log4d.com/page/18/">18</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/19/">19</a></li>
+							href="https://blog.log4d.com/page/19/">19</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/20/">20</a></li>
+							href="https://blog.log4d.com/page/20/">20</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/21/">21</a></li>
+							href="https://blog.log4d.com/page/21/">21</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/22/">22</a></li>
+							href="https://blog.log4d.com/page/22/">22</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/23/">23</a></li>
+							href="https://blog.log4d.com/page/23/">23</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/24/">24</a></li>
+							href="https://blog.log4d.com/page/24/">24</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/25/">25</a></li>
+							href="https://blog.log4d.com/page/25/">25</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/26/">26</a></li>
+							href="https://blog.log4d.com/page/26/">26</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/27/">27</a></li>
+							href="https://blog.log4d.com/page/27/">27</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/28/">28</a></li>
+							href="https://blog.log4d.com/page/28/">28</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/29/">29</a></li>
+							href="https://blog.log4d.com/page/29/">29</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/30/">30</a></li>
+							href="https://blog.log4d.com/page/30/">30</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/31/">31</a></li>
+							href="https://blog.log4d.com/page/31/">31</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/32/">32</a></li>
+							href="https://blog.log4d.com/page/32/">32</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/33/">33</a></li>
+							href="https://blog.log4d.com/page/33/">33</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/34/">34</a></li>
+							href="https://blog.log4d.com/page/34/">34</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/35/">35</a></li>
+							href="https://blog.log4d.com/page/35/">35</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/36/">36</a></li>
+							href="https://blog.log4d.com/page/36/">36</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/37/">37</a></li>
+							href="https://blog.log4d.com/page/37/">37</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/38/">38</a></li>
+							href="https://blog.log4d.com/page/38/">38</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/39/">39</a></li>
+							href="https://blog.log4d.com/page/39/">39</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/40/">40</a></li>
+							href="https://blog.log4d.com/page/40/">40</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/41/">41</a></li>
+							href="https://blog.log4d.com/page/41/">41</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/42/">42</a></li>
+							href="https://blog.log4d.com/page/42/">42</a></li>
                 <li class="next"><a
-                        href="http://blog.log4d.com/page/4/">&raquo;</a></li>
+                        href="https://blog.log4d.com/page/4/">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -338,8 +336,8 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                     <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
                     <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
                   </ul>
@@ -356,50 +354,50 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <li class="list-group-item"><a href="https://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/coding/">
+                            <a href="https://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/efficiency/">
+                            <a href="https://blog.log4d.com/category/efficiency/">
                                 <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/fun/">
+                            <a href="https://blog.log4d.com/category/fun/">
                                 <i class="fa fa-folder-open fa-lg"></i> Fun
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/internet/">
+                            <a href="https://blog.log4d.com/category/internet/">
                                 <i class="fa fa-folder-open fa-lg"></i> Internet
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/life/">
+                            <a href="https://blog.log4d.com/category/life/">
                                 <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/managment/">
+                            <a href="https://blog.log4d.com/category/managment/">
                                 <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/thinking/">
+                            <a href="https://blog.log4d.com/category/thinking/">
                                 <i class="fa fa-folder-open fa-lg"></i> Thinking
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ui/">
+                            <a href="https://blog.log4d.com/category/ui/">
                                 <i class="fa fa-folder-open fa-lg"></i> UI
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/view/">
+                            <a href="https://blog.log4d.com/category/view/">
                                 <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
@@ -425,14 +423,14 @@ R 语言教程翻译出来。话说 Learn X in Y minuts 里面的中文贡献还
       </div>
    </div>
 </footer>
-<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/jquery.min.js"></script>
 <!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">

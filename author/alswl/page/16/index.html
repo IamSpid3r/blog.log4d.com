@@ -18,19 +18,19 @@
         <meta property="og:site_name" content="Log4D" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Log4D"/>
-        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:url" content="https://blog.log4d.com"/>
         <meta property="og:description" content="Log4D"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.log4d.com/theme/css/style.css" type="text/css"/>
 
-    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
-    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+    <link href="https://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="https://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">
+            <a href="https://blog.log4d.com/" class="navbar-brand">
 Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,7 +54,7 @@ Log4D            </a>
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="https://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -66,7 +66,66 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/05/three-invitations-of-tencent-micro-blog/">腾讯微博邀请3枚</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/05/fms-80-port-used/">FMS的80端口占用</a></h2>
+                <div class="summary"><p>AzaAjaxChat 的语音聊天需要使用的Flex的流媒体传输，我在评估的方案有两套：1.使用原声Socket在客户端进行连接，2.使用FMS
+流媒体服务器进行数据传输。</p>
+<p>FMS （Flash Media Server）在安装时候，有一个选项是端口使用哪个，默认是1935 和
+80端口，安装之后发现在使用两个Apache在80端口发生冲突（FMS使用的也是Apache服务器），需要将这个端口修改。</p>
+<p>Google后，发现修改 Flash Media Server 3conffms.ini 删除80留下1935即可。</p>
+<div class="highlight"><pre><span class="cp"># IP address and port(s) Flash Media Server should listen on</span>
+<span class="cp"># For example:</span>
+<span class="cp">#    ADAPTOR.HOSTPORT = :1935,80</span>
+<span class="cp">#</span>
+<span class="n">ADAPTOR</span><span class="p">.</span><span class="n">HOSTPORT</span> <span class="o">=</span> <span class="o">:</span><span class="mi">1935</span>
+</pre></div>
+
+
+<p>唔～继续搞鼓Flex的流媒体传输了 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/05/fms-80-port-used/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2010/05/cakephp-global-variables/">CakePHP的全局变量</a></h2>
+                <div class="summary"><p>毕业设计AzaAjaxChat 中有一个功能，记录当前在线用户，直观的看，用Application对象就可以解决。</p>
+<p>忙了一会发现，原来PHP没有Application对象这个概念，于是我想到了全局变量，噩梦便开始了。（Application
+和全局变量其实完全不是同一个概念）</p>
+<p>我使用的框架是CakePHP，查找资料后，找到了几种CakePHP中使用全局变量的方法。</p>
+<h3>一、使用bootstrap.php文件</h3>
+<p>在app/config 下面，有一个bootstrap文件，从名字就可以看出，这个是在控制器之前加载的文件，根据官方的描述，有下面几个用法。</p>
+<blockquote>
+<ul>
+<li>
+<p>定义方便的函数</p>
+</li>
+<li>
+<p>注册全局常量</p>
+</li>
+<li>
+<p>定义新增的控制器，视图，控制器路径</p>
+</li>
+</ul>
+</blockquote>
+<p>通过这个文件可以实现全局变量的声明。</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">isset</span> <span class="p">(</span><span class="err">$</span><span class="n">globalAAC</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">global</span> <span class="err">$</span><span class="n">globalAAC</span><span class="p">;</span>
+    <span class="err">$</span><span class="n">globalAAC</span> <span class="o">=</span> <span class="n">array</span> <span class="p">(</span>
+        <span class="err">&#39;</span><span class="n">currentMessageId</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="err">&#39;</span><span class="n">onlineUsers</span><span class="err">&#39;</span> <span class="o">=&gt;</span> <span class="n">array</span><span class="p">()</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>在其他文件中就可以调用这个全局变量了。</p>
+<h3>二、通过Configure 类</h3>
+<p>Configure类是CakePHP用来进行配置文件的地方，通过write() 和read()方法 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/05/cakephp-global-variables/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2010/05/three-invitations-of-tencent-micro-blog/">腾讯微博邀请3枚</a></h2>
                 <div class="summary"><p>很久之前通过<a href="http://baiduer.net/">laiwei_linjuly</a> 获取腾讯微博的资格，之后一直没怎么用。</p>
 <p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/05/t_qq_logo.jpg" /></p>
 <p>"alswl"这个用户名也没能抢到，倒霉孩子要我6个字母的用户名，只能alswlx顶上（恶感啊，被逼着换掉常用用户名）</p>
@@ -79,11 +138,11 @@ Log4D            </a>
 <p>](http://t.qq.com/invite/359f89ba78883f45d241)</p>
 <p>需要的同学们拿去吧，我的腾讯微博是 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/three-invitations-of-tencent-micro-blog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/05/three-invitations-of-tencent-micro-blog/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/05/first-anniversary-of-blog/">建博一周年</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/05/first-anniversary-of-blog/">建博一周年</a></h2>
                 <div class="summary"><p>今天是独立博客Log4D (log4d.com)一周年纪念日。</p>
 <p>按照惯例，上图纪念：</p>
 <p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/05/analysis.jpg" /></p>
@@ -97,11 +156,11 @@ Log4D            </a>
 天有不测风云，Yo2服务器在我搬过去3天之后核心服务器就出了问题，还报I/O错误****</p>
 <p>遂下定决心，建立自己的博客 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/first-anniversary-of-blog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/05/first-anniversary-of-blog/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/05/10_05_04-update/">10_05_04 Update</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/05/10_05_04-update/">10_05_04 Update</a></h2>
                 <div class="summary"><p>很久没有Update了呢～</p>
 <ol>
 <li>26号回学校，29号中期答辩，30号回家，4号回学校</li>
@@ -112,11 +171,11 @@ Log4D            </a>
 <p>5.捧起Thinking in Java，趁着最后一段时间恶补基础，为6月份做一些必要的准备</p>
 <p>6.阿里招前端工程师～垂涎啊……可惜能力实在不行……残念……</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/05/10_05_04-update/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/05/10_05_04-update/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/keep-it-work-interest/">保持IT工作兴趣</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/04/keep-it-work-interest/">保持IT工作兴趣</a></h2>
                 <div class="summary"><p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/04/keyboard_help.jpg" /></p>
 <p>参加工作4个月以来，我完成了由学校人到社会人的转变，成为了一名光荣的码农。但是在长时间的工作和加班中，带来一些烦躁的情绪，特别是在项目比较紧张、客户又催的急
 ，很容易对电脑产生"反胃"的感觉，完全没了在学校那时候一个晚上通宵编程都依然兴奋的感觉。</p>
@@ -130,11 +189,11 @@ Log4D            </a>
 <p>建立博客的童鞋，大抵都是愿意输出价值并分享的人。</p>
 <p>下面我分享一下我Google Reader 里面标记为同龄人的个人博客 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/keep-it-work-interest/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/04/keep-it-work-interest/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/recent-study-technologys/">最近在学的技术</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/04/recent-study-technologys/">最近在学的技术</a></h2>
                 <div class="summary"><p>根据这篇日志的题目，必然是一篇水文，我思量再三，还是把它放出来，这些技术的接触把我带入了另一个广阔的天堂。这是我学Java以来的第二个里程碑。</p>
 <p>使用Java1年半，1年前开始JSP编程，一直是我和周围的朋友自己摸索，学校没有开Java课，也没有参加什么培训课程，面对庞大的Java开源分支，我一直摸索
 ，不能登堂入室。</p>
@@ -151,11 +210,11 @@ d。Hibernate和iBatis有各自的适合使用的领域，不能单纯的说谁�
 <blockquote>
 <p>Java Authentication ...</p></blockquote>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/recent-study-technologys/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/04/recent-study-technologys/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/recently-read-books/">最近在看的书</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/04/recently-read-books/">最近在看的书</a></h2>
                 <div class="summary"><p>最近还没有清闲下来，虽然手头有一堆读书笔记，但是进度还不足以把那些琐碎的语句分享给大家。索性直接给大家推荐几本我现在在读的书。</p>
 <h3>改变千万人生的一堂课 <a href="http://www.douban.com/subject/1156891/">@douban</a></h3>
 <p><img alt="image" src="http://t.douban.com/mpic/s1429078.jpg" /></p>
@@ -172,11 +231,11 @@ d。Hibernate和iBatis有各自的适合使用的领域，不能单纯的说谁�
 aEye的月刊就几乎包含了整个IT领域的各个方面。</p>
 <p>在买不到CSDN的月刊的地方，每个月读一读这两本月刊，跟进一下主流技术，展望一下发展路线 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/recently-read-books/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/04/recently-read-books/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/log4d-revision-completed/">Log4D改版完成</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/04/log4d-revision-completed/">Log4D改版完成</a></h2>
                 <div class="summary"><p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/04/log4d_screenshot.png" />新主题SimpleD也运行
 了一段时间了，没出什么大Bug。其实从刚工作时候，也就是11月份，就一直说要自己写一个主题，拖啊拖，拖啊拖，拖到上个月才正式发布SimpleD
 1.0版。现在缝缝补补到1.3了。</p>
@@ -190,11 +249,11 @@ WordPress Basis Theme。</p>
 /sandbox-theme">sandbox-theme - Project Hosting on Google Code</a></p>
 <p>sandbox主题中文语言 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/log4d-revision-completed/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/04/log4d-revision-completed/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/reverence-for-life/">敬畏生命</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/04/reverence-for-life/">敬畏生命</a></h2>
                 <div class="summary"><p>早晨上班等公交时候，对面超市门口突然传来了歌声，腔调很沧桑。奇怪大清早难道还有商家做活动么，循着声音看过去，原来是一位男人在卖唱，再仔细一看，他的腿细得和我
 手臂那么粗。</p>
 <p>虽然在也遇到过很多流浪者、乞丐，但是大多都趴在地上，又或是跪着乞讨。生活困苦潦倒至此，还在卖唱，而不是伸着手向他人乞讨的着实不多。</p>
@@ -207,135 +266,99 @@ WordPress Basis Theme。</p>
 <h3>敬畏生命 张晓风</h3>
 <p>那是一个夏天的长得不能再长的下午，在印第安那州〔印第安那州：美国的一个州，位于美国东部。〕的一个湖边 ...</p></blockquote>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/reverence-for-life/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/began-of-financial-management/">理财开始</a></h2>
-                <div class="summary"><p><img alt="image" src="http://www.newsobserver.com/content/media/2008/6/13/money.jpg" /></p>
-<p>人的一生对应着各种理财周期，青年单身期 -&gt; 家庭形成期 -&gt; 家庭成长期 -&gt; 子女教育期 -&gt; 家庭成熟期 -&gt; 退休养老期。我现在处在第一个阶段青年单
-身期，拥有了自己第一份工作，需要对自己的财富进行管理，掌握自己的经济状况（至少知道有没有欠一屁股债）。这几天也学习了一些理财的理念，下面简单总结一下理财的基
-本概念。</p>
-<h3>财富的意义</h3>
-<p>在现代社会，对一个人来说，成功的基础之一就是财富。不管是实在的金钱，还是名望或才能，都最终实现到财富的层面上。通俗的来说，财富就代表了一个人的价值，表现了一
-个人的社会地位。</p>
-<h3>家庭理财</h3>
-<p>家庭理财就是管理自己的财富，进而提高财富的效能的经济活动。理财也就是对资本金和负债资产的科学合理的运作。通俗的来说，理财就是赚钱、省钱、花钱之道。理财就是打
-理钱财。</p>
-<h3>家庭理财的目的</h3>
-<p>家庭投资理财的根本目的就是家庭财产保值增值，或者叫家庭财富最大化。更进一步说，追求财富，就是追求成功，追求人生目标的自我实现。所以我们提倡科学的理财，就是要
-善用钱财，使家庭财务状况处于最佳状态，满足各层次的需求，从而拥有一个丰富的人生 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/began-of-financial-management/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/04/desktop-recording-tool-boogunote/">桌面记录神器-BooguNote</a></h2>
-                <div class="summary"><p>之前做GTD一直基于Google Canledar，记录主要是Google NoteBook和Google Docs。尽管Google
-Docs支持Gears离线查看，但是并不支持离线创建文件（Docs的编辑能力还不如CKEditor）。</p>
-<p><a href="http://upload-
-log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/04/boogu_note.jpg" /></a></p>
-<p>我一直急迫的寻找一款本地保存内容的程序，终于被我发现了，BooguNote！</p>
-<p>尽管这个软件还有很多不成熟的地方，比如界面不能在在置顶，启动大小不能记忆，快捷键设计不是很科学-
-没有switch设计，但是，但是，他的出现足以颠覆我的文本记录习惯。</p>
-<p>现在的版本是0.3.1.1，期望下一个版本可以解决这些问题～</p>
-<p>之前我还特意问过XDash，他如何做读书笔记，他回答划线和Google Doc。现在，如果有人问我这个问题，我会回答BooguNote。</p>
-<h3>相关链接</h3>
-<p>官网：<a href="http://boogu.me/">BooguStudio - Collecting, Organizing and Sharing ...</a></p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/04/desktop-recording-tool-boogunote/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/04/reverence-for-life/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="http://blog.log4d.com/author/alswl/page/15/">&laquo;</a>
+                <li class="prev"><a href="https://blog.log4d.com/author/alswl/page/15/">&laquo;</a>
                 </li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/">1</a></li>
+							href="https://blog.log4d.com/author/alswl/">1</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/2/">2</a></li>
+							href="https://blog.log4d.com/author/alswl/page/2/">2</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/3/">3</a></li>
+							href="https://blog.log4d.com/author/alswl/page/3/">3</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/4/">4</a></li>
+							href="https://blog.log4d.com/author/alswl/page/4/">4</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/5/">5</a></li>
+							href="https://blog.log4d.com/author/alswl/page/5/">5</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/6/">6</a></li>
+							href="https://blog.log4d.com/author/alswl/page/6/">6</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/7/">7</a></li>
+							href="https://blog.log4d.com/author/alswl/page/7/">7</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/8/">8</a></li>
+							href="https://blog.log4d.com/author/alswl/page/8/">8</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/9/">9</a></li>
+							href="https://blog.log4d.com/author/alswl/page/9/">9</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/10/">10</a></li>
+							href="https://blog.log4d.com/author/alswl/page/10/">10</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/11/">11</a></li>
+							href="https://blog.log4d.com/author/alswl/page/11/">11</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/12/">12</a></li>
+							href="https://blog.log4d.com/author/alswl/page/12/">12</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/13/">13</a></li>
+							href="https://blog.log4d.com/author/alswl/page/13/">13</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/14/">14</a></li>
+							href="https://blog.log4d.com/author/alswl/page/14/">14</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/15/">15</a></li>
+							href="https://blog.log4d.com/author/alswl/page/15/">15</a></li>
                     <li class="active"><a
-							href="http://blog.log4d.com/author/alswl/page/16/">16</a></li>
+							href="https://blog.log4d.com/author/alswl/page/16/">16</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/17/">17</a></li>
+							href="https://blog.log4d.com/author/alswl/page/17/">17</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/18/">18</a></li>
+							href="https://blog.log4d.com/author/alswl/page/18/">18</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/19/">19</a></li>
+							href="https://blog.log4d.com/author/alswl/page/19/">19</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/20/">20</a></li>
+							href="https://blog.log4d.com/author/alswl/page/20/">20</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/21/">21</a></li>
+							href="https://blog.log4d.com/author/alswl/page/21/">21</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/22/">22</a></li>
+							href="https://blog.log4d.com/author/alswl/page/22/">22</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/23/">23</a></li>
+							href="https://blog.log4d.com/author/alswl/page/23/">23</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/24/">24</a></li>
+							href="https://blog.log4d.com/author/alswl/page/24/">24</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/25/">25</a></li>
+							href="https://blog.log4d.com/author/alswl/page/25/">25</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/26/">26</a></li>
+							href="https://blog.log4d.com/author/alswl/page/26/">26</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/27/">27</a></li>
+							href="https://blog.log4d.com/author/alswl/page/27/">27</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/28/">28</a></li>
+							href="https://blog.log4d.com/author/alswl/page/28/">28</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/29/">29</a></li>
+							href="https://blog.log4d.com/author/alswl/page/29/">29</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/30/">30</a></li>
+							href="https://blog.log4d.com/author/alswl/page/30/">30</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/31/">31</a></li>
+							href="https://blog.log4d.com/author/alswl/page/31/">31</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/32/">32</a></li>
+							href="https://blog.log4d.com/author/alswl/page/32/">32</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/33/">33</a></li>
+							href="https://blog.log4d.com/author/alswl/page/33/">33</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/34/">34</a></li>
+							href="https://blog.log4d.com/author/alswl/page/34/">34</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/35/">35</a></li>
+							href="https://blog.log4d.com/author/alswl/page/35/">35</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/36/">36</a></li>
+							href="https://blog.log4d.com/author/alswl/page/36/">36</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/37/">37</a></li>
+							href="https://blog.log4d.com/author/alswl/page/37/">37</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/38/">38</a></li>
+							href="https://blog.log4d.com/author/alswl/page/38/">38</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/39/">39</a></li>
+							href="https://blog.log4d.com/author/alswl/page/39/">39</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/40/">40</a></li>
+							href="https://blog.log4d.com/author/alswl/page/40/">40</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/41/">41</a></li>
+							href="https://blog.log4d.com/author/alswl/page/41/">41</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/42/">42</a></li>
+							href="https://blog.log4d.com/author/alswl/page/42/">42</a></li>
                 <li class="next"><a
-                        href="http://blog.log4d.com/author/alswl/page/17/">&raquo;</a></li>
+                        href="https://blog.log4d.com/author/alswl/page/17/">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -345,8 +368,8 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="image" src="http://77g0h6.co
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                     <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
                     <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
                   </ul>
@@ -363,50 +386,50 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="image" src="http://77g0h6.co
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <li class="list-group-item"><a href="https://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/coding/">
+                            <a href="https://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/efficiency/">
+                            <a href="https://blog.log4d.com/category/efficiency/">
                                 <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/fun/">
+                            <a href="https://blog.log4d.com/category/fun/">
                                 <i class="fa fa-folder-open fa-lg"></i> Fun
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/internet/">
+                            <a href="https://blog.log4d.com/category/internet/">
                                 <i class="fa fa-folder-open fa-lg"></i> Internet
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/life/">
+                            <a href="https://blog.log4d.com/category/life/">
                                 <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/managment/">
+                            <a href="https://blog.log4d.com/category/managment/">
                                 <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/thinking/">
+                            <a href="https://blog.log4d.com/category/thinking/">
                                 <i class="fa fa-folder-open fa-lg"></i> Thinking
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ui/">
+                            <a href="https://blog.log4d.com/category/ui/">
                                 <i class="fa fa-folder-open fa-lg"></i> UI
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/view/">
+                            <a href="https://blog.log4d.com/category/view/">
                                 <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
@@ -432,14 +455,14 @@ log4d.qiniudn.com/2010/04/boogu_note.jpg"><img alt="image" src="http://77g0h6.co
       </div>
    </div>
 </footer>
-<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/jquery.min.js"></script>
 <!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">

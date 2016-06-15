@@ -11,26 +11,26 @@
 
 
 
-<link rel="canonical" href="http://blog.log4d.com">
+<link rel="canonical" href="https://blog.log4d.com">
         <meta name="author" content="alswl" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Log4D" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Log4D"/>
-        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:url" content="https://blog.log4d.com"/>
         <meta property="og:description" content="Log4D"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.log4d.com/theme/css/style.css" type="text/css"/>
 
-    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
-    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+    <link href="https://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="https://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">
+            <a href="https://blog.log4d.com/" class="navbar-brand">
 Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,7 +54,7 @@ Log4D            </a>
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="https://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -66,7 +66,33 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/02/codesmith/">CodeSmith使用心得</a></h2>
+                <div class="summary"><p>CodeSmith是一款著名的代码生成器，可以帮助开发者完成一些重复性的劳动，并且能够保证更高的代码质量。CodeSmith使用Template（*.cst
+）模板进行基础代码片段的定义，支持语言包括C#, Java, VB, PHP, ASP.NET, SQL等等。</p>
+<p><img alt="CodeSmith" src="http://www.codesmithtools.com/lib/images/product/generator-h2.png" /></p>
+<h2>一个简单的Sample</h2>
+<p>CodeSmith使用的模板使用方式类似于aspx/jsp页面，也就是基础代码+脚本的方式，大致代码如下（官方的sample2）。</p>
+<div class="highlight"><pre><span class="cp">&lt;%</span><span class="err">@</span> <span class="no">CodeTemplate</span> <span class="no">Language</span><span class="o">=</span><span class="s2">&quot;C#&quot;</span> <span class="no">TargetLanguage</span><span class="o">=</span><span class="s2">&quot;Text&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This template demonstrates using properties in your template.&quot;</span> <span class="cp">%&gt;</span><span class="x"></span>
+<span class="cp">&lt;%</span><span class="err">@</span> <span class="no">Property</span> <span class="no">Name</span><span class="o">=</span><span class="s2">&quot;Person&quot;</span> <span class="no">Type</span><span class="o">=</span><span class="s2">&quot;System.String&quot;</span> <span class="no">Description</span><span class="o">=</span><span class="s2">&quot;This will show up at the bottom of the ...</span></pre></div>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/02/codesmith/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2011/02/no-silver-bullet/">没有银弹</a></h2>
+                <div class="summary"><p>最近为工作中和学习中遇到一些问题而发愁，夜不能寐，做梦都在寻求方法。</p>
+<p>问题简单的来说，就是开发过程中遇到很多本觉得不该遇到的问题，比如数据关系在数据表的设计，比如说自动化测试无法接入，ORM接入设计，开发流程如何优化，Web标
+准性问题等等。我罗列了大约30条会导致开发效率降低的因素，也一直在思考怎么解决他们，如果让我来设计他们，会用什么方式来提高效率，让系统更优美。</p>
+<p>读完《人月神话》和《走出软件作坊》之后，似乎有了一些明悟。今天wiki到<a href="http://zh.wikipedia.org/zh-
+cn/%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">没有银弹</a>这个话题，我意识到自己太过于追求一步到位了。</p>
+<blockquote>
+<p>Brooks 认为，附加性的困难会随着工具的改善而逐渐淡化，反而是本质性的困难最难以解决 ...</p></blockquote>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/02/no-silver-bullet/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2011/02/dataconnectiondialog/">使用DataConnectionDialog来获取连接字符串</a></h2>
                 <div class="summary"><p>在系统开发中，数据库连接字符串经常被保存到.config/.ini等配置文件中，以提高系统的灵活性。上大学时候，为了实现灵活配置数据库的效果，用拼字符串的方
 法来动态生成连接字符串，这种方法充满了Bad Smell。</p>
 <p>昨天用CodeSmith时候，看到它的数据连接配置界面，如此的眼熟，如下图。</p>
@@ -80,11 +106,11 @@ Log4D            </a>
 <span class="n">DataSource</span><span class="p">.</span><span class="n">AddStandardDataSources</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">DataConnectionDialog</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="n">dataConnectionDialog</span><span class="p">)</span> <span class="o">==</span> <span class="n">DialogResult</span><span class="p">.</span><span class="n">OK ...</span></pre></div>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/02/dataconnectiondialog/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/01/gac/">在.net中使用GAC</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/01/gac/">在.net中使用GAC</a></h2>
                 <div class="summary"><h2>GAC</h2>
 <p>GAC是什么？是用来干嘛的？GAC的全称叫做全局程序集缓存，通俗的理解就是存放各种.net平台下面需要使用的dll的地方。GAC的具体目录在windows/
 assembly。</p>
@@ -97,11 +123,11 @@ assembly。</p>
 <p>并不是随便一个DLL都可以放到GAC中，如果这样的话，和之前的DLL Hell也没什么区别了。GAC使用一个强名称（签名）的方式来区分不同的DLL。每个签名
 都是独一无二的公钥私钥对。现在我们使用SDK的sn工具为我的DUtil库生成一个snk签名 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/gac/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/01/gac/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/01/regex-group-catch/">正则表达式抓捕替换</a></h2>
                 <div class="summary"><h2>问题情境</h2>
 <p>需要将RDL报表里的GetComment( Parameters!F0001.Value , Parameters!F0002.Value
 ,"total", Parameters!Language.Value)函数修改为GetCommentForComment(
@@ -113,11 +139,11 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 <p>%s/GetComment(((s<em>w+!w+.w+s</em>,){2}s<em>"w+"s</em>,s<em>w+!w+.w+s</em>))/GetCommentForReport(1
 , "ReportConnection0107")/gc&amp;nbsp_place_holder ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/regex-group-catch/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/01/regex-group-catch/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/01/nanrenwa-try/">男人袜1元体验活动</a></h2>
                 <div class="summary"><p>从Louis Han那里看到一篇文章介绍了一个适合宅男的网站，想想我自己宅属性日益增加，就抄文推广一下。</p>
 <p>-Update 20110113</p>
 <p>收到男人袜客服的来信，说我文章"我们发现您的文章基本上是引用的网站内容，建议您用自己的文字来评价一下我们的网站或服务。"，我郁闷了一下，回了一封信说我还没体
@@ -131,11 +157,11 @@ Parameters!Language.Value, "ReportConnection0107")。</p>
 <p><img alt="image" src="http://api.photoshop.com/v1.0/accounts/2ef56cf9f72d4754b1f9e2fe822f3cd4/as" title="sets/0d9ebac746f24207ab6c07fd9af3b955" /></p>
 <p>男人袜标准套装是<a href="http://nanrenwa.com/plans">每 3 个月寄送一次</a>。如果您希望更灵活的寄送方式，可以选择我们的自选套装，来自由的 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/nanrenwa-try/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/01/nanrenwa-try/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/01/a-simple-gae-proxy/">最简陋的GAE代理</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/01/a-simple-gae-proxy/">最简陋的GAE代理</a></h2>
                 <div class="summary"><p>年前换了一次服务器，之后发现<a href="http://log4d.com/stream">Lifestream</a>的Errors飙升到1000+错误，检查一下，发现是获
 取不了豆瓣的rss链接。正好这台主机支持SSH，连入之后CURL了一下豆瓣服务器，发现Time out。</p>
 <p>紧接着发现中国内的所有域名都无法使用CURL获取，联系小张之后，得知该主机曾经被入侵过，于是屏蔽了中国大陆的ip段（囧~入侵和中国ip有毛关系）</p>
@@ -144,11 +170,11 @@ Laucher升级了，就部署到自己GAE上了。</p>
 <p>地址格式如&amp;nbsp_place_holder;<a href="http://jasontiproxy.appspot.com/proxy?url=www
 .douban.com/feed/people/alswl/interests">http://jasontiproxy.appspot.com/proxy?url=www ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/01/a-simple-gae-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/01/a-simple-gae-proxy/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/12/lavavpn/">LavaVPN推广链接</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/12/lavavpn/">LavaVPN推广链接</a></h2>
                 <div class="summary"><p>以前一直使用SSH进行翻墙，后来在人人看到一位朋友推荐<a href="http://lavavpn.com">LavaVPN</a>，就过去试用一下，效果的确不错。</p>
 <p><img alt="LavaVPN" src="http://lavavpn.com/lavaweb/images/banner.jpg" /></p>
 <p>LavaVPN支持各种系统，在Windows下面有专用的客户端接入程序，通过这个客户端可以实现选择性加速，而不需要全局加速。在Android和Linux上面
@@ -165,11 +191,11 @@ Laucher升级了，就部署到自己GAE上了。</p>
 <p>目前LavaVPN在推广阶段，包月是16元，包3月是44元，半年80元，还是很超值的。</p>
 <p>最后分享3个推广链接，使用邀请码注册可以获得额外1天的免费使用时间。首次充值（30天及以上）可获额外3天时间赠送 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/12/lavavpn/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/12/lavavpn/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/12/half-year/">半年</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/12/half-year/">半年</a></h2>
                 <div class="summary"><p>去年10月份时候，进入了一家做信息化的上市公司，带着对未来的憧憬奔向了广州，半年中，历经数个小项目，发现其实是小作坊开发模式。虽说能学到一些编程之外的东西，
 但毕竟不是系统的开发模式，今年5月回了学校就辞职了。</p>
 <p>7月份时候，工作机会似乎已经趋向饱和，我急急忙忙拿了一份Offer，从事.net的企业信息化开发。虽然我志在Web
@@ -180,11 +206,11 @@ Laucher升级了，就部署到自己GAE上了。</p>
 自己学习的渴望。.net虽然也很强大，但我总觉得微软提供的工具想让开发人员傻瓜化（在ASP.NET MVC出来之前，Web Form的开发模式让我很不爽）。</p>
 <p>公司的Web产品只能在IE6下运行 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/12/half-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/12/half-year/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/12/csharp-vba-excel/">C#+VBA操作Excel总结</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2010/12/csharp-vba-excel/">C#+VBA操作Excel总结</a></h2>
                 <div class="summary"><p>Excel在日常办公中应用非常广泛，这次我接到一个案子，需要往Excel中写入数据并能够打印出固定格式，前前后后大概花了将近2星期才搞定，现在做一些分享。</p>
 <h2>一、关于操作Excel的几种方式</h2>
 <p>我们导出Excel，大抵是有两种方法，一种是在服务器端用一些类库或者COM组件直接生成Excel成品，其二是在后台只写入数据，而不写入具体格式，等用户下载完
@@ -196,143 +222,99 @@ Excel之后再在客户端上利用vba生成Excel成品。</p>
 应用程序的"自动化"，也不为此提供支持，因为 Office 在这种环境中运行时可能会出现不稳定的现象并且/或者会死锁。"</p>
 <p>这种方法的优点是给用户更简洁的展现，毕竟原生的Excel成品比半成品来更容易接受，而且可以避免宏安全问题 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/12/csharp-vba-excel/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/12/cook/">脑袋大，脖子粗~</a></h2>
-                <div class="summary"><p>不是大款就伙夫~</p>
-<p>昨天几个同事过来玩，我就下厨做菜了，哈哈，上两张图。</p>
-<p><img alt="原料哈" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/12/cook1.jpg" /></p>
-<p><img alt="大功告成" src="http://77g0h6.com1.z0.glb.clouddn.com/2010/12/cook2.jpg" /></p>
-<p>依次为：油面筋掐肉、番茄鸡蛋、韭黄鸡蛋、地三鲜、红烧鱼、番茄酱黄瓜，还有一个煨的排骨汤没端上来~累死我了~从来没烧过这么多菜~</p>
-<p>话说地三鲜原来这么麻烦，在文静童鞋指导下面，依次食材过油，费了将近半小时才弄好~</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/12/cook/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2010/11/a-week-python/">一周Python小记</a></h2>
-                <div class="summary"><p>上个星期以来忙里偷闲一直在写一系列小型的代码生成器，完成一些从需求到结构化代码生成和验证作业。这个小东西是用Python写的，我简单分享一下中间所得。</p>
-<h2>一、配置文件</h2>
-<h3>1、YAML格式</h3>
-<p>数据库连接信息和作业相关信息是存放在数据库中的，配置文件形式可以有很多种选择：XML / ini / txt，我这里选择YAML作为存放。</p>
-<p>YAML使用起来相当方便，能够自动解析成对应语言中的变量，比如列表解析为列表，数字文字分别解析成对应的格式变量。</p>
-<p>之所以选择YAML，是看中它对语言的亲和性和可读性，GAE的配置文件就是YAML格式。YAML的语法相当简单，用:来分隔key: value，用 -
-来分隔列表，注意点是缩进需要用空格，关键符号和内容之间要加上一个空格。我的配置文件如下：</p>
-<div class="highlight"><pre><span class="n">taskId</span><span class="o">:</span> <span class="n">PQMI06</span>
-<span class="n">taskName</span><span class="o">:</span> <span class="err">测试建制作业</span>
-<span class="n">author</span><span class="o">:</span> <span class="n">alswl</span>
-<span class="n">confirmId</span><span class="o">:</span> <span class="mi">20101025</span><span class="n">xxx</span>
-</pre></div>
-
-
-<p>headFiles:</p>
-<ul>
-<li>head1.txt  </li>
-<li>head2.txt  </li>
-<li>
-<p>head3.txt<br />
-bodyFiles:</p>
-</li>
-<li>
-<p>body1.txt  </p>
-</li>
-<li>body2 ...</li></ul>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2010/11/a-week-python/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2010/12/csharp-vba-excel/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="http://blog.log4d.com/page/11/">&laquo;</a>
+                <li class="prev"><a href="https://blog.log4d.com/page/11/">&laquo;</a>
                 </li>
                     <li class=""><a
-							href="http://blog.log4d.com/">1</a></li>
+							href="https://blog.log4d.com/">1</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/2/">2</a></li>
+							href="https://blog.log4d.com/page/2/">2</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/3/">3</a></li>
+							href="https://blog.log4d.com/page/3/">3</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/4/">4</a></li>
+							href="https://blog.log4d.com/page/4/">4</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/5/">5</a></li>
+							href="https://blog.log4d.com/page/5/">5</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/6/">6</a></li>
+							href="https://blog.log4d.com/page/6/">6</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/7/">7</a></li>
+							href="https://blog.log4d.com/page/7/">7</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/8/">8</a></li>
+							href="https://blog.log4d.com/page/8/">8</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/9/">9</a></li>
+							href="https://blog.log4d.com/page/9/">9</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/10/">10</a></li>
+							href="https://blog.log4d.com/page/10/">10</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/11/">11</a></li>
+							href="https://blog.log4d.com/page/11/">11</a></li>
                     <li class="active"><a
-							href="http://blog.log4d.com/page/12/">12</a></li>
+							href="https://blog.log4d.com/page/12/">12</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/13/">13</a></li>
+							href="https://blog.log4d.com/page/13/">13</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/14/">14</a></li>
+							href="https://blog.log4d.com/page/14/">14</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/15/">15</a></li>
+							href="https://blog.log4d.com/page/15/">15</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/16/">16</a></li>
+							href="https://blog.log4d.com/page/16/">16</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/17/">17</a></li>
+							href="https://blog.log4d.com/page/17/">17</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/18/">18</a></li>
+							href="https://blog.log4d.com/page/18/">18</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/19/">19</a></li>
+							href="https://blog.log4d.com/page/19/">19</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/20/">20</a></li>
+							href="https://blog.log4d.com/page/20/">20</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/21/">21</a></li>
+							href="https://blog.log4d.com/page/21/">21</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/22/">22</a></li>
+							href="https://blog.log4d.com/page/22/">22</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/23/">23</a></li>
+							href="https://blog.log4d.com/page/23/">23</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/24/">24</a></li>
+							href="https://blog.log4d.com/page/24/">24</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/25/">25</a></li>
+							href="https://blog.log4d.com/page/25/">25</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/26/">26</a></li>
+							href="https://blog.log4d.com/page/26/">26</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/27/">27</a></li>
+							href="https://blog.log4d.com/page/27/">27</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/28/">28</a></li>
+							href="https://blog.log4d.com/page/28/">28</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/29/">29</a></li>
+							href="https://blog.log4d.com/page/29/">29</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/30/">30</a></li>
+							href="https://blog.log4d.com/page/30/">30</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/31/">31</a></li>
+							href="https://blog.log4d.com/page/31/">31</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/32/">32</a></li>
+							href="https://blog.log4d.com/page/32/">32</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/33/">33</a></li>
+							href="https://blog.log4d.com/page/33/">33</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/34/">34</a></li>
+							href="https://blog.log4d.com/page/34/">34</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/35/">35</a></li>
+							href="https://blog.log4d.com/page/35/">35</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/36/">36</a></li>
+							href="https://blog.log4d.com/page/36/">36</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/37/">37</a></li>
+							href="https://blog.log4d.com/page/37/">37</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/38/">38</a></li>
+							href="https://blog.log4d.com/page/38/">38</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/39/">39</a></li>
+							href="https://blog.log4d.com/page/39/">39</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/40/">40</a></li>
+							href="https://blog.log4d.com/page/40/">40</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/41/">41</a></li>
+							href="https://blog.log4d.com/page/41/">41</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/42/">42</a></li>
+							href="https://blog.log4d.com/page/42/">42</a></li>
                 <li class="next"><a
-                        href="http://blog.log4d.com/page/13/">&raquo;</a></li>
+                        href="https://blog.log4d.com/page/13/">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -342,8 +324,8 @@ bodyFiles:</p>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                     <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
                     <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
                   </ul>
@@ -360,50 +342,50 @@ bodyFiles:</p>
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <li class="list-group-item"><a href="https://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/coding/">
+                            <a href="https://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/efficiency/">
+                            <a href="https://blog.log4d.com/category/efficiency/">
                                 <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/fun/">
+                            <a href="https://blog.log4d.com/category/fun/">
                                 <i class="fa fa-folder-open fa-lg"></i> Fun
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/internet/">
+                            <a href="https://blog.log4d.com/category/internet/">
                                 <i class="fa fa-folder-open fa-lg"></i> Internet
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/life/">
+                            <a href="https://blog.log4d.com/category/life/">
                                 <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/managment/">
+                            <a href="https://blog.log4d.com/category/managment/">
                                 <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/thinking/">
+                            <a href="https://blog.log4d.com/category/thinking/">
                                 <i class="fa fa-folder-open fa-lg"></i> Thinking
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ui/">
+                            <a href="https://blog.log4d.com/category/ui/">
                                 <i class="fa fa-folder-open fa-lg"></i> UI
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/view/">
+                            <a href="https://blog.log4d.com/category/view/">
                                 <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
@@ -429,14 +411,14 @@ bodyFiles:</p>
       </div>
    </div>
 </footer>
-<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/jquery.min.js"></script>
 <!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">

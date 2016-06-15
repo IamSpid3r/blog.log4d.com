@@ -1,5 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="http://blog.log4d.com/" rel="alternate"></link><link href="http://blog.log4d.com/atom.xml" rel="self"></link><id>http://blog.log4d.com/</id><updated>2016-03-05T16:36:16+08:00</updated><entry><title>Windows management for hacker</title><link href="http://blog.log4d.com/2016/03/windows-management-for-hacker/" rel="alternate"></link><updated>2016-03-05T16:36:16+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-03-05:2016/03/windows-management-for-hacker/</id><summary type="html">&lt;p&gt;团队里的同学有时看见我键指如飞，可以用快捷键将 Mac 的窗口玩转于手心。他们表示酷炫非常，
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Log4D</title><link href="https://blog.log4d.com/" rel="alternate"></link><link href="https://blog.log4d.com/atom.xml" rel="self"></link><id>https://blog.log4d.com/</id><updated>2016-06-15T09:59:16+08:00</updated><entry><title>一次「分答」记录</title><link href="https://blog.log4d.com/2016/06/q-and-a/" rel="alternate"></link><updated>2016-06-15T09:59:16+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-06-15:2016/06/q-and-a/</id><summary type="html">&lt;p&gt;尝试在团队内部发起一次类似「分答」的沟通方式，一对一面聊。
+回答其他工程师的问题，这种沟通的方式暨在提供一个特定的场合，帮助加强双方了解，
+解决团队中其他工程师的一些实际的问题。&lt;/p&gt;
+&lt;p&gt;在征得对方同意之后，我将他的问题和我的回答 PO 出来。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201606/questions-and-answers.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201606/questions-and-answers.jpg" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;喜欢什么游戏，玩游戏的问题&lt;ul&gt;
+&lt;li&gt;喜欢和人玩游戏，不喜欢和不认识网友玩游戏&lt;/li&gt;
+&lt;li&gt;小学从红月开始玩，传奇、CS、魔兽、真三、DOTA，大学时候和舍友玩游戏，毕业后不玩&lt;/li&gt;
+&lt;li&gt;minecraft 尝试着玩过，没有玩下去，找不到人&lt;/li&gt;
+&lt;li&gt;日活的桌面游戏，三国杀等蛮喜欢&lt;/li&gt;
+&lt;li&gt;不喜欢浪费时间，怕没控制&lt;/li&gt;
+&lt;li&gt;从玩游戏里面学习什么么？不，就是纯粹享受游戏，不会想这么多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;喜欢什么语言&lt;ul&gt;
+&lt;li&gt;看场合，小东西，小场景用 Python，生产环境用 Java，生产环境又有时间，考虑 Scala&lt;/li&gt;
+&lt;li&gt;只允许选一门语言，就用 Python&lt;/li&gt;
+&lt;li&gt;最吸引的特点，熟悉程度高，生产效率高，第三方库丰富，粘合性强&lt;/li&gt;
+&lt;li&gt;为 Python 做一些功能扩展？不同时期答案会不一样，目前来说，希望有一个开发效率更高的 framework；有时间的话，会考虑如何绕过底层 GIL 问题 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;有什么事情投入精力，铩羽而归&lt;ul&gt;
+&lt;li&gt;工具向重的人，推广 git 花了两年，推广 Restful 不利&lt;/li&gt;
+&lt;li&gt;做业务开发 leader，和 tsu、小管一起做，项目管理、团队管理没做好，没做好，有挫败感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;职业迷茫期&lt;ul&gt;
+&lt;li&gt;我作为一个学渣，并且长期以来没有人给予职业生涯规划，一直对自己未来发展有困惑&lt;/li&gt;
+&lt;li&gt;如何在无领导的情况之下，探索未来道路，规划自己工作内容？跟优秀的人聊，跟外部的人聊，看博客，看书&lt;/li&gt;
+&lt;li&gt;迷茫是客观存在的，并且可能持续存在很久，正视它&lt;/li&gt;
+&lt;li&gt;现实中一定会遇到各种挑战和困难的，用挑战和困难填充自己，丰富自己的生活&lt;/li&gt;
+&lt;li&gt;迷茫是未知，有恐惧，有兴奋。对当前的我来说，恐惧可能更多，但是要面对&lt;/li&gt;
+&lt;li&gt;职业生涯里面，前期的同质度更高，资深工程师可以会给初级工程师规划清晰一些，但是越往后期，越难规划，需要自己探索&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;推荐书&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://book.douban.com/people/alswl/collect?sort=rating&amp;amp;start=0&amp;amp;filter=all&amp;amp;mode=list&amp;amp;tags_sort=count"&gt;https://book.douban.com/people/alswl/collect?sort=rating&amp;amp;start=0&amp;amp;filter=all&amp;amp;mode=list&amp;amp;tags_sort=count&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;学习来源&lt;ul&gt;
+&lt;li&gt;博客，infoq 等专业信息来源&lt;/li&gt;
+&lt;li&gt;书籍&lt;/li&gt;
+&lt;li&gt;周围的人&lt;/li&gt;
+&lt;li&gt;尽可能从每天时间挤出时间阅读&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;生活和工作平衡点&lt;ul&gt;
+&lt;li&gt;不同的人，同一个人的不同时期所需要的平衡不一样&lt;/li&gt;
+&lt;li&gt;对自己人生期望不一样的人，平衡点不一样&lt;/li&gt;
+&lt;li&gt;对我来说，目前阶段不存在明显边界，尽可能投入工作&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如何保持激情&lt;ul&gt;
+&lt;li&gt;人总是有低谷期的，不可能一直保持亢奋，除非是甲亢&lt;/li&gt;
+&lt;li&gt;短期情绪会有起伏，长期来看，保持梦想和对自己高要求，可以帮助保持激情&lt;/li&gt;
+&lt;li&gt;我有低谷期，低谷期适合反思&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如何擦屁股&lt;ul&gt;
+&lt;li&gt;现实是残酷的，总有屁股要擦，自己也有脏屁股，今天要给昨天的自己擦屁股&lt;/li&gt;
+&lt;li&gt;现实中存在脏屁股，尽可能了解它，看代码、文档，设计方案，了解的人，让自己变舒服&lt;/li&gt;
+&lt;li&gt;责任心的体现，做好当下的事情；解决这样的问题，解决当前的问题；避免留下脏屁股，设计好，规划好&lt;/li&gt;
+&lt;li&gt;责任心的话很虚。一个人做擦屁股、低产值的事情，从长远来看，是错的；短期需要撑下来；并且帮助团队避免这样的事情发生&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;最有成就感的事情&lt;ul&gt;
+&lt;li&gt;顶着家庭压力，到上海来&lt;/li&gt;
+&lt;li&gt;在堆糖改造环境，提升自己心智水平，不害怕问题，自信，自省&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;div class="panel"&gt;
+&lt;div class="panel-body"&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/06/q-and-a/"&gt;https://blog.log4d.com/2016/06/q-and-a/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term=""></category></entry><entry><title>海贼王和创业团队</title><link href="https://blog.log4d.com/2016/04/onepiece-startup/" rel="alternate"></link><updated>2016-04-27T00:36:10+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-04-27:2016/04/onepiece-startup/</id><summary type="html">&lt;p&gt;一个同事在知乎提了一个问题 &lt;a href="https://www.zhihu.com/question/35037806"&gt;如果把草帽海贼团比作一个创业团队,这个Team的组织架构是怎样的?有哪些优势,又有哪些不足?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="201604/onepiece.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201604/onepiece.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;这个话题很有趣，作为追了多年的 fans ，又是身处互联网创业团队的我要来强答一记。&lt;/p&gt;
+&lt;p&gt;海贼王的世界很大，富有个性的角色和团队也很多，恰好可以和显示世界中的互联网创业团队进行对比。
+柳传志讲的好，做大事，要「建班子，定战略，带队伍」，我们就着金句来看看草帽这个团队怎么样。&lt;/p&gt;
+
+
+&lt;h2&gt;产品和战略&lt;/h2&gt;
+&lt;p&gt;我先讲产品和战略。&lt;/p&gt;
+&lt;p&gt;由于海贼王世界的设定，以及作为一个全年段漫画动画的原因。
+海贼王世界的整体战略是较为简单，海贼团的目标都较为单一，即「找到 哥尔 D 罗杰 留下的宝藏」。
+海贼团们实现目标的路径也较为单一，打斗增强战斗力，不断寻找线索，去伟大航道寻找宝藏。&lt;/p&gt;
+&lt;p&gt;所以故事的开展反而是围绕另外一条隐秘的线索「历史的真相」，尾田大神埋坑很深。
+「历史的真相」并不是作为大部分人努力和前进的目标，所以「海贼王」世界的故事虽然曲折跌宕，
+但是产品模型极为单一，不具备太多可以讨论的点。&lt;/p&gt;
+&lt;h2&gt;团队&lt;/h2&gt;
+&lt;p&gt;接着讲团队，一个团队第一重要的是创始人，这必须要是一位领袖人物。&lt;/p&gt;
+&lt;p&gt;评价领袖优秀程度，从这么几个角度评价：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;意志力：打不死的小强，不达目标誓不罢休&lt;/li&gt;
+&lt;li&gt;专业技能：能打、脑子灵光、心灵手巧、一技之长&lt;/li&gt;
+&lt;li&gt;规划能力：除了体力值和专业智慧，也要讲讲战略和谋略&lt;/li&gt;
+&lt;li&gt;管理能力：沟通协调、团队管理促进能力，能够带领团队实现目标，促进他人成长&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以这个标准来看几个具有领袖气质的角色：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路飞&lt;ul&gt;
+&lt;li&gt;意志力：5&lt;/li&gt;
+&lt;li&gt;专业技能：5&lt;/li&gt;
+&lt;li&gt;规划能力：1（率性而为的大爷）&lt;/li&gt;
+&lt;li&gt;管理能力：1（团队自由生长）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;白胡子&lt;ul&gt;
+&lt;li&gt;意志力：5&lt;/li&gt;
+&lt;li&gt;专业技能：5&lt;/li&gt;
+&lt;li&gt;规划能力：4（顶上之战的过程证明）&lt;/li&gt;
+&lt;li&gt;管理能力：5（队长们的成长和忠诚度证明）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;多弗朗明哥&lt;ul&gt;
+&lt;li&gt;意志力：5&lt;/li&gt;
+&lt;li&gt;专业技能：5&lt;/li&gt;
+&lt;li&gt;规划能力：5&lt;/li&gt;
+&lt;li&gt;管理能力：5&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;艾斯&lt;ul&gt;
+&lt;li&gt;意志力：5&lt;/li&gt;
+&lt;li&gt;专业技能：4（以牺牲的时间点战斗力打分）&lt;/li&gt;
+&lt;li&gt;规划能力：2（追踪黑胡子，一个人冒进，被黑胡子摆了一道）&lt;/li&gt;
+&lt;li&gt;管理能力：2（也就混到一个队长，能够鼓励其他人，但是没发现黑胡子成长的问题）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;唐僧（乱入一个对比）&lt;ul&gt;
+&lt;li&gt;意志力：5+&lt;/li&gt;
+&lt;li&gt;专业技能：4（熟读经书算不算专业能力？）&lt;/li&gt;
+&lt;li&gt;规划能力：0&lt;/li&gt;
+&lt;li&gt;管理能力：0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;从上面的判断可以看出，对于一个领袖而言，路飞仅仅是不错，但是谈不上多么优秀，
+倒是白胡子，典范啊典范。&lt;/p&gt;
+&lt;p&gt;根据上面提到的能力模型，草帽海贼团的其他角色大家也可以心里评估出来了：
+大部分人都是意志力、专业技能强悍（即便是乌索普，射击能力也是可以评上 3），但是同时也在规划能力和管理能力上面较弱。&lt;/p&gt;
+&lt;p&gt;唉，这么弱，很难继续支撑草帽海贼团继续走下去啊，怎么办呢？&lt;/p&gt;
+&lt;h2&gt;带队伍&lt;/h2&gt;
+&lt;p&gt;草帽海贼团，一个极为漂亮的「自组织团队」。&lt;/p&gt;
+&lt;p&gt;什么是「自组织团队」？来自 InfoQ 的一篇文章 &lt;a href="http://www.infoq.com/cn/articles/what-are-self-organising-teams"&gt;什么是自组织团队？&lt;/a&gt; 里面讲到团队的特性：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;分散式的控制，也就是说与集中式的控制截然相反，&lt;/li&gt;
+&lt;li&gt;不断适应改变的环境，&lt;/li&gt;
+&lt;li&gt;在局部相互作用下自然浮现出来的结构,&lt;/li&gt;
+&lt;li&gt;反馈，包括肯定的和否定的&lt;/li&gt;
+&lt;li&gt;弹性，归结于系统修复和调整的能力。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用简单的关键词概括，其实是这么几个关键词：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自行决策&lt;/li&gt;
+&lt;li&gt;自己成长&lt;/li&gt;
+&lt;li&gt;适应环境变化&lt;/li&gt;
+&lt;li&gt;团队内部信任并且沟通顺畅&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;从这几个关键词来看，草帽海贼团和这种自组织模式极为匹配。路飞从来不会发号施令，统一调度，顶多喊几句口号振奋一下大家。
+路飞自身的规划能力和帮助他人成长的能力也远不及格。团队里面其他的成员，索隆、香吉士等的成长，完全是靠自己，
+甚至在「两年」跨度这么长的时间，尾田也是借外部力量帮助团队这些成员成长，而不是依靠领袖来培养成员。&lt;/p&gt;
+&lt;p&gt;路飞选择这种自组织模式，不仅仅是一种巧合，更多的是一种逼不得已。尾田大神写的就是青春热血漫画，要是换成一个有勇有谋，
+那就成主旋律电视剧了，大家可能也是因为路飞这种有点和缺点喜欢他。&lt;/p&gt;
+&lt;h3&gt;Anti-自组织模式&lt;/h3&gt;
+&lt;p&gt;和「自组织模式」相反的情况，可以参照一下多弗朗明哥的团队。我们可以看到，在多弗朗明哥团里里面，有严密的等级关系（四大干部，家族干部，普通小兵），
+有帮助人才成长的流程（培训罗的一系列流程）。
+这种设定也是多弗朗明哥的战略能力和管理能力的体现。&lt;/p&gt;
+&lt;p&gt;还有一种更极致的组织模式「集权模式」，由核心层发号施令，协同作战。
+海贼王的世界里，较少发现这样的模式，反派角色海军有一点点像。
+倒是另外一部作品「星球大战」，其中的帝国、第一秩序，都是典型的 Manager 发号施令，底层士兵只要好好作战即可。
+统一培养成行的克隆人，就可以支撑这样的团队发挥十足战力。&lt;/p&gt;
+&lt;p&gt;这种集权模式，缺少向上反馈能力，缺少自发的创新能力。在业务发展顺利规模扩张阶段，也许可以发展不错，但是长久以往，
+核心层必然会发觉创新力和驱动力不足，花费大量的精力在管理、制度建设、奖惩机制上面。&lt;/p&gt;
+&lt;p&gt;路飞的缺点和优点一样鲜明，他很幸运的（可能也完全不知道）使用了「自组织团队」这种模式，完成了创业的起步阶段。
+但是这种模式有也有自带的缺陷，需要目标一致性很高，团队成员自身有极高成长度。一旦遇到业务爆炸（顶上之战这种规模的战役），
+这团队就完蛋了。期望路飞在未来的航道上，注意培养一下自己不善于的能力。好消息是，从最近的「庞克哈撒德篇」和「德雷斯罗撒篇」战况来看，
+路飞已经开始学会制定「寻找友军结盟」、「树立竞争对手标杆」这样的初级战略方案了。&lt;/p&gt;
+&lt;h2&gt;末&lt;/h2&gt;
+&lt;p&gt;海贼王的世界，真的就是现实中「海盗」的正式写照吧。完成不可能的目标，成就团队，成就自己。&lt;/p&gt;
+&lt;p&gt;「世代传承的意志，时代的变迁，人们的梦，只要人们继续追求自由的答案，这一切的一切都将永不停止.这世界……没错！一个追求自由任凭选择的世界，就在我们的眼前无限地延伸，如果我们的梦想可以引导你的方向的话，就去追寻吧！在名为信念的旗帜下」&lt;/p&gt;
+&lt;hr&gt;
+&lt;div class="panel"&gt;
+&lt;div class="panel-body"&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/04/onepiece-startup/"&gt;https://blog.log4d.com/2016/04/onepiece-startup/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term=""></category></entry><entry><title>Windows management for hacker</title><link href="https://blog.log4d.com/2016/04/windows-management-for-hacker/" rel="alternate"></link><updated>2016-04-24T16:36:16+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-04-24:2016/04/windows-management-for-hacker/</id><summary type="html">&lt;p&gt;团队里的同学有时看见我键指如飞，可以用快捷键将 Mac 的窗口玩转于手心。他们表示酷炫非常，
 心生羡慕的同时，希望掌握这门技艺，我就把使用的 Phoenix 介绍给大家。结果过了一段时间，
 发现普及率并不高，本着好为人师的精神，今天我就来八一八这款优秀的桌面管理工具。&lt;/p&gt;
 &lt;p&gt;在介绍我使用的工具之前，我要先介绍一下我选择的原因和历史。&lt;/p&gt;
@@ -148,11 +346,13 @@
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/03/windows-management-for-hacker/"&gt;http://blog.log4d.com/2016/03/windows-management-for-hacker/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/04/windows-management-for-hacker/"&gt;https://blog.log4d.com/2016/04/windows-management-for-hacker/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Mac"></category></entry><entry><title>技术之外</title><link href="http://blog.log4d.com/2016/02/team-geek/" rel="alternate"></link><updated>2016-02-28T18:16:01+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-28:2016/02/team-geek/</id><summary type="html">&lt;p&gt;这是一天一本书的第二次执行，这次选了一本比较薄的书，上周的书看了一天，脑仁疼。&lt;/p&gt;
+</summary><category term="Mac"></category></entry><entry><title>技术之外</title><link href="https://blog.log4d.com/2016/02/team-geek/" rel="alternate"></link><updated>2016-02-28T18:16:01+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-28:2016/02/team-geek/</id><summary type="html">&lt;p&gt;这是一天一本书的第二次执行，这次选了一本比较薄的书，上周的书看了一天，脑仁疼。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;在我组织团队新兵训练营（入职之后一段时间内容集中的培训）时候，
 经常和新同事聊到一个词：软实力。
@@ -266,11 +466,13 @@ Google 的一种做法，可以很好解决这个问题。分离 TL（techlead�
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/02/team-geek/"&gt;http://blog.log4d.com/2016/02/team-geek/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/02/team-geek/"&gt;https://blog.log4d.com/2016/02/team-geek/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="读书笔记"></category></entry><entry><title>一例 Timeout 故障</title><link href="http://blog.log4d.com/2016/02/a-timeout-fault/" rel="alternate"></link><updated>2016-02-02T23:34:44+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-02:2016/02/a-timeout-fault/</id><summary type="html">&lt;p&gt;&lt;img alt="i_love_timeouts_digital_design_mugs.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201602/i_love_timeouts_digital_design_mugs.jpg" /&gt;&lt;/p&gt;
+</summary><category term="读书笔记"></category></entry><entry><title>一例 Timeout 故障</title><link href="https://blog.log4d.com/2016/02/a-timeout-fault/" rel="alternate"></link><updated>2016-02-02T23:34:44+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-02-02:2016/02/a-timeout-fault/</id><summary type="html">&lt;p&gt;&lt;img alt="i_love_timeouts_digital_design_mugs.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201602/i_love_timeouts_digital_design_mugs.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;早晨刚到公司， HAProxy 报警，Trtornis（第三方云存储网关，用来统一管理阿里云和七牛云的对象存储） 全飘红。&lt;/p&gt;
 
 
@@ -343,11 +545,13 @@ Google 的一种做法，可以很好解决这个问题。分离 TL（techlead�
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/02/a-timeout-fault/"&gt;http://blog.log4d.com/2016/02/a-timeout-fault/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/02/a-timeout-fault/"&gt;https://blog.log4d.com/2016/02/a-timeout-fault/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Qiniu"></category><category term="TCP"></category></entry><entry><title>一次艰难的 Wiki 升级</title><link href="http://blog.log4d.com/2016/01/confluence-upgrade/" rel="alternate"></link><updated>2016-01-12T22:53:55+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-01-12:2016/01/confluence-upgrade/</id><summary type="html">&lt;p&gt;公司使用 &lt;a href="https://www.atlassian.com/software/confluence"&gt;Confluence&lt;/a&gt;
+</summary><category term="Qiniu"></category><category term="TCP"></category></entry><entry><title>一次艰难的 Wiki 升级</title><link href="https://blog.log4d.com/2016/01/confluence-upgrade/" rel="alternate"></link><updated>2016-01-12T22:53:55+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2016-01-12:2016/01/confluence-upgrade/</id><summary type="html">&lt;p&gt;公司使用 &lt;a href="https://www.atlassian.com/software/confluence"&gt;Confluence&lt;/a&gt;
 管理自己的知识库，
 现在使用的版本还是 3.0.1，而最新的 Confluence 版本已经是 5.4+。
 新版本加入的一些现代化 Web 系统的新特性很吸引人（拖拽上传，可见即所得编辑），
@@ -440,11 +644,13 @@ Google 的一种做法，可以很好解决这个问题。分离 TL（techlead�
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2016/01/confluence-upgrade/"&gt;http://blog.log4d.com/2016/01/confluence-upgrade/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2016/01/confluence-upgrade/"&gt;https://blog.log4d.com/2016/01/confluence-upgrade/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="confluence"></category></entry><entry><title>SS with Haproxy</title><link href="http://blog.log4d.com/2015/11/ss-with-haproxy/" rel="alternate"></link><updated>2015-11-27T20:23:24+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-11-27:2015/11/ss-with-haproxy/</id><summary type="html">&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
+</summary><category term="confluence"></category></entry><entry><title>SS with Haproxy</title><link href="https://blog.log4d.com/2015/11/ss-with-haproxy/" rel="alternate"></link><updated>2015-11-27T20:23:24+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-11-27:2015/11/ss-with-haproxy/</id><summary type="html">&lt;p&gt;&lt;img alt="shadowsocks.png" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/shadowsocks.png" /&gt;&lt;/p&gt;
 &lt;p&gt;以前用自己的 SS，Linode 美国，后来 Linode 日本，但是始终拼不过上海电信的国际带宽。
 经常不稳定，丢一半的包。&lt;/p&gt;
 &lt;p&gt;于是买了 &lt;a href="https://portal.shadowsocks.com/aff.php?aff=4215"&gt;SS&lt;/a&gt; 服务，
@@ -529,11 +735,13 @@ update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;r
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/11/ss-with-haproxy/"&gt;http://blog.log4d.com/2015/11/ss-with-haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/11/ss-with-haproxy/"&gt;https://blog.log4d.com/2015/11/ss-with-haproxy/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="SS"></category><category term="HAProxy"></category></entry><entry><title>几步拥有一个安全密码</title><link href="http://blog.log4d.com/2015/10/a-security-password/" rel="alternate"></link><updated>2015-10-28T00:17:44+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-10-28:2015/10/a-security-password/</id><summary type="html">&lt;p&gt;&lt;img alt="password.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/password.jpg" /&gt;&lt;/p&gt;
+</summary><category term="SS"></category><category term="HAProxy"></category></entry><entry><title>几步拥有一个安全密码</title><link href="https://blog.log4d.com/2015/10/a-security-password/" rel="alternate"></link><updated>2015-10-28T00:17:44+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-10-28:2015/10/a-security-password/</id><summary type="html">&lt;p&gt;&lt;img alt="password.jpg" src="http://upload-log4d.qiniudn.com/upload_dropbox/201512/password.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;给团队非开发同学写的邮件，对其他人也有些意义，遂贴出来。&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;这个互联网越来越不安全 &lt;a href="https://www.baidu.com/s?wd=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2%E4%BA%8B%E4%BB%B6&amp;amp;rsp=3&amp;amp;f=1&amp;amp;oq=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2&amp;amp;ie=utf-8&amp;amp;usm=2&amp;amp;rsv_idx=1&amp;amp;rsv_pq=f9362ac90000f994&amp;amp;rsv_t=31d7A5Zyu36Hn4omAU5F9llRh3WBGl5tInDRywq%2FbPEwdPnyjCCcfGLdnNA&amp;amp;rsv_ers=xn0&amp;amp;rs_src=0"&gt;https://www.baidu.com/s?wd=%E5%AF%86%E7%A0%81%E6%B3%84%E9%9C%B2%E4%BA%8B%E4%BB%B6&lt;/a&gt;。密码数据库泄露，黑客暴库攻击，社会工程学攻击层出不穷。我给大家介绍几个小方法，轻松提高自己各类密码的安全等级。&lt;/p&gt;
@@ -575,11 +783,13 @@ update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;r
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/10/a-security-password/"&gt;http://blog.log4d.com/2015/10/a-security-password/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/10/a-security-password/"&gt;https://blog.log4d.com/2015/10/a-security-password/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Security"></category></entry><entry><title>怎么打日志</title><link href="http://blog.log4d.com/2015/10/how-to-log/" rel="alternate"></link><updated>2015-10-18T14:25:28+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-10-18:2015/10/how-to-log/</id><summary type="html">&lt;p&gt;&lt;img alt="logger" src="http://upload-log4d.qiniudn.com/upload_dropbox/201510/logger.jpg" /&gt;&lt;/p&gt;
+</summary><category term="Security"></category></entry><entry><title>怎么打日志</title><link href="https://blog.log4d.com/2015/10/how-to-log/" rel="alternate"></link><updated>2015-10-18T14:25:28+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-10-18:2015/10/how-to-log/</id><summary type="html">&lt;p&gt;&lt;img alt="logger" src="http://upload-log4d.qiniudn.com/upload_dropbox/201510/logger.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;需要解决的问题：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;业务日志打太乱，没有位置和格式约束&lt;/li&gt;
@@ -644,11 +854,13 @@ update: 2015-12-13，添加 &lt;code&gt;redispatch&lt;/code&gt;  / &lt;code&gt;r
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/10/how-to-log/"&gt;http://blog.log4d.com/2015/10/how-to-log/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/10/how-to-log/"&gt;https://blog.log4d.com/2015/10/how-to-log/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Logger"></category></entry><entry><title>Redis 集群扩容</title><link href="http://blog.log4d.com/2015/07/redis-migration/" rel="alternate"></link><updated>2015-07-26T15:33:49+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-07-26:2015/07/redis-migration/</id><summary type="html">&lt;p&gt;几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。
+</summary><category term="Logger"></category></entry><entry><title>Redis 集群扩容</title><link href="https://blog.log4d.com/2015/07/redis-migration/" rel="alternate"></link><updated>2015-07-26T15:33:49+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-07-26:2015/07/redis-migration/</id><summary type="html">&lt;p&gt;几乎每一个网站都需要用户登录状态系统，其中核心是存储 Session 的用户登录状态存储系统。
 主流的实现之一是使用 Redis 存储用户登录信息，Redis 特点是功能简单、无依赖、
 存储结构丰富、有持久化功能。
 我大堆糖的 Session 存储系统也正是基于 Redis。&lt;/p&gt;
@@ -730,11 +942,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/07/redis-migration/"&gt;http://blog.log4d.com/2015/07/redis-migration/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/07/redis-migration/"&gt;https://blog.log4d.com/2015/07/redis-migration/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="Redis"></category></entry><entry><title>带理想的执行者 - 柳比歇夫的一生</title><link href="http://blog.log4d.com/2015/07/liu-bi-xie-fu/" rel="alternate"></link><updated>2015-07-12T17:29:19+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-07-12:2015/07/liu-bi-xie-fu/</id><summary type="html">&lt;p&gt;作为战斗民族的俄罗斯民族，不但能在热带风暴级的灿鸿中进行正常起降，
+</summary><category term="Redis"></category></entry><entry><title>带理想的执行者 - 柳比歇夫的一生</title><link href="https://blog.log4d.com/2015/07/liu-bi-xie-fu/" rel="alternate"></link><updated>2015-07-12T17:29:19+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-07-12:2015/07/liu-bi-xie-fu/</id><summary type="html">&lt;p&gt;作为战斗民族的俄罗斯民族，不但能在热带风暴级的灿鸿中进行正常起降，
 历来也盛产各种奇葩人物。
 最近我有看到一本描述一个科学家的如何生活的书，叫「奇特的一生」。
 让人拍案称奇。&lt;/p&gt;
@@ -777,11 +991,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/07/liu-bi-xie-fu/"&gt;http://blog.log4d.com/2015/07/liu-bi-xie-fu/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/07/liu-bi-xie-fu/"&gt;https://blog.log4d.com/2015/07/liu-bi-xie-fu/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="读书笔记"></category></entry><entry><title>2015 沪港 Hackathon</title><link href="http://blog.log4d.com/2015/04/2015-hk-sh-hackathon/" rel="alternate"></link><updated>2015-04-04T00:39:41+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-04-04:2015/04/2015-hk-sh-hackathon/</id><summary type="html">&lt;p&gt;我想参加黑客马拉松很久了，去年就观战过 2014 沪港黑客马拉松。
+</summary><category term="读书笔记"></category></entry><entry><title>2015 沪港 Hackathon</title><link href="https://blog.log4d.com/2015/04/2015-hk-sh-hackathon/" rel="alternate"></link><updated>2015-04-04T00:39:41+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-04-04:2015/04/2015-hk-sh-hackathon/</id><summary type="html">&lt;p&gt;我想参加黑客马拉松很久了，去年就观战过 2014 沪港黑客马拉松。
 但苦于需要连续两天时间，一直没有下定决心参加。&lt;/p&gt;
 &lt;p&gt;上周末本来安排了两天的团队会议，后来临时取消，
 给了我充足的时间。于是我在 27 号周五下午，报名参加了 27 号晚上开始的 2015 沪港 Hackathon。&lt;/p&gt;
@@ -803,11 +1019,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/04/2015-hk-sh-hackathon/"&gt;http://blog.log4d.com/2015/04/2015-hk-sh-hackathon/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/04/2015-hk-sh-hackathon/"&gt;https://blog.log4d.com/2015/04/2015-hk-sh-hackathon/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="技术达人"></category><category term="上海"></category></entry><entry><title>读《遇见未知的自己》</title><link href="http://blog.log4d.com/2015/03/real-self/" rel="alternate"></link><updated>2015-03-14T14:38:39+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-03-14:2015/03/real-self/</id><summary type="html">&lt;p&gt;「遇到未知的自己」这本书讲的是如何来认识自己，理解自己的情绪，和自己内心沟通。&lt;/p&gt;
+</summary><category term="技术达人"></category><category term="上海"></category></entry><entry><title>读《遇见未知的自己》</title><link href="https://blog.log4d.com/2015/03/real-self/" rel="alternate"></link><updated>2015-03-14T14:38:39+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-03-14:2015/03/real-self/</id><summary type="html">&lt;p&gt;「遇到未知的自己」这本书讲的是如何来认识自己，理解自己的情绪，和自己内心沟通。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="遇到未知的自己" src="http://img3.douban.com/lpic/s3403254.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://book.douban.com/subject/2340100/"&gt;豆瓣链接&lt;/a&gt; /
 &lt;a href="http://www.amazon.cn/%E9%81%87%E8%A7%81%E6%9C%AA%E7%9F%A5%E7%9A%84%E8%87%AA%E5%B7%B1-%E5%BC%A0%E5%BE%B7%E8%8A%AC/dp/B009WNRMM0/ref=sr_1_1?s=digital-text&amp;amp;ie=UTF8&amp;amp;qid=1426319187&amp;amp;sr=1-1&amp;amp;keywords=%E9%81%87%E8%A7%81%E6%9C%AA%E7%9F%A5%E7%9A%84%E8%87%AA%E5%B7%B1"&gt;Kindle 版本购买链接&lt;/a&gt;&lt;/p&gt;
@@ -858,11 +1076,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/03/real-self/"&gt;http://blog.log4d.com/2015/03/real-self/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/03/real-self/"&gt;https://blog.log4d.com/2015/03/real-self/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="读书笔记"></category></entry><entry><title>2014 惑</title><link href="http://blog.log4d.com/2015/01/2014/" rel="alternate"></link><updated>2015-01-25T15:18:04+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-01-25:2015/01/2014/</id><summary type="html">&lt;p&gt;上周刚做完了自己的 2014 工作 Review，其中最大的挑战就是工作职能的变化：
+</summary><category term="读书笔记"></category></entry><entry><title>2014 惑</title><link href="https://blog.log4d.com/2015/01/2014/" rel="alternate"></link><updated>2015-01-25T15:18:04+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2015-01-25:2015/01/2014/</id><summary type="html">&lt;p&gt;上周刚做完了自己的 2014 工作 Review，其中最大的挑战就是工作职能的变化：
 由一个开发工程师变成一个团队的 Leader。&lt;/p&gt;
 &lt;p&gt;3 月份开始带领功能线小组，11 月份带性能线小组，将近一年的时间，
 业绩结果只能用四个字来描述&lt;/p&gt;
@@ -919,11 +1139,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2015/01/2014/"&gt;http://blog.log4d.com/2015/01/2014/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2015/01/2014/"&gt;https://blog.log4d.com/2015/01/2014/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term=""></category></entry><entry><title>《项目管理修炼之道》笔记</title><link href="http://blog.log4d.com/2014/08/manage-it/" rel="alternate"></link><updated>2014-08-31T20:12:06+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-31:2014/08/manage-it/</id><summary type="html">&lt;p&gt;&lt;img alt="项目管理修炼之道" src="http://img3.douban.com/lpic/s6089513.jpg" /&gt;&lt;/p&gt;
+</summary><category term=""></category></entry><entry><title>《项目管理修炼之道》笔记</title><link href="https://blog.log4d.com/2014/08/manage-it/" rel="alternate"></link><updated>2014-08-31T20:12:06+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-31:2014/08/manage-it/</id><summary type="html">&lt;p&gt;&lt;img alt="项目管理修炼之道" src="http://img3.douban.com/lpic/s6089513.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;随着团队规模的变大，成员之间合作的模式逐渐由单打独斗变成协作开发。
 这时候会遇到很多意想不到的问题，项目管理的重要性也就显现出来了。
 &lt;a href="http://book.douban.com/subject/4058336/"&gt;项目管理修炼之道&lt;/a&gt;
@@ -1080,11 +1302,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/08/manage-it/"&gt;http://blog.log4d.com/2014/08/manage-it/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/08/manage-it/"&gt;https://blog.log4d.com/2014/08/manage-it/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="项目管理"></category></entry><entry><title>加班那点事儿</title><link href="http://blog.log4d.com/2014/08/work-overtime/" rel="alternate"></link><updated>2014-08-30T17:39:19+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-30:2014/08/work-overtime/</id><summary type="html">&lt;p&gt;前段时间，一个好基友告诉我，他换了份工作，去了一家用户数据表现堪称吓人的创业公司去了。其中有一个细节引起了我的注意：他们在实行 996 的上班制度。即 9 点钟上班，9 点钟下班，一周工作 6 天。&lt;/p&gt;
+</summary><category term="项目管理"></category></entry><entry><title>加班那点事儿</title><link href="https://blog.log4d.com/2014/08/work-overtime/" rel="alternate"></link><updated>2014-08-30T17:39:19+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-30:2014/08/work-overtime/</id><summary type="html">&lt;p&gt;前段时间，一个好基友告诉我，他换了份工作，去了一家用户数据表现堪称吓人的创业公司去了。其中有一个细节引起了我的注意：他们在实行 996 的上班制度。即 9 点钟上班，9 点钟下班，一周工作 6 天。&lt;/p&gt;
 &lt;p&gt;同样实行这种制度的还有阿里的来往团队。当年（其实就是去年）在抢占移动端 IM 入口时候，马云都使用了红包政策，来往的工程师在高压之下，也实行 996 了制度。
 我问过阿里的朋友，他们表示，整体加班情况的确比较多。我追问了一下加班效率，证实了我的一个猜想，有些个人是晚上加班没事干，尤其有些测试工程师，白天没活干，晚上活多，还经常等到 9 点之后才有事情。这个现象也许不是普遍的，但的确存在。&lt;/p&gt;
 &lt;p&gt;我自己是反感加班的，曾经面到一个开发工程师，表示工作三年来，加班时常为 0h。当时有点被这种表述惊讶了一下，然后我认为他是在标榜自己工作效率高。
@@ -1110,11 +1334,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/08/work-overtime/"&gt;http://blog.log4d.com/2014/08/work-overtime/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/08/work-overtime/"&gt;https://blog.log4d.com/2014/08/work-overtime/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="程序人生"></category></entry><entry><title>痛快活</title><link href="http://blog.log4d.com/2014/08/life-with-pain/" rel="alternate"></link><updated>2014-08-11T21:07:29+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-11:2014/08/life-with-pain/</id><summary type="html">&lt;p&gt;上个月回家，在亲戚家里和侄子聊天，他刚从大学毕业，在家人的帮助下面找了算是对口的工作，对工作之后的状态有一些茫然，看不到前途和未来，我问了一个问题：&lt;/p&gt;
+</summary><category term="程序人生"></category></entry><entry><title>痛快活</title><link href="https://blog.log4d.com/2014/08/life-with-pain/" rel="alternate"></link><updated>2014-08-11T21:07:29+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-08-11:2014/08/life-with-pain/</id><summary type="html">&lt;p&gt;上个月回家，在亲戚家里和侄子聊天，他刚从大学毕业，在家人的帮助下面找了算是对口的工作，对工作之后的状态有一些茫然，看不到前途和未来，我问了一个问题：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;你平时是怎么面对困难和挑战的？&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1137,11 +1363,13 @@ Twitter 出品，&lt;a href="https://github.com/twitter/twemproxy"&gt;链接&lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/08/life-with-pain/"&gt;http://blog.log4d.com/2014/08/life-with-pain/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/08/life-with-pain/"&gt;https://blog.log4d.com/2014/08/life-with-pain/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="感悟"></category></entry><entry><title>在 Raspberry Pi 上使用 AirPlay</title><link href="http://blog.log4d.com/2014/07/raspberrypi-airplay/" rel="alternate"></link><updated>2014-07-23T23:19:50+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-07-23:2014/07/raspberrypi-airplay/</id><summary type="html">&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
+</summary><category term="感悟"></category></entry><entry><title>在 Raspberry Pi 上使用 AirPlay</title><link href="https://blog.log4d.com/2014/07/raspberrypi-airplay/" rel="alternate"></link><updated>2014-07-23T23:19:50+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-07-23:2014/07/raspberrypi-airplay/</id><summary type="html">&lt;p&gt;早在去年时候，我就发现有个叫做 &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; 的玩意，
 已经忘了是从那里得知这个东西。这个卡片大小的电路板是可以运行
 Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a href="http://geekon.geekstack.org/"&gt;南京极客行动&lt;/a&gt;
 时候，Michael 好像还拿了一个板子参加比赛。&lt;/p&gt;
@@ -1172,11 +1400,13 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/07/raspberrypi-airplay/"&gt;http://blog.log4d.com/2014/07/raspberrypi-airplay/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/07/raspberrypi-airplay/"&gt;https://blog.log4d.com/2014/07/raspberrypi-airplay/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="硬件"></category><category term="RaspberryPi"></category></entry><entry><title>读《如何高效学习》</title><link href="http://blog.log4d.com/2014/04/lean-more-study-less/" rel="alternate"></link><updated>2014-04-13T11:42:47+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-04-13:2014/04/lean-more-study-less/</id><summary type="html">&lt;p&gt;&lt;a href="http://book.douban.com/subject/25783654/"&gt;Learn More Study Less（如何高效学习）&lt;/a&gt;
+</summary><category term="硬件"></category><category term="RaspberryPi"></category></entry><entry><title>读《如何高效学习》</title><link href="https://blog.log4d.com/2014/04/lean-more-study-less/" rel="alternate"></link><updated>2014-04-13T11:42:47+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-04-13:2014/04/lean-more-study-less/</id><summary type="html">&lt;p&gt;&lt;a href="http://book.douban.com/subject/25783654/"&gt;Learn More Study Less（如何高效学习）&lt;/a&gt;
 讲的是作者斯科特·扬如何快速学习的方法和技巧。&lt;/p&gt;
 &lt;p&gt;我在 Kindle 上面阅读了这本书，并用书中的方法学习这本书，顺便做了一些笔记。&lt;/p&gt;
 
@@ -1271,11 +1501,13 @@ Debian 的主机，提供了一个发挥自己想象的平台。13 年 &lt;a hre
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/04/lean-more-study-less/"&gt;http://blog.log4d.com/2014/04/lean-more-study-less/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/04/lean-more-study-less/"&gt;https://blog.log4d.com/2014/04/lean-more-study-less/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="学海无涯"></category><category term="读书笔记"></category></entry><entry><title>hiredis 源码学习</title><link href="http://blog.log4d.com/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
+</summary><category term="学海无涯"></category><category term="读书笔记"></category></entry><entry><title>hiredis 源码学习</title><link href="https://blog.log4d.com/2014/03/hiredis/" rel="alternate"></link><updated>2014-03-30T15:41:43+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-03-30:2014/03/hiredis/</id><summary type="html">&lt;p&gt;前段时间学习 Redis 时候，听到 hiredis 的大名，正好也在做异步的学习，就找来代码学习一下。
 我几乎不太会 C，仅限于最简单的语法，完全没有在生产环境中写过，
 所以先看个 Client 简单代码，下次看 Memcached 代码应该会更顺畅一些。&lt;/p&gt;
 &lt;p&gt;Hiredis 是用 C 写的 Redis 客户端，对 Redis 协议进行了简单的封装，
@@ -1414,510 +1646,10 @@ source 时候，通过这个加上 &lt;code&gt;ifdef&lt;/code&gt; 来使用 &lt;
 &lt;hr&gt;
 &lt;div class="panel"&gt;
 &lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/03/hiredis/"&gt;http://blog.log4d.com/2014/03/hiredis/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;原文链接: &lt;a href="https://blog.log4d.com/2014/03/hiredis/"&gt;https://blog.log4d.com/2014/03/hiredis/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;欢迎关注我的微信号：窥豹&lt;/small&gt;&lt;br&gt;
+   &lt;small&gt;&lt;img src="http://upload-log4d.qiniudn.com/upload_dropbox/201605/qrcode_for_gh_17e2f9c2caa4_258.jpg"/&gt;&lt;/small&gt;&lt;br&gt;
    &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-</summary><category term="C"></category><category term="Redis"></category><category term="hiredis"></category></entry><entry><title>Java 运行参数调整</title><link href="http://blog.log4d.com/2014/03/java-options/" rel="alternate"></link><updated>2014-03-22T18:31:55+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-03-22:2014/03/java-options/</id><summary type="html">&lt;p&gt;JVM 在线上运行的时候，可以调整一些运行参数，查看参数帮助如下：&lt;/p&gt;
-&lt;p&gt;运行 &lt;code&gt;java -h&lt;/code&gt; 可以看到 Java 运行可调整的参数。
-运行 &lt;code&gt;java -X&lt;/code&gt; 可以查看 Java 支持的额外参数。
-注意一些参数的默认开启在 JDK6 和 JDK7 之间会有差异，甚至在 JDK7 的不同 update
-也会有差异，运行 &lt;code&gt;java -XX:+PrintFlagsFinal&lt;/code&gt; 查看默认的参数配置。&lt;/p&gt;
-&lt;p&gt;参考：
-&lt;a href="http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html"&gt;Java HotSpot VM Options&lt;/a&gt;
-&lt;a href="http://stas-blogspot.blogspot.com/2011/07/most-complete-list-of-xx-options-for.html"&gt;The most complete list of -XX options for Java JVM &lt;/a&gt;
-&lt;a href="http://docs.oracle.com/cd/E13209_01/wlcp/wlss30/configwlss/jvmgc.html"&gt; Tuning JVM Garbage Collection for Production Deployments &lt;/a&gt;
-&lt;a href="http://www.jvmer.com/jvm-xx-参数介绍/"&gt;JVM -XX: 参数介绍&lt;/a&gt;&lt;/p&gt;
-
-
-&lt;p&gt;以下是一些经验调整：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;d64&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;运行在&lt;/span&gt; &lt;span class="m"&gt;64&lt;/span&gt; &lt;span class="s-Atom"&gt;位数据模式下&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;server&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;选择&lt;/span&gt; &lt;span class="s-Atom"&gt;server&lt;/span&gt; &lt;span class="nv"&gt;VM&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Xms1024m&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;初始堆大小，直接固定到&lt;/span&gt; &lt;span class="nv"&gt;Xmx&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Xmx1024m&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;最大堆大小，根据服务器性能和请求量调整，太大了会导致&lt;/span&gt; &lt;span class="nv"&gt;GC&lt;/span&gt; &lt;span class="s-Atom"&gt;时间太长&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;DoEscapeAnalysis&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;支持逃逸分析（将局部对象实例存储在栈上）&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;iteye&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;topic&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;473355&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseTLAB&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;thread&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;local&lt;/span&gt; &lt;span class="s-Atom"&gt;object&lt;/span&gt; &lt;span class="s-Atom"&gt;allocation&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;使用本地线程实例存储，可以减少堆共享锁的竞争&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="p"&gt;:-&lt;/span&gt;&lt;span class="nv"&gt;RelaxAccessControlCheck&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Relax&lt;/span&gt; &lt;span class="s-Atom"&gt;the&lt;/span&gt; &lt;span class="s-Atom"&gt;access&lt;/span&gt; &lt;span class="s-Atom"&gt;control&lt;/span&gt; &lt;span class="s-Atom"&gt;checks&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="s-Atom"&gt;the&lt;/span&gt; &lt;span class="s-Atom"&gt;verifier&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;JDK7&lt;/span&gt; &lt;span class="s-Atom"&gt;默认不开启&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;AggressiveOpts&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enable&lt;/span&gt; &lt;span class="s-Atom"&gt;aggressive&lt;/span&gt; &lt;span class="s-Atom"&gt;optimizations&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="s-Atom"&gt;see&lt;/span&gt; &lt;span class="s-Atom"&gt;arguments&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;cpp&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;启用最新&lt;/span&gt; &lt;span class="nv"&gt;JVM&lt;/span&gt; &lt;span class="s-Atom"&gt;调优成果&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseBiasedLocking&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enable&lt;/span&gt; &lt;span class="s-Atom"&gt;biased&lt;/span&gt; &lt;span class="s-Atom"&gt;locking&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;JVM&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;偏向锁（建议去了解一下轻量级锁和偏向锁）&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化单线程程序下面锁资源速度，不适合多线程（所以到底&lt;/span&gt; &lt;span class="s-Atom"&gt;+/-&lt;/span&gt; &lt;span class="s-Atom"&gt;我存疑）&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;www&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;iteye&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;topic&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;518066&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseFastAccessorMethods&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;fast&lt;/span&gt; &lt;span class="s-Atom"&gt;method&lt;/span&gt; &lt;span class="s-Atom"&gt;entry&lt;/span&gt; &lt;span class="s-Atom"&gt;code&lt;/span&gt; &lt;span class="s-Atom"&gt;for&lt;/span&gt; &lt;span class="s-Atom"&gt;accessor&lt;/span&gt; &lt;span class="s-Atom"&gt;methods&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化&lt;/span&gt; &lt;span class="s-Atom"&gt;get&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;set&lt;/span&gt; &lt;span class="s-Atom"&gt;方法&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;ThreadStackSize&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;Stack&lt;/span&gt; &lt;span class="nv"&gt;Size&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Kbytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;经验值&lt;/span&gt; &lt;span class="m"&gt;4096&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseLargePages&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;large&lt;/span&gt; &lt;span class="s-Atom"&gt;page&lt;/span&gt; &lt;span class="s-Atom"&gt;memory&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;大内存分页&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseStringCache&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Enables&lt;/span&gt; &lt;span class="s-Atom"&gt;caching&lt;/span&gt; &lt;span class="s-Atom"&gt;of&lt;/span&gt; &lt;span class="s-Atom"&gt;commonly&lt;/span&gt; &lt;span class="s-Atom"&gt;allocated&lt;/span&gt; &lt;span class="s-Atom"&gt;strings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;启用缓存常用的字符串&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;UseCompressedStrings&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;Use&lt;/span&gt; &lt;span class="s-Atom"&gt;a&lt;/span&gt; &lt;span class="s-Atom"&gt;byte&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="s-Atom"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;Strings&lt;/span&gt; &lt;span class="s-Atom"&gt;which&lt;/span&gt; &lt;span class="s-Atom"&gt;can&lt;/span&gt; &lt;span class="s-Atom"&gt;be&lt;/span&gt; &lt;span class="s-Atom"&gt;represented&lt;/span&gt; &lt;span class="s-Atom"&gt;as&lt;/span&gt; &lt;span class="s-Atom"&gt;pure&lt;/span&gt; &lt;span class="nv"&gt;ASCII&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Introduced&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Java&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="nv"&gt;Update&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt; &lt;span class="nv"&gt;Performance&lt;/span&gt; &lt;span class="nv"&gt;Release&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;降低内存消耗，浪费一点&lt;/span&gt; &lt;span class="nv"&gt;CPU&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="s-Atom"&gt;stackoverflow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="s-Atom"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s-Atom"&gt;questions&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="m"&gt;8833385&lt;/span&gt;&lt;span class="o"&gt;/is-&lt;/span&gt;&lt;span class="s-Atom"&gt;support&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;for&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;compressed&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;strings&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;being&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="s-Atom"&gt;dropped&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:+&lt;/span&gt;&lt;span class="nv"&gt;OptimizeStringConcat&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt; &lt;span class="nv"&gt;Optimize&lt;/span&gt; &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="s-Atom"&gt;concatenation&lt;/span&gt; &lt;span class="s-Atom"&gt;operations&lt;/span&gt; &lt;span class="s-Atom"&gt;where&lt;/span&gt; &lt;span class="s-Atom"&gt;possible&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Introduced&lt;/span&gt; &lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;Java&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="nv"&gt;Update&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;优化字符串连接，对模板渲染操作应该会很有意义&lt;/span&gt;
-
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;XX&lt;/span&gt;&lt;span class="s-Atom"&gt;:&lt;/span&gt;&lt;span class="nv"&gt;MaxPermSize&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="nv"&gt;Maximum&lt;/span&gt; &lt;span class="s-Atom"&gt;size&lt;/span&gt; &lt;span class="s-Atom"&gt;of&lt;/span&gt; &lt;span class="s-Atom"&gt;permanent&lt;/span&gt; &lt;span class="nf"&gt;generation&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s-Atom"&gt;in&lt;/span&gt; &lt;span class="s-Atom"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="s-Atom"&gt;#&lt;/span&gt; &lt;span class="s-Atom"&gt;经验值&lt;/span&gt; &lt;span class="m"&gt;128&lt;/span&gt;&lt;span class="s-Atom"&gt;m&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-&lt;div class="panel"&gt;
-&lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/03/java-options/"&gt;http://blog.log4d.com/2014/03/java-options/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
-   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="Java"></category><category term="JVM"></category></entry><entry><title>Redis 到底有多快[译文]</title><link href="http://blog.log4d.com/2014/02/redis-benchmarks/" rel="alternate"></link><updated>2014-02-23T22:38:00+08:00</updated><author><name>alswl</name></author><id>tag:blog.log4d.com,2014-02-23:2014/02/redis-benchmarks/</id><summary type="html">&lt;p&gt;原文地址 &lt;a href="http://redis.io/topics/benchmarks"&gt;http://redis.io/topics/benchmarks&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;拖了一个半月的稿子~&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Redis 自带了一个叫 &lt;code&gt;redis-benchmark&lt;/code&gt; 的工具来模拟 N 个客户端同时发出 M 个请求。
-（类似于 Apache &lt;code&gt;ab&lt;/code&gt; 程序）。你可以使用 &lt;code&gt;redis-benchmark -h&lt;/code&gt; 来查看基准参数。&lt;/p&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;以下参数被支持：&lt;/span&gt;
-
-    &lt;span class="nb"&gt;Usage&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;redis&lt;/span&gt;&lt;span class="na"&gt;-benchmark&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-h&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;host&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-p&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;port&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-c&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;clients&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt; &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;requests&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&amp;gt; &lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="na"&gt;-k&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;boolean&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;
-
-     -h &lt;span class="nt"&gt;&amp;lt;hostname&amp;gt;&lt;/span&gt;      Server hostname (default 127.0.0.1)
-     -p &lt;span class="nt"&gt;&amp;lt;port&amp;gt;&lt;/span&gt;          Server port (default 6379)
-     -s &lt;span class="nt"&gt;&amp;lt;socket&amp;gt;&lt;/span&gt;        Server socket (overrides host and port)
-     -c &lt;span class="nt"&gt;&amp;lt;clients&amp;gt;&lt;/span&gt;       Number of parallel connections (default 50)
-     -n &lt;span class="nt"&gt;&amp;lt;requests&amp;gt;&lt;/span&gt;      Total number of requests (default 10000)
-     -d &lt;span class="nt"&gt;&amp;lt;size&amp;gt;&lt;/span&gt;          Data size of SET/GET value in bytes (default 2)
-     -k &lt;span class="nt"&gt;&amp;lt;boolean&amp;gt;&lt;/span&gt;       1=keep alive 0=reconnect (default 1)
-     -r &lt;span class="nt"&gt;&amp;lt;keyspacelen&amp;gt;&lt;/span&gt;   Use random keys for SET/GET/INCR, random values for SADD
-      Using this option the benchmark will get/set keys
-      in the form mykey_rand:000000012456 instead of constant
-      keys, the &lt;span class="nt"&gt;&amp;lt;keyspacelen&amp;gt;&lt;/span&gt; argument determines the max
-      number of values for the random number. For instance
-      if set to 10 only rand:000000000000 - rand:000000000009
-      range will be allowed.
-     -P &lt;span class="nt"&gt;&amp;lt;numreq&amp;gt;&lt;/span&gt;        Pipeline &lt;span class="nt"&gt;&amp;lt;numreq&amp;gt;&lt;/span&gt; requests. Default 1 (no pipeline).
-     -q                 Quiet. Just show query/sec values
-     --csv              Output in CSV format
-     -l                 Loop. Run the tests forever
-     -t &lt;span class="nt"&gt;&amp;lt;tests&amp;gt;&lt;/span&gt;         Only run the comma separated list of tests. The test
-                        names are the same as the ones produced as output.
-     -I                 Idle mode. Just open N idle connections and wait.
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;你需要在基准测试之前启动一个 Redis 实例。一般这样启动测试：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;这个工具使用起来非常方便，同时你可以使用自己的基准测试工具，
-不过开始基准测试时候，我们需要注意一些细节。&lt;/p&gt;
-&lt;h2&gt;只运行一些测试用例的子集&lt;/h2&gt;
-&lt;p&gt;你不必每次都运行 redis-benchmark 默认的所有测试。
-使用 &lt;code&gt;-t&lt;/code&gt; 参数可以选择你需要运行的测试用例，比如下面的范例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;74239.05&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;79239.30&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;在上面的测试中，我们只运行了 SET 和 LPUSH 命令，
-并且运行在安静模式中（使用 &lt;code&gt;-q&lt;/code&gt; 参数）。&lt;/p&gt;
-&lt;p&gt;也可以直接指定命令来直接运行，比如下面的范例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;redis.call(&amp;#39;set&amp;#39;,&amp;#39;foo&amp;#39;,&amp;#39;bar&amp;#39;)&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;bar&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;69881.20&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;选择测试键的范围大小&lt;/h2&gt;
-&lt;p&gt;默认情况下面，基准测试使用单一的 key。在一个基于内存的数据库里，
-单一 key 测试和真实情况下面不会有巨大变化。当然，使用一个大的 key 范围空间，
-可以模拟现实情况下面的缓存不命中情况。&lt;/p&gt;
-&lt;p&gt;这时候我们可以使用 &lt;code&gt;-r&lt;/code&gt; 命令。比如，假设我们想设置 10 万随机 key
-连续 SET 100 万次，我们可以使用下列的命令：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt; &lt;span class="n"&gt;flushall&lt;/span&gt;
-&lt;span class="n"&gt;OK&lt;/span&gt;
-
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;13.86&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;99.76&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.98&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;72144.87&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-
-&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cli&lt;/span&gt; &lt;span class="n"&gt;dbsize&lt;/span&gt;
-&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;integer&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;99993&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;使用 pipelining&lt;/h2&gt;
-&lt;p&gt;默认情况下，每个客户端都是在一个请求完成之后才发送下一个请求
-（benchmark 会模拟 50 个客户端除非使用 &lt;code&gt;-c&lt;/code&gt; 指定特别的数量），
-这意味着服务器几乎是按顺序读取每个客户端的命令。Also RTT is payed as well.&lt;/p&gt;
-&lt;p&gt;真实世界会更复杂，Redis 支持
-&lt;a href="pipelining"&gt;/topics/pipelining&lt;/a&gt;，使得可以一次性执行多条命令成为可能。
-Redis pipelining 可以提高服务器的 TPS。&lt;/p&gt;
-&lt;p&gt;下面这个案例是在 Macbook air 11" 上使用 pipelining 组织
-16 条命令的测试范例：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;403063.28&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;508388.41&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;记得在多条命令需要处理时候使用 pipelining。&lt;/p&gt;
-&lt;h2&gt;陷阱和错误的认识&lt;/h2&gt;
-&lt;p&gt;第一点是显而易见的：基准测试的黄金准则是使用相同的标准。
-用相同的任务量测试不同版本的 Redis，或者用相同的参数测试测试不同版本 Redis。
-如果把 Redis 和其他工具测试，那就需要小心功能细节差异。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Redis 是一个服务器：所有的命令都包含网络或 IPC 消耗。这意味着和它和 SQLite，
-Berkeley DB， Tokyo/Kyoto Cabinet 等比较起来无意义，
-因为大部分的消耗都在网络协议上面。&lt;/li&gt;
-&lt;li&gt;Redis 的大部分常用命令都有确认返回。有些数据存储系统则没有（比如 MongoDB
-的写操作没有返回确认）。把 Redis 和其他单向调用命令存储系统比较意义不大。&lt;/li&gt;
-&lt;li&gt;简单的循环操作 Redis 其实不是对 Redis 进行基准测试，而是测试你的网络（或者
-IPC）延迟。想要真正测试 Redis，需要使用多个连接（比如 redis-benchmark)，
-或者使用 pipelining 来聚合多个命令，另外还可以采用多线程或多进程。&lt;/li&gt;
-&lt;li&gt;Redis 是一个内存数据库，同时提供一些可选的持久化功能。
-如果你想和一个持久化服务器（MySQL, PostgreSQL 等等） 对比的话，
-那你需要考虑启用 AOF 和适当的 fsync 策略。&lt;/li&gt;
-&lt;li&gt;Redis 是单线程服务。它并没有设计为多 CPU 进行优化。如果想要从多核获取好处，
-那就考虑启用多个实例吧。将单实例 Redis 和多线程数据库对比是不公平的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;一个普遍的误解是 redis-benchmark 特意让基准测试看起来更好，
-所表现出来的数据像是人造的，而不是真实产品下面的。&lt;/p&gt;
-&lt;p&gt;Redis-benchmark 程序可以简单快捷的对给定硬件条件下面的机器计算出性能参数。
-但是，通常情况下面这并不是 Redis 服务器可以达到的最大吞吐量。
-事实上，使用 pipelining 和更快的客户端（hiredis）可以达到更大的吞吐量。
-redis-benchmark 默认情况下面仅仅使用并发来提高吞吐量（创建多条连接）。
-它并没有使用 pipelining 或者其他并行技术（仅仅多条连接，而不是多线程）。&lt;/p&gt;
-&lt;p&gt;如果想使用 pipelining 模式来进行基准测试（了达到更高吞吐量），可以使用 &lt;code&gt;-P&lt;/code&gt;
-参数。这种方案的确可以提高性能，有很多使用 Redis 的应用在生产环境中这样做。&lt;/p&gt;
-&lt;p&gt;最后，基准测试需要使用相同的操作和数据来对比，如果这些不一样，
-那么基准测试是无意义的。&lt;/p&gt;
-&lt;p&gt;比如，Redis 和 memcached 可以在单线程模式下面对比 GET/SET 操作。
-两者都是内存数据库，协议也基本相同，甚至把多个请求合并为一条请求的方式也类似
-（pipelining）。在使用相同数量的连接后，这个对比是很有意义的。&lt;/p&gt;
-&lt;p&gt;下面这个很不错例子是在 Redis（antirez）和 memcached（dormando）测试的。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://antirez.com/post/redis-memcached-benchmark.html"&gt;antirez 1 - On Redis, Memcached, Speed, Benchmarks and The Toilet&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://dormando.livejournal.com/525147.html"&gt;dormando - Redis VS Memcached (slightly better bench)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://antirez.com/post/update-on-memcached-redis-benchmark.html"&gt;antirez 2 - An update on the Memcached/Redis benchmark&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;你可以发现相同条件下面最终结果是两者差别不大。请注意最终测试时候，
-两者都经过了充分优化。&lt;/p&gt;
-&lt;p&gt;最后，当特别高性能的服务器在基准测试时候（比如 Redis、memcached 这类），
-很难让服务器性能充分发挥，通常情况下，客户端回事瓶颈限制而不是服务器端。
-在这种情况下面，客户端（比如 benchmark 程序自身）需要优化，或者使用多实例，
-从而能达到最大的吞吐量。&lt;/p&gt;
-&lt;h2&gt;影响 Redis 性能的因素&lt;/h2&gt;
-&lt;p&gt;有几个因素直接决定 Redis 的性能。它们能够改变基准测试的结果，
-所以我们必须注意到它们。一般情况下，Redis 默认参数已经可以提供足够的性能，
-不需要调优。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;网络带宽和延迟通常是最大短板。建议在基准测试之前使用
-ping 来检查服务端到客户端的延迟。根据带宽，可以计算出最大吞吐量。
-比如将 4 KB 的字符串塞入 Redis，吞吐量是 100000 q/s，那么实际需要 3.2 Gbits/s
-的带宽，所以需要 10 GBits/s 网络连接， 1 Gbits/s 是不够的。
-在很多线上服务中，Redis 吞吐会先被网络带宽限制住，而不是 CPU。
-为了达到高吞吐量突破 TCP/IP 限制，最后采用 10 Gbits/s 的网卡，
-或者多个 1 Gbits/s 网卡。&lt;/li&gt;
-&lt;li&gt;CPU 是另外一个重要的影响因素，由于是单线程模型，Redis 更喜欢大缓存快速 CPU，
-而不是多核。这种场景下面，比较推荐 Intel CPU。AMD CPU 可能只有 Intel CPU
-的一半性能（通过对 Nehalem EP/Westmere EP/Sandy 平台的对比）。
-当其他条件相当时候，CPU 就成了 redis-benchmark 的限制因素。&lt;/li&gt;
-&lt;li&gt;在小对象存取时候，内存速度和带宽看上去不是很重要，但是对大对象（&amp;gt; 10 KB），
-它就变得重要起来。不过通常情况下面，倒不至于为了优化 Redis 而购买更高性能的内存模块。&lt;/li&gt;
-&lt;li&gt;Redis 在 VM 上会变慢。虚拟化对普通操作会有额外的消耗，Redis
-对系统调用和网络终端不会有太多的 overhead。建议把 Redis 运行在物理机器上，
-特别是当你很在意延迟时候。在最先进的虚拟化设备（VMWare）上面，redis-benchmark
-的测试结果比物理机器上慢了一倍，很多 CPU 时间被消费在系统调用和中断上面。&lt;/li&gt;
-&lt;li&gt;如果服务器和客户端都运行在同一个机器上面，那么 TCP/IP loopback 和 unix domain sockets
-都可以使用。对 Linux 来说，使用 unix socket 可以比 TCP/IP loopback 快 50%。
-默认 redis-benchmark 是使用 TCP/IP loopback。&lt;/li&gt;
-&lt;li&gt;当大量使用 pipelining 时候，unix domain sockets 的优势就不那么明显了。&lt;/li&gt;
-&lt;li&gt;当使用网络连接时，并且以太网网数据包在 1500 bytes 以下时，
-将多条命令包装成 pipelining 可以大大提高效率。事实上，处理 10 bytes，100 bytes，
-1000 bytes 的请求时候，吞吐量是差不多的，详细可以见下图。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Data size impact" src="https://github.com/dspezia/redis-doc/raw/client_command/topics/Data_size.png" /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在多核 CPU 服务器上面，Redis 的性能还依赖 NUMA 配置和 处理器绑定位置。
-最明显的影响是 redis-benchmark 会随机使用 CPU 内核。为了获得精准的结果，
-需要使用固定处理器工具（在 Linux 上可以使用 taskset 或 numactl）。
-最有效的办法是将客户端和服务端分离到两个不同的 CPU 来高校使用三级缓存。
-这里有一些使用 4 KB 数据 SET 的基准测试，针对三种 CPU（AMD Istanbul,
-Intel Nehalem EX， 和 Intel Westmere）使用不同的配置。请注意，
-这不是针对 CPU 的测试。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="NUMA chart" src="https://github.com/dspezia/redis-doc/raw/6374a07f93e867353e5e946c1e39a573dfc83f6c/topics/NUMA_chart.gif" /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在高配置下面，客户端的连接数也是一个重要的因素。得益于 epoll/kqueue，
-Redis 的事件循环具有相当可扩展性。Redis 已经在超过 60000 连接下面基准测试过，
-仍然可以维持 50000 q/s。一条经验法则是，30000 的连接数只有 100 连接的一半吞吐量。
-下面有一个关于连接数和吞吐量的测试。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img alt="connections chart" src="https://github.com/dspezia/redis-doc/raw/system_info/topics/Connections_chart.png" /&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在高配置下面，可以通过调优 NIC 来获得更高性能。最高性能在绑定 Rx/Tx 队列和
-CPU 内核下面才能达到，还需要开启 RPS（网卡中断负载均衡）。更多信息可以在
-&lt;a href="https://groups.google.com/forum/#!msg/redis-db/gUhc19gnYgc/BruTPCOroiMJ"&gt;thread&lt;/a&gt;
-。Jumbo frames 还可以在大对象使用时候获得更高性能。&lt;/li&gt;
-&lt;li&gt;在不同平台下面，Redis 可以被编译成不同的内存分配方式（libc malloc, jemalloc,
-tcmalloc），他们在不同速度、连续和非连续片段下会有不一样的表现。
-如果你不是自己编译的 Redis，可以使用 INFO 命令来检查内存分配方式。
-请注意，大部分基准测试不会长时间运行来感知不同分配模式下面的差异，
-只能通过生产环境下面的 Redis 实例来查看。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;其他需要注意的点&lt;/h2&gt;
-&lt;p&gt;任何基准测试的一个重要目标是获得可重现的结果，这样才能将此和其他测试进行对比。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个好的实践是尽可能在隔离的硬件上面测试。如果没法实现，那就需要检测
-benchmark 没有受其他服务器活动影响。&lt;/li&gt;
-&lt;li&gt;有些配置（桌面环境和笔记本，有些服务器也会）会使用可变的 CPU 分配策略。
-这种策略可以在 OS 层面配置。有些 CPU 型号相对其他能更好的调整 CPU 负载。
-为了达到可重现的测试结果，最好在做基准测试时候设定 CPU 到最高使用限制。&lt;/li&gt;
-&lt;li&gt;一个重要因素是配置尽可能大内存，千万不要使用 SWAP。注意 32 位和 64
-位 Redis 有不同的内存限制。&lt;/li&gt;
-&lt;li&gt;如果你计划在基准测试时候使用 RDB 或 AOF，请注意不要让系统同时有其他 I/O 操作。
-避免将 RDB 或 AOF 文件放到 NAS 或 NFS 共享或其他依赖网络的存储设备上面（比如
-Amazon EC2 上 的 EBS）。&lt;/li&gt;
-&lt;li&gt;将 Redis 日志级别设置到 warning 或者 notice。避免将日志放到远程文件系统。&lt;/li&gt;
-&lt;li&gt;避免使用检测工具，它们会影响基准测试结果。使用 INFO 来查看服务器状态没问题，
-但是使用 MONITOR 将大大影响测试准确度。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;不同云主机和物理机器上的基准测试结果&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;这些测试模拟了 50 客户端和 200w 请求。&lt;/li&gt;
-&lt;li&gt;使用了 Redis 2.6.14。&lt;/li&gt;
-&lt;li&gt;使用了 loopback 网卡。&lt;/li&gt;
-&lt;li&gt;key 的范围是 100 w。&lt;/li&gt;
-&lt;li&gt;同时测试了 有 pipelining 和没有的情况（16 条命令使用 pipelining）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Intel(R) Xeon(R) CPU E5520  @ 2.27GHz (with pipelining)&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;2000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpop&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;552028.75&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;707463.75&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;767459.75&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;770119.38&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;Intel(R) Xeon(R) CPU E5520  @ 2.27GHz (without pipelining)&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;2000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpop&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;122556.53&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;123601.76&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;136752.14&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;132424.03&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;Linode 2048 instance (with pipelining)&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;2000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpop&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;P&lt;/span&gt; &lt;span class="mi"&gt;16&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;195503.42&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;250187.64&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;230547.55&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;250815.16&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;strong&gt;Linode 2048 instance (without pipelining)&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;2000000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;set&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lpop&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;35001.75&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;37481.26&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;36968.58&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;35186.49&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2&gt;更多使用 pipeline 的测试&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt;
-
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;100007&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;0.88&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;58.50&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.17&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.58&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.85&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.90&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;114293.71&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;GET&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;1.23&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;43.12&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;96.82&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;98.62&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;81234.77&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;INCR&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;100018&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;1.46&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;32.32&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;96.67&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.14&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.83&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.88&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.89&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.96&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;68458.59&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;LPUSH&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;100004&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;1.14&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;62.27&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.74&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.85&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.86&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.89&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.93&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.96&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;22&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;208&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;88109.25&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-
-&lt;span class="o"&gt;======&lt;/span&gt; &lt;span class="n"&gt;LPOP&lt;/span&gt; &lt;span class="o"&gt;======&lt;/span&gt;
-  &lt;span class="mi"&gt;100001&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;completed&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;1.39&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-  &lt;span class="mi"&gt;50&lt;/span&gt; &lt;span class="n"&gt;parallel&lt;/span&gt; &lt;span class="n"&gt;clients&lt;/span&gt;
-  &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt; &lt;span class="n"&gt;payload&lt;/span&gt;
-  &lt;span class="n"&gt;keep&lt;/span&gt; &lt;span class="n"&gt;alive&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-
-&lt;span class="mf"&gt;54.83&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;97.34&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.95&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.96&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;99.96&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;100.00&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;208&lt;/span&gt; &lt;span class="n"&gt;milliseconds&lt;/span&gt;
-&lt;span class="mf"&gt;71994.96&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;注意：包大小从 256 到 1024 或者 4096 bytes 不会改变结果的量级
-（但是到 1024 bytes 后，GETs 操作会变慢）。同样的，50 到 256 客户端的测试结果相同。
-10 个客户端时候，吞吐量会变小（译者按：总量到不了最大吞吐量）。&lt;/p&gt;
-&lt;p&gt;不同机器可以获的不一样的结果，下面是 &lt;em&gt;Intel T5500 1.66 GHz 在 Linux 2.6&lt;/em&gt;
-下面的结果：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;53684.38&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;45497.73&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;INCR:&lt;/span&gt; &lt;span class="mf"&gt;39370.47&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;34803.41&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;37367.20&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;另外一个是 64 位 Xeon L5420 2.5 GHz 的结果：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt;
-&lt;span class="nl"&gt;PING:&lt;/span&gt; &lt;span class="mf"&gt;111731.84&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;108114.59&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;98717.67&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;INCR:&lt;/span&gt; &lt;span class="mf"&gt;95241.91&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;104712.05&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;93722.59&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1&gt;高性能硬件下面的基准测试&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Redis &lt;strong&gt;2.4.2&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;默认连接数，数据包大小 256 bytes。&lt;/li&gt;
-&lt;li&gt;Linux 是 &lt;em&gt;SLES10 SP3 2.6.16.60-0.54.5-smp&lt;/em&gt;，CPU 是 2 x &lt;em&gt;Intel X5670 @ 2.93 GHz&lt;/em&gt;。&lt;/li&gt;
-&lt;li&gt;固定 CPU，但是使用不同 CPU 内核。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;使用 unix domain socket：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;numactl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sock&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt;
-&lt;span class="n"&gt;PING&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;inline&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;200803.22&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;PING:&lt;/span&gt; &lt;span class="mf"&gt;200803.22&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;MSET&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;78064.01&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;198412.69&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;198019.80&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;INCR:&lt;/span&gt; &lt;span class="mf"&gt;200400.80&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;200000.00&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;198019.80&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SADD:&lt;/span&gt; &lt;span class="mf"&gt;203665.98&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SPOP:&lt;/span&gt; &lt;span class="mf"&gt;200803.22&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LPUSH&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;again&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;order&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;bench&lt;/span&gt; &lt;span class="n"&gt;LRANGE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;200000.00&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;42123.00&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;15015.02&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;450&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;10159.50&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;7548.31&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;使用 TCP loopback：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;numactl&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;benchmark&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt;
-&lt;span class="n"&gt;PING&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;inline&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;145137.88&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;PING:&lt;/span&gt; &lt;span class="mf"&gt;144717.80&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;MSET&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;65487.89&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SET:&lt;/span&gt; &lt;span class="mf"&gt;142653.36&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;GET:&lt;/span&gt; &lt;span class="mf"&gt;142450.14&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;INCR:&lt;/span&gt; &lt;span class="mf"&gt;143061.52&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPUSH:&lt;/span&gt; &lt;span class="mf"&gt;144092.22&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;LPOP:&lt;/span&gt; &lt;span class="mf"&gt;142247.52&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SADD:&lt;/span&gt; &lt;span class="mf"&gt;144717.80&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="nl"&gt;SPOP:&lt;/span&gt; &lt;span class="mf"&gt;143678.17&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LPUSH&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;again&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;order&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;bench&lt;/span&gt; &lt;span class="n"&gt;LRANGE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;143061.52&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;29577.05&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;300&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;10431.88&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;450&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;7010.66&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;span class="n"&gt;LRANGE&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;600&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;5296.61&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
-&lt;div class="panel"&gt;
-&lt;div class="panel-body"&gt;
-   &lt;small&gt;原文链接: &lt;a href="http://blog.log4d.com/2014/02/redis-benchmarks/"&gt;http://blog.log4d.com/2014/02/redis-benchmarks/&lt;/a&gt;&lt;/small&gt;&lt;br&gt;
-   &lt;small&gt;3a1ff193cee606bd1e2ea554a16353ee&lt;/small&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-</summary><category term="性能"></category><category term="Redis"></category><category term="benchmark"></category><category term="译文"></category></entry></feed>
+</summary><category term="C"></category><category term="Redis"></category><category term="hiredis"></category></entry></feed>

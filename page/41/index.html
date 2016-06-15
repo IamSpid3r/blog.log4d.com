@@ -11,26 +11,26 @@
 
 
 
-<link rel="canonical" href="http://blog.log4d.com">
+<link rel="canonical" href="https://blog.log4d.com">
         <meta name="author" content="alswl" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Log4D" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Log4D"/>
-        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:url" content="https://blog.log4d.com"/>
         <meta property="og:description" content="Log4D"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.log4d.com/theme/css/style.css" type="text/css"/>
 
-    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
-    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+    <link href="https://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="https://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">
+            <a href="https://blog.log4d.com/" class="navbar-brand">
 Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,7 +54,7 @@ Log4D            </a>
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="https://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -66,7 +66,45 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2009/02/java-triggered-by-the-post/">Java中的POST引发的...</a></h2>
+                <div class="summary"><p>因为一直想写一个刷人气的工具，其中最基本的就是post方法了，然后再收集页面中的元素。今天我就开始着手写Java的POST方法。</p>
+<p>在Java.net.*;中用URL构造地址，然后用流写入，似乎应该是很简单的方案，我却一直没成功。我百度Google了很久，参考了很多别人代码，似乎很容易实
+现，可是我的一直问题，而我觉得和网上提供的一样。我的代码如下</p>
+<p>package netStudy01;</p>
+<p>import java.io.*;</p>
+<p>import java.net.*;</p>
+<p>public class PostBaidu</p>
+<p>{</p>
+<p>public static void main(String[] args)</p>
+<p>{</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; try</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; {</p>
+<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;&amp;nbsp_place_holder; URL url = new URL("<a href="http://localhost ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2009/02/java-triggered-by-the-post/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2009/01/eclipse-of-the-odd/">Eclipse的奇淫巧计【转】</a></h2>
+                <div class="summary"><p>代码篇：</p>
+<p>1.在源代码中快速跳转:</p>
+<p>eclipse中的跳转甚至比VS.Net还方便，方法是按住Ctrl键，然后鼠标指向变量名，方法名，类名，就会出现链接，点击就可跳到定义处。</p>
+<p>2.实时语法检查:</p>
+<p>编辑区右侧如果有红色小方块，直接点击就可跳到有错的行；黄色小方块是警告，可以忽略，但最好检查一下；如果某个函数尚未完成，要提</p>
+<p>醒自己注意怎么办？加上注释// TODO，右侧就会有蓝色小方块，提示你此处尚未完成。当一个源码的右侧没有任何提示时，说明这个文件已经</p>
+<p>完成了。</p>
+<p>3.自动生成getter/setter方法:</p>
+<p>只需要申明protected，private类成员变量，然后在Package Explore中找到该类，右键点击，选择"Source""Generate
+Getters and</p>
+<p>Setters"。</p>
+<p>4.更改类名/变量名:</p>
+<p>如果涉及到多处修改，不要直接在源码中更改，在Package Explore中找到要改名的类或变量，右键点击 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2009/01/eclipse-of-the-odd/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2009/01/eclipse-of-the-todo-tasks/">Eclipse 的 TODO (tasks)</a></h2>
                 <div class="summary"><p>使用自动生成代码，如构造一个类时候，会出现 // TODO Auto-generated method stub 任务标记，很是碍眼。</p>
 <p>特别是在使用Windows - Prefererences - Show views - Tasks管理任务时，经常会和代码中的TODO一起使用，混淆视线</p>
 <p>我弄了好久，才晓得自动建立的Task才有Complete的复选框，而在代码中的TODO FIXME XXX 是没有复选框的。</p>
@@ -75,22 +113,22 @@ Log4D            </a>
 rchives/000446">http:/
 /www.mooreds.com/wordpress ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/01/eclipse-of-the-todo-tasks/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2009/01/eclipse-of-the-todo-tasks/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2009/01/too-late-to-ask-a-question/">问的太晚的一个问题</a></h2>
                 <div class="summary"><p>今天看到一个高中同学的qq签名，人活着是为什么。</p>
 <p>她当时读的很潇洒，艺术生，现在已经工作了，男朋友换了无数</p>
 <p>我看了这个签名，觉得有点悲哀，现在已经不是应该考虑这个问题的时候了</p>
 <p>这个问题应该由小学生、初中生、最多高中生提出来。到了大学如果还搞不清楚自己活着的目的，自己人生的目标是什么，我觉得这是很悲哀的</p>
 <p>如果现在对自己提出这个问题，就已经问的太晚了</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/01/too-late-to-ask-a-question/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2009/01/too-late-to-ask-a-question/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2009/01/i-look-at-design-patterns/">我在看设计模式</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2009/01/i-look-at-design-patterns/">我在看设计模式</a></h2>
                 <div class="summary"><p>花了6天时间把创建型5种模式看完了，很有感触，但是感触不意味着我理解，我甚至私下里觉得OOD的设计模式不适合我现在做的那些程序，那些都是一次成型，根本谈不上
 需求的改变。没有改变，就不需要OO思想。因为我这样的想法，我看起来很累。
 我知道这些思想对我以后的发展很有帮助，会从思想上把我解救出来，我被这些新的设计想法激动着（虽然出来很多年，可是对于我来说完全是新的，呵呵```）。</p>
@@ -99,11 +137,11 @@ rchives/000446">http:/
 不断适应生产力的发展，需要完善自身功能，也就是需求的变化。正是因为需求的变化，使得敏捷软件开发成为现在的主流。</p>
 <p>呃<code>我才看了几天设计模式，就说的这么狂</code>激动了，激动了```</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2009/01/i-look-at-design-patterns/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2009/01/i-look-at-design-patterns/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">爱上艺术，爱上侯捷</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/">爱上艺术，爱上侯捷</a></h2>
                 <div class="summary"><p>初识侯捷是因为那本在Windows编程环境下面的巨作《深入浅出MFC》，尽管是96年前后写的书，依然给我在思想和技术上带来了很大的震撼和飞跃。可惜最近忙于A
 SP网站的建设和繁重的考试，把那本书放下了。</p>
 <p>为了硬件设计的论文，我花了很多心思在Word排版上，图书馆的书翻了好多，都没有针对长文档排版的书，Sybex的《Office商务排版》也不合我心意，尽管最后
@@ -115,11 +153,11 @@ SP网站的建设和繁重的考试，把那本书放下了。</p>
 <p>好一个侯捷</p>
 <p>我不敢说和侯捷这种Program大家有相同层次的想法，可是，从《深入浅出MFC》到《Word排版艺术 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2008/12/falling-in-love-with-the-art-of-falling-in-love-with-hou-jie/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/12/office-of-the-art-publishing-long-documents/">Office长文档排版的艺术</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2008/12/office-of-the-art-publishing-long-documents/">Office长文档排版的艺术</a></h2>
                 <div class="summary"><p>虽然最近考试不断，我仍然花了很多时间在Office上</p>
 <p>准确的说，实在Office的Word2003排版上</p>
 <p>图书馆的Office相关书籍都略微翻了一点，感觉都比较入门，没有从整篇文章排版的角度说，有一本Sybex翻译过来的《Office商务应用》，则是偏向于公司的
@@ -132,11 +170,11 @@ cn</a></p>
 <p><a href="http://support.microsoft.com/kb/890701/zh-cn">http://support.microsoft.com/kb/890701/zh-
 cn ...</a></p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/12/office-of-the-art-publishing-long-documents/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2008/12/office-of-the-art-publishing-long-documents/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/12/annoying-clip/">恼人的美工</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2008/12/annoying-clip/">恼人的美工</a></h2>
                 <div class="summary"><p>一边在考试中挣扎着，操作系统，系统安全，系统结构都一股脑的狠狠的向我砸来，一方面还得为那个ASP项目烦恼</p>
 <p>程序永远不是问题，VB Script虽然没用过，不过感觉还是在的，写起来也算是有条理，可到了界面重新设计这一块，就烦了</p>
 <p>客户要求重新换一个风格界面，加上 我对原来的table控制界面很不喜欢，索性用div+css全部重写，不过在风格定位上遇到了很大的困难，毕竟我是程序员，不是
@@ -145,11 +183,11 @@ cn ...</a></p>
 <p>我一边还自个儿安慰自己，嗯，哥哥是位艺术家了....</p>
 <p>借鉴着大量的美工做的非常好的网站，佩服着其他一些美术设计师，行行出状元啊...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/12/annoying-clip/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2008/12/annoying-clip/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/">MFC将退出历史舞台，微软的下一代用户界面技术WPF</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/">MFC将退出历史舞台，微软的下一代用户界面技术WPF</a></h2>
                 <div class="summary"><p>转来的，最近对MFC很关注...</p>
 <p>WPF简介</p>
 <p>WPF的全称是WindowsPresentationFoundation，是微软新发布的Vista操作系统的三大核心开发库之一，其主要负责的是图形显示，
@@ -166,146 +204,110 @@ ation(WPF)。在此之前，它已经完成了从演示软件到开始阶段alph
 <p>•将两者分开，软件开发公司可以使得设计者们集中精力将设计工作做得更好，同时让开发者支持他们。</p>
 <p>•随着软件外包和订购的逐渐风行，WPF使得一些商业的设计者们能够更好的从事界面设计工作，并集成一些简单的功能 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2008/10/mfc-will-be-from-the-stage-of-history-microsoft-s-next-generation-user-interface-technology-wpf/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/10/mfc/">MFC</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2008/10/mfc/">MFC</a></h2>
                 <div class="summary"><p>刚开始似乎不太对MFC敏感，觉得现在导出讨论Java和.Net，很少看到MFC的身影，唔，当然了，是在我这只菜鸟看来</p>
 <p>后来慢慢写在WinAPI上的程序，都是在命令提示符里面完成代码，界面很不友好，这才翻出MFC的书看。觉得写起来不太容易，逻辑和实现有点差距，就放下了几天。</p>
 <p>这几天网络编程想写人性化一点的VC界面，还是得使用MFC。</p>
 <p>我到今天才稍微弄清楚MFC和WinAPI窗体之间的关系，一方面开始感慨微软的MFC类库的强大...</p>
 <p>嗯，继续fighting...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mfc/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/10/mysql-database-export-import/">mysql 数据库导出/导入</a></h2>
-                <div class="summary"><p>正在学JSP，用的TomCat和MySQL，没有用CSV控制，所以数据库靠导出导入</p>
-<p>导出：</p>
-<p>cd bin;</p>
-<p>mysqldump -uroot -proot xxx &gt; xxx.sql;</p>
-<p>导入：</p>
-<p>cd bin;</p>
-<p>create xxx;</p>
-<p>source xxx.sql;</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/10/mysql-database-export-import/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/">网络编程学习日记(3)_利用WinPcap实现ARP的发送和接受</a></h2>
-                <div class="summary"><p>网络编程学习日记(2)_利用WinPcap实现ARP的发送和接受</p>
-<p>网络编程学完以太网帧的结构，就开始正式进入IP层的学习了，在学习编程之前，对网络协议的有一定的了解，而且还要知道每个数据包，或者是报文，或者是帧他们每个字节
-的含义</p>
-<p>玩ARP么，肯定得知道他的原理，我就不做什么说明了，书上一大堆的</p>
-<p>首先是ARP的接收，来看一下程序的流程</p>
-<p>获取网络设备列表</p>
-<p>pcap_findalldevs_ex(PCAP_SRC_IF_STRING, NULL, &amp;alldevs, errbuf)</p>
-<p>然后人机交互一下，获得需要工作的网卡</p>
-<p>打开需要的网卡</p>
-<p>(adhandle= pcap_open(d-&gt;name, // 设备名</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; 65536, // 要捕捉的数据包的部分</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 65535保证能捕获到不同数据链路层上的每个数据包的全部内容</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;
-PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混杂模式</p>
-<p>&amp;nbsp_place_holder;&amp;nbsp_place_holder;
-1000,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 读取超时时间 ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2008/09/e7-bd-91-e7-bb-9c-e7-bc-96-e7-a8-8b-e5-ad-a6-e4-b9-a0-e6-97-a5-e8-ae-b03_-e5-88-a9-e7-94-a8winpcap-e5-ae-9e-e7-8e-b0arp-e7-9a-84-e5-8f-91-e9-80-81-e5-92-8c-e6-8e-a5-e5-8f-97/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2008/10/mfc/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="http://blog.log4d.com/page/40/">&laquo;</a>
+                <li class="prev"><a href="https://blog.log4d.com/page/40/">&laquo;</a>
                 </li>
                     <li class=""><a
-							href="http://blog.log4d.com/">1</a></li>
+							href="https://blog.log4d.com/">1</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/2/">2</a></li>
+							href="https://blog.log4d.com/page/2/">2</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/3/">3</a></li>
+							href="https://blog.log4d.com/page/3/">3</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/4/">4</a></li>
+							href="https://blog.log4d.com/page/4/">4</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/5/">5</a></li>
+							href="https://blog.log4d.com/page/5/">5</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/6/">6</a></li>
+							href="https://blog.log4d.com/page/6/">6</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/7/">7</a></li>
+							href="https://blog.log4d.com/page/7/">7</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/8/">8</a></li>
+							href="https://blog.log4d.com/page/8/">8</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/9/">9</a></li>
+							href="https://blog.log4d.com/page/9/">9</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/10/">10</a></li>
+							href="https://blog.log4d.com/page/10/">10</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/11/">11</a></li>
+							href="https://blog.log4d.com/page/11/">11</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/12/">12</a></li>
+							href="https://blog.log4d.com/page/12/">12</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/13/">13</a></li>
+							href="https://blog.log4d.com/page/13/">13</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/14/">14</a></li>
+							href="https://blog.log4d.com/page/14/">14</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/15/">15</a></li>
+							href="https://blog.log4d.com/page/15/">15</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/16/">16</a></li>
+							href="https://blog.log4d.com/page/16/">16</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/17/">17</a></li>
+							href="https://blog.log4d.com/page/17/">17</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/18/">18</a></li>
+							href="https://blog.log4d.com/page/18/">18</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/19/">19</a></li>
+							href="https://blog.log4d.com/page/19/">19</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/20/">20</a></li>
+							href="https://blog.log4d.com/page/20/">20</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/21/">21</a></li>
+							href="https://blog.log4d.com/page/21/">21</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/22/">22</a></li>
+							href="https://blog.log4d.com/page/22/">22</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/23/">23</a></li>
+							href="https://blog.log4d.com/page/23/">23</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/24/">24</a></li>
+							href="https://blog.log4d.com/page/24/">24</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/25/">25</a></li>
+							href="https://blog.log4d.com/page/25/">25</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/26/">26</a></li>
+							href="https://blog.log4d.com/page/26/">26</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/27/">27</a></li>
+							href="https://blog.log4d.com/page/27/">27</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/28/">28</a></li>
+							href="https://blog.log4d.com/page/28/">28</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/29/">29</a></li>
+							href="https://blog.log4d.com/page/29/">29</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/30/">30</a></li>
+							href="https://blog.log4d.com/page/30/">30</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/31/">31</a></li>
+							href="https://blog.log4d.com/page/31/">31</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/32/">32</a></li>
+							href="https://blog.log4d.com/page/32/">32</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/33/">33</a></li>
+							href="https://blog.log4d.com/page/33/">33</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/34/">34</a></li>
+							href="https://blog.log4d.com/page/34/">34</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/35/">35</a></li>
+							href="https://blog.log4d.com/page/35/">35</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/36/">36</a></li>
+							href="https://blog.log4d.com/page/36/">36</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/37/">37</a></li>
+							href="https://blog.log4d.com/page/37/">37</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/38/">38</a></li>
+							href="https://blog.log4d.com/page/38/">38</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/39/">39</a></li>
+							href="https://blog.log4d.com/page/39/">39</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/40/">40</a></li>
+							href="https://blog.log4d.com/page/40/">40</a></li>
                     <li class="active"><a
-							href="http://blog.log4d.com/page/41/">41</a></li>
+							href="https://blog.log4d.com/page/41/">41</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/page/42/">42</a></li>
+							href="https://blog.log4d.com/page/42/">42</a></li>
                 <li class="next"><a
-                        href="http://blog.log4d.com/page/42/">&raquo;</a></li>
+                        href="https://blog.log4d.com/page/42/">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -315,8 +317,8 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                     <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
                     <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
                   </ul>
@@ -333,50 +335,50 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <li class="list-group-item"><a href="https://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/coding/">
+                            <a href="https://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/efficiency/">
+                            <a href="https://blog.log4d.com/category/efficiency/">
                                 <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/fun/">
+                            <a href="https://blog.log4d.com/category/fun/">
                                 <i class="fa fa-folder-open fa-lg"></i> Fun
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/internet/">
+                            <a href="https://blog.log4d.com/category/internet/">
                                 <i class="fa fa-folder-open fa-lg"></i> Internet
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/life/">
+                            <a href="https://blog.log4d.com/category/life/">
                                 <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/managment/">
+                            <a href="https://blog.log4d.com/category/managment/">
                                 <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/thinking/">
+                            <a href="https://blog.log4d.com/category/thinking/">
                                 <i class="fa fa-folder-open fa-lg"></i> Thinking
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ui/">
+                            <a href="https://blog.log4d.com/category/ui/">
                                 <i class="fa fa-folder-open fa-lg"></i> UI
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/view/">
+                            <a href="https://blog.log4d.com/category/view/">
                                 <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
@@ -402,14 +404,14 @@ PCAP_OPENFLAG_PROMISCUOUS,&amp;nbsp_place_holder;&amp;nbsp_place_holder; // 混�
       </div>
    </div>
 </footer>
-<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/jquery.min.js"></script>
 <!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">

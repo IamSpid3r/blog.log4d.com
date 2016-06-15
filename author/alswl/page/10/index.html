@@ -18,19 +18,19 @@
         <meta property="og:site_name" content="Log4D" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Log4D"/>
-        <meta property="og:url" content="http://blog.log4d.com"/>
+        <meta property="og:url" content="https://blog.log4d.com"/>
         <meta property="og:description" content="Log4D"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://blog.log4d.com/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.log4d.com/theme/css/style.css" type="text/css"/>
+    <link href="https://blog.log4d.com/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.log4d.com/theme/css/style.css" type="text/css"/>
 
-    <link href="http://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
-    <link href="http://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
+    <link href="https://blog.log4d.com/atom.xml" type="application/atom+xml" rel="alternate" title="Log4D Atom Feed" />
+    <link href="https://blog.log4d.com/rss.xml" type="application/rss+xml" rel="alternate" title="Log4D RSS Feed" />
 
 </head>
 <body>
@@ -44,7 +44,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://blog.log4d.com/" class="navbar-brand">
+            <a href="https://blog.log4d.com/" class="navbar-brand">
 Log4D            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -54,7 +54,7 @@ Log4D            </a>
                     <li><a href="/about/">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                <li><a href="https://blog.log4d.com/archives/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -66,7 +66,43 @@ Log4D            </a>
         <div class="col-lg-8 col-lg-offset-2">
 
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/">go-pylons.py在Python2.7下错误解决</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/08/auto-clean-input/">简单输入提示框实现</a></h2>
+                <div class="summary"><p>早期的输入框提示是这样的（via <a href="http://tieba.baidu.com/index.html">baidu</a>）</p>
+<p><img alt="tieba" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/08/login1.png" /></p>
+<p>左边一个 label ，右边一个输入框。</p>
+<p>比较现代的方式是（via <a href="http://www.discuz.net/">Discuz!</a>）</p>
+<p><img alt="discuz!" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/08/login2.png" /></p>
+<p>更漂亮的方式是（via <a href="http://www.diandian.com/login">点点</a>）</p>
+<p><img alt="diandian" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/08/login_diandian.png" /></p>
+<p>登录提示信息是放在输入框里面，可以减少文字干扰，我也想在自己手头的小项目中实现这种效果。</p>
+<p>我需要达到几个要求：</p>
+<ol>
+<li>提示信息是可以暂存的，即用户的输入在清空之后，还能够显示原来的提示信息</li>
+<li>只需为 text / textarea 添加一个 class 即可实现效果</li>
+<li>不修改 DOM 节点，避免影响上下文选择器</li>
+</ol>
+<p>为了实现效果，我需要将提示信息暂存到某个地方。有3个地方可供选择： js 全局变量、输入框自定义属性、上下文 DOM 节点。</p>
+<p>js 全局变量比较难控制元素标识，并不是每个元素都可以精准的用 id 标记；输入框自定义属性会破坏语义；在上下文加入节点会破坏 DOM 树。</p>
+<p>权衡之后，我选择了使用 输入框自定义属性实现 ...</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/08/auto-clean-input/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2011/08/get-json-failed-in-ie/">get json failed in IE</a></h2>
+                <div class="summary"><p>半夜在开工打补丁，某个 bug 是 Firefox 下面能接受到 Ajax 回调请求，而 IE 不行。</p>
+<p>解决方案在<a href="http://stackoverflow.com/questions/425854/jquery-ajax-request-failing-
+in-ie">http://stackoverflow.com/questions/425854/jquery-ajax-request-failing-
+in-ie</a></p>
+<p>缘由是由于 IE 不能正常识别<code>application/json; charset=utf8</code></p>
+<p>于是修改为<code>response.headers['Content-Type'] = 'application/json'</code></p>
+<p>狗日的 IE！</p>
+                </div>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/08/get-json-failed-in-ie/"><i class="icon-circle-arrow-right"></i>more ...</a>
+            </article>
+            <hr/>
+            <article class="article-list">
+                <h2 class="title"><a href="https://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/">go-pylons.py在Python2.7下错误解决</a></h2>
                 <div class="summary"><p>当使用 Python2.7 +<a href="http://pylonshq.com/download/1.0/go-pylons.py"> go-pylons.py</a>
 创建 Pylons 运行环境的话，会报一下错误。</p>
 <div class="highlight"><pre><span class="cp">[</span><span class="nx">alswl</span><span class="p">@</span><span class="nx">arch</span><span class="na">-vm</span> <span class="nx">xingtong</span><span class="cp">]</span>$ python go-pylons.py myb_env
@@ -76,11 +112,11 @@ Traceback (most recent call last):
     import os
   File &quot;/home/alswl/work ...</pre></div>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/08/go-pylons-py-in-python2-7/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/07/sina-weibo-app-key/">新浪微博应用Key</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/07/sina-weibo-app-key/">新浪微博应用Key</a></h2>
                 <div class="summary"><p>前两天 <a href="https://chrome.google.com/webstore/detail/aicelmgbddfgmpieedjiggi
 fabdpcnln">FaWave</a> 的新浪微博接口出现了问题， 一直无法发送和接受信息，今天查看了一下设定里面的信息，官方给出这样的解释：</p>
 <blockquote>
@@ -98,11 +134,11 @@ Wave兼容新浪微博。望谅解。</p>
 <p>需要的同学可以自取。</p>
 <p>update：感谢@Halu的提醒，这种 Key 在没通过审核之前会被数量限定，所以建议大家自己申请。</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/07/sina-weibo-app-key/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/07/sina-weibo-app-key/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/07/vimperator-pass-through/">Vimperator的Pass through</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/07/vimperator-pass-through/">Vimperator的Pass through</a></h2>
                 <div class="summary"><p>作为 vim 的拥护者，我同时也喜欢使用 Vimperator 这款 Firefox 下面的插件，这款插件可以帮助实现 Firefox 的纯键盘操作。</p>
 <p>我同时也是 GMail / Google Reader 的深度用户，他们在网页端也支持纯键盘操作，这样就和 Vimperator 产生了冲突。键盘按键事件被
 Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p>
@@ -111,11 +147,11 @@ Vimperator 拦截了，导致键盘操作在这些应用上面不起作用。</p
 <p>在某一次版本更新之后， Pass through 的快捷键 <code>CTRL+Z</code> 似乎不起作用了，我翻遍了用户手册也没有找到解决办法。</p>
 <p>就在昨天，我无意中不知道按了什么键 ...</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/07/vimperator-pass-through/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/07/vimperator-pass-through/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/07/lrzsz/">安装lrzsz</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/07/lrzsz/">安装lrzsz</a></h2>
                 <div class="summary"><p>lrzsz 是一款 Linux 下面的文件传输工具。实现原理是通过 Xmodem / Ymodem / Zmodem 协议传输文件。lrzsz
 可以在支持这三种协议的Shell界面的工具下工作，比如XShell。</p>
 <blockquote>
@@ -128,21 +164,21 @@ pacman，当然我们也可以下载安装包手动安装。这次由于我所�
 <span class="err">$</span> <span class="n">tar</span> <span class="n">xzvf</span> <span class="n">lrzsz</span><span class="o">-</span><span class="mf">0.12.20</span><span class="p">.</span><span class="n">tar</span><span class="p">.</span><span class="n">gz</span>
 <span class="err">$</span> <span class="n">cd</span> <span class="n">lrzsz</span><span class="o">-</span><span class="mf">0.12 ...</span></pre></div>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/07/lrzsz/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/07/lrzsz/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/07/microlog/">微日记</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/07/microlog/">微日记</a></h2>
                 <div class="summary"><p>每天用一个词形容自己当天的生活，就是微日记。</p>
 <p>从 <a href="Matrix67.com: Keywords in My Life">http://www.matrix67.com/keywords.html</a> 偷师。</p>
 <p>Matrix67用的是html，我用的是纯文本，直接通过SSH在服务器进行修改。utf-8编码，有些浏览器（比如FF）可能需要使用正确的编码才能显示。</p>
 <p>我的微日记地址是 <strike><a href="http://log4d.com/microlog.txt">http://log4d.com/microlog.txt</a></strike> <a href="http://log4d.com/microlog/">http://log4d.com/microlog/</a>，欢迎模仿。</p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/07/microlog/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/07/microlog/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/07/eventbug/">Html元素事件查看器Eventbug</a></h2>
                 <div class="summary"><p>Chrome的开发者工具里面有一个小功能：查看当前元素的Event，比如onclick/onblur等事件。</p>
 <p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/07/chrome_event.png" /></p>
 <p>一直想在Firefox里面也找到类似的插件，今天正好看到这么一个好东西，叫做EventBug。</p>
@@ -175,11 +211,11 @@ log4d.qiniudn.com/2011/07/eventbug.png"><img alt="image" src="http://77g0h6.com1
 <li><a href="http://getfirebug.com/releases/eventbug/">Eventbug下载链接</a></li>
 </ul>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/07/eventbug/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/07/eventbug/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/06/urllib2-urlopen-unicode/">urllib2.urlopen的中文URL问题</a></h2>
                 <div class="summary"><p>在url中使用中文其实是一个坏习惯，会带来一系列的转码问题， 我更喜欢英文译名或者id来标识某个uri。但是现实往往是残酷的，
 特别是在我们调用别人服务时候，有时候被逼无奈使用中文URL。</p>
 <p>Python中unicode转码一向是让人头疼的问题。数次碰壁之后，我也摸出了一些门道，
@@ -191,11 +227,11 @@ log4d.qiniudn.com/2011/07/eventbug.png"><img alt="image" src="http://77g0h6.com1
     <span class="k">return</span> <span class="nx">_opener.open</span><span class="p">(</span><span class="nb">url</span><span class="p">,</span> <span class="kd">data</span><span class="p">,</span> <span class="nx">timeout</span><span class="p">)</span>
   <span class="nb">File</span> <span class="s2">&quot;/usr/lib/python2.6/urllib2.py&quot;</span><span class="p">,</span> <span class="nb">line ...</span></pre></div>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/06/urllib2-urlopen-unicode/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/06/urllib2-urlopen-unicode/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
             <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
+                <h2 class="title"><a href="https://blog.log4d.com/2011/06/ddns-ssh/">使用DDNS+SSH连通家庭/工作电脑</a></h2>
                 <div class="summary"><h2>1. 背景</h2>
 <p>我目前有两台电脑，一台是家里使用的Linux笔记本（Dell 6400，4年）， 一台是公司使用的Windows笔记本（IBM X201，1个月）。
 我有时候需要在办公室连入家庭电脑，进行一些操作，比如同步，比如使用linux特定服务。</p>
@@ -209,131 +245,99 @@ log4d.qiniudn.com/2011/07/eventbug.png"><img alt="image" src="http://77g0h6.com1
 </blockquote>
 <p>ps：除了花生壳，还有很多DDNS服务可以供选择。由于TP-Link和D-Link都默认内置花生壳， 我这里用花生壳做范例。而我使用的<a href="http://www.dd-wrt.com/">DD- ...</a></p>
                 </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/06/ddns-ssh/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/06/mako-vim/">一个mako.vim</a></h2>
-                <div class="summary"><p>给Vim找了一个Mako的语法高亮，发现着色居然有问题。查看更新记录后发现作者<a href="http://lucumr.pocoo.or
-g/">Armin Ronacher</a>只更新到08年9月份。之后Mako更新了一些少许细节，我修改了一下mako.vim，放在这里供下载。</p>
-<p>其实我只改了57/58行，增加一个block语法。</p>
-<p>点击这里下载：[mako.vim</p>
-<p>](http://77g0h6.com1.z0.glb.clouddn.com/2011/06/mako.vim)</p>
-<p>使用方法，放入vimfiles/syntax</p>
-<p>相关链接：</p>
-<p>原始mako.vim：<a href="http://www.v
-im.org/scripts/script.php ...</p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/06/mako-vim/"><i class="icon-circle-arrow-right"></i>more ...</a>
-            </article>
-            <hr/>
-            <article class="article-list">
-                <h2 class="title"><a href="http://blog.log4d.com/2011/05/pylons/">Pylons使用小记</a></h2>
-                <div class="summary"><p>活着就是折腾，最近事情多的一塌糊涂，烦躁的很，导致log4d也荒废一个月了。今天趁着周五晚上，梳理一下最近学习的pylons知识。</p>
-<p><img alt="image" src="http://77g0h6.com1.z0.glb.clouddn.com/2011/05/pylons.png" /></p>
-<h2>关于Pylons</h2>
-<p><a href="http://pylonsproject.org/">Pylons</a>是一个用pythons写的web框架，优点是配置灵活，默认使用<a href="http:
-//www.makotemplates.org/">Mako</a>作为Template，<a href="http://www.sqlalchemy.org/">SQLAlchemy</a>作为
-ORM映射。使用BSD作为授权协议。</p>
-<p>托WSGI的福，python的web框架超多，甚至高手5分钟可以自己手写一个web框架，这种情况也导致了Python
-web框架的纷杂。我这里选择Pylons（其实是被选择），并不是说Pylons一定最好，而是比较适合当前项目。更多的Python
-web框架对比建议看这篇<a href="http://feilong.me/2011/01/talk-about-python-web-
-framework">浅谈Python web框架</a>，另外，这个<a href="http://www.bestwebframeworks.com/python/">Best Web-
-Framework ...</a></p>
-                </div>
-                <a class="btn btn-default btn-lg" href="http://blog.log4d.com/2011/05/pylons/"><i class="icon-circle-arrow-right"></i>more ...</a>
+                <a class="btn btn-default btn-lg" href="https://blog.log4d.com/2011/06/ddns-ssh/"><i class="icon-circle-arrow-right"></i>more ...</a>
             </article>
             <hr/>
 
         <ul class="pagination">
-                <li class="prev"><a href="http://blog.log4d.com/author/alswl/page/9/">&laquo;</a>
+                <li class="prev"><a href="https://blog.log4d.com/author/alswl/page/9/">&laquo;</a>
                 </li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/">1</a></li>
+							href="https://blog.log4d.com/author/alswl/">1</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/2/">2</a></li>
+							href="https://blog.log4d.com/author/alswl/page/2/">2</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/3/">3</a></li>
+							href="https://blog.log4d.com/author/alswl/page/3/">3</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/4/">4</a></li>
+							href="https://blog.log4d.com/author/alswl/page/4/">4</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/5/">5</a></li>
+							href="https://blog.log4d.com/author/alswl/page/5/">5</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/6/">6</a></li>
+							href="https://blog.log4d.com/author/alswl/page/6/">6</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/7/">7</a></li>
+							href="https://blog.log4d.com/author/alswl/page/7/">7</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/8/">8</a></li>
+							href="https://blog.log4d.com/author/alswl/page/8/">8</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/9/">9</a></li>
+							href="https://blog.log4d.com/author/alswl/page/9/">9</a></li>
                     <li class="active"><a
-							href="http://blog.log4d.com/author/alswl/page/10/">10</a></li>
+							href="https://blog.log4d.com/author/alswl/page/10/">10</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/11/">11</a></li>
+							href="https://blog.log4d.com/author/alswl/page/11/">11</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/12/">12</a></li>
+							href="https://blog.log4d.com/author/alswl/page/12/">12</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/13/">13</a></li>
+							href="https://blog.log4d.com/author/alswl/page/13/">13</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/14/">14</a></li>
+							href="https://blog.log4d.com/author/alswl/page/14/">14</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/15/">15</a></li>
+							href="https://blog.log4d.com/author/alswl/page/15/">15</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/16/">16</a></li>
+							href="https://blog.log4d.com/author/alswl/page/16/">16</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/17/">17</a></li>
+							href="https://blog.log4d.com/author/alswl/page/17/">17</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/18/">18</a></li>
+							href="https://blog.log4d.com/author/alswl/page/18/">18</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/19/">19</a></li>
+							href="https://blog.log4d.com/author/alswl/page/19/">19</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/20/">20</a></li>
+							href="https://blog.log4d.com/author/alswl/page/20/">20</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/21/">21</a></li>
+							href="https://blog.log4d.com/author/alswl/page/21/">21</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/22/">22</a></li>
+							href="https://blog.log4d.com/author/alswl/page/22/">22</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/23/">23</a></li>
+							href="https://blog.log4d.com/author/alswl/page/23/">23</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/24/">24</a></li>
+							href="https://blog.log4d.com/author/alswl/page/24/">24</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/25/">25</a></li>
+							href="https://blog.log4d.com/author/alswl/page/25/">25</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/26/">26</a></li>
+							href="https://blog.log4d.com/author/alswl/page/26/">26</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/27/">27</a></li>
+							href="https://blog.log4d.com/author/alswl/page/27/">27</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/28/">28</a></li>
+							href="https://blog.log4d.com/author/alswl/page/28/">28</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/29/">29</a></li>
+							href="https://blog.log4d.com/author/alswl/page/29/">29</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/30/">30</a></li>
+							href="https://blog.log4d.com/author/alswl/page/30/">30</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/31/">31</a></li>
+							href="https://blog.log4d.com/author/alswl/page/31/">31</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/32/">32</a></li>
+							href="https://blog.log4d.com/author/alswl/page/32/">32</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/33/">33</a></li>
+							href="https://blog.log4d.com/author/alswl/page/33/">33</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/34/">34</a></li>
+							href="https://blog.log4d.com/author/alswl/page/34/">34</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/35/">35</a></li>
+							href="https://blog.log4d.com/author/alswl/page/35/">35</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/36/">36</a></li>
+							href="https://blog.log4d.com/author/alswl/page/36/">36</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/37/">37</a></li>
+							href="https://blog.log4d.com/author/alswl/page/37/">37</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/38/">38</a></li>
+							href="https://blog.log4d.com/author/alswl/page/38/">38</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/39/">39</a></li>
+							href="https://blog.log4d.com/author/alswl/page/39/">39</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/40/">40</a></li>
+							href="https://blog.log4d.com/author/alswl/page/40/">40</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/41/">41</a></li>
+							href="https://blog.log4d.com/author/alswl/page/41/">41</a></li>
                     <li class=""><a
-							href="http://blog.log4d.com/author/alswl/page/42/">42</a></li>
+							href="https://blog.log4d.com/author/alswl/page/42/">42</a></li>
                 <li class="next"><a
-                        href="http://blog.log4d.com/author/alswl/page/11/">&raquo;</a></li>
+                        href="https://blog.log4d.com/author/alswl/page/11/">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-lg-3 col-lg-offset-2" id="sidebar">
@@ -343,8 +347,8 @@ Framework ...</a></p>
         <ul class="list-group list-group-flush">
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="http://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                    <li class="list-group-item"><a href="http://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://blog.log4d.com/atom.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/alswl"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
                     <li class="list-group-item"><a href="https://github.com/alswl"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
                     <li class="list-group-item"><a href="http://weibo.com/alswlx"><i class="fa fa-weibo fa-lg"></i> Weibo</a></li>
                   </ul>
@@ -361,50 +365,50 @@ Framework ...</a></p>
 <aside>
     <section>
         <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a href="http://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <li class="list-group-item"><a href="https://blog.log4d.com/"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
                     <ul class="list-group" id="categories">
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/coding/">
+                            <a href="https://blog.log4d.com/category/coding/">
                                 <i class="fa fa-folder-open fa-lg"></i> Coding
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/efficiency/">
+                            <a href="https://blog.log4d.com/category/efficiency/">
                                 <i class="fa fa-folder-open fa-lg"></i> Efficiency
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/fun/">
+                            <a href="https://blog.log4d.com/category/fun/">
                                 <i class="fa fa-folder-open fa-lg"></i> Fun
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/internet/">
+                            <a href="https://blog.log4d.com/category/internet/">
                                 <i class="fa fa-folder-open fa-lg"></i> Internet
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/life/">
+                            <a href="https://blog.log4d.com/category/life/">
                                 <i class="fa fa-folder-open fa-lg"></i> Life
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/managment/">
+                            <a href="https://blog.log4d.com/category/managment/">
                                 <i class="fa fa-folder-open fa-lg"></i> Managment
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/thinking/">
+                            <a href="https://blog.log4d.com/category/thinking/">
                                 <i class="fa fa-folder-open fa-lg"></i> Thinking
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/ui/">
+                            <a href="https://blog.log4d.com/category/ui/">
                                 <i class="fa fa-folder-open fa-lg"></i> UI
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="http://blog.log4d.com/category/view/">
+                            <a href="https://blog.log4d.com/category/view/">
                                 <i class="fa fa-folder-open fa-lg"></i> View
                             </a>
                         </li>
@@ -430,14 +434,14 @@ Framework ...</a></p>
       </div>
    </div>
 </footer>
-<script src="http://blog.log4d.com/theme/js/jquery.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/jquery.min.js"></script>
 <!--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>-->
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://blog.log4d.com/theme/js/bootstrap.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://blog.log4d.com/theme/js/respond.min.js"></script>
+<script src="https://blog.log4d.com/theme/js/respond.min.js"></script>
 
     <!-- Disqus -->
     <script type="text/javascript">
